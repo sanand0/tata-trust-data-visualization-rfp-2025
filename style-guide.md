@@ -1,9 +1,6 @@
 # Tata Trusts Visual Brand Style Guide
 
-> **Last Updated**: November 11, 2025
-> **Source**: Tata Trusts website analysis, Brandfetch brand assets, and visual design patterns
-
----
+> Inferred from Tata Trusts website, Brandfetch brand assets, and visual design patterns
 
 ## Executive Summary
 
@@ -11,35 +8,33 @@ This style guide documents the visual brand guidelines for Tata Trusts based on 
 
 **About Tata Trusts**: Founded in 1892 by Jamsetji Nusserwanji Tata with the J.N. Tata Endowment for Higher Education, Tata Trusts is one of India's oldest and largest philanthropic organizations. With over 125 years of "constructive philanthropy," the Trusts have created institutions of national significance including the Indian Institute of Science (IISC), Tata Institute of Social Sciences (TISS), and Tata Institute of Fundamental Research (TIFR). In 2020-21, Tata Trusts deployed US$136 million across social initiatives, reaching millions of households in over 100 districts across India.
 
----
-
 ## 1. Color Palette
 
 ### Primary Colors
 
-| Color Name | Hex Code | RGB | Usage |
-|-----------|----------|-----|-------|
-| **Shark** (Dark) | `#23272b` | rgb(35, 39, 43) | Primary text, headers, navigation |
+| Color Name               | Hex Code  | RGB                | Usage                                                        |
+| ------------------------ | --------- | ------------------ | ------------------------------------------------------------ |
+| **Shark** (Dark)         | `#23272b` | rgb(35, 39, 43)    | Primary text, headers, navigation                            |
 | **Anakiwa** (Light Blue) | `#9fcdff` | rgb(159, 205, 255) | Highlights, interactive elements, data visualization accents |
-| **Persian Red** | `#d0362d` | rgb(208, 54, 45) | Call-to-action, alerts, important metrics |
+| **Persian Red**          | `#d0362d` | rgb(208, 54, 45)   | Call-to-action, alerts, important metrics                    |
 
 ### Secondary Colors
 
-| Color Name | Hex Code | RGB | Usage |
-|-----------|----------|-----|-------|
-| **White** | `#ffffff` | rgb(255, 255, 255) | Backgrounds, cards, negative space |
-| **Light Gray** | `#f5f5f5` | rgb(245, 245, 245) | Section backgrounds, subtle dividers |
-| **Medium Gray** | `#6c757d` | rgb(108, 117, 125) | Secondary text, captions |
-| **Teal/Turquoise** | `#17a2b8` | rgb(23, 162, 184) | Links, hover states, secondary actions |
+| Color Name         | Hex Code  | RGB                | Usage                                  |
+| ------------------ | --------- | ------------------ | -------------------------------------- |
+| **White**          | `#ffffff` | rgb(255, 255, 255) | Backgrounds, cards, negative space     |
+| **Light Gray**     | `#f5f5f5` | rgb(245, 245, 245) | Section backgrounds, subtle dividers   |
+| **Medium Gray**    | `#6c757d` | rgb(108, 117, 125) | Secondary text, captions               |
+| **Teal/Turquoise** | `#17a2b8` | rgb(23, 162, 184)  | Links, hover states, secondary actions |
 
 ### Accent Colors for Data Visualization
 
-| Color Name | Hex Code | Purpose |
-|-----------|----------|---------|
-| **Success Green** | `#28a745` | Positive metrics, growth indicators |
-| **Warning Orange** | `#ffc107` | Alerts, moderate priority items |
-| **Info Blue** | `#17a2b8` | Informational elements, neutral data |
-| **Muted Purple** | `#6f42c1` | Alternative data series |
+| Color Name         | Hex Code  | Purpose                              |
+| ------------------ | --------- | ------------------------------------ |
+| **Success Green**  | `#28a745` | Positive metrics, growth indicators  |
+| **Warning Orange** | `#ffc107` | Alerts, moderate priority items      |
+| **Info Blue**      | `#17a2b8` | Informational elements, neutral data |
+| **Muted Purple**   | `#6f42c1` | Alternative data series              |
 
 ### Color Accessibility
 
@@ -48,8 +43,6 @@ This style guide documents the visual brand guidelines for Tata Trusts based on 
 - **Text on White**: Use Shark or dark grays
 - **Color Blindness**: Ensure data visualizations don't rely solely on color; use patterns, labels, and icons
 
----
-
 ## 2. Typography
 
 ### Primary Font Family
@@ -57,7 +50,7 @@ This style guide documents the visual brand guidelines for Tata Trusts based on 
 **Titillium Web** (official font used on Tata Trusts website)
 
 ```css
-font-family: 'Titillium Web', sans-serif;
+font-family: "Titillium Web", sans-serif;
 ```
 
 **Source**: Available from Google Fonts
@@ -68,7 +61,9 @@ font-family: 'Titillium Web', sans-serif;
 For maximum compatibility when Titillium Web is unavailable:
 
 ```css
-font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+font-family:
+  "Titillium Web", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
 ```
 
 ### Loading Titillium Web
@@ -83,17 +78,17 @@ Include in HTML `<head>`:
 
 ### Type Scale
 
-| Element | Size | Weight | Line Height | Usage |
-|---------|------|--------|-------------|-------|
-| **Display** | 3.5rem (56px) | Bold | 1.2 | Hero headlines |
-| **H1** | 2.5rem (40px) | Bold | 1.3 | Page titles |
-| **H2** | 2rem (32px) | Bold | 1.4 | Section headers |
-| **H3** | 1.5rem (24px) | Semi-bold | 1.5 | Subsection headers |
-| **H4** | 1.25rem (20px) | Semi-bold | 1.5 | Card titles |
-| **Body Large** | 1.125rem (18px) | Regular | 1.6 | Lead paragraphs |
-| **Body** | 1rem (16px) | Regular | 1.6 | Main content |
-| **Small** | 0.875rem (14px) | Regular | 1.5 | Captions, metadata |
-| **Tiny** | 0.75rem (12px) | Regular | 1.4 | Labels, footnotes |
+| Element        | Size            | Weight    | Line Height | Usage              |
+| -------------- | --------------- | --------- | ----------- | ------------------ |
+| **Display**    | 3.5rem (56px)   | Bold      | 1.2         | Hero headlines     |
+| **H1**         | 2.5rem (40px)   | Bold      | 1.3         | Page titles        |
+| **H2**         | 2rem (32px)     | Bold      | 1.4         | Section headers    |
+| **H3**         | 1.5rem (24px)   | Semi-bold | 1.5         | Subsection headers |
+| **H4**         | 1.25rem (20px)  | Semi-bold | 1.5         | Card titles        |
+| **Body Large** | 1.125rem (18px) | Regular   | 1.6         | Lead paragraphs    |
+| **Body**       | 1rem (16px)     | Regular   | 1.6         | Main content       |
+| **Small**      | 0.875rem (14px) | Regular   | 1.5         | Captions, metadata |
+| **Tiny**       | 0.75rem (12px)  | Regular   | 1.4         | Labels, footnotes  |
 
 ### Font Weights
 
@@ -101,19 +96,19 @@ Include in HTML `<head>`:
 - **Semi-bold**: 600
 - **Bold**: 700
 
----
-
 ## 3. Logo Usage
 
 ### Logo Assets
 
 **Primary Logo**
+
 - Format: PNG, SVG preferred
 - Dark theme: Use on light backgrounds
 - Minimum size: 120px width
 - Clear space: Equal to the height of the "T" in Tata on all sides
 
 **Icon**
+
 - Format: JPEG (400x400px), PNG available
 - Dominant color: #e81828 (red)
 - Use: Favicons, app icons, social media profiles
@@ -131,8 +126,6 @@ Include in HTML `<head>`:
   - Change colors
   - Add effects (shadows, gradients)
   - Place on busy backgrounds
-
----
 
 ## 4. Layout & Spacing
 
@@ -154,12 +147,12 @@ Include in HTML `<head>`:
 Based on 8px base unit:
 
 ```css
---spacing-xs: 0.5rem;  /* 8px */
---spacing-sm: 1rem;    /* 16px */
---spacing-md: 1.5rem;  /* 24px */
---spacing-lg: 2rem;    /* 32px */
---spacing-xl: 3rem;    /* 48px */
---spacing-xxl: 4rem;   /* 64px */
+--spacing-xs: 0.5rem; /* 8px */
+--spacing-sm: 1rem; /* 16px */
+--spacing-md: 1.5rem; /* 24px */
+--spacing-lg: 2rem; /* 32px */
+--spacing-xl: 3rem; /* 48px */
+--spacing-xxl: 4rem; /* 64px */
 ```
 
 ### Section Spacing
@@ -168,13 +161,12 @@ Based on 8px base unit:
 - **Within sections**: 2rem (32px) between elements
 - **Card padding**: 1.5rem (24px) internal padding
 
----
-
 ## 5. Components
 
 ### Buttons
 
 **Primary Button**
+
 ```css
 background-color: #d0362d; /* Persian Red */
 color: #ffffff;
@@ -186,11 +178,13 @@ transition: background-color 0.2s ease;
 ```
 
 **Primary Button Hover**
+
 ```css
 background-color: #b82f27; /* Darker red */
 ```
 
 **Secondary Button**
+
 ```css
 background-color: transparent;
 color: #23272b;
@@ -201,6 +195,7 @@ font-weight: 600;
 ```
 
 **Link Button**
+
 ```css
 color: #17a2b8;
 text-decoration: none;
@@ -212,6 +207,7 @@ transition: border-color 0.2s ease;
 ### Cards
 
 **Standard Card**
+
 ```css
 background: #ffffff;
 border: 1px solid #e9ecef;
@@ -222,11 +218,13 @@ transition: box-shadow 0.2s ease;
 ```
 
 **Card Hover**
+
 ```css
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 ```
 
 **Image Card**
+
 - Image aspect ratio: 16:9 or 4:3
 - Image position: Top
 - Text overlay: Optional with gradient overlay
@@ -235,6 +233,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 ### Forms
 
 **Input Fields**
+
 ```css
 border: 1px solid #ced4da;
 border-radius: 4px;
@@ -244,6 +243,7 @@ transition: border-color 0.15s ease;
 ```
 
 **Input Focus**
+
 ```css
 border-color: #17a2b8;
 outline: 0;
@@ -251,28 +251,30 @@ box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
 ```
 
 **Error State**
+
 ```css
 border-color: #d0362d;
 ```
 
 **Success State**
+
 ```css
 border-color: #28a745;
 ```
-
----
 
 ## 6. Imagery Style
 
 ### Photography Guidelines
 
 **Subject Matter**
+
 - Real people and communities in action
 - Authentic documentation over staged photography
 - Focus on impact: farmers, healthcare settings, education, cultural scenes
 - Diversity and inclusion in representation
 
 **Technical Specifications**
+
 - **Format**: JPEG for photos, PNG for graphics with transparency
 - **Resolution**: Minimum 1920px width for hero images
 - **Aspect Ratios**:
@@ -283,6 +285,7 @@ border-color: #28a745;
 - **Alt text**: Always provide descriptive alternative text
 
 **Style**
+
 - Natural lighting preferred
 - Warm, inviting color tones
 - Avoid heavy filters or excessive post-processing
@@ -291,33 +294,36 @@ border-color: #28a745;
 ### Icons
 
 **Style**: Simple, monochromatic SVG icons
+
 - **Stroke width**: 2px
 - **Size**: 24px × 24px base, scalable
 - **Format**: SVG (vector)
 - **Color**: Inherit from parent or use #23272b
-
----
 
 ## 7. Data Visualization Guidelines
 
 ### Chart Types
 
 **Bar Charts**
+
 - Use for comparisons across categories
 - Primary color: #17a2b8
 - Secondary colors from accent palette
 
 **Line Charts**
+
 - Use for trends over time
 - Line width: 3px
 - Points: 6px radius
 
 **Choropleth Maps**
+
 - Use sequential color scheme
 - Light to dark: #e6f5ff → #0066cc
 - Include legend with clear labels
 
 **Donut/Pie Charts**
+
 - Use sparingly, prefer bar charts
 - Maximum 6 segments
 - Label percentages directly
@@ -344,23 +350,24 @@ border-color: #28a745;
    - Simplify for small screens
    - Maintain readability at all sizes
 
----
-
 ## 8. Navigation Patterns
 
 ### Header Navigation
 
 **Structure**
+
 ```
 Logo (Left) | Primary Nav (Center) | CTA Button (Right)
 ```
 
 **Sticky Header**
+
 - Fixed position on scroll
 - Subtle shadow: `box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)`
 - Background: White with slight transparency
 
 **Mobile Navigation**
+
 - Hamburger menu icon
 - Full-screen overlay on open
 - Close icon (X) top-right
@@ -368,27 +375,29 @@ Logo (Left) | Primary Nav (Center) | CTA Button (Right)
 ### Footer
 
 **Layout**: Three-column layout
+
 1. About & Logo
 2. Quick Links
 3. Contact Information
 
 **Social Media Icons**
+
 - Size: 32px × 32px
 - Color: #6c757d (hover: #17a2b8)
 - Platforms: Facebook, Twitter, Instagram, YouTube, LinkedIn
-
----
 
 ## 9. Animation & Interaction
 
 ### Transitions
 
 **Standard Timing**
+
 ```css
 transition: all 0.2s ease-in-out;
 ```
 
 **Scroll Animations**
+
 - Fade in: Opacity 0 → 1
 - Slide up: Transform translateY(30px) → 0
 - Stagger delay: 100ms between elements
@@ -396,17 +405,20 @@ transition: all 0.2s ease-in-out;
 - Intersection Observer API for performance
 
 **Parallax Effects** (as seen on Tata Trusts website):
+
 - Hero video/image parallax: 25% scroll rate
 - Creates depth and visual interest
 - Smooth transition: `transition: transform 0.3s ease`
 
 **3D Visual Effects**:
+
 - Tag canvas with 3D cylinder transformation
 - Cylinder depth: 0.8-0.9
 - Max animation speed: 50ms
 - Creates engaging, interactive visual elements
 
 **Loading States**
+
 - Spinner color: #17a2b8
 - Size: 48px
 - Animation: Smooth rotation
@@ -414,30 +426,32 @@ transition: all 0.2s ease-in-out;
 ### Hover States
 
 **Links**
+
 ```css
 text-decoration: underline;
 color: #138496; /* Darker teal */
 ```
 
 **Buttons**
+
 ```css
 transform: translateY(-2px);
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 ```
 
 **Cards**
+
 ```css
 transform: translateY(-4px);
 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 ```
-
----
 
 ## 10. Accessibility Standards
 
 ### WCAG 2.1 Compliance
 
 **Level AA Requirements**
+
 - Color contrast: Minimum 4.5:1 for normal text
 - Focus indicators: Visible on all interactive elements
 - Keyboard navigation: Full support, logical tab order
@@ -459,13 +473,12 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 - Readable without zoom: Base font 16px
 - Flexible layouts: No horizontal scrolling
 
----
-
 ## 11. Voice & Tone
 
 ### Editorial Guidelines
 
 **Voice Characteristics**
+
 - **Professional** yet approachable
 - **Humanitarian-focused** on social impact
 - **Authentic** with real stories
@@ -473,13 +486,12 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 - **Clear** avoiding jargon
 
 **Writing Style**
+
 - Active voice preferred
 - Short sentences (15-20 words)
 - Bullet points for scannability
 - Numbers and data for credibility
 - Stories for emotional connection
-
----
 
 ## 12. Bootstrap 5.3.3 Customization
 
@@ -498,7 +510,12 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   --bs-dark: #23272b;
 
   /* Typography */
-  --bs-body-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bs-body-font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.6;
@@ -524,6 +541,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 ### Component Customization
 
 **Navbar**
+
 ```css
 .navbar {
   background-color: #ffffff;
@@ -549,6 +567,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 ```
 
 **Cards**
+
 ```css
 .card {
   border: none;
@@ -568,8 +587,6 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 ```
 
----
-
 ## 13. Code Standards
 
 ### HTML Naming Conventions
@@ -588,15 +605,15 @@ Use hyphenated class and ID names:
 
 ```css
 /* Component-based structure */
-.component-name { }
-.component-name__element { }
-.component-name--modifier { }
+.component-name {}
+.component-name__element {}
+.component-name--modifier {}
 
 /* Example */
-.impact-card { }
-.impact-card__image { }
-.impact-card__title { }
-.impact-card--featured { }
+.impact-card {}
+.impact-card__image {}
+.impact-card__title {}
+.impact-card--featured {}
 ```
 
 ### JavaScript
@@ -606,8 +623,6 @@ Use hyphenated class and ID names:
 - Descriptive variable names
 - Linear happy path
 - Minimal error handling for prototype
-
----
 
 ## 14. Performance Guidelines
 
@@ -626,8 +641,6 @@ Use hyphenated class and ID names:
 - **Time to Interactive**: < 3.8s
 - **Cumulative Layout Shift**: < 0.1
 
----
-
 ## 15. Tools & Resources
 
 ### Development
@@ -645,21 +658,8 @@ Use hyphenated class and ID names:
 - **Browser Testing**: Chrome, Firefox, Safari, Edge
 - **Mobile Testing**: Real devices + emulators
 
----
+<!--
 
-## Conclusion
+- Source: https://claude.ai/code/session_011CV231EhAijAty2v1WAChs
 
-This style guide provides a comprehensive foundation for creating consistent, accessible, and impactful digital experiences for Tata Trusts. When in doubt, prioritize:
-
-1. **Clarity** over complexity
-2. **Accessibility** over aesthetics
-3. **Impact** over decoration
-4. **Consistency** over novelty
-
-For questions or clarifications, refer to the Tata Trusts website (tatatrusts.org) for live examples.
-
----
-
-**Document Version**: 1.0
-**Last Updated**: November 11, 2025
-**Maintained By**: Data Visualization Project Team
+ -->
