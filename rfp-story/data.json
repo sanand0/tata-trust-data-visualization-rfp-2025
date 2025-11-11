@@ -1,0 +1,359 @@
+{
+  "meta": {
+    "title": "Tata Trusts Data Visualization Dashboard RFP",
+    "issueDate": "2025-11-04",
+    "submissionDeadline": "2025-11-17",
+    "prebidMeetingDate": "2025-11-11"
+  },
+  "overview": {
+    "title": "Design & Development of Geographical Data Visualisation Dashboard",
+    "objective": "To create an integrated data visualization system that helps Tata Trusts use data for evidence-based decision-making, effective monitoring of progress, and strategic planning across multi-thematic interventions.",
+    "fundingAmount": "To be determined based on proposals",
+    "timeline": "2 months from award of contract",
+    "phases": [
+      {
+        "name": "Phase 1",
+        "duration": "2 months",
+        "description": "Pilot dashboard with core features",
+        "status": "current"
+      },
+      {
+        "name": "Phase 2",
+        "duration": "TBD",
+        "description": "Enhanced features, external data integration, AI capabilities",
+        "status": "future"
+      }
+    ]
+  },
+  "keyRequirements": [
+    {
+      "category": "Dashboard Type",
+      "requirement": "Interactive GIS-enabled dashboard",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Geographic Levels",
+      "requirement": "Country, State, District, Block, Village drill-downs",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Data Volume",
+      "requirement": "~500 grants, up to 100M beneficiary records",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Historical Data",
+      "requirement": "4-5 years of grant history",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Data Sources",
+      "requirement": "Excel/CSV uploads (Phase 1), API integrations (Phase 2)",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Refresh Rate",
+      "requirement": "Real-time (monthly/fortnightly operational updates)",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Visualizations",
+      "requirement": "Heat maps, cluster maps, choropleths, bar/donut/tree/scatter charts",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Reports",
+      "requirement": "10-15 templated reports + customizable views",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Export",
+      "requirement": "PDF, Excel, CSV, image formats",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Mobile Responsive",
+      "requirement": "Optimized for tablets and smartphones",
+      "priority": "Must Have",
+      "phase": 1
+    },
+    {
+      "category": "Authentication",
+      "requirement": "Secure login, role-based access",
+      "priority": "Good to Have",
+      "phase": 2
+    },
+    {
+      "category": "External Data",
+      "requirement": "Census, NFHS, NITI Aayog, satellite data integration",
+      "priority": "Wish to Have",
+      "phase": 2
+    },
+    {
+      "category": "AI Features",
+      "requirement": "Natural language queries, predictive modeling",
+      "priority": "Wish to Have",
+      "phase": 2
+    }
+  ],
+  "timeline": {
+    "events": [
+      {
+        "date": "2025-11-04",
+        "event": "RFP Published",
+        "milestone": true,
+        "status": "completed"
+      },
+      {
+        "date": "2025-11-08",
+        "event": "Written Queries Deadline",
+        "milestone": false,
+        "status": "completed"
+      },
+      {
+        "date": "2025-11-11",
+        "event": "Pre-Bid Meeting",
+        "milestone": true,
+        "status": "completed"
+      },
+      {
+        "date": "2025-11-17",
+        "event": "Bid Submission Deadline",
+        "milestone": true,
+        "status": "upcoming"
+      },
+      {
+        "date": "2025-11-25",
+        "event": "Technical Evaluation (est.)",
+        "milestone": false,
+        "status": "upcoming"
+      },
+      {
+        "date": "2025-12-02",
+        "event": "Letter of Intent Issued (est.)",
+        "milestone": true,
+        "status": "upcoming"
+      },
+      {
+        "date": "2025-12-09",
+        "event": "Contract Awarded (est.)",
+        "milestone": true,
+        "status": "upcoming"
+      },
+      {
+        "date": "2026-01-06",
+        "event": "Wireframes/Design Plan (50% payment)",
+        "milestone": true,
+        "status": "future"
+      },
+      {
+        "date": "2026-02-09",
+        "event": "Final Dashboard Delivery (50% payment)",
+        "milestone": true,
+        "status": "future"
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "name": "Requirement Specification Document",
+      "description": "Comprehensive documentation of functional and technical requirements",
+      "phase": 1,
+      "paymentTrigger": false
+    },
+    {
+      "name": "Prototype/UI Wireframes",
+      "description": "Visual mockups and user interface designs",
+      "phase": 1,
+      "paymentTrigger": true,
+      "paymentPercentage": 50
+    },
+    {
+      "name": "Fully Functional GIS Dashboard",
+      "description": "Complete dashboard with admin and user roles",
+      "phase": 1,
+      "paymentTrigger": true,
+      "paymentPercentage": 50
+    },
+    {
+      "name": "Training Materials",
+      "description": "User manuals, technical documentation, training sessions",
+      "phase": 1,
+      "paymentTrigger": false
+    },
+    {
+      "name": "Maintenance & Support Plan",
+      "description": "Post-deployment support agreement with SLAs",
+      "phase": 1,
+      "paymentTrigger": false
+    }
+  ],
+  "evaluationCriteria": {
+    "method": "QCBS (Quality and Cost Based Selection)",
+    "technicalWeightage": 80,
+    "financialWeightage": 20,
+    "minimumTechnicalScore": 70,
+    "technicalCriteria": [
+      {
+        "criterion": "Alignment to Requirements",
+        "points": 45,
+        "description": "Functional and technical alignment, OOB capabilities"
+      },
+      {
+        "criterion": "Implementation Capability",
+        "points": 25,
+        "description": "Methodology, plan, resources, training, support"
+      },
+      {
+        "criterion": "Demo & Ease of Use",
+        "points": 15,
+        "description": "Solution demonstration, UX quality"
+      },
+      {
+        "criterion": "Experience",
+        "points": 15,
+        "description": "Similar projects, social sector experience, references"
+      }
+    ]
+  },
+  "preBidInsights": [
+    {
+      "category": "Audience",
+      "insight": "Internal use only in Phase 1",
+      "impact": "High",
+      "surprise": false,
+      "description": "Dashboard designed for Trust leadership and internal analytics teams, not public use."
+    },
+    {
+      "category": "Data Strategy",
+      "insight": "No ETL tool investment planned",
+      "impact": "High",
+      "surprise": true,
+      "description": "Tata Trusts won't invest in ETL tools; agencies must include in proposal if needed."
+    },
+    {
+      "category": "Technology Stack",
+      "insight": "Open to alternatives beyond Power BI",
+      "impact": "High",
+      "surprise": true,
+      "description": "Despite having Power BI licenses, Trusts welcome open-source and innovative solutions."
+    },
+    {
+      "category": "Collaboration",
+      "insight": "Daily stand-ups preferred",
+      "impact": "Medium",
+      "surprise": false,
+      "description": "Close collaboration expected with daily or twice-weekly sync meetings via Teams."
+    },
+    {
+      "category": "Data Quality",
+      "insight": "Vendor responsible for quality checks",
+      "impact": "High",
+      "surprise": true,
+      "description": "While data will be sanitized, vendors must implement validation and quality frameworks."
+    },
+    {
+      "category": "Phase 2 Scope",
+      "insight": "Dependent on Phase 1 performance",
+      "impact": "High",
+      "surprise": false,
+      "description": "Future work based on successful delivery and evolving programmatic needs."
+    },
+    {
+      "category": "Infrastructure",
+      "insight": "Cloud hosting, vendor-managed",
+      "impact": "High",
+      "surprise": true,
+      "description": "No on-prem data center; vendors must include cloud hosting costs in proposals."
+    },
+    {
+      "category": "KPIs",
+      "insight": "5-7 KPIs per theme, 70-80% quantitative",
+      "impact": "Medium",
+      "surprise": false,
+      "description": "Each of multiple themes will have consolidated KPIs with mix of quantitative/qualitative."
+    },
+    {
+      "category": "Real-time Definition",
+      "insight": "Real-time means 'latest upload'",
+      "impact": "Medium",
+      "surprise": true,
+      "description": "Not streaming data; monthly/fortnightly file uploads that reflect immediately in dashboard."
+    },
+    {
+      "category": "AI Exploration",
+      "insight": "No restrictions on AI in Phase 1",
+      "impact": "Medium",
+      "surprise": true,
+      "description": "Phase 2 focus, but Phase 1 proof-of-concept welcome if value demonstrated."
+    }
+  ],
+  "techStack": {
+    "current": [
+      "Microsoft 365",
+      "Power BI",
+      "Fluxx (grants management with REST APIs)",
+      "Snowflake (DMP backend)"
+    ],
+    "proposed": [
+      "Bootstrap 5.3.3",
+      "Chart.js",
+      "D3.js",
+      "Cloud hosting (AWS/Azure/GCP)"
+    ],
+    "preferred": [
+      "Open source solutions",
+      "Leverage existing Trust stack where possible",
+      "Scalable, modular architecture"
+    ]
+  },
+  "workAreas": [
+    {
+      "name": "Healthcare",
+      "grantCount": 120,
+      "percentage": 24
+    },
+    {
+      "name": "Education",
+      "grantCount": 150,
+      "percentage": 30
+    },
+    {
+      "name": "Livelihoods",
+      "grantCount": 100,
+      "percentage": 20
+    },
+    {
+      "name": "Water & Sanitation",
+      "grantCount": 75,
+      "percentage": 15
+    },
+    {
+      "name": "Community Development",
+      "grantCount": 55,
+      "percentage": 11
+    }
+  ],
+  "geographicScope": {
+    "levels": [
+      "Country (India)",
+      "State (28+ states)",
+      "District (700+ districts)",
+      "Block",
+      "Village/GP"
+    ],
+    "aspirationalAreas": {
+      "districts": 112,
+      "blocks": 500
+    }
+  }
+}
