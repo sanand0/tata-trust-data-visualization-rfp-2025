@@ -15,7 +15,7 @@ const COLORS = {
 };
 
 // Chart.js default configuration
-Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+Chart.defaults.font.family = "'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
 Chart.defaults.color = COLORS.mediumGray;
 
 // Load data and initialize

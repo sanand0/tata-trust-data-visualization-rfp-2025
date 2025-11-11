@@ -3,7 +3,25 @@
     "title": "Tata Trusts Data Visualization Dashboard RFP",
     "issueDate": "2025-11-04",
     "submissionDeadline": "2025-11-17",
-    "prebidMeetingDate": "2025-11-11"
+    "prebidMeetingDate": "2025-11-11",
+    "organizationFounded": "1892",
+    "organizationLegacy": "125+ years of constructive philanthropy"
+  },
+  "organizationContext": {
+    "founded": "1892",
+    "founder": "Jamsetji Nusserwanji Tata",
+    "firstInitiative": "J.N. Tata Endowment for Higher Education of Indians",
+    "srttEstablished": "1919",
+    "philosophy": "Constructive philanthropy - giving back to society through strategic interventions",
+    "scale2021": "$136 million deployed across social initiatives",
+    "reach": "Millions of households across 100+ districts in India",
+    "institutions": ["Indian Institute of Science (IISC)", "Tata Institute of Social Sciences (TISS)", "Tata Institute of Fundamental Research (TIFR)"],
+    "waterMission": {
+      "villages": "1,500+",
+      "families": "200,000+",
+      "people": "1,000,000+",
+      "states": ["Rajasthan", "Gujarat", "Maharashtra", "Karnataka", "Andhra Pradesh", "Jharkhand", "Assam", "Nagaland", "Mizoram", "Uttar Pradesh", "Uttarakhand", "Himachal Pradesh", "Punjab", "Leh"]
+    }
   },
   "overview": {
     "title": "Design & Development of Geographical Data Visualisation Dashboard",

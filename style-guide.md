@@ -7,7 +7,9 @@
 
 ## Executive Summary
 
-This style guide documents the visual brand guidelines for Tata Trusts based on comprehensive analysis of their digital presence. The design system emphasizes **professionalism, social impact, and accessibility** while maintaining the heritage and trust associated with the Tata brand established in 1892.
+This style guide documents the visual brand guidelines for Tata Trusts based on comprehensive analysis of their digital presence, including website inspection, brand asset analysis, and live page examination. The design system emphasizes **professionalism, social impact, and accessibility** while maintaining the heritage and trust associated with the Tata brand.
+
+**About Tata Trusts**: Founded in 1892 by Jamsetji Nusserwanji Tata with the J.N. Tata Endowment for Higher Education, Tata Trusts is one of India's oldest and largest philanthropic organizations. With over 125 years of "constructive philanthropy," the Trusts have created institutions of national significance including the Indian Institute of Science (IISC), Tata Institute of Social Sciences (TISS), and Tata Institute of Fundamental Research (TIFR). In 2020-21, Tata Trusts deployed US$136 million across social initiatives, reaching millions of households in over 100 districts across India.
 
 ---
 
@@ -52,18 +54,31 @@ This style guide documents the visual brand guidelines for Tata Trusts based on 
 
 ### Primary Font Family
 
-**Miller-TextBold** (custom font for headings and emphasis)
+**Titillium Web** (official font used on Tata Trusts website)
 
 ```css
-font-family: 'Miller-TextBold', Georgia, 'Times New Roman', serif;
+font-family: 'Titillium Web', sans-serif;
 ```
+
+**Source**: Available from Google Fonts
+**Weights Available**: 200, 300, 400, 600, 700, 900
 
 ### Fallback System
 
-For body text and general use when Miller-TextBold is unavailable:
+For maximum compatibility when Titillium Web is unavailable:
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+```
+
+### Loading Titillium Web
+
+Include in HTML `<head>`:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
 ```
 
 ### Type Scale
@@ -126,9 +141,12 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica N
 - **Container**: Max-width 1200px (responsive)
 - **Columns**: 12-column grid (Bootstrap standard)
 - **Gutter**: 24px (1.5rem) between columns
-- **Breakpoints**:
-  - Mobile: < 600px
-  - Tablet: 600px - 1024px
+- **Responsive Breakpoints** (from Tata Trusts website):
+  - Mobile Small: < 480px
+  - Mobile: 480px - 600px
+  - Tablet Small: 600px - 768px
+  - Tablet: 768px - 992px
+  - Desktop Small: 992px - 1024px
   - Desktop: > 1024px
 
 ### Spacing Scale
@@ -375,6 +393,18 @@ transition: all 0.2s ease-in-out;
 - Slide up: Transform translateY(30px) → 0
 - Stagger delay: 100ms between elements
 - Trigger: When element is 20% visible
+- Intersection Observer API for performance
+
+**Parallax Effects** (as seen on Tata Trusts website):
+- Hero video/image parallax: 25% scroll rate
+- Creates depth and visual interest
+- Smooth transition: `transition: transform 0.3s ease`
+
+**3D Visual Effects**:
+- Tag canvas with 3D cylinder transformation
+- Cylinder depth: 0.8-0.9
+- Max animation speed: 50ms
+- Creates engaging, interactive visual elements
 
 **Loading States**
 - Spinner color: #17a2b8
