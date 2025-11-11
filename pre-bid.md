@@ -439,3 +439,9 @@ Okay then, I think we'll close the meeting.
 **Rajagopal Rao**: Okay, great. Next week.
 
 **Sachin Ralhan**: So, probably within a within a week, we are expecting the proposals. Yes. Excellent. Okay. Okay. Thank you again, everyone for joining this call and for showing your interest in partnering with Tata Trusts. Thank you.
+
+<!--
+
+- FAQ: https://chatgpt.com/c/6912f432-0b18-8322-befe-068cfcb333c7
+
+-->
