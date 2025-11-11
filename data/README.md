@@ -196,11 +196,11 @@ How the improved datasets line up with the call & RFP
 
 Each script starts with your requested header and writes to the **current working directory** (no hardcoded paths). Script name equals CSV name:
 
-- **grants_portfolio.py → grants_portfolio.csv**: Grants with partner identity, budgets, capacity, need, ops metrics, outcomes, risk, and a `n_tranches` summary for the tranches table.
-- **beneficiary_outcomes.py → beneficiary_outcomes.csv**: District-month data with monsoon effects, funds timeliness, data quality, outreach/training levers, gender and age buckets, outcomes, dropout, NPS, and data-issue flags.
-- **geo_need_coverage.py → geo_need_coverage.csv**: District-level need vs coverage with gaps, spend per capita, deprivation deciles, and anomaly flags.
-- **monitoring_quality.py → monitoring_quality.csv**: Project-month monitoring levers → lag/time/quality/audit/KPI outcomes.
-- **grant_tranches.py → grant_tranches.csv**: One row per tranche per grant, front-loaded Dirichlet amounts, scheduled dates, timeliness and delays. Reads `grants_portfolio.csv` in the same folder.
+- **[grants_portfolio.py](grants_portfolio.py) → [grants_portfolio.csv](grants_portfolio.csv)**: Grants with partner identity, budgets, capacity, need, ops metrics, outcomes, risk, and a `n_tranches` summary for the tranches table.
+- **[beneficiary_outcomes.py](beneficiary_outcomes.py) → [beneficiary_outcomes.csv](beneficiary_outcomes.csv)**: District-month data with monsoon effects, funds timeliness, data quality, outreach/training levers, gender and age buckets, outcomes, dropout, NPS, and data-issue flags.
+- **[geo_need_coverage.py](geo_need_coverage.py) → [geo_need_coverage.csv](geo_need_coverage.csv)**: District-level need vs coverage with gaps, spend per capita, deprivation deciles, and anomaly flags.
+- **[monitoring_quality.py](monitoring_quality.py) → [monitoring_quality.csv](monitoring_quality.csv)**: Project-month monitoring levers → lag/time/quality/audit/KPI outcomes.
+- **[grant_tranches.py](grant_tranches.py) → [grant_tranches.csv](grant_tranches.csv)**: One row per tranche per grant, front-loaded Dirichlet amounts, scheduled dates, timeliness and delays. Reads `grants_portfolio.csv` in the same folder.
 
 <!--
 
