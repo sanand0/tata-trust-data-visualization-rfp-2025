@@ -1,0 +1,23 @@
+{
+  "name": "tata-trust-data-visualization-rfp-2025",
+  "version": "1.0.0",
+  "description": "Tata Trusts Data Visualization RFP Response - Complete Project",
+  "scripts": {
+    "build": "eleventy --config=response/.eleventy.js --input=response --output=response/_site",
+    "build:response": "npm run build",
+    "serve": "eleventy --config=response/.eleventy.js --input=response --output=response/_site --serve",
+    "clean": "rm -rf response/_site"
+  },
+  "keywords": [
+    "rfp",
+    "tata-trusts",
+    "data-visualization",
+    "proposal"
+  ],
+  "author": "Anand S",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "markdown-it": "^14.1.0"
+  }
+}

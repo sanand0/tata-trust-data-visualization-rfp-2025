@@ -4,8 +4,10 @@ Simple build system using Eleventy to generate professional HTML from Markdown.
 
 ## Quick Start
 
+**Note:** All commands should be run from the repository root (not from the `response/` directory).
+
 ```bash
-# Install dependencies
+# Install dependencies (from root)
 npm install
 
 # Build HTML files
@@ -20,17 +22,17 @@ npm run clean
 
 ## Generated Files
 
-The build generates HTML files directly in the `response/` folder:
+The build generates HTML files in `response/_site/`:
 
-- `index.html` ← Technical Proposal (from README.md)
-- `checklist.html` ← Compliance Checklist
-- `review.html` ← Review Checklist
+- `response/_site/index.html` ← Technical Proposal (from README.md)
+- `response/_site/checklist.html` ← Compliance Checklist
+- `response/_site/review.html` ← Review Checklist
 
 ## Creating PDFs
 
 ### Recommended: Browser Print
 
-1. Open the HTML file (e.g., `index.html`) in Chrome or Firefox
+1. Open the HTML file (e.g., `response/_site/index.html`) in Chrome or Firefox
 2. Press `Ctrl+P` (Windows/Linux) or `Cmd+P` (Mac)
 3. Configure:
    - **Destination**: Save as PDF
@@ -47,17 +49,17 @@ This produces professional PDFs with:
 
 ## Editing
 
-1. Edit the Markdown files:
-   - `README.md` → Technical Proposal
-   - `checklist.md` → Compliance Checklist
-   - `review.md` → Review Checklist
+1. Edit the Markdown files in `response/`:
+   - `response/README.md` → Technical Proposal
+   - `response/checklist.md` → Compliance Checklist
+   - `response/review.md` → Review Checklist
 
-2. Rebuild:
+2. Rebuild (from repository root):
    ```bash
    npm run build
    ```
 
-3. Open `index.html` in your browser to preview
+3. Open `response/_site/index.html` in your browser to preview
 
 ## Styling
 
@@ -79,22 +81,27 @@ The template (`_includes/layout.njk`) includes:
 ## Project Structure
 
 ```
-response/
-├── .eleventy.js          # Eleventy configuration
-├── package.json          # Build scripts
-├── _includes/
-│   └── layout.njk       # HTML template
-├── README.md            # → index.html
-├── checklist.md         # → checklist.html
-├── review.md            # → review.html
-├── index.html          # Generated (gitignored)
-├── checklist.html      # Generated (gitignored)
-└── review.html         # Generated (gitignored)
+repository-root/
+├── package.json          # Build scripts (moved from response/)
+├── response/
+│   ├── .eleventy.js      # Eleventy configuration
+│   ├── _includes/
+│   │   └── layout.njk   # HTML template
+│   ├── README.md        # → _site/index.html
+│   ├── checklist.md     # → _site/checklist.html
+│   ├── review.md        # → _site/review.html
+│   └── _site/           # Generated output (gitignored)
+│       ├── index.html
+│       ├── checklist.html
+│       └── review.html
+└── (other project files...)
 ```
 
 ## Notes
 
-- HTML files are gitignored and regenerated on build
-- Source of truth is the Markdown files
+- `package.json` is now in the repository root for easier CI/CD integration
+- HTML files are generated in `response/_site/` and gitignored
+- Source of truth is the Markdown files in `response/`
 - Mermaid diagrams render automatically
 - Print styles optimize for professional PDF output
+- GitHub Actions automatically builds and deploys to GitHub Pages
