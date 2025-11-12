@@ -1,16 +1,21 @@
 {
   "name": "tata-trust-rfp-response",
   "version": "1.0.0",
-  "description": "Build system for Tata Trusts Data Visualization RFP Response using MkDocs Material",
+  "description": "Tata Trusts Data Visualization RFP Response - Build System",
   "scripts": {
-    "build": "mkdocs build",
-    "serve": "mkdocs serve",
-    "pdf": "weasyprint site/index.html site/proposal.pdf",
-    "pdf:all": "weasyprint site/index.html site/proposal.pdf && weasyprint site/checklist/index.html site/checklist.pdf && weasyprint site/review/index.html site/review.pdf",
-    "clean": "rm -rf site/"
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -f index.html checklist.html review.html"
   },
-  "readme": "## RFP Response Build System\n\nBuilt with MkDocs Material theme for professional documentation.\n\n### Commands:\n- `npm run build` - Generate HTML site\n- `npm run serve` - Live preview at http://localhost:8000\n- `npm run pdf` - Generate main proposal PDF\n- `npm run pdf:all` - Generate all PDFs\n- `npm run clean` - Remove generated files\n\n### Manual PDF Export:\nFor best results, use browser print:\n1. Open site/index.html in Chrome/Firefox\n2. Press Ctrl+P (Cmd+P on Mac)\n3. Enable 'Background graphics'\n4. Select A4, default margins\n5. Save as PDF",
-  "keywords": ["rfp", "tata-trusts", "proposal", "mkdocs", "material"],
+  "keywords": [
+    "rfp",
+    "tata-trusts",
+    "proposal"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "markdown-it": "^14.1.0"
+  }
 }
