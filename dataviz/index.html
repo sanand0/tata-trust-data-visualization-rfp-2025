@@ -398,6 +398,30 @@
       <p class="body-text">
         The steep climb of this curve proves that <strong>strategic reallocation beats broad expansion</strong>. Rather than spreading resources thin, focusing on the top 10 underserved districts delivers the majority of potential outcomes. This is the 80/20 rule in action.
       </p>
+
+      <h3 class="mt-5 mb-3" style="font-size: 1.75rem; font-weight: 600;">Fairness Across States</h3>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Budget Allocation vs. High-Need Population</div>
+        <div class="chart-description">Are resources flowing to states with the greatest need?</div>
+        <div id="chart13" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        Fairness isn't just moral—it's strategic. This analysis compares each state's budget share against its share of high-need population. The deltas reveal misalignments: some states receive more than their need share, while others are systematically underserved. These gaps inform critical conversations about equity and resource allocation.
+      </p>
+
+      <h3 class="mt-5 mb-3" style="font-size: 1.75rem; font-weight: 600;">Urban Spending: Justified or Misallocated?</h3>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Urban Spend Anomalies</div>
+        <div class="chart-description">Districts with high urban spending—do outcomes justify the investment?</div>
+        <div id="chart12" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        Urban districts sometimes attract disproportionate spending—driven by visibility, political pressure, or easier implementation. But do they deliver proportional outcomes? This scatter plot flags urban spend anomalies (in red) and compares their results to normal districts. Some anomalies may be justified by local context; others signal misallocation toward "prestige projects" that underperform.
+      </p>
     </div>
   </section>
 
@@ -431,9 +455,43 @@
         Finance isn't "back office"—it's frontline impact. Grants with on-time disbursements achieve <strong>12 points higher</strong> on the outcome index. When funds arrive late, programs struggle, partners lose trust, and beneficiaries drop out. Timeliness is a proxy for respect and reliability.
       </p>
 
+      <div class="chart-wrapper">
+        <div class="chart-title">Timeliness → Better Beneficiary Experience</div>
+        <div class="chart-description">On-time funding drives higher NPS and lower dropout. Sweet spots highlighted.</div>
+        <div id="chart11" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        The ripple effects extend to beneficiaries themselves. When funds arrive on time, Net Promoter Scores rise and dropout rates plummet. This isn't just about program success—it's about treating people with dignity and building trust.
+      </p>
+
       <blockquote class="pullquote">
         "Operational excellence is not a cost center. It's an impact multiplier."
       </blockquote>
+
+      <h3 class="mt-5 mb-3" style="font-size: 1.75rem; font-weight: 600;">The Seasonal Factor</h3>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Monsoon Impact & Pre-Monsoon Outreach</div>
+        <div class="chart-description">Seasonal patterns affect outcomes, but smart preparation mitigates dropout</div>
+        <div id="chart15" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        Context matters. Monsoon months see reduced outcomes as communities grapple with weather-related challenges. But programs that conduct pre-monsoon outreach cut dropout rates significantly. <strong>Anticipating challenges beats reacting to them.</strong>
+      </p>
+
+      <h3 class="mt-5 mb-3" style="font-size: 1.75rem; font-weight: 600;">Inclusion Drives Performance</h3>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Female Participation in Skilling Programs</div>
+        <div class="chart-description">Higher female participation correlates with lower dropout rates</div>
+        <div id="chart14" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        In Skilling programs, gender balance isn't just about equity—it's smart strategy. Programs with 40-50% female participation show the lowest dropout rates. Inclusion and effectiveness aren't trade-offs; they're complements.
+      </p>
 
       <p class="body-text">
         These findings challenge the conventional wisdom that more money equals more impact. Sometimes, the highest-return investment is in <strong>how we work</strong>—not how much we spend.
@@ -441,7 +499,43 @@
     </div>
   </section>
 
-  <!-- Section 5: Conclusion -->
+  <!-- Section 5: Partners & Capacity -->
+  <section class="story-section">
+    <div class="container">
+      <div class="section-number">05 / Building Stronger Partners</div>
+      <h2 class="section-title">The Partner Equation</h2>
+
+      <p class="lead-text">
+        Programs don't deliver outcomes—people do. Our analysis reveals that <strong>investing in partner capacity</strong> yields compounding returns across multiple dimensions.
+      </p>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Capacity Reduces Variance and Risk</div>
+        <div class="chart-description">Higher partner capacity leads to better budget management and lower risk</div>
+        <div id="chart16" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        The data is unequivocal: as partner capacity rises from level 2 to level 4, budget variance drops by half and risk ratings improve. This isn't about micromanagement—it's about investing in the fundamentals that allow partners to succeed.
+      </p>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">Partner Performance League Table</div>
+        <div class="chart-description">Top and bottom performers across efficiency, timeliness, and risk metrics</div>
+        <div id="chart10" class="chart-container"></div>
+      </div>
+
+      <p class="body-text">
+        The league table reveals patterns: high-performing partners excel across multiple dimensions. They're efficient, reliable, and manage risk well. Lower performers struggle on all fronts. This clustering suggests that <strong>capacity building should be holistic</strong>—addressing operational, financial, and programmatic skills together.
+      </p>
+
+      <blockquote class="pullquote">
+        "The right partners, with the right support, unlock exponential impact."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Section 6: Conclusion -->
   <section class="story-section">
     <div class="container">
       <div class="section-number">05 / The Path Forward</div>
@@ -530,6 +624,13 @@
     import chart7 from './chart7-diminishing-returns.js';
     import chart8 from './chart8-timeliness-impact.js';
     import chart9 from './chart9-coverage-impact.js';
+    import chart10 from './chart10-partner-performance.js';
+    import chart11 from './chart11-funds-nps-dropout.js';
+    import chart12 from './chart12-urban-anomalies.js';
+    import chart13 from './chart13-state-fairness.js';
+    import chart14 from './chart14-women-dropout.js';
+    import chart15 from './chart15-monsoon-effect.js';
+    import chart16 from './chart16-capacity-variance.js';
 
     // Initialize all charts
     chart1(document.getElementById('chart1'));
@@ -541,6 +642,13 @@
     chart7(document.getElementById('chart7'));
     chart8(document.getElementById('chart8'));
     chart9(document.getElementById('chart9'));
+    chart10(document.getElementById('chart10'));
+    chart11(document.getElementById('chart11'));
+    chart12(document.getElementById('chart12'));
+    chart13(document.getElementById('chart13'));
+    chart14(document.getElementById('chart14'));
+    chart15(document.getElementById('chart15'));
+    chart16(document.getElementById('chart16'));
 
     // Smooth scrolling for nav links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
