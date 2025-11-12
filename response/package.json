@@ -1,13 +1,16 @@
 {
   "name": "tata-trust-rfp-response",
   "version": "1.0.0",
-  "description": "Build system for Tata Trusts Data Visualization RFP Response",
+  "description": "Build system for Tata Trusts Data Visualization RFP Response using MkDocs Material",
   "scripts": {
-    "build": "node convert-to-html.js",
-    "clean": "rm -f *.html *.pdf"
+    "build": "mkdocs build",
+    "serve": "mkdocs serve",
+    "pdf": "weasyprint site/index.html site/proposal.pdf",
+    "pdf:all": "weasyprint site/index.html site/proposal.pdf && weasyprint site/checklist/index.html site/checklist.pdf && weasyprint site/review/index.html site/review.pdf",
+    "clean": "rm -rf site/"
   },
-  "readme": "## Usage\n\n1. Build HTML: `npm run build`\n2. Convert to PDF: Open index.html in browser and use Print > Save as PDF\n3. Clean generated files: `npm run clean`\n\n## PDF Conversion\n\nFor professional PDF output:\n- Open the generated HTML in Chrome/Firefox\n- Press Ctrl+P (Cmd+P on Mac)\n- Select 'Save as PDF'\n- Ensure 'Background graphics' is enabled\n- Use A4 paper size with default margins",
-  "keywords": ["rfp", "tata-trusts", "proposal"],
+  "readme": "## RFP Response Build System\n\nBuilt with MkDocs Material theme for professional documentation.\n\n### Commands:\n- `npm run build` - Generate HTML site\n- `npm run serve` - Live preview at http://localhost:8000\n- `npm run pdf` - Generate main proposal PDF\n- `npm run pdf:all` - Generate all PDFs\n- `npm run clean` - Remove generated files\n\n### Manual PDF Export:\nFor best results, use browser print:\n1. Open site/index.html in Chrome/Firefox\n2. Press Ctrl+P (Cmd+P on Mac)\n3. Enable 'Background graphics'\n4. Select A4, default margins\n5. Save as PDF",
+  "keywords": ["rfp", "tata-trusts", "proposal", "mkdocs", "material"],
   "author": "",
   "license": "ISC"
 }
