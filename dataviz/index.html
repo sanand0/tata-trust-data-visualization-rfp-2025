@@ -615,22 +615,22 @@
 
   <!-- Chart initialization -->
   <script type="module">
-    import chart1 from './chart1-efficiency-scatter.js';
-    import chart2 from './chart2-coverage-map.js';
-    import chart3 from './chart3-underserved.js';
-    import chart4 from './chart4-overview.js';
-    import chart5 from './chart5-kpi-waterfall.js';
-    import chart6 from './chart6-coverage-deciles.js';
-    import chart7 from './chart7-diminishing-returns.js';
-    import chart8 from './chart8-timeliness-impact.js';
-    import chart9 from './chart9-coverage-impact.js';
-    import chart10 from './chart10-partner-performance.js';
-    import chart11 from './chart11-funds-nps-dropout.js';
-    import chart12 from './chart12-urban-anomalies.js';
-    import chart13 from './chart13-state-fairness.js';
-    import chart14 from './chart14-women-dropout.js';
-    import chart15 from './chart15-monsoon-effect.js';
-    import chart16 from './chart16-capacity-variance.js';
+    import chart1 from './efficiency-scatter.js';
+    import chart2 from './coverage-map.js';
+    import chart3 from './underserved.js';
+    import chart4 from './overview.js';
+    import chart5 from './kpi-waterfall.js';
+    import chart6 from './coverage-deciles.js';
+    import chart7 from './diminishing-returns.js';
+    import chart8 from './timeliness-impact.js';
+    import chart9 from './coverage-impact.js';
+    import chart10 from './partner-performance.js';
+    import chart11 from './funds-nps-dropout.js';
+    import chart12 from './urban-anomalies.js';
+    import chart13 from './state-fairness.js';
+    import chart14 from './women-dropout.js';
+    import chart15 from './monsoon-effect.js';
+    import chart16 from './capacity-variance.js';
 
     // Initialize all charts
     chart1(document.getElementById('chart1'));
@@ -659,6 +659,40 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // Back to top button
+    const backToTop = document.createElement('button');
+    backToTop.className = 'btn btn-primary rounded-circle position-fixed';
+    backToTop.style.cssText = 'bottom: 2rem; right: 2rem; width: 50px; height: 50px; display: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+    backToTop.innerHTML = '<i class="bi bi-arrow-up"></i>';
+    backToTop.title = 'Back to top';
+    document.body.appendChild(backToTop);
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Show/hide back to top button
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    // Reading progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.className = 'position-fixed top-0 start-0';
+    progressBar.style.cssText = 'height: 3px; background: linear-gradient(to right, #0d6efd, #00d4ff); width: 0%; z-index: 9999; transition: width 0.1s;';
+    document.body.prepend(progressBar);
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
     });
   </script>
 </body>
