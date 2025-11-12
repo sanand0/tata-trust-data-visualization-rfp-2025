@@ -5,6 +5,7 @@ An interactive, New York Times-style scrollytelling data story that explains the
 ## Overview
 
 This scrollytelling experience breaks down:
+
 - **RFP Requirements** in simple, accessible language
 - **Key Insights** from the November 11, 2025 pre-bid discussion
 - **Timeline & Deliverables** with interactive visualizations
@@ -20,12 +21,14 @@ This scrollytelling experience breaks down:
 ## Technical Stack
 
 ### Frameworks & Libraries
+
 - **Bootstrap 5.3.3** - Responsive layout and components
 - **Chart.js 4.4.0** - Traditional charts (bar, pie, donut, line)
 - **D3.js 7.8.5** - Custom data visualizations
 - **Vanilla JavaScript** - ES2022+ with ESM modules
 
 ### Features
+
 - **Responsive Design** - Mobile-first, works on all devices
 - **Smooth Scrolling** - Animated transitions between sections
 - **Interactive Charts** - Hover tooltips, dynamic data display
@@ -35,6 +38,7 @@ This scrollytelling experience breaks down:
 ## Design Principles
 
 Following Tata Trusts brand guidelines:
+
 - **Colors**: Shark (#23272b), Anakiwa (#9fcdff), Persian Red (#d0362d)
 - **Typography**: System fonts with clear hierarchy
 - **Layout**: Grid-based, generous whitespace
@@ -64,6 +68,7 @@ Following Tata Trusts brand guidelines:
 ### Deploying
 
 This is a static site that can be deployed to:
+
 - **GitHub Pages**: Push to `gh-pages` branch
 - **Netlify**: Drag & drop the `rfp-story` folder
 - **Vercel**: Connect repository and deploy
@@ -74,12 +79,14 @@ This is a static site that can be deployed to:
 Following the technical requirements:
 
 ### HTML
+
 ```html
 <!-- Hyphenated class and ID names -->
 <div id="user-profile" class="section-header">
 ```
 
 ### JavaScript
+
 ```javascript
 // ES2022+ features
 const data = await loadData();
@@ -93,15 +100,16 @@ async function init() {
 }
 
 // Intuitive naming
-function createWorkAreasChart(workAreas) { }
+function createWorkAreasChart(workAreas) {}
 ```
 
 ### CSS
+
 ```css
 /* Component-based with hyphenated names */
-.insight-card { }
-.insight-card__header { }
-.insight-card--featured { }
+.insight-card {}
+.insight-card__header {}
+.insight-card--featured {}
 ```
 
 ## Data Structure
@@ -129,10 +137,10 @@ Edit the `COLORS` object in `script.js`:
 
 ```javascript
 const COLORS = {
-  dark: '#23272b',
-  blue: '#9fcdff',
-  red: '#d0362d',
-  teal: '#17a2b8',
+  dark: "#23272b",
+  blue: "#9fcdff",
+  red: "#d0362d",
+  teal: "#17a2b8",
   // Add more colors...
 };
 ```
@@ -178,11 +186,11 @@ Charts are created with Chart.js and D3.js. Edit the chart functions in `script.
 
 ```javascript
 function createCustomChart(data) {
-  const ctx = document.getElementById('chart-id');
+  const ctx = document.getElementById("chart-id");
   new Chart(ctx, {
-    type: 'bar', // or 'line', 'pie', 'doughnut', etc.
-    data: { /* chart data */ },
-    options: { /* chart options */ }
+    type: "bar", // or 'line', 'pie', 'doughnut', etc.
+    data: {/* chart data */},
+    options: {/* chart options */},
   });
 }
 ```
@@ -196,12 +204,14 @@ function createCustomChart(data) {
 ## Performance
 
 ### Optimization Techniques
+
 - **CDN Delivery**: Bootstrap, Chart.js, D3.js from CDN
 - **Minimal CSS**: Bootstrap customization via variables
 - **Lazy Loading**: Scroll-triggered animations
 - **Efficient Rendering**: Chart.js hardware acceleration
 
 ### Metrics (Target)
+
 - **First Contentful Paint**: < 1.8s
 - **Time to Interactive**: < 3.8s
 - **Lighthouse Score**: > 90
@@ -224,6 +234,7 @@ function createCustomChart(data) {
 ## Future Enhancements
 
 Potential improvements for future versions:
+
 - [ ] Dark mode toggle
 - [ ] Export to PDF functionality
 - [ ] Interactive data filtering
@@ -235,6 +246,7 @@ Potential improvements for future versions:
 ## Contributing
 
 This is a prototype/demonstration. For modifications:
+
 1. Follow existing code style
 2. Test on multiple devices
 3. Maintain accessibility standards
@@ -248,5 +260,6 @@ Created for Tata Trusts RFP submission.
 ## Contact
 
 For questions about this RFP:
+
 - **Email**: procurement.cci@tatatrusts.org, ankitthakur@tatatrusts.org
 - **Website**: https://www.tatatrusts.org

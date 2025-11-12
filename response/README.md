@@ -1,9 +1,3 @@
----
-layout: layout.njk
-title: Technical Proposal - Tata Trusts Data Visualization Dashboard
-permalink: index.html
----
-
 # Technical Proposal: Geographical Data Visualization Dashboard for Tata Trusts
 
 **Submitted by:** [Bidder Name]
@@ -24,7 +18,7 @@ We propose an innovative **AI-Powered Data Visualization Platform** that fundame
 - **Cost Efficiency**: Eliminates ongoing development costs for new reports
 - **Future-Proof**: Adapts to evolving requirements without re-architecture
 
-View the [demonstration data story](../dataviz/index.html) and [interactive dashboard](../dataviz/dashboard.html) showcasing 16 production-ready visualizations created using this methodology, featuring portfolio overview, efficiency analysis, geographic targeting, and operational insights across multiple chart types.
+View the [demonstration data story](../dataviz/index.html ":ignore") and [interactive dashboard](../dataviz/dashboard.html ":ignore") showcasing 16 production-ready visualizations created using this methodology, featuring portfolio overview, efficiency analysis, geographic targeting, and operational insights across multiple chart types.
 
 ---
 
@@ -142,7 +136,7 @@ graph TB
 
 - **GPT-5 Codex / Claude 4.5 Sonnet**: Latest models for code generation and reasoning
 - **Custom Prompts**: Tuned for Observable Plot, Tata Trusts style guide
-- **Process Documentation**: See [development process documentation](../process/)
+- **Process Documentation**: See [development process documentation](../process/ ":ignore")
 
 **Data Layer:**
 
@@ -179,7 +173,7 @@ graph TB
 
 **Real-World Example from Submission:**
 
-The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6 hours of AI-assisted development**, whereas traditional development would require **4-6 weeks** for the same scope (wireframes, coding, testing, revision cycles).
+The 16 charts in the [demonstration](../dataviz/index.html ":ignore") were created in **~6 hours of AI-assisted development**, whereas traditional development would require **4-6 weeks** for the same scope (wireframes, coding, testing, revision cycles).
 
 ---
 
@@ -197,7 +191,7 @@ The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6
 - **Drill-Down**: Click state → filter to districts → blocks → villages
 - **Overlays**: Thematic layers (poverty, health, education indicators)
 
-**Demo**: See coverage map examples in [interactive dashboard](../dataviz/dashboard.html)
+**Demo**: See coverage map examples in [interactive dashboard](../dataviz/dashboard.html ":ignore")
 
 ### 3.2 Multi-Layer Visualization (Must Have)
 
@@ -210,7 +204,7 @@ The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6
 - **Choropleth**: Color districts by deprivation index, coverage per 1k, funding per capita
 - **Bubble Maps**: Circle size = beneficiaries, color = outcome index
 
-**Chart Types Demonstrated** (see [dashboard](../dataviz/dashboard.html)):
+**Chart Types Demonstrated** (see [dashboard](../dataviz/dashboard.html ":ignore")):
 
 - Scatter plots (efficiency quadrants)
 - Bar charts (partner performance, state fairness)
@@ -236,10 +230,10 @@ The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6
    // JavaScript CSV processing
    async function processUpload(file) {
      const rows = await parseCSV(file);
-     validateSchema(rows);  // Check required columns
+     validateSchema(rows); // Check required columns
      geocodeLocations(rows); // Match district names to GeoJSON
-     saveToJSON(rows);  // Store as JSON files
-     invalidateCaches();  // Refresh dashboard data
+     saveToJSON(rows); // Store as JSON files
+     invalidateCaches(); // Refresh dashboard data
    }
    ```
 
@@ -259,7 +253,7 @@ The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6
 
 ### 3.4 Analytics & Reporting (Must Have)
 
-**Example Analyses** (demonstrated in [data story](../dataviz/index.html) and [dashboard](../dataviz/dashboard.html)):
+**Example Analyses** (demonstrated in [data story](../dataviz/index.html ":ignore") and [dashboard](../dataviz/dashboard.html ":ignore")):
 
 1. **Portfolio Overview**: Budget, reach, outcomes small multiples
 2. **Efficiency Scatter**: Outcomes per ₹ vs beneficiaries per ₹ quadrant analysis
@@ -332,7 +326,7 @@ These serve as **examples** of what the AI agent can generate. The platform is n
 4. **Client Review** (30 min): Demo new charts, gather feedback
 5. **Evening Commit**: Push to GitHub, update status
 
-**AI Agent Process** (see [detailed process documentation](../process/)):
+**AI Agent Process** (see [detailed process documentation](../process/ ":ignore")):
 
 1. **Prompt Engineering**: Provide context (RFP, data schema, style guide, sample chart)
 2. **Iterative Generation**: "Create efficiency scatter" → review → "Make circles larger" → review
@@ -619,8 +613,8 @@ Our solution is not experimental—it's aligned with where the industry is headi
 The submission includes:
 
 - **16 production-ready charts** across portfolio overview, efficiency, targeting, operations
-- **[Data story](../dataviz/index.html)**: Scrollytelling narrative with embedded charts
-- **[Interactive dashboard](../dataviz/dashboard.html)**: Filters, export, fullscreen
+- **[Data story](../dataviz/index.html ":ignore")**: Scrollytelling narrative with embedded charts
+- **[Interactive dashboard](../dataviz/dashboard.html ":ignore")**: Filters, export, fullscreen
 - **Modular architecture**: Each chart is an independent ESM module
 
 **Key Features Demonstrated**:
@@ -633,7 +627,7 @@ The submission includes:
 
 ### 9.2 Process Documentation
 
-The [development process documentation](../process/) provides a detailed log of how these visualizations were created using AI assistance:
+The [development process documentation](../process/ ":ignore") provides a detailed log of how these visualizations were created using AI assistance:
 
 - **Data generation**: Realistic fake datasets in 2 hours (vs 1 week for manual)
 - **Chart development**: 16 charts in 6 hours (vs 4-6 weeks traditional)
@@ -656,12 +650,12 @@ While this submission is for an RFP, our approach is informed by similar project
 
 ## 10. Value Proposition Summary
 
-| Evaluation Criteria     | How We Excel                                                    | Evidence                                        |
-| ----------------------- | --------------------------------------------------------------- | ----------------------------------------------- |
-| **Alignment (45 pts)**  | Meets all must-have requirements OOB, exceeds with AI agent     | See Section 3 checklist                         |
-| **Capability (25 pts)** | Detailed methodology, experienced team, proven AI-acceleration  | See Sections 4-5, [process docs](../process/)   |
-| **Demo (15 pts)**       | 16 live charts, interactive dashboard, AI agent walkthrough     | See [demo dashboard](../dataviz/dashboard.html) |
-| **Experience (15 pts)** | 18+ years lead, social sector track record, 3+ similar projects | See Section 9.3, references                     |
+| Evaluation Criteria     | How We Excel                                                    | Evidence                                                  |
+| ----------------------- | --------------------------------------------------------------- | --------------------------------------------------------- |
+| **Alignment (45 pts)**  | Meets all must-have requirements OOB, exceeds with AI agent     | See Section 3 checklist                                   |
+| **Capability (25 pts)** | Detailed methodology, experienced team, proven AI-acceleration  | See Sections 4-5, [process docs](../process/ ":ignore")   |
+| **Demo (15 pts)**       | 16 live charts, interactive dashboard, AI agent walkthrough     | See [demo dashboard](../dataviz/dashboard.html ":ignore") |
+| **Experience (15 pts)** | 18+ years lead, social sector track record, 3+ similar projects | See Section 9.3, references                               |
 
 **Why Tata Trusts Should Choose Us**:
 

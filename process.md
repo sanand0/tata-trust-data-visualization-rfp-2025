@@ -667,3 +667,4 @@ Then I [merged the PR](https://github.com/sanand0/tata-trust-data-visualization-
 ## 12 Nov Revisions
 
 > Update `process/index.html` to reflect the `## 12 Nov RFP Response` and `## 12 Nov 2025 Process Story and Landing Page` steps from process.md.
+> Update README.md with all missing references. Add a comprehensive overview of the repository to README.md.

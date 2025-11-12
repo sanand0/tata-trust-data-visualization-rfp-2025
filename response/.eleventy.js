@@ -1,4 +1,4 @@
-const markdownIt = require('markdown-it');
+const markdownIt = require("markdown-it");
 
 module.exports = function(eleventyConfig) {
   // Ignore generated HTML files and build artifacts
@@ -13,20 +13,20 @@ module.exports = function(eleventyConfig) {
   const md = markdownIt({
     html: true,
     linkify: true,
-    typographer: true
+    typographer: true,
   });
 
   // Custom fence renderer for Mermaid
   const defaultFence = md.renderer.rules.fence;
   md.renderer.rules.fence = function(tokens, idx, options, env, slf) {
     const token = tokens[idx];
-    if (token.info === 'mermaid') {
+    if (token.info === "mermaid") {
       return `<pre class="mermaid">${md.utils.escapeHtml(token.content)}</pre>`;
     }
     return defaultFence(tokens, idx, options, env, slf);
   };
 
-  eleventyConfig.setLibrary('md', md);
+  eleventyConfig.setLibrary("md", md);
 
   // Set directories - output to same folder
   return {
@@ -34,10 +34,10 @@ module.exports = function(eleventyConfig) {
       input: ".",
       output: ".",
       includes: "_includes",
-      data: "_data"
+      data: "_data",
     },
     templateFormats: ["md", "njk"],
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+    htmlTemplateEngine: "njk",
   };
 };

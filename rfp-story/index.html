@@ -1,355 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Understanding Tata Trusts' RFP for Data Visualization Dashboard - A comprehensive overview of requirements, insights, and timeline">
-  <title>Tata Trusts Data Visualization Dashboard RFP - Interactive Story</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Understanding Tata Trusts' RFP for Data Visualization Dashboard - A comprehensive overview of requirements, insights, and timeline"
+    >
+    <title>
+      Tata Trusts Data Visualization Dashboard RFP - Interactive Story
+    </title>
 
-  <!-- Google Fonts - Titillium Web -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Titillium Web -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    >
 
-  <!-- Bootstrap 5.3.3 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Bootstrap 5.3.3 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    >
 
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="../style.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../style.css">
 
-  <!-- Page-Specific Styles -->
-  <style>
+    <!-- Page-Specific Styles -->
+    <style>
     /* All common styles have been moved to ../style.css */
     /* No page-specific overrides needed for this page */
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#hero">Tata Trusts RFP</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
-          <li class="nav-item"><a class="nav-link" href="#requirements">Requirements</a></li>
-          <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
-          <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
-          <li class="nav-item"><a class="nav-link" href="#deliverables">Deliverables</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">Building the Future of Data-Driven Impact</h1>
-      <p class="hero-subtitle">Understanding Tata Trusts' Request for Proposal: A Geographical Data Visualization Dashboard</p>
-      <p style="font-size: 1rem; opacity: 0.85; margin: 1.5rem auto 2rem; max-width: 700px;">
-        Since 1892, Tata Trusts has pioneered "constructive philanthropy" in India. Now, with 125+ years of impact across healthcare, education, and livelihoods, the organization seeks a modern data visualization platform to amplify its evidence-based decision-making.
-      </p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Legacy</div>
-          <div class="hero-meta-value">125+ Years</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Timeline</div>
-          <div class="hero-meta-value">2 Months</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Data Volume</div>
-          <div class="hero-meta-value">~500 Grants</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Bid Deadline</div>
-          <div class="hero-meta-value">Nov 17, 2025</div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="28" height="38" rx="14" stroke="white" stroke-width="2"/>
-        <circle cx="15" cy="12" r="4" fill="white"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- Overview Section -->
-  <section id="overview" class="story-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 fade-in">
-          <div class="section-number">01 / Overview</div>
-          <h2 class="section-title">What is This RFP About?</h2>
-          <p class="section-description">
-            Founded in <strong>1892 by Jamsetji Nusserwanji Tata</strong>, Tata Trusts began with the J.N. Tata Endowment for Higher Education—a bold vision when such philanthropy was rare even in the West. Today, as one of India's oldest and largest philanthropic organizations, Tata Trusts has created institutions like <strong>IISC, TISS, and TIFR</strong> and deployed <strong>$136 million in 2020-21</strong> alone, reaching millions across 100+ districts.
-          </p>
-          <p class="section-description">
-            Now, Tata Trusts seeks a professional data visualization agency to design an <strong>interactive, GIS-enabled dashboard</strong>—a system that will transform how the organization leverages data for evidence-based decision-making across healthcare, education, livelihoods, water & sanitation, and community development.
-          </p>
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-value">500+</div>
-              <div class="stat-label">Active Grants</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">100M</div>
-              <div class="stat-label">Beneficiaries</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">5</div>
-              <div class="stat-label">Geographic Levels</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 fade-in">
-          <div class="chart-container">
-            <div class="chart-title">Tata Trusts Work Areas</div>
-            <canvas id="work-areas-chart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Requirements Section -->
-  <section id="requirements" class="story-section">
-    <div class="container">
-      <div class="section-number">02 / Requirements</div>
-      <h2 class="section-title">What Does the Dashboard Need to Do?</h2>
-      <p class="section-description">
-        With <strong>~500 active grants</strong> generating vast amounts of programmatic, financial, and impact data, Tata Trusts needs a system that can consolidate and present key indicators through an intuitive interface. The dashboard must support drilling down from country-level to individual villages, while handling up to <strong>100 million beneficiary records</strong>.
-      </p>
-      <p class="section-description">
-        This isn't just about pretty charts—it's about empowering Trustees, thematic heads, and project leads to identify geographic priorities, track outcomes, benchmark performance, and make strategic funding decisions with confidence.
-      </p>
-
-      <div class="row mt-5">
-        <div class="col-lg-8 mx-auto fade-in">
-          <div class="chart-container">
-            <div class="chart-title">Requirements by Priority Level</div>
-            <canvas id="requirements-chart"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-5 g-4">
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">🗺️</div>
-              <div>
-                <div class="insight-category">Geographic Drill-Down</div>
-              </div>
-            </div>
-            <p>Navigate from country to state, district, block, and village levels with interactive maps and spatial queries.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">📊</div>
-              <div>
-                <div class="insight-category">Rich Visualizations</div>
-              </div>
-            </div>
-            <p>Heat maps, cluster maps, choropleths, bar charts, donut charts, and scatter plots for comprehensive analysis.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">📱</div>
-              <div>
-                <div class="insight-category">Mobile Responsive</div>
-              </div>
-            </div>
-            <p>Optimized experience across desktops, tablets, and smartphones for access anywhere.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">📄</div>
-              <div>
-                <div class="insight-category">Export Capabilities</div>
-              </div>
-            </div>
-            <p>Download reports and visualizations in PDF, Excel, CSV, and image formats.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">🔄</div>
-              <div>
-                <div class="insight-category">Real-Time Updates</div>
-              </div>
-            </div>
-            <p>Dashboard reflects latest data immediately upon upload, with monthly/fortnightly operational updates.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 fade-in">
-          <div class="insight-card">
-            <div class="insight-card-header">
-              <div class="insight-icon">📈</div>
-              <div>
-                <div class="insight-category">Templated Reports</div>
-              </div>
-            </div>
-            <p>10-15 pre-configured reports plus customizable views with filters and time-series analysis.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Insights Section -->
-  <section id="insights" class="story-section">
-    <div class="container">
-      <div class="section-number">03 / Key Insights</div>
-      <h2 class="section-title">What We Learned from the Pre-Bid Meeting</h2>
-      <p class="section-description">
-        On <strong>November 11, 2025</strong>, representatives from leading data visualization agencies joined Tata Trusts' analytics, IT, and procurement teams for a candid pre-bid discussion. This wasn't your typical corporate formality—the conversation revealed strategic priorities, technical constraints, and surprising flexibility that will shape winning proposals.
-      </p>
-      <p class="section-description">
-        <strong>Sachin Ralhan</strong> (Analytics Lead), <strong>Bindu Varghese</strong> (IT Head), and <strong>Divyang Waghela</strong> (Analytics Head) fielded questions from agencies including Gramener, Dhwani Rural Information Systems, ImpactDash, and others. Here are the most significant, useful, and surprising takeaways.
-      </p>
-
-      <div class="row mt-5 g-4" id="insights-container">
-        <!-- Insights will be dynamically populated -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section id="timeline" class="story-section">
-    <div class="container">
-      <div class="section-number">04 / Timeline</div>
-      <h2 class="section-title">From RFP to Delivery</h2>
-      <p class="section-description">
-        The clock is ticking. From RFP publication on <strong>November 4, 2025</strong> to final dashboard delivery in <strong>early February 2026</strong>, this project moves fast. The <strong>2-month development timeline</strong> is aggressive, reflecting Tata Trusts' urgency to modernize their data infrastructure.
-      </p>
-      <p class="section-description">
-        Bidders have just <strong>13 days</strong> to craft proposals—understanding requirements, designing architecture, assembling teams, and pricing the work. The QCBS evaluation (80% technical, 20% financial) means quality matters more than cost, but both need to be competitive.
-      </p>
-
-      <div class="timeline mt-5" id="timeline-container">
-        <!-- Timeline items will be dynamically populated -->
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-lg-10 mx-auto fade-in">
-          <div class="chart-container">
-            <div class="chart-title">Project Timeline Visualization</div>
-            <canvas id="timeline-chart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Deliverables Section -->
-  <section id="deliverables" class="story-section">
-    <div class="container">
-      <div class="section-number">05 / Deliverables</div>
-      <h2 class="section-title">What Gets Delivered?</h2>
-      <p class="section-description">
-        This isn't just about building software—it's about building <strong>institutional capacity</strong>. The winning agency will deliver a complete solution: from requirement specifications and wireframes to a fully functional dashboard, comprehensive training, and ongoing support.
-      </p>
-      <p class="section-description">
-        Payment is milestone-based: <strong>50% upon wireframe approval</strong>, <strong>50% upon final acceptance</strong>. The Trust reserves the right to reject work that doesn't meet standards, with a penalty structure (5% per week of delay, max 20%) ensuring accountability.
-      </p>
-
-      <div class="row mt-5">
-        <div class="col-lg-8 mx-auto">
-          <ul class="deliverables-list" id="deliverables-container">
-            <!-- Deliverables will be dynamically populated -->
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#hero">Tata Trusts RFP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#requirements">Requirements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#insights">Insights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#timeline">Timeline</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#deliverables">Deliverables</a>
+            </li>
           </ul>
         </div>
       </div>
+    </nav>
 
-      <div class="row mt-5">
-        <div class="col-lg-10 mx-auto fade-in">
-          <div class="chart-container">
-            <div class="chart-title">Evaluation Criteria (QCBS Method)</div>
-            <div class="row">
-              <div class="col-md-6">
-                <canvas id="evaluation-weight-chart"></canvas>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Building the Future of Data-Driven Impact</h1>
+        <p class="hero-subtitle">
+          Understanding Tata Trusts' Request for Proposal: A Geographical Data
+          Visualization Dashboard
+        </p>
+        <p style="font-size: 1rem; opacity: 0.85; margin: 1.5rem auto 2rem; max-width: 700px">
+          Since 1892, Tata Trusts has pioneered "constructive philanthropy" in
+          India. Now, with 125+ years of impact across healthcare, education,
+          and livelihoods, the organization seeks a modern data visualization
+          platform to amplify its evidence-based decision-making.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Legacy</div>
+            <div class="hero-meta-value">125+ Years</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Timeline</div>
+            <div class="hero-meta-value">2 Months</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Data Volume</div>
+            <div class="hero-meta-value">~500 Grants</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Bid Deadline</div>
+            <div class="hero-meta-value">Nov 17, 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <svg
+          width="30"
+          height="40"
+          viewBox="0 0 30 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="1"
+            y="1"
+            width="28"
+            height="38"
+            rx="14"
+            stroke="white"
+            stroke-width="2"
+          />
+          <circle cx="15" cy="12" r="4" fill="white" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="story-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 fade-in">
+            <div class="section-number">01 / Overview</div>
+            <h2 class="section-title">What is This RFP About?</h2>
+            <p class="section-description">
+              Founded in <strong>1892 by Jamsetji Nusserwanji Tata</strong>,
+              Tata Trusts began with the J.N. Tata Endowment for Higher
+              Education—a bold vision when such philanthropy was rare even in
+              the West. Today, as one of India's oldest and largest
+              philanthropic organizations, Tata Trusts has created institutions
+              like <strong>IISC, TISS, and TIFR</strong> and deployed <strong
+              >$136 million in 2020-21</strong> alone, reaching millions across
+              100+ districts.
+            </p>
+            <p class="section-description">
+              Now, Tata Trusts seeks a professional data visualization agency to
+              design an <strong>interactive, GIS-enabled dashboard</strong>—a
+              system that will transform how the organization leverages data for
+              evidence-based decision-making across healthcare, education,
+              livelihoods, water & sanitation, and community development.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Active Grants</div>
               </div>
-              <div class="col-md-6">
-                <canvas id="technical-criteria-chart"></canvas>
+              <div class="stat-card">
+                <div class="stat-value">100M</div>
+                <div class="stat-label">Beneficiaries</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Geographic Levels</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 fade-in">
+            <div class="chart-container">
+              <div class="chart-title">Tata Trusts Work Areas</div>
+              <canvas id="work-areas-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section id="requirements" class="story-section">
+      <div class="container">
+        <div class="section-number">02 / Requirements</div>
+        <h2 class="section-title">What Does the Dashboard Need to Do?</h2>
+        <p class="section-description">
+          With <strong>~500 active grants</strong> generating vast amounts of
+          programmatic, financial, and impact data, Tata Trusts needs a system
+          that can consolidate and present key indicators through an intuitive
+          interface. The dashboard must support drilling down from country-level
+          to individual villages, while handling up to <strong>100 million
+            beneficiary records</strong>.
+        </p>
+        <p class="section-description">
+          This isn't just about pretty charts—it's about empowering Trustees,
+          thematic heads, and project leads to identify geographic priorities,
+          track outcomes, benchmark performance, and make strategic funding
+          decisions with confidence.
+        </p>
+
+        <div class="row mt-5">
+          <div class="col-lg-8 mx-auto fade-in">
+            <div class="chart-container">
+              <div class="chart-title">Requirements by Priority Level</div>
+              <canvas id="requirements-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5 g-4">
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">🗺️</div>
+                <div>
+                  <div class="insight-category">Geographic Drill-Down</div>
+                </div>
+              </div>
+              <p>
+                Navigate from country to state, district, block, and village
+                levels with interactive maps and spatial queries.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">📊</div>
+                <div>
+                  <div class="insight-category">Rich Visualizations</div>
+                </div>
+              </div>
+              <p>
+                Heat maps, cluster maps, choropleths, bar charts, donut charts,
+                and scatter plots for comprehensive analysis.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">📱</div>
+                <div>
+                  <div class="insight-category">Mobile Responsive</div>
+                </div>
+              </div>
+              <p>
+                Optimized experience across desktops, tablets, and smartphones
+                for access anywhere.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">📄</div>
+                <div>
+                  <div class="insight-category">Export Capabilities</div>
+                </div>
+              </div>
+              <p>
+                Download reports and visualizations in PDF, Excel, CSV, and
+                image formats.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">🔄</div>
+                <div>
+                  <div class="insight-category">Real-Time Updates</div>
+                </div>
+              </div>
+              <p>
+                Dashboard reflects latest data immediately upon upload, with
+                monthly/fortnightly operational updates.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 fade-in">
+            <div class="insight-card">
+              <div class="insight-card-header">
+                <div class="insight-icon">📈</div>
+                <div>
+                  <div class="insight-category">Templated Reports</div>
+                </div>
+              </div>
+              <p>
+                10-15 pre-configured reports plus customizable views with
+                filters and time-series analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="story-section">
+      <div class="container">
+        <div class="section-number">03 / Key Insights</div>
+        <h2 class="section-title">What We Learned from the Pre-Bid Meeting</h2>
+        <p class="section-description">
+          On <strong>November 11, 2025</strong>, representatives from leading
+          data visualization agencies joined Tata Trusts' analytics, IT, and
+          procurement teams for a candid pre-bid discussion. This wasn't your
+          typical corporate formality—the conversation revealed strategic
+          priorities, technical constraints, and surprising flexibility that
+          will shape winning proposals.
+        </p>
+        <p class="section-description">
+          <strong>Sachin Ralhan</strong> (Analytics Lead), <strong>Bindu
+            Varghese</strong> (IT Head), and <strong>Divyang Waghela</strong>
+          (Analytics Head) fielded questions from agencies including Gramener,
+          Dhwani Rural Information Systems, ImpactDash, and others. Here are the
+          most significant, useful, and surprising takeaways.
+        </p>
+
+        <div class="row mt-5 g-4" id="insights-container">
+          <!-- Insights will be dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="story-section">
+      <div class="container">
+        <div class="section-number">04 / Timeline</div>
+        <h2 class="section-title">From RFP to Delivery</h2>
+        <p class="section-description">
+          The clock is ticking. From RFP publication on <strong>November 4,
+            2025</strong> to final dashboard delivery in <strong>early February
+            2026</strong>, this project moves fast. The <strong>2-month
+            development timeline</strong> is aggressive, reflecting Tata Trusts'
+          urgency to modernize their data infrastructure.
+        </p>
+        <p class="section-description">
+          Bidders have just <strong>13 days</strong> to craft
+          proposals—understanding requirements, designing architecture,
+          assembling teams, and pricing the work. The QCBS evaluation (80%
+          technical, 20% financial) means quality matters more than cost, but
+          both need to be competitive.
+        </p>
+
+        <div class="timeline mt-5" id="timeline-container">
+          <!-- Timeline items will be dynamically populated -->
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-10 mx-auto fade-in">
+            <div class="chart-container">
+              <div class="chart-title">Project Timeline Visualization</div>
+              <canvas id="timeline-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="deliverables" class="story-section">
+      <div class="container">
+        <div class="section-number">05 / Deliverables</div>
+        <h2 class="section-title">What Gets Delivered?</h2>
+        <p class="section-description">
+          This isn't just about building software—it's about building <strong
+          >institutional capacity</strong>. The winning agency will deliver a
+          complete solution: from requirement specifications and wireframes to a
+          fully functional dashboard, comprehensive training, and ongoing
+          support.
+        </p>
+        <p class="section-description">
+          Payment is milestone-based: <strong>50% upon wireframe
+            approval</strong>, <strong>50% upon final acceptance</strong>. The
+          Trust reserves the right to reject work that doesn't meet standards,
+          with a penalty structure (5% per week of delay, max 20%) ensuring
+          accountability.
+        </p>
+
+        <div class="row mt-5">
+          <div class="col-lg-8 mx-auto">
+            <ul class="deliverables-list" id="deliverables-container">
+              <!-- Deliverables will be dynamically populated -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-10 mx-auto fade-in">
+            <div class="chart-container">
+              <div class="chart-title">Evaluation Criteria (QCBS Method)</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <canvas id="evaluation-weight-chart"></canvas>
+                </div>
+                <div class="col-md-6">
+                  <canvas id="technical-criteria-chart"></canvas>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Conclusion Section -->
-  <section class="story-section" style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%); color: white;">
-    <div class="container text-center">
-      <h2 class="section-title" style="color: white;">Ready to Make an Impact?</h2>
-      <p class="section-description mx-auto" style="color: rgba(255, 255, 255, 0.9);">
-        For <strong>125+ years</strong>, Tata Trusts has pioneered "constructive philanthropy"—from Jamsetji Tata's original vision of educating Indians abroad to today's <strong>$136 million annual deployment</strong> across India's most challenging development contexts. The Tata Water Mission alone reaches <strong>1.5 million people</strong> in 1,500+ villages. Institutions like <strong>IISC, TISS, and TIFR</strong> stand as monuments to what strategic philanthropy can achieve.
-      </p>
-      <p class="section-description mx-auto" style="color: rgba(255, 255, 255, 0.9);">
-        Now, this RFP represents an opportunity to build the <strong>data backbone</strong> for the next century of impact—a platform that will empower decision-makers with real-time insights, geographic intelligence, and evidence-based strategies to maximize social returns.
-      </p>
-      <div class="mt-4">
-        <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem;">
-          Bid Submission Deadline: <span style="color: var(--tata-blue);">November 17, 2025</span>
+    <!-- Conclusion Section -->
+    <section
+      class="story-section"
+      style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%); color: white"
+    >
+      <div class="container text-center">
+        <h2 class="section-title" style="color: white">
+          Ready to Make an Impact?
+        </h2>
+        <p
+          class="section-description mx-auto"
+          style="color: rgba(255, 255, 255, 0.9)"
+        >
+          For <strong>125+ years</strong>, Tata Trusts has pioneered
+          "constructive philanthropy"—from Jamsetji Tata's original vision of
+          educating Indians abroad to today's <strong>$136 million annual
+            deployment</strong> across India's most challenging development
+          contexts. The Tata Water Mission alone reaches <strong>1.5 million
+            people</strong> in 1,500+ villages. Institutions like <strong>IISC,
+            TISS, and TIFR</strong> stand as monuments to what strategic
+          philanthropy can achieve.
         </p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-          <a href="mailto:procurement.cci@tatatrusts.org" class="btn-primary-custom">Submit Your Proposal</a>
-          <a href="../rfp.md" class="btn-secondary-custom" style="color: white; border-color: white;">View Full RFP</a>
+        <p
+          class="section-description mx-auto"
+          style="color: rgba(255, 255, 255, 0.9)"
+        >
+          Now, this RFP represents an opportunity to build the <strong>data
+            backbone</strong> for the next century of impact—a platform that
+          will empower decision-makers with real-time insights, geographic
+          intelligence, and evidence-based strategies to maximize social
+          returns.
+        </p>
+        <div class="mt-4">
+          <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem">
+            Bid Submission Deadline: <span style="color: var(--tata-blue)"
+            >November 17, 2025</span>
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a
+              href="mailto:procurement.cci@tatatrusts.org"
+              class="btn-primary-custom"
+            >Submit Your Proposal</a>
+            <a
+              href="../rfp.md"
+              class="btn-secondary-custom"
+              style="color: white; border-color: white"
+            >View Full RFP</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h5>Tata Trusts</h5>
-          <p>World Trade Center-1, 26th floor<br>Cuffe Parade, Mumbai 400 005, India</p>
-          <p>
-            Email: <a href="mailto:talktous@tatatrusts.org">talktous@tatatrusts.org</a><br>
-            Website: <a href="https://www.tatatrusts.org" target="_blank">www.tatatrusts.org</a>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Tata Trusts</h5>
+            <p>
+              World Trade Center-1, 26th floor<br>Cuffe Parade, Mumbai 400 005,
+              India
+            </p>
+            <p>
+              Email: <a href="mailto:talktous@tatatrusts.org"
+              >talktous@tatatrusts.org</a><br>
+              Website: <a href="https://www.tatatrusts.org" target="_blank"
+              >www.tatatrusts.org</a>
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h5>Contact for This RFP</h5>
+            <p>
+              <a href="mailto:procurement.cci@tatatrusts.org"
+              >procurement.cci@tatatrusts.org</a><br>
+              <a href="mailto:ankitthakur@tatatrusts.org"
+              >ankitthakur@tatatrusts.org</a>
+            </p>
+          </div>
+        </div>
+        <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 2rem 0 1rem">
+        <div class="text-center">
+          <p style="font-size: 0.875rem; opacity: 0.7">
+            &copy; 2025 Tata Trusts. All rights reserved.
           </p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <h5>Contact for This RFP</h5>
-          <p>
-            <a href="mailto:procurement.cci@tatatrusts.org">procurement.cci@tatatrusts.org</a><br>
-            <a href="mailto:ankitthakur@tatatrusts.org">ankitthakur@tatatrusts.org</a>
-          </p>
-        </div>
       </div>
-      <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 2rem 0 1rem;">
-      <div class="text-center">
-        <p style="font-size: 0.875rem; opacity: 0.7;">&copy; 2025 Tata Trusts. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
 
-  <!-- D3.js -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+    <!-- D3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 
-  <!-- Custom Script -->
-  <script src="script.js" type="module"></script>
-</body>
+    <!-- Custom Script -->
+    <script src="script.js" type="module"></script>
+  </body>
 </html>

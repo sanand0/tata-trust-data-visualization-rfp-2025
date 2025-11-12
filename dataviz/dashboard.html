@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tata Trusts Portfolio Dashboard</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Trusts Portfolio Dashboard</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    >
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    >
 
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="../style.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../style.css">
 
-  <style>
+    <style>
     /* Dashboard Specific Styles */
     :root {
       --sidebar-width: 260px;
@@ -302,465 +311,623 @@
         display: block;
       }
     }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="d-flex align-items-center gap-3 w-100">
-      <button class="menu-toggle" id="menuToggle">
-        <i class="bi bi-list"></i>
-      </button>
-      <div class="navbar-brand">Tata Trusts Portfolio Dashboard</div>
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <span class="text-muted" style="font-size: 0.875rem;">2020-21 Analysis</span>
-        <a href="index.html" class="btn btn-sm btn-outline-primary">
-          <i class="bi bi-book me-1"></i> Data Story
-        </a>
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="d-flex align-items-center gap-3 w-100">
+        <button class="menu-toggle" id="menuToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="navbar-brand">Tata Trusts Portfolio Dashboard</div>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <span class="text-muted" style="font-size: 0.875rem"
+          >2020-21 Analysis</span>
+          <a href="index.html" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-book me-1"></i> Data Story
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-section">Overview</div>
-    <ul class="sidebar-nav">
-      <li><a href="#dashboard-home" class="active"><i class="bi bi-speedometer2 me-2"></i> Dashboard Home</a></li>
-      <li><a href="#filters"><i class="bi bi-funnel me-2"></i> Filters</a></li>
-    </ul>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-section">Overview</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#dashboard-home" class="active"><i
+              class="bi bi-speedometer2 me-2"
+            ></i> Dashboard Home</a>
+        </li>
+        <li>
+          <a href="#filters"><i class="bi bi-funnel me-2"></i> Filters</a>
+        </li>
+      </ul>
 
-    <div class="sidebar-section">Key Analyses</div>
-    <ul class="sidebar-nav">
-      <li><a href="#efficiency"><i class="bi bi-graph-up me-2"></i> Efficiency Metrics</a></li>
-      <li><a href="#targeting"><i class="bi bi-geo-alt me-2"></i> Geographic Targeting</a></li>
-      <li><a href="#operations"><i class="bi bi-gear me-2"></i> Operations</a></li>
-      <li><a href="#insights"><i class="bi bi-lightbulb me-2"></i> Strategic Insights</a></li>
-    </ul>
+      <div class="sidebar-section">Key Analyses</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#efficiency"><i class="bi bi-graph-up me-2"></i> Efficiency
+            Metrics</a>
+        </li>
+        <li>
+          <a href="#targeting"><i class="bi bi-geo-alt me-2"></i> Geographic
+            Targeting</a>
+        </li>
+        <li>
+          <a href="#operations"><i class="bi bi-gear me-2"></i> Operations</a>
+        </li>
+        <li>
+          <a href="#insights"><i class="bi bi-lightbulb me-2"></i> Strategic
+            Insights</a>
+        </li>
+      </ul>
 
-    <div class="sidebar-section">Resources</div>
-    <ul class="sidebar-nav">
-      <li><a href="../data/grants_portfolio.csv"><i class="bi bi-download me-2"></i> Download Data</a></li>
-      <li><a href="https://www.tatatrusts.org" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> Tata Trusts</a></li>
-    </ul>
-  </aside>
+      <div class="sidebar-section">Resources</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="../data/grants_portfolio.csv"><i
+              class="bi bi-download me-2"
+            ></i> Download Data</a>
+        </li>
+        <li>
+          <a href="https://www.tatatrusts.org" target="_blank"><i
+              class="bi bi-box-arrow-up-right me-2"
+            ></i> Tata Trusts</a>
+        </li>
+      </ul>
+    </aside>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Filters Panel -->
-    <div class="filters-panel" id="filters">
-      <h5><i class="bi bi-funnel me-2"></i> Data Filters</h5>
-      <div class="row g-3">
-        <div class="col-md-3">
-          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">Theme</label>
-          <select class="form-select" id="themeFilter">
-            <option value="">All Themes</option>
-            <option value="Health">Health</option>
-            <option value="Education">Education</option>
-            <option value="Livelihoods">Livelihoods</option>
-            <option value="WASH">WASH</option>
-            <option value="Skilling">Skilling</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">State</label>
-          <select class="form-select" id="stateFilter">
-            <option value="">All States</option>
-            <!-- Will be populated dynamically -->
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">Need Decile (Min)</label>
-          <select class="form-select" id="needFilter">
-            <option value="">All</option>
-            <option value="1">1 (Lowest)</option>
-            <option value="5">5</option>
-            <option value="8">8 (High Need)</option>
-            <option value="10">10 (Highest)</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">&nbsp;</label>
-          <div class="d-flex gap-2">
-            <button class="btn btn-primary flex-fill" id="applyFilters">
-              <i class="bi bi-check-circle me-1"></i> Apply
-            </button>
-            <button class="btn btn-outline-secondary flex-fill" id="resetFilters">
-              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
-            </button>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Filters Panel -->
+      <div class="filters-panel" id="filters">
+        <h5><i class="bi bi-funnel me-2"></i> Data Filters</h5>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label
+              class="form-label"
+              style="font-size: 0.875rem; font-weight: 500"
+            >Theme</label>
+            <select class="form-select" id="themeFilter">
+              <option value="">All Themes</option>
+              <option value="Health">Health</option>
+              <option value="Education">Education</option>
+              <option value="Livelihoods">Livelihoods</option>
+              <option value="WASH">WASH</option>
+              <option value="Skilling">Skilling</option>
+            </select>
           </div>
-        </div>
-      </div>
-      <div class="text-muted mt-2" style="font-size: 0.75rem;">
-        <i class="bi bi-info-circle me-1"></i> Data last updated: 2020-21 fiscal year
-      </div>
-    </div>
-
-    <!-- Stat Cards -->
-    <div class="stat-cards">
-      <div class="stat-card">
-        <div class="stat-label">Total Budget</div>
-        <div class="stat-value" id="statBudget">₹--M</div>
-        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
-      </div>
-      <div class="stat-card success">
-        <div class="stat-label">Beneficiaries</div>
-        <div class="stat-value" id="statBeneficiaries">--</div>
-        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Avg Outcome Index</div>
-        <div class="stat-value" id="statOutcome">--</div>
-        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
-      </div>
-      <div class="stat-card danger">
-        <div class="stat-label">Coverage Gap</div>
-        <div class="stat-value" id="statGap">-- /1K</div>
-        <div class="stat-change negative"><i class="bi bi-arrow-down"></i> Loading...</div>
-      </div>
-    </div>
-
-    <!-- Dashboard Section: Efficiency -->
-    <div id="efficiency">
-      <h2 class="section-header">
-        <i class="bi bi-graph-up"></i>
-        Efficiency & Performance
-      </h2>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Portfolio Overview</h5>
-                <p class="card-subtitle">Budget, beneficiaries, and outcomes by theme</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+          <div class="col-md-3">
+            <label
+              class="form-label"
+              style="font-size: 0.875rem; font-weight: 500"
+            >State</label>
+            <select class="form-select" id="stateFilter">
+              <option value="">All States</option>
+              <!-- Will be populated dynamically -->
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label
+              class="form-label"
+              style="font-size: 0.875rem; font-weight: 500"
+            >Need Decile (Min)</label>
+            <select class="form-select" id="needFilter">
+              <option value="">All</option>
+              <option value="1">1 (Lowest)</option>
+              <option value="5">5</option>
+              <option value="8">8 (High Need)</option>
+              <option value="10">10 (Highest)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label
+              class="form-label"
+              style="font-size: 0.875rem; font-weight: 500"
+            >&nbsp;</label>
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary flex-fill" id="applyFilters">
+                <i class="bi bi-check-circle me-1"></i> Apply
+              </button>
+              <button
+                class="btn btn-outline-secondary flex-fill"
+                id="resetFilters"
+              >
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+              </button>
             </div>
-            <div id="chart4" class="chart-container"></div>
           </div>
         </div>
+        <div class="text-muted mt-2" style="font-size: 0.75rem">
+          <i class="bi bi-info-circle me-1"></i> Data last updated: 2020-21
+          fiscal year
+        </div>
+      </div>
 
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Efficiency Quadrants</h5>
-                <p class="card-subtitle">Beneficiaries and outcomes per million ₹</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart1" class="chart-container"></div>
+      <!-- Stat Cards -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-label">Total Budget</div>
+          <div class="stat-value" id="statBudget">₹--M</div>
+          <div class="stat-change positive">
+            <i class="bi bi-arrow-up"></i> Loading...
+          </div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-label">Beneficiaries</div>
+          <div class="stat-value" id="statBeneficiaries">--</div>
+          <div class="stat-change positive">
+            <i class="bi bi-arrow-up"></i> Loading...
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Outcome Index</div>
+          <div class="stat-value" id="statOutcome">--</div>
+          <div class="stat-change positive">
+            <i class="bi bi-arrow-up"></i> Loading...
+          </div>
+        </div>
+        <div class="stat-card danger">
+          <div class="stat-label">Coverage Gap</div>
+          <div class="stat-value" id="statGap">-- /1K</div>
+          <div class="stat-change negative">
+            <i class="bi bi-arrow-down"></i> Loading...
           </div>
         </div>
       </div>
 
-      <div class="dashboard-card">
-        <div class="card-header">
-          <div>
-            <h5 class="card-title">Diminishing Returns Analysis</h5>
-            <p class="card-subtitle">Outcome efficiency vs. grant size - identify candidates for splitting</p>
-          </div>
-          <div class="card-actions">
-            <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-            <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-          </div>
-        </div>
-        <div id="chart7" class="chart-container"></div>
-      </div>
-    </div>
+      <!-- Dashboard Section: Efficiency -->
+      <div id="efficiency">
+        <h2 class="section-header">
+          <i class="bi bi-graph-up"></i>
+          Efficiency & Performance
+        </h2>
 
-    <!-- Dashboard Section: Geographic Targeting -->
-    <div id="targeting">
-      <h2 class="section-header">
-        <i class="bi bi-geo-alt"></i>
-        Geographic Targeting & Equity
-      </h2>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Need vs. Coverage</h5>
-                <p class="card-subtitle">Bivariate analysis of targeting effectiveness</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Portfolio Overview</h5>
+                  <p class="card-subtitle">
+                    Budget, beneficiaries, and outcomes by theme
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
               </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+              <div id="chart4" class="chart-container"></div>
             </div>
-            <div id="chart2" class="chart-container"></div>
           </div>
-        </div>
 
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Coverage by Need Decile</h5>
-                <p class="card-subtitle">Target vs. actual coverage across need spectrum</p>
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Efficiency Quadrants</h5>
+                  <p class="card-subtitle">
+                    Beneficiaries and outcomes per million ₹
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
               </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+              <div id="chart1" class="chart-container"></div>
             </div>
-            <div id="chart6" class="chart-container"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Top Underserved Districts</h5>
-                <p class="card-subtitle">Priority reallocation targets (need decile ≥ 8)</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart3" class="chart-container"></div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Cumulative Impact Curve</h5>
-                <p class="card-subtitle">Outcomes gained by closing coverage gaps</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div>
+              <h5 class="card-title">Diminishing Returns Analysis</h5>
+              <p class="card-subtitle">
+                Outcome efficiency vs. grant size - identify candidates for
+                splitting
+              </p>
             </div>
-            <div id="chart9" class="chart-container"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dashboard Section: Operations -->
-    <div id="operations">
-      <h2 class="section-header">
-        <i class="bi bi-gear"></i>
-        Operational Excellence
-      </h2>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">KPI Drivers Waterfall</h5>
-                <p class="card-subtitle">Incremental impact of operational levers</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+            <div class="card-actions">
+              <button class="btn-icon" title="Download">
+                <i class="bi bi-download"></i>
+              </button>
+              <button class="btn-icon" title="Fullscreen">
+                <i class="bi bi-arrows-fullscreen"></i>
+              </button>
             </div>
-            <div id="chart5" class="chart-container"></div>
           </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Timeliness Impact</h5>
-                <p class="card-subtitle">On-time vs. delayed disbursement outcomes</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart8" class="chart-container"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dashboard Section: Additional Insights -->
-    <div id="insights">
-      <h2 class="section-header">
-        <i class="bi bi-lightbulb"></i>
-        Additional Strategic Insights
-      </h2>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Partner Performance League Table</h5>
-                <p class="card-subtitle">Efficiency, timeliness, and risk by partner</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart10" class="chart-container"></div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Capacity Lowers Variance & Risk</h5>
-                <p class="card-subtitle">Partner capacity impact on performance</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart16" class="chart-container"></div>
-          </div>
+          <div id="chart7" class="chart-container"></div>
         </div>
       </div>
 
-      <div class="row mt-3">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Funds On Time → NPS & Dropout</h5>
-                <p class="card-subtitle">Timely funding impact on beneficiary experience</p>
+      <!-- Dashboard Section: Geographic Targeting -->
+      <div id="targeting">
+        <h2 class="section-header">
+          <i class="bi bi-geo-alt"></i>
+          Geographic Targeting & Equity
+        </h2>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Need vs. Coverage</h5>
+                  <p class="card-subtitle">
+                    Bivariate analysis of targeting effectiveness
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
               </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+              <div id="chart2" class="chart-container"></div>
             </div>
-            <div id="chart11" class="chart-container"></div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Coverage by Need Decile</h5>
+                  <p class="card-subtitle">
+                    Target vs. actual coverage across need spectrum
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart6" class="chart-container"></div>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Urban Spend Anomalies</h5>
-                <p class="card-subtitle">Districts with unusual urban spending patterns</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Top Underserved Districts</h5>
+                  <p class="card-subtitle">
+                    Priority reallocation targets (need decile ≥ 8)
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
               </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+              <div id="chart3" class="chart-container"></div>
             </div>
-            <div id="chart12" class="chart-container"></div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Cumulative Impact Curve</h5>
+                  <p class="card-subtitle">
+                    Outcomes gained by closing coverage gaps
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart9" class="chart-container"></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="row mt-3">
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">State Fairness Dashboard</h5>
-                <p class="card-subtitle">Budget allocation vs. high-need population share</p>
-              </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
-            </div>
-            <div id="chart13" class="chart-container"></div>
-          </div>
-        </div>
+      <!-- Dashboard Section: Operations -->
+      <div id="operations">
+        <h2 class="section-header">
+          <i class="bi bi-gear"></i>
+          Operational Excellence
+        </h2>
 
-        <div class="col-lg-6">
-          <div class="dashboard-card">
-            <div class="card-header">
-              <div>
-                <h5 class="card-title">Women in Skilling & Dropout</h5>
-                <p class="card-subtitle">Female participation impact on program retention</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">KPI Drivers Waterfall</h5>
+                  <p class="card-subtitle">
+                    Incremental impact of operational levers
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
               </div>
-              <div class="card-actions">
-                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
-              </div>
+              <div id="chart5" class="chart-container"></div>
             </div>
-            <div id="chart14" class="chart-container"></div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Timeliness Impact</h5>
+                  <p class="card-subtitle">
+                    On-time vs. delayed disbursement outcomes
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart8" class="chart-container"></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="dashboard-card mt-3">
-        <div class="card-header">
-          <div>
-            <h5 class="card-title">Monsoon Effect & Pre-Monsoon Outreach</h5>
-            <p class="card-subtitle">Seasonal impact on outcomes and dropout rates</p>
+      <!-- Dashboard Section: Additional Insights -->
+      <div id="insights">
+        <h2 class="section-header">
+          <i class="bi bi-lightbulb"></i>
+          Additional Strategic Insights
+        </h2>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Partner Performance League Table</h5>
+                  <p class="card-subtitle">
+                    Efficiency, timeliness, and risk by partner
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart10" class="chart-container"></div>
+            </div>
           </div>
-          <div class="card-actions">
-            <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
-            <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Capacity Lowers Variance & Risk</h5>
+                  <p class="card-subtitle">
+                    Partner capacity impact on performance
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart16" class="chart-container"></div>
+            </div>
           </div>
         </div>
-        <div id="chart15" class="chart-container"></div>
+
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Funds On Time → NPS & Dropout</h5>
+                  <p class="card-subtitle">
+                    Timely funding impact on beneficiary experience
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart11" class="chart-container"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Urban Spend Anomalies</h5>
+                  <p class="card-subtitle">
+                    Districts with unusual urban spending patterns
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart12" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">State Fairness Dashboard</h5>
+                  <p class="card-subtitle">
+                    Budget allocation vs. high-need population share
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart13" class="chart-container"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="dashboard-card">
+              <div class="card-header">
+                <div>
+                  <h5 class="card-title">Women in Skilling & Dropout</h5>
+                  <p class="card-subtitle">
+                    Female participation impact on program retention
+                  </p>
+                </div>
+                <div class="card-actions">
+                  <button class="btn-icon" title="Download">
+                    <i class="bi bi-download"></i>
+                  </button>
+                  <button class="btn-icon" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="chart14" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card mt-3">
+          <div class="card-header">
+            <div>
+              <h5 class="card-title">Monsoon Effect & Pre-Monsoon Outreach</h5>
+              <p class="card-subtitle">
+                Seasonal impact on outcomes and dropout rates
+              </p>
+            </div>
+            <div class="card-actions">
+              <button class="btn-icon" title="Download">
+                <i class="bi bi-download"></i>
+              </button>
+              <button class="btn-icon" title="Fullscreen">
+                <i class="bi bi-arrows-fullscreen"></i>
+              </button>
+            </div>
+          </div>
+          <div id="chart15" class="chart-container"></div>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
-  <!-- Import maps -->
-  <script type="importmap">
+    <!-- Import maps -->
+    <script type="importmap">
     {
       "imports": {
         "@observablehq/plot": "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm",
         "d3": "https://cdn.jsdelivr.net/npm/d3@7/+esm"
       }
     }
-  </script>
+    </script>
 
-  <!-- Dashboard logic -->
-  <script type="module">
-    import { loadData, formatCurrency, formatNumber, sumBy, meanBy, toggleFullscreen, downloadChart } from './core.js';
-    import chart1 from './efficiency-scatter.js';
-    import chart2 from './coverage-map.js';
-    import chart3 from './underserved.js';
-    import chart4 from './overview.js';
-    import chart5 from './kpi-waterfall.js';
-    import chart6 from './coverage-deciles.js';
-    import chart7 from './diminishing-returns.js';
-    import chart8 from './timeliness-impact.js';
-    import chart9 from './coverage-impact.js';
-    import chart10 from './partner-performance.js';
-    import chart11 from './funds-nps-dropout.js';
-    import chart12 from './urban-anomalies.js';
-    import chart13 from './state-fairness.js';
-    import chart14 from './women-dropout.js';
-    import chart15 from './monsoon-effect.js';
-    import chart16 from './capacity-variance.js';
+    <!-- Dashboard logic -->
+    <script type="module">
+    import chart16 from "./capacity-variance.js";
+    import {
+      downloadChart,
+      formatCurrency,
+      formatNumber,
+      loadData,
+      meanBy,
+      sumBy,
+      toggleFullscreen,
+    } from "./core.js";
+    import chart6 from "./coverage-deciles.js";
+    import chart9 from "./coverage-impact.js";
+    import chart2 from "./coverage-map.js";
+    import chart7 from "./diminishing-returns.js";
+    import chart1 from "./efficiency-scatter.js";
+    import chart11 from "./funds-nps-dropout.js";
+    import chart5 from "./kpi-waterfall.js";
+    import chart15 from "./monsoon-effect.js";
+    import chart4 from "./overview.js";
+    import chart10 from "./partner-performance.js";
+    import chart13 from "./state-fairness.js";
+    import chart8 from "./timeliness-impact.js";
+    import chart3 from "./underserved.js";
+    import chart12 from "./urban-anomalies.js";
+    import chart14 from "./women-dropout.js";
 
     // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', () => {
-      document.getElementById('sidebar').classList.toggle('show');
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("sidebar").classList.toggle("show");
     });
 
     // Active nav link
-    document.querySelectorAll('.sidebar-nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
+    document.querySelectorAll(".sidebar-nav a").forEach((link) => {
+      link.addEventListener("click", function(e) {
+        document.querySelectorAll(".sidebar-nav a").forEach((l) =>
+          l.classList.remove("active")
+        );
+        this.classList.add("active");
       });
     });
 
@@ -770,31 +937,43 @@
     async function initDashboard() {
       try {
         // Load data for stats
-        const portfolioData = await loadData('../data/grants_portfolio.csv');
-        const geoData = await loadData('../data/geo_need_coverage.csv');
+        const portfolioData = await loadData(
+          "../data/grants_portfolio.csv",
+        );
+        const geoData = await loadData("../data/geo_need_coverage.csv");
 
         // Update stats
-        const totalBudget = sumBy(portfolioData, 'budget_m_inr');
-        const totalBeneficiaries = sumBy(portfolioData, 'beneficiaries');
-        const avgOutcome = meanBy(portfolioData, 'outcome_index');
-        const avgGap = meanBy(geoData.filter(d => d.coverage_gap_per_1k > 0), 'coverage_gap_per_1k');
+        const totalBudget = sumBy(portfolioData, "budget_m_inr");
+        const totalBeneficiaries = sumBy(portfolioData, "beneficiaries");
+        const avgOutcome = meanBy(portfolioData, "outcome_index");
+        const avgGap = meanBy(
+          geoData.filter((d) => d.coverage_gap_per_1k > 0),
+          "coverage_gap_per_1k",
+        );
 
-        document.getElementById('statBudget').textContent = formatCurrency(totalBudget, 0) + 'M';
-        document.getElementById('statBeneficiaries').textContent = formatNumber(totalBeneficiaries / 1000, 0) + 'K';
-        document.getElementById('statOutcome').textContent = formatNumber(avgOutcome, 1);
-        document.getElementById('statGap').textContent = formatNumber(avgGap, 2) + ' /1K';
+        document.getElementById("statBudget").textContent =
+          formatCurrency(totalBudget, 0) + "M";
+        document.getElementById("statBeneficiaries").textContent =
+          formatNumber(totalBeneficiaries / 1000, 0) + "K";
+        document.getElementById("statOutcome").textContent = formatNumber(
+          avgOutcome,
+          1,
+        );
+        document.getElementById("statGap").textContent =
+          formatNumber(avgGap, 2) + " /1K";
 
         // Remove loading text
-        document.querySelectorAll('.stat-change').forEach(el => {
+        document.querySelectorAll(".stat-change").forEach((el) => {
           el.innerHTML = '<i class="bi bi-check-circle"></i> Updated';
-          el.classList.add('positive');
+          el.classList.add("positive");
         });
 
         // Populate state filter
-        const states = [...new Set(portfolioData.map(d => d.state))].sort();
-        const stateFilter = document.getElementById('stateFilter');
-        states.forEach(state => {
-          const option = document.createElement('option');
+        const states = [...new Set(portfolioData.map((d) => d.state))]
+          .sort();
+        const stateFilter = document.getElementById("stateFilter");
+        states.forEach((state) => {
+          const option = document.createElement("option");
           option.value = state;
           option.textContent = state;
           stateFilter.appendChild(option);
@@ -802,180 +981,325 @@
 
         // Initialize all charts with standard height
         const chartHeight = 500;
-        chartInstances.chart1 = chart1(document.getElementById('chart1'), { height: chartHeight });
-        chartInstances.chart2 = chart2(document.getElementById('chart2'), { height: chartHeight });
-        chartInstances.chart3 = chart3(document.getElementById('chart3'), { height: chartHeight });
-        chartInstances.chart4 = chart4(document.getElementById('chart4'), { height: chartHeight });
-        chartInstances.chart5 = chart5(document.getElementById('chart5'), { height: chartHeight });
-        chartInstances.chart6 = chart6(document.getElementById('chart6'), { height: chartHeight });
-        chartInstances.chart7 = chart7(document.getElementById('chart7'), { height: chartHeight });
-        chartInstances.chart8 = chart8(document.getElementById('chart8'), { height: chartHeight });
-        chartInstances.chart9 = chart9(document.getElementById('chart9'), { height: chartHeight });
-        chartInstances.chart10 = chart10(document.getElementById('chart10'), { height: chartHeight });
-        chartInstances.chart11 = chart11(document.getElementById('chart11'), { height: chartHeight });
-        chartInstances.chart12 = chart12(document.getElementById('chart12'), { height: chartHeight });
-        chartInstances.chart13 = chart13(document.getElementById('chart13'), { height: chartHeight });
-        chartInstances.chart14 = chart14(document.getElementById('chart14'), { height: chartHeight });
-        chartInstances.chart15 = chart15(document.getElementById('chart15'), { height: chartHeight });
-        chartInstances.chart16 = chart16(document.getElementById('chart16'), { height: chartHeight });
+        chartInstances.chart1 = chart1(document.getElementById("chart1"), {
+          height: chartHeight,
+        });
+        chartInstances.chart2 = chart2(document.getElementById("chart2"), {
+          height: chartHeight,
+        });
+        chartInstances.chart3 = chart3(document.getElementById("chart3"), {
+          height: chartHeight,
+        });
+        chartInstances.chart4 = chart4(document.getElementById("chart4"), {
+          height: chartHeight,
+        });
+        chartInstances.chart5 = chart5(document.getElementById("chart5"), {
+          height: chartHeight,
+        });
+        chartInstances.chart6 = chart6(document.getElementById("chart6"), {
+          height: chartHeight,
+        });
+        chartInstances.chart7 = chart7(document.getElementById("chart7"), {
+          height: chartHeight,
+        });
+        chartInstances.chart8 = chart8(document.getElementById("chart8"), {
+          height: chartHeight,
+        });
+        chartInstances.chart9 = chart9(document.getElementById("chart9"), {
+          height: chartHeight,
+        });
+        chartInstances.chart10 = chart10(
+          document.getElementById("chart10"),
+          { height: chartHeight },
+        );
+        chartInstances.chart11 = chart11(
+          document.getElementById("chart11"),
+          { height: chartHeight },
+        );
+        chartInstances.chart12 = chart12(
+          document.getElementById("chart12"),
+          { height: chartHeight },
+        );
+        chartInstances.chart13 = chart13(
+          document.getElementById("chart13"),
+          { height: chartHeight },
+        );
+        chartInstances.chart14 = chart14(
+          document.getElementById("chart14"),
+          { height: chartHeight },
+        );
+        chartInstances.chart15 = chart15(
+          document.getElementById("chart15"),
+          { height: chartHeight },
+        );
+        chartInstances.chart16 = chart16(
+          document.getElementById("chart16"),
+          { height: chartHeight },
+        );
 
         // Store unfiltered data for filtering
         window.dashboardData = {
           portfolio: portfolioData,
-          geo: geoData
+          geo: geoData,
         };
-
       } catch (error) {
-        console.error('Error initializing dashboard:', error);
-        document.querySelectorAll('.stat-value').forEach(el => {
-          el.textContent = 'Error';
+        console.error("Error initializing dashboard:", error);
+        document.querySelectorAll(".stat-value").forEach((el) => {
+          el.textContent = "Error";
         });
       }
     }
 
     // Apply filters
-    document.getElementById('applyFilters').addEventListener('click', async () => {
-      const theme = document.getElementById('themeFilter').value;
-      const state = document.getElementById('stateFilter').value;
-      const needMin = document.getElementById('needFilter').value;
+    document.getElementById("applyFilters").addEventListener(
+      "click",
+      async () => {
+        const theme = document.getElementById("themeFilter").value;
+        const state = document.getElementById("stateFilter").value;
+        const needMin = document.getElementById("needFilter").value;
 
-      try {
-        const portfolio = window.dashboardData.portfolio;
-        const geo = window.dashboardData.geo;
+        try {
+          const portfolio = window.dashboardData.portfolio;
+          const geo = window.dashboardData.geo;
 
-        // Filter portfolio data
-        let filteredPortfolio = portfolio;
-        if (theme) {
-          filteredPortfolio = filteredPortfolio.filter(d => d.theme === theme);
+          // Filter portfolio data
+          let filteredPortfolio = portfolio;
+          if (theme) {
+            filteredPortfolio = filteredPortfolio.filter((d) =>
+              d.theme === theme
+            );
+          }
+          if (state) {
+            filteredPortfolio = filteredPortfolio.filter((d) =>
+              d.state === state
+            );
+          }
+
+          // Filter geo data
+          let filteredGeo = geo;
+          if (state) {
+            filteredGeo = filteredGeo.filter((d) => d.state === state);
+          }
+          if (needMin) {
+            filteredGeo = filteredGeo.filter((d) =>
+              d.need_decile >= parseInt(needMin)
+            );
+          }
+
+          // Update stats
+          const totalBudget = sumBy(filteredPortfolio, "budget_m_inr");
+          const totalBeneficiaries = sumBy(
+            filteredPortfolio,
+            "beneficiaries",
+          );
+          const avgOutcome = meanBy(filteredPortfolio, "outcome_index");
+          const avgGap = meanBy(
+            filteredGeo.filter((d) => d.coverage_gap_per_1k > 0),
+            "coverage_gap_per_1k",
+          );
+
+          document.getElementById("statBudget").textContent =
+            formatCurrency(totalBudget, 0) + "M";
+          document.getElementById("statBeneficiaries").textContent =
+            formatNumber(totalBeneficiaries / 1000, 0) + "K";
+          document.getElementById("statOutcome").textContent = formatNumber(
+            avgOutcome,
+            1,
+          );
+          document.getElementById("statGap").textContent =
+            formatNumber(avgGap, 2) + " /1K";
+
+          // Update charts with filtered data
+          const chartHeight = 500;
+          if (chartInstances.chart1) {
+            chartInstances.chart1.update({
+              data: filteredPortfolio,
+              height: chartHeight,
+            });
+          }
+          if (chartInstances.chart2) {
+            chartInstances.chart2.update({
+              data: filteredGeo,
+              height: chartHeight,
+            });
+          }
+          if (chartInstances.chart3) {
+            chartInstances.chart3.update({
+              data: filteredGeo,
+              height: chartHeight,
+            });
+          }
+          if (chartInstances.chart4) {
+            chartInstances.chart4.update({
+              data: filteredPortfolio,
+              height: chartHeight,
+            });
+          }
+          if (chartInstances.chart7) {
+            chartInstances.chart7.update({
+              data: filteredPortfolio,
+              height: chartHeight,
+            });
+          }
+          if (chartInstances.chart9) {
+            chartInstances.chart9.update({
+              data: filteredGeo,
+              height: chartHeight,
+            });
+          }
+        } catch (error) {
+          console.error("Error applying filters:", error);
+          alert("Error applying filters: " + error.message);
         }
-        if (state) {
-          filteredPortfolio = filteredPortfolio.filter(d => d.state === state);
-        }
-
-        // Filter geo data
-        let filteredGeo = geo;
-        if (state) {
-          filteredGeo = filteredGeo.filter(d => d.state === state);
-        }
-        if (needMin) {
-          filteredGeo = filteredGeo.filter(d => d.need_decile >= parseInt(needMin));
-        }
-
-        // Update stats
-        const totalBudget = sumBy(filteredPortfolio, 'budget_m_inr');
-        const totalBeneficiaries = sumBy(filteredPortfolio, 'beneficiaries');
-        const avgOutcome = meanBy(filteredPortfolio, 'outcome_index');
-        const avgGap = meanBy(filteredGeo.filter(d => d.coverage_gap_per_1k > 0), 'coverage_gap_per_1k');
-
-        document.getElementById('statBudget').textContent = formatCurrency(totalBudget, 0) + 'M';
-        document.getElementById('statBeneficiaries').textContent = formatNumber(totalBeneficiaries / 1000, 0) + 'K';
-        document.getElementById('statOutcome').textContent = formatNumber(avgOutcome, 1);
-        document.getElementById('statGap').textContent = formatNumber(avgGap, 2) + ' /1K';
-
-        // Update charts with filtered data
-        const chartHeight = 500;
-        if (chartInstances.chart1) chartInstances.chart1.update({ data: filteredPortfolio, height: chartHeight });
-        if (chartInstances.chart2) chartInstances.chart2.update({ data: filteredGeo, height: chartHeight });
-        if (chartInstances.chart3) chartInstances.chart3.update({ data: filteredGeo, height: chartHeight });
-        if (chartInstances.chart4) chartInstances.chart4.update({ data: filteredPortfolio, height: chartHeight });
-        if (chartInstances.chart7) chartInstances.chart7.update({ data: filteredPortfolio, height: chartHeight });
-        if (chartInstances.chart9) chartInstances.chart9.update({ data: filteredGeo, height: chartHeight });
-
-      } catch (error) {
-        console.error('Error applying filters:', error);
-        alert('Error applying filters: ' + error.message);
-      }
-    });
+      },
+    );
 
     // Fullscreen and download buttons
-    document.querySelectorAll('.btn-icon').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const card = this.closest('.dashboard-card');
-        const container = card.querySelector('.chart-container');
-        const title = card.querySelector('.card-title').textContent;
+    document.querySelectorAll(".btn-icon").forEach((btn) => {
+      btn.addEventListener("click", function() {
+        const card = this.closest(".dashboard-card");
+        const container = card.querySelector(".chart-container");
+        const title = card.querySelector(".card-title").textContent;
 
-        if (this.title === 'Fullscreen') {
+        if (this.title === "Fullscreen") {
           toggleFullscreen(card);
-        } else if (this.title === 'Download') {
-          downloadChart(container, `${title.replace(/\s+/g, '-').toLowerCase()}.png`);
+        } else if (this.title === "Download") {
+          downloadChart(
+            container,
+            `${title.replace(/\s+/g, "-").toLowerCase()}.png`,
+          );
         }
       });
     });
 
     // Reset filters
-    document.getElementById('resetFilters').addEventListener('click', () => {
-      document.getElementById('themeFilter').value = '';
-      document.getElementById('stateFilter').value = '';
-      document.getElementById('needFilter').value = '0';
+    document.getElementById("resetFilters").addEventListener(
+      "click",
+      () => {
+        document.getElementById("themeFilter").value = "";
+        document.getElementById("stateFilter").value = "";
+        document.getElementById("needFilter").value = "0";
 
-      // Reset to unfiltered data
-      const chartHeight = 500;
-      if (chartInstances.chart1) chartInstances.chart1.update({ data: window.dashboardData.portfolio, height: chartHeight });
-      if (chartInstances.chart2) chartInstances.chart2.update({ data: window.dashboardData.geo, height: chartHeight });
-      if (chartInstances.chart3) chartInstances.chart3.update({ data: window.dashboardData.geo, height: chartHeight });
-      if (chartInstances.chart4) chartInstances.chart4.update({ data: window.dashboardData.portfolio, height: chartHeight });
-      if (chartInstances.chart7) chartInstances.chart7.update({ data: window.dashboardData.portfolio, height: chartHeight });
-      if (chartInstances.chart9) chartInstances.chart9.update({ data: window.dashboardData.geo, height: chartHeight });
+        // Reset to unfiltered data
+        const chartHeight = 500;
+        if (chartInstances.chart1) {
+          chartInstances.chart1.update({
+            data: window.dashboardData.portfolio,
+            height: chartHeight,
+          });
+        }
+        if (chartInstances.chart2) {
+          chartInstances.chart2.update({
+            data: window.dashboardData.geo,
+            height: chartHeight,
+          });
+        }
+        if (chartInstances.chart3) {
+          chartInstances.chart3.update({
+            data: window.dashboardData.geo,
+            height: chartHeight,
+          });
+        }
+        if (chartInstances.chart4) {
+          chartInstances.chart4.update({
+            data: window.dashboardData.portfolio,
+            height: chartHeight,
+          });
+        }
+        if (chartInstances.chart7) {
+          chartInstances.chart7.update({
+            data: window.dashboardData.portfolio,
+            height: chartHeight,
+          });
+        }
+        if (chartInstances.chart9) {
+          chartInstances.chart9.update({
+            data: window.dashboardData.geo,
+            height: chartHeight,
+          });
+        }
 
-      // Reset stats
-      const totalBudget = sumBy(window.dashboardData.portfolio, 'budget_m_inr');
-      const totalBeneficiaries = sumBy(window.dashboardData.portfolio, 'beneficiaries');
-      const avgOutcome = meanBy(window.dashboardData.portfolio, 'outcome_index');
-      const avgGap = meanBy(window.dashboardData.geo.filter(d => d.coverage_gap_per_1k > 0), 'coverage_gap_per_1k');
+        // Reset stats
+        const totalBudget = sumBy(
+          window.dashboardData.portfolio,
+          "budget_m_inr",
+        );
+        const totalBeneficiaries = sumBy(
+          window.dashboardData.portfolio,
+          "beneficiaries",
+        );
+        const avgOutcome = meanBy(
+          window.dashboardData.portfolio,
+          "outcome_index",
+        );
+        const avgGap = meanBy(
+          window.dashboardData.geo.filter((d) => d.coverage_gap_per_1k > 0),
+          "coverage_gap_per_1k",
+        );
 
-      document.getElementById('statBudget').textContent = formatCurrency(totalBudget, 0) + 'M';
-      document.getElementById('statBeneficiaries').textContent = formatNumber(totalBeneficiaries / 1000, 0) + 'K';
-      document.getElementById('statOutcome').textContent = formatNumber(avgOutcome, 1);
-      document.getElementById('statGap').textContent = formatNumber(avgGap, 2) + ' /1K';
-    });
+        document.getElementById("statBudget").textContent =
+          formatCurrency(totalBudget, 0) + "M";
+        document.getElementById("statBeneficiaries").textContent =
+          formatNumber(totalBeneficiaries / 1000, 0) + "K";
+        document.getElementById("statOutcome").textContent = formatNumber(
+          avgOutcome,
+          1,
+        );
+        document.getElementById("statGap").textContent =
+          formatNumber(avgGap, 2) + " /1K";
+      },
+    );
 
     // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(this.getAttribute("href"));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
 
     // Back to top button
-    const backToTop = document.createElement('button');
-    backToTop.className = 'btn btn-primary rounded-circle position-fixed';
-    backToTop.style.cssText = 'bottom: 2rem; right: 2rem; width: 50px; height: 50px; display: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+    const backToTop = document.createElement("button");
+    backToTop.className = "btn btn-primary rounded-circle position-fixed";
+    backToTop.style.cssText =
+      "bottom: 2rem; right: 2rem; width: 50px; height: 50px; display: none; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);";
     backToTop.innerHTML = '<i class="bi bi-arrow-up"></i>';
-    backToTop.title = 'Back to top';
+    backToTop.title = "Back to top";
     document.body.appendChild(backToTop);
 
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     // Show/hide back to top button
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 300) {
-        backToTop.style.display = 'block';
+        backToTop.style.display = "block";
       } else {
-        backToTop.style.display = 'none';
+        backToTop.style.display = "none";
       }
     });
 
     // Reading progress indicator
-    const progressBar = document.createElement('div');
-    progressBar.className = 'position-fixed top-0 start-0';
-    progressBar.style.cssText = 'height: 3px; background: linear-gradient(to right, #0d6efd, #00d4ff); width: 0%; z-index: 9999; transition: width 0.1s;';
+    const progressBar = document.createElement("div");
+    progressBar.className = "position-fixed top-0 start-0";
+    progressBar.style.cssText =
+      "height: 3px; background: linear-gradient(to right, #0d6efd, #00d4ff); width: 0%; z-index: 9999; transition: width 0.1s;";
     document.body.prepend(progressBar);
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const height = document.documentElement.scrollHeight
+        - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
-      progressBar.style.width = scrolled + '%';
+      progressBar.style.width = scrolled + "%";
     });
 
     // Initialize
     initDashboard();
-  </script>
-</body>
+    </script>
+  </body>
 </html>

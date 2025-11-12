@@ -5,6 +5,7 @@ This document provides a comprehensive template and guide for creating new chart
 ## Overview
 
 Each chart is an **independent ES module** that exports a `render(container, props)` function. Charts are:
+
 - **Responsive**: Adapt to container size using ResizeObserver
 - **Reusable**: Can be used in both data story and dashboard
 - **Interactive**: Support tooltips, highlighting, and optional filters
@@ -33,6 +34,7 @@ export default function render(container, props = {}) {
 ## File Naming Convention
 
 Use descriptive names without numbers:
+
 - ✅ **Good**: `efficiency-scatter.js`, `partner-performance.js`, `monsoon-effect.js`
 - ❌ **Bad**: `chart1.js`, `visualization-1.js`, `chart-new.js`
 
@@ -186,41 +188,46 @@ export default function render(container, props = {}) {
 ## Available Utilities from core.js
 
 ### Data Loading
+
 ```javascript
-const data = await loadData('../data/grants_portfolio.csv');  // Returns array of objects
+const data = await loadData("../data/grants_portfolio.csv"); // Returns array of objects
 ```
 
 ### Formatting Functions
+
 ```javascript
-formatCurrency(1500000, 2)     // "₹1.50M"
-formatNumber(1234.567, 1)       // "1,234.6"
-formatPercent(0.456, 1)         // "45.6%"
+formatCurrency(1500000, 2); // "₹1.50M"
+formatNumber(1234.567, 1); // "1,234.6"
+formatPercent(0.456, 1); // "45.6%"
 ```
 
 ### Aggregation Functions
+
 ```javascript
-sumBy(data, 'budget_m_inr')            // Sum of budget column
-meanBy(data, 'outcome_index')          // Mean of outcome column
-groupBy(data, 'theme')                 // Group by theme: { Health: [...], Education: [...] }
+sumBy(data, "budget_m_inr"); // Sum of budget column
+meanBy(data, "outcome_index"); // Mean of outcome column
+groupBy(data, "theme"); // Group by theme: { Health: [...], Education: [...] }
 ```
 
 ### Colors (Tata Trusts Brand)
+
 ```javascript
-COLORS.dark       // '#23272b'  - Primary dark
-COLORS.lightBlue  // '#9fcdff'  - Accent blue
-COLORS.red        // '#d0362d'  - Alert/danger
-COLORS.teal       // '#17a2b8'  - Primary teal
-COLORS.success    // '#28a745'  - Success green
-COLORS.purple     // '#6f42c1'  - Secondary purple
-COLORS.orange     // '#fd7e14'  - Highlight orange
-COLORS.warning    // '#ffc107'  - Warning yellow
-COLORS.gray       // '#6c757d'  - Muted gray
+COLORS.dark; // '#23272b'  - Primary dark
+COLORS.lightBlue; // '#9fcdff'  - Accent blue
+COLORS.red; // '#d0362d'  - Alert/danger
+COLORS.teal; // '#17a2b8'  - Primary teal
+COLORS.success; // '#28a745'  - Success green
+COLORS.purple; // '#6f42c1'  - Secondary purple
+COLORS.orange; // '#fd7e14'  - Highlight orange
+COLORS.warning; // '#ffc107'  - Warning yellow
+COLORS.gray; // '#6c757d'  - Muted gray
 ```
 
 ### UI Functions
+
 ```javascript
-toggleFullscreen(element)              // Toggle fullscreen mode
-downloadChart(container, 'chart.png')  // Download chart as PNG
+toggleFullscreen(element); // Toggle fullscreen mode
+downloadChart(container, "chart.png"); // Download chart as PNG
 ```
 
 ## Data Sources
@@ -245,56 +252,72 @@ Available CSV files in `../data/`:
 ## Chart Types & Examples
 
 ### 1. Scatter Plot
+
 Use for: Correlations, outliers, quadrant analysis
+
 ```javascript
-Plot.dot(data, { x: "field1", y: "field2", fill: "category" })
+Plot.dot(data, { x: "field1", y: "field2", fill: "category" });
 ```
 
 ### 2. Bar Chart
+
 Use for: Comparisons, rankings, distributions
+
 ```javascript
-Plot.barY(data, { x: "category", y: "value", fill: COLORS.teal })
+Plot.barY(data, { x: "category", y: "value", fill: COLORS.teal });
 ```
 
 ### 3. Line Chart
+
 Use for: Trends over time, cumulative patterns
+
 ```javascript
-Plot.line(data, { x: "month", y: "value", stroke: COLORS.dark })
+Plot.line(data, { x: "month", y: "value", stroke: COLORS.dark });
 ```
 
 ### 4. Area Chart
+
 Use for: Gaps, ranges, cumulative areas
+
 ```javascript
-Plot.areaY(data, { x: "x", y1: "min", y2: "max", fill: COLORS.lightBlue })
+Plot.areaY(data, { x: "x", y1: "min", y2: "max", fill: COLORS.lightBlue });
 ```
 
 ### 5. Heatmap
+
 Use for: Matrix data, correlations, calendars
+
 ```javascript
-Plot.cell(data, { x: "col", y: "row", fill: "value" })
+Plot.cell(data, { x: "col", y: "row", fill: "value" });
 ```
 
 ### 6. Box Plot
+
 Use for: Distributions, outliers, statistical summaries
+
 ```javascript
-Plot.boxY(data, { x: "category", y: "value" })
+Plot.boxY(data, { x: "category", y: "value" });
 ```
 
 ## Best Practices
 
 ### 1. **Standardize Heights**
+
 Always use `height = props.height || 500` for consistency across dashboard.
 
 ### 2. **Add Tooltips**
+
 Include `tip: true` or custom `title` for interactivity:
+
 ```javascript
 Plot.dot(data, {
   tip: true,
-  title: d => `${d.name}\nValue: ${formatNumber(d.value)}`
-})
+  title: (d) => `${d.name}\nValue: ${formatNumber(d.value)}`,
+});
 ```
 
 ### 3. **Use Semantic Colors**
+
 - **Teal**: Primary/neutral metrics
 - **Red**: Alerts, risks, negative trends
 - **Green**: Success, positive outcomes
@@ -302,33 +325,43 @@ Plot.dot(data, {
 - **Orange**: Highlights, anomalies
 
 ### 4. **Label Axes Clearly**
+
 ```javascript
-x: { label: "Budget (₹M) →" }    // Horizontal axis with arrow
-y: { label: "↑ Outcome Score" }   // Vertical axis with arrow
+x: {
+  label: "Budget (₹M) →";
+} // Horizontal axis with arrow
+y: {
+  label: "↑ Outcome Score";
+} // Vertical axis with arrow
 ```
 
 ### 5. **Handle Missing Data**
+
 ```javascript
-const cleanData = data.filter(d =>
-  d.field1 != null &&
-  d.field2 != null &&
-  !isNaN(d.field1) &&
-  !isNaN(d.field2)
+const cleanData = data.filter((d) =>
+  d.field1 != null
+  && d.field2 != null
+  && !isNaN(d.field1)
+  && !isNaN(d.field2)
 );
 ```
 
 ### 6. **Add Context**
+
 Include a caption/subtitle explaining the key insight:
+
 ```javascript
-const caption = document.createElement('p');
-caption.className = 'text-muted text-center mt-2 mb-0';
-caption.style.fontSize = '14px';
+const caption = document.createElement("p");
+caption.className = "text-muted text-center mt-2 mb-0";
+caption.style.fontSize = "14px";
 caption.innerHTML = `Finding: <strong>X% increase</strong> in Y when Z.`;
 container.appendChild(caption);
 ```
 
 ### 7. **Test Responsiveness**
+
 Charts automatically resize, but test at different widths:
+
 - Desktop: 1200px+
 - Tablet: 768-1199px
 - Mobile: <768px
@@ -336,9 +369,11 @@ Charts automatically resize, but test at different widths:
 ## Integration Steps
 
 ### Step 1: Create the Chart File
+
 Save as `dataviz/descriptive-name.js`
 
 ### Step 2: Add to Dashboard
+
 Edit `dashboard.html`:
 
 ```html
@@ -376,6 +411,7 @@ Edit `dashboard.html`:
 ```
 
 ### Step 3: Add to Data Story (Optional)
+
 Edit `index.html`:
 
 ```html
@@ -391,6 +427,7 @@ Edit `index.html`:
 ```
 
 ### Step 4: Update Filters (If Applicable)
+
 If chart needs to respond to filters in dashboard:
 
 ```javascript
@@ -398,12 +435,13 @@ If chart needs to respond to filters in dashboard:
 if (chartInstances.chartNew) {
   chartInstances.chartNew.update({
     data: filteredData,
-    height: chartHeight
+    height: chartHeight,
   });
 }
 ```
 
 ### Step 5: Test
+
 1. Open `dashboard.html` in browser
 2. Test on different screen sizes
 3. Test download and fullscreen buttons
@@ -429,6 +467,7 @@ if (chartInstances.chartNew) {
 ## Common Patterns
 
 ### Multi-panel charts (faceting)
+
 ```javascript
 fx: {
   domain: ['Panel 1', 'Panel 2', 'Panel 3'],
@@ -437,29 +476,36 @@ fx: {
 ```
 
 ### Annotations
+
 ```javascript
-Plot.text([{x: value, y: value, text: "annotation"}], {
-  x: "x", y: "y", text: "text",
-  fontSize: 11, fill: COLORS.gray
-})
+Plot.text([{ x: value, y: value, text: "annotation" }], {
+  x: "x",
+  y: "y",
+  text: "text",
+  fontSize: 11,
+  fill: COLORS.gray,
+});
 ```
 
 ### Highlight specific points
+
 ```javascript
 Plot.dot(data, {
-  fill: d => d.is_outlier ? COLORS.red : COLORS.teal,
-  r: d => d.is_outlier ? 6 : 3
-})
+  fill: (d) => d.is_outlier ? COLORS.red : COLORS.teal,
+  r: (d) => d.is_outlier ? 6 : 3,
+});
 ```
 
 ### Add trend lines
+
 ```javascript
 Plot.linearRegressionY(data, {
-  x: "x", y: "y",
+  x: "x",
+  y: "y",
   stroke: COLORS.red,
   strokeWidth: 2,
-  strokeDasharray: "4,4"
-})
+  strokeDasharray: "4,4",
+});
 ```
 
 ## Questions?
