@@ -1,9 +1,3 @@
----
-layout: layout.njk
-title: Review Checklist - RFP Response Quality Check
-permalink: review.html
----
-
 # Proposal Review Checklist
 
 This document identifies sections of the proposal that require careful review before submission to ensure accuracy, completeness, compliance, and competitive strength.

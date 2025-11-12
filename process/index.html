@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="How AI agents helped respond to Tata Trusts' RFP in days instead of weeks - A comprehensive tutorial on leveraging AI for rapid, high-quality RFP responses">
-  <title>From RFP to Response: A Human-AI Collaboration Story | Tata Trusts RFP 2025</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="How AI agents helped respond to Tata Trusts' RFP in days instead of weeks - A comprehensive tutorial on leveraging AI for rapid, high-quality RFP responses"
+    >
+    <title>
+      From RFP to Response: A Human-AI Collaboration Story | Tata Trusts RFP
+      2025
+    </title>
 
-  <!-- Google Fonts - Titillium Web -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Titillium Web -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    >
 
-  <!-- Bootstrap 5.3.3 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Bootstrap 5.3.3 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    >
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    >
 
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="../style.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../style.css">
 
-  <!-- Page-Specific Styles -->
-  <style>
+    <!-- Page-Specific Styles -->
+    <style>
     /* Code blocks */
     code {
-      font-family: 'Fira Code', monospace;
+      font-family: "Fira Code", monospace;
       background: var(--tata-light);
       padding: 0.2rem 0.4rem;
       border-radius: 4px;
@@ -141,7 +156,11 @@
 
     /* Highlight boxes */
     .highlight-box {
-      background: linear-gradient(135deg, rgba(208, 54, 45, 0.05) 0%, rgba(208, 54, 45, 0.1) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(208, 54, 45, 0.05) 0%,
+        rgba(208, 54, 45, 0.1) 100%
+      );
       border-left: 4px solid var(--tata-red);
       padding: 1.5rem;
       margin: 2rem 0;
@@ -169,7 +188,11 @@
 
     .timeline-viz-bar {
       height: 60px;
-      background: linear-gradient(90deg, var(--tata-teal) 0%, var(--tata-blue) 100%);
+      background: linear-gradient(
+        90deg,
+        var(--tata-teal) 0%,
+        var(--tata-blue) 100%
+      );
       border-radius: 30px;
       position: relative;
       overflow: hidden;
@@ -230,7 +253,11 @@
     .success-metric-value {
       font-size: 3rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--tata-teal) 0%, var(--tata-blue) 100%);
+      background: linear-gradient(
+        135deg,
+        var(--tata-teal) 0%,
+        var(--tata-blue) 100%
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -262,7 +289,7 @@
     }
 
     .prompt-example::before {
-      content: '💬';
+      content: "💬";
       position: absolute;
       top: -15px;
       left: 20px;
@@ -280,7 +307,7 @@
     }
 
     .prompt-example-text {
-      font-family: 'Fira Code', monospace;
+      font-family: "Fira Code", monospace;
       font-size: 0.9rem;
       line-height: 1.6;
       white-space: pre-wrap;
@@ -299,7 +326,11 @@
 
     .progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, var(--tata-teal) 0%, var(--tata-blue) 100%);
+      background: linear-gradient(
+        90deg,
+        var(--tata-teal) 0%,
+        var(--tata-blue) 100%
+      );
       width: 0%;
       transition: width 0.1s ease;
     }
@@ -320,913 +351,1316 @@
         font-size: 2rem;
       }
     }
-  </style>
-</head>
-<body>
-  <!-- Reading Progress Bar -->
-  <div class="progress-bar-container">
-    <div class="progress-bar" id="reading-progress"></div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg fixed-top" style="top: 4px;">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">
-        <i class="bi bi-arrow-left-circle me-2"></i>
-        Tata Trusts RFP
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
-          <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
-          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
-          <li class="nav-item"><a class="nav-link" href="#lessons">Lessons</a></li>
-          <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
-        </ul>
-      </div>
+    </style>
+  </head>
+  <body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="reading-progress"></div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <div class="hero-content">
-      <div class="hero-meta-label" style="opacity: 0.6; margin-bottom: 1rem;">
-        <i class="bi bi-robot"></i> HUMAN-AI COLLABORATION STORY
-      </div>
-      <h1 class="hero-title">From RFP to Response in 7 Days</h1>
-      <p class="hero-subtitle">
-        How AI agents helped create a comprehensive RFP response with data visualizations,
-        documentation, and analysis—while teaching us about the future of work
-      </p>
-      <div class="hero-meta" style="margin-top: 3rem;">
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Duration</div>
-          <div class="hero-meta-value">7 Days</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">AI Tools Used</div>
-          <div class="hero-meta-value">4</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Pages Created</div>
-          <div class="hero-meta-value">5</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Human Hours</div>
-          <div class="hero-meta-value">~20</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="top: 4px">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <i class="bi bi-arrow-left-circle me-2"></i>
+          Tata Trusts RFP
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#timeline">Timeline</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">Process</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lessons">Lessons</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#results">Results</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="scroll-indicator">
-      <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="28" height="38" rx="14" stroke="white" stroke-width="2"/>
-        <circle cx="15" cy="12" r="4" fill="white"/>
-      </svg>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Overview Section -->
-  <section id="overview" class="story-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="section-number">01 / OVERVIEW</div>
-          <h2 class="section-title">The Challenge</h2>
-
-          <p class="section-description">
-            On November 5, 2025, Tata Trusts sent out an RFP for a "Design & Development of Geographical Data
-            Visualisation Dashboard." The deadline? <strong>November 17—just 13 days away.</strong>
-          </p>
-
-          <div class="highlight-box">
-            <div class="highlight-box-title">
-              <i class="bi bi-lightning-fill me-2"></i>
-              The Traditional Approach
-            </div>
-            <div class="highlight-box-content">
-              A typical RFP response would require 2-3 weeks of work from a team of specialists:
-              business analysts to decode requirements, data scientists to create sample visualizations,
-              technical writers to craft the proposal, and designers to make it presentable. The cost?
-              Easily $20,000-$50,000 in labor, with no guarantee of winning the bid.
-            </div>
-          </div>
-
-          <p class="section-description">
-            But what if AI agents could handle most of this work—not replacing human expertise, but
-            amplifying it? This is the story of how one person, leveraging AI agents, created a
-            comprehensive RFP response in just 7 days, spending only ~20 hours of human time.
-          </p>
-
-          <div class="row mt-5 g-4">
-            <div class="col-md-4">
-              <div class="success-metric">
-                <div class="success-metric-value">85%</div>
-                <div class="success-metric-label">Time Saved</div>
-                <div class="success-metric-description">20 hours vs. 120+ hours traditional</div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="success-metric">
-                <div class="success-metric-value">90%</div>
-                <div class="success-metric-label">Cost Reduction</div>
-                <div class="success-metric-description">1-person effort vs. 5-person team</div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="success-metric">
-                <div class="success-metric-value">100%</div>
-                <div class="success-metric-label">Deliverables</div>
-                <div class="success-metric-description">All requirements met on time</div>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-meta-label" style="opacity: 0.6; margin-bottom: 1rem">
+          <i class="bi bi-robot"></i> HUMAN-AI COLLABORATION STORY
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section id="timeline" class="story-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="section-number">02 / TIMELINE</div>
-          <h2 class="section-title">7 Days, 8 Major Milestones</h2>
-
-          <p class="section-description">
-            From receiving the RFP to creating a comprehensive response with interactive visualizations,
-            here's how the week unfolded. Each milestone represents a collaboration between human judgment
-            and AI capabilities.
-          </p>
-
-          <div class="timeline-viz">
-            <div class="timeline-viz-bar">
-              <div class="timeline-viz-segment" style="left: 0%; width: 14.28%;">Day 1</div>
-              <div class="timeline-viz-segment" style="left: 14.28%; width: 14.28%;">Day 2</div>
-              <div class="timeline-viz-segment" style="left: 28.56%; width: 14.28%;">Day 3</div>
-              <div class="timeline-viz-segment" style="left: 42.84%; width: 14.28%;">Day 4</div>
-              <div class="timeline-viz-segment" style="left: 57.12%; width: 14.28%;">Day 5</div>
-              <div class="timeline-viz-segment" style="left: 71.4%; width: 14.28%;">Day 6</div>
-              <div class="timeline-viz-segment" style="left: 85.68%; width: 14.32%;">Day 7</div>
-            </div>
-          </div>
-
-          <!-- Day 1: Acknowledgement -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">1</span>
-              Nov 5: Formal Acknowledgement
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> The RFP document was bureaucratic and dense—typical for large
-                organizations but difficult to quickly parse.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> Used ChatGPT to draft a formal acknowledgement email.
-                Instead of spending 30 minutes crafting the perfect corporate response, the AI generated it in seconds.
-              </p>
-              <div class="prompt-example">
-                <div class="prompt-example-title">Prompt Used:</div>
-                <div class="prompt-example-text">"Reply formally to this email."</div>
-              </div>
-              <p class="mt-3">
-                <strong>Human Role:</strong> Reviewed and personalized the response, ensuring it matched
-                professional standards. <em>Time spent: 5 minutes.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#5-nov-2025-acknowledgement" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> Read detailed notes in process.md
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 2: Questions & Analysis -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">2</span>
-              Nov 5: Comprehensive Question Generation
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> RFPs often lack crucial details. Experienced pre-sales teams
-                know to ask clarifying questions early, but identifying all gaps requires deep domain knowledge.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> ChatGPT analyzed the RFP and generated 129 detailed questions
-                across 11 categories—from technical architecture to payment terms.
-              </p>
-              <div class="prompt-example">
-                <div class="prompt-example-title">Prompt Used:</div>
-                <div class="prompt-example-text">Suggest a comprehensive list of questions to ask based on the document.
-According to the RFP and email, who should I send these clarifications to?</div>
-              </div>
-              <p class="mt-3">
-                <strong>Human Role:</strong> Reviewed questions for relevance, removed duplicates, and prioritized
-                based on experience. Identified that some questions revealed assumptions about their technical
-                maturity. <em>Time spent: 30 minutes.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#5-nov-2025-questions" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> See all 129 questions in process.md
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 3: Pre-bid Prep -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">3</span>
-              Nov 11: Pre-bid Meeting Preparation
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> Pre-bid meetings are crucial for understanding unstated
-                requirements and building relationships, but they're also opportunities to reveal (or hide)
-                your expertise.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> Claude analyzed the RFP and generated strategic questions
-                to ask during the meeting, focusing on understanding the organizational context and true needs.
-              </p>
-              <div class="highlight-box mt-3 mb-3">
-                <div class="highlight-box-title">
-                  <i class="bi bi-lightbulb-fill me-2"></i>
-                  AI Insight: Bureaucracy Patterns
-                </div>
-                <div class="highlight-box-content">
-                  Claude identified that the RFP likely suffered from "procurement-led documentation" where
-                  technical requirements get filtered through non-technical stakeholders. This insight proved
-                  accurate in the pre-bid meeting.
-                </div>
-              </div>
-              <p>
-                <strong>Human Role:</strong> Used AI insights to guide conversation strategy. During the call,
-                actively listened for signals about organizational maturity, technical constraints, and decision-making
-                processes. <em>Time spent: 1 hour prep + 1 hour meeting.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-pre-bid-preparation" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> Read preparation notes in process.md
-                </a>
-                •
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/pre-bid.md" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-chat-dots"></i> View pre-bid FAQ
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 4: Documentation & Data -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">4</span>
-              Nov 11: RFP Conversion & Data Generation
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> The RFP was a 47-page PDF. Working with PDFs is painful—you
-                can't easily search, reference, or version control them. Plus, sample datasets were needed for
-                visualization demos.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong>
-              </p>
-              <ul>
-                <li><strong>Claude:</strong> Converted PDF to well-structured Markdown (with triple-checking to preserve even typos)</li>
-                <li><strong>ChatGPT:</strong> Generated 4 realistic fake datasets (500-2,000 rows each) that matched Tata Trusts' domain</li>
-              </ul>
-              <div class="prompt-example">
-                <div class="prompt-example-title">Data Generation Prompt:</div>
-                <div class="prompt-example-text">Generate 5 realistic fake datasets that will be powerful to demonstrate
-data visualizations on top of.
-
-STEP 1. List 10 different kinds of data the Tata Trusts team will likely be analyzing
-STEP 2. For each, list the insights and analyses they would be looking for
-STEP 3. Evaluate these datasets on domain relevance, ease of visualizing, and impactfulness
-STEP 4. Pick the top 4 and generate realistic data with embedded patterns</div>
-              </div>
-              <p class="mt-3">
-                <strong>Human Role:</strong> Reviewed datasets for realism. Asked AI to add missing fields
-                (partner names, realistic geographic distributions). Verified data patterns made sense for the domain.
-                <em>Time spent: 1 hour.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-rfp-to-markdown" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> See conversion process
-                </a>
-                •
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-data-generation" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-database"></i> Data generation details
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 5: Style Guide & Story -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">5</span>
-              Nov 11: Brand Research & RFP Story
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> Creating materials that match a client's brand requires extensive
-                research into their visual identity, tone, and design patterns—normally a designer's multi-day task.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> Claude Code analyzed Tata Trusts' website, extracted brand
-                guidelines (colors, typography, design patterns), and created a comprehensive style guide. Then
-                generated an interactive "RFP Story" website explaining the opportunity.
-              </p>
-              <div class="row mt-3 mb-3 g-3">
-                <div class="col-md-6">
-                  <div class="tool-badge">
-                    <i class="bi bi-palette-fill"></i>
-                    Extracted: Colors & Typography
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="tool-badge">
-                    <i class="bi bi-grid-fill"></i>
-                    Created: Component Library
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="tool-badge">
-                    <i class="bi bi-file-code-fill"></i>
-                    Generated: Bootstrap-based Templates
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="tool-badge">
-                    <i class="bi bi-graph-up"></i>
-                    Built: Interactive Visualizations
-                  </div>
-                </div>
-              </div>
-              <p>
-                <strong>Human Role:</strong> Reviewed visual consistency, requested refinements to match brand
-                tone, fact-checked claims about Tata Trusts' history and impact. <em>Time spent: 2 hours.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-style-guide-and-rfp-story" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> Read style guide creation notes
-                </a>
-                •
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/style-guide.md" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-palette"></i> View style guide
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 6: Visualizations -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">6</span>
-              Nov 11: Data Story & Dashboard Creation
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> Creating professional data visualizations requires: analyzing
-                data patterns, choosing appropriate chart types, implementing interactive features, ensuring
-                responsive design, and weaving it into a compelling narrative. This is typically a 3-5 day task
-                for a skilled developer.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> Claude Code created:
-              </p>
-              <ul>
-                <li><strong>Data Story:</strong> NYT-style scrollytelling narrative with 16 embedded charts</li>
-                <li><strong>Interactive Dashboard:</strong> Filterable, responsive dashboard with all visualizations</li>
-                <li><strong>Modular Architecture:</strong> Each chart as independent ESM module for reusability</li>
-                <li><strong>UX Features:</strong> Filters, exports, fullscreen mode, responsive design</li>
-              </ul>
-              <div class="highlight-box mt-3 mb-3">
-                <div class="highlight-box-title">
-                  <i class="bi bi-bug-fill me-2"></i>
-                  Where AI Struggled
-                </div>
-                <div class="highlight-box-content">
-                  The AI initially got Observable Plot's radius scaling wrong. It took 3 iterations and
-                  asking it to "read the documentation and take screenshots" before it correctly implemented
-                  dynamic circle sizes. <strong>Lesson:</strong> AI needs feedback loops and verification steps.
-                </div>
-              </div>
-              <p>
-                <strong>Human Role:</strong> Defined analysis priorities, reviewed chart effectiveness, tested
-                interactivity, identified bugs (especially the radius issue), and requested UX improvements.
-                <em>Time spent: 4 hours across multiple iterations.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-visualization" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> Read full visualization development story
-                </a>
-                •
-                <a href="dataviz/newchart.md" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-code-slash"></i> Chart creation template
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 7: Analysis & Process Doc -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">7</span>
-              Nov 12: Analysis Planning & Process Documentation
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> Stakeholders need to understand not just what was delivered,
-                but what insights are possible. Plus, documenting the process itself for future reference and learning.
-              </p>
-              <p>
-                <strong>The AI Solution:</strong> ChatGPT analyzed the generated datasets and:
-              </p>
-              <ul>
-                <li>Proposed 25 different analyses with rationale and visual recommendations</li>
-                <li>Ranked them by visual impact and usefulness</li>
-                <li>Identified "big, useful, surprising insights" vs. standard reporting</li>
-              </ul>
-              <p class="mt-3">
-                <strong>Human Role:</strong> Created this process documentation (process.md) capturing every step,
-                every prompt, every iteration, and every lesson learned. This document you're reading now.
-                <em>Time spent: 3 hours.</em>
-              </p>
-              <p class="mt-2">
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-analysis-plan" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-link-45deg"></i> See analysis planning notes
-                </a>
-                •
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/analyses.md" target="_blank" class="text-decoration-none">
-                  <i class="bi bi-bar-chart"></i> View full analysis list
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <!-- Day 8: Refinement -->
-          <div class="process-step fade-in">
-            <div class="process-step-title">
-              <span class="process-step-number">8</span>
-              Nov 12: Final Refinements & This Story
-            </div>
-            <div class="process-step-content">
-              <p>
-                <strong>The Challenge:</strong> All the pieces exist, but they need to be tied together with
-                clear navigation, consolidated styles, and this tutorial explaining the process.
-              </p>
-              <p>
-                <strong>What's Happening:</strong> Creating a landing page, consolidating CSS, and building
-                this interactive narrative to teach others how to replicate this approach.
-              </p>
-              <p class="mt-3">
-                <strong>Human Role:</strong> Designing the learning experience, structuring the narrative, and
-                ensuring the tutorial serves its three audiences: pre-sales teams, developers, and anyone curious
-                about AI capabilities. <em>Time spent: Ongoing...</em>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process Deep Dive Section -->
-  <section id="process" class="story-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="section-number">03 / PROCESS</div>
-          <h2 class="section-title">The Human-AI Collaboration Pattern</h2>
-
-          <p class="section-description">
-            This wasn't about AI replacing human work—it was about finding the right collaboration pattern.
-            Here's what emerged as the most effective workflow:
-          </p>
-
-          <div class="comparison-table mt-4">
-            <table class="table table-bordered mb-0">
-              <thead>
-                <tr>
-                  <th style="width: 25%;">Phase</th>
-                  <th style="width: 37.5%;">Human Responsibilities</th>
-                  <th style="width: 37.5%;">AI Responsibilities</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Strategy & Planning</strong></td>
-                  <td>
-                    • Define objectives<br>
-                    • Identify constraints<br>
-                    • Prioritize requirements<br>
-                    • Assess organizational context
-                  </td>
-                  <td>
-                    • Generate comprehensive question lists<br>
-                    • Identify potential gaps<br>
-                    • Suggest analysis approaches<br>
-                    • Pattern recognition in documents
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>Content Creation</strong></td>
-                  <td>
-                    • Define content strategy<br>
-                    • Review for accuracy<br>
-                    • Ensure brand alignment<br>
-                    • Add domain expertise
-                  </td>
-                  <td>
-                    • Draft initial content<br>
-                    • Structure information<br>
-                    • Format consistently<br>
-                    • Generate variations
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>Technical Implementation</strong></td>
-                  <td>
-                    • Define requirements<br>
-                    • Test functionality<br>
-                    • Identify edge cases<br>
-                    • Verify correctness
-                  </td>
-                  <td>
-                    • Write code<br>
-                    • Implement features<br>
-                    • Debug (with guidance)<br>
-                    • Optimize performance
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>Quality Assurance</strong></td>
-                  <td>
-                    • Define quality criteria<br>
-                    • Test user experience<br>
-                    • Verify domain accuracy<br>
-                    • Final approval
-                  </td>
-                  <td>
-                    • Self-review code<br>
-                    • Check consistency<br>
-                    • Suggest improvements<br>
-                    • Run automated tests
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="highlight-box mt-4">
-            <div class="highlight-box-title">
-              <i class="bi bi-diagram-3-fill me-2"></i>
-              The Key Pattern: Iterative Refinement
-            </div>
-            <div class="highlight-box-content">
-              <p>The most effective prompts weren't single shots—they were conversations:</p>
-              <ol class="mb-0">
-                <li><strong>Start broad:</strong> "Create a data visualization dashboard"</li>
-                <li><strong>Review output:</strong> Human identifies gaps, errors, or improvements</li>
-                <li><strong>Refine specifically:</strong> "The radius scaling is wrong. Read the docs and take screenshots to verify"</li>
-                <li><strong>Iterate:</strong> Repeat until quality meets standards</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lessons Section -->
-  <section id="lessons" class="story-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="section-number">04 / LESSONS LEARNED</div>
-          <h2 class="section-title">What We Learned About AI Agents</h2>
-
-          <p class="section-description">
-            Through this intensive week of collaboration, clear patterns emerged about what AI agents excel at,
-            where they struggle, and how humans can most effectively guide them.
-          </p>
-
-          <!-- For Pre-sales Teams -->
-          <div class="lesson-card fade-in">
-            <div class="lesson-card-icon">
-              <i class="bi bi-briefcase-fill"></i>
-            </div>
-            <div class="lesson-card-title">For Pre-sales Teams: Speed Without Sacrificing Quality</div>
-            <div class="lesson-card-content">
-              <p><strong>What Worked:</strong></p>
-              <ul>
-                <li><strong>Question Generation:</strong> AI generated 129 clarifying questions in minutes—far more comprehensive than a team would produce in hours</li>
-                <li><strong>First Drafts:</strong> Formal communications, technical responses, and standard documentation were instant</li>
-                <li><strong>Pattern Recognition:</strong> AI identified organizational maturity signals and procurement patterns from document structure</li>
-                <li><strong>Research Synthesis:</strong> Quickly synthesized information from multiple sources (RFP, website, pre-bid notes)</li>
-              </ul>
-              <p><strong>What Didn't Work:</strong></p>
-              <ul>
-                <li><strong>Strategic Insight:</strong> AI couldn't identify which questions would build relationships vs. reveal ignorance</li>
-                <li><strong>Reading the Room:</strong> During pre-bid meetings, human judgment was essential for reading tone and adapting strategy</li>
-                <li><strong>Win Theme Development:</strong> Creating compelling narratives still requires human understanding of client pain points</li>
-              </ul>
-              <p><strong>The Takeaway:</strong> Use AI to accelerate documentation and research, but reserve strategic decisions for human expertise.
-              AI makes you 5x faster at execution, not 5x better at strategy.</p>
-            </div>
-          </div>
-
-          <!-- For Developers -->
-          <div class="lesson-card fade-in" style="background: linear-gradient(135deg, #d0362d 0%, #b82f27 100%);">
-            <div class="lesson-card-icon">
-              <i class="bi bi-code-slash"></i>
-            </div>
-            <div class="lesson-card-title">For Developers: AI as a Force Multiplier</div>
-            <div class="lesson-card-content">
-              <p><strong>What Worked:</strong></p>
-              <ul>
-                <li><strong>Boilerplate Elimination:</strong> No time wasted on navbar code, CSS reset, or Bootstrap setup</li>
-                <li><strong>Library Expertise:</strong> AI knew Observable Plot, D3, and Chart.js patterns better than most developers</li>
-                <li><strong>Rapid Prototyping:</strong> From concept to working prototype in minutes, not hours</li>
-                <li><strong>Consistency:</strong> Applying design patterns across multiple charts automatically</li>
-                <li><strong>Documentation:</strong> AI generated inline comments and README content as it coded</li>
-              </ul>
-              <p><strong>What Didn't Work:</strong></p>
-              <ul>
-                <li><strong>Edge Cases:</strong> AI missed responsive design issues and cross-browser compatibility concerns</li>
-                <li><strong>Library Nuances:</strong> Got Observable Plot's radius scaling wrong—needed explicit documentation reference</li>
-                <li><strong>Performance:</strong> Didn't consider data volume implications or optimize rendering until asked</li>
-                <li><strong>Accessibility:</strong> Keyboard navigation and screen reader support required explicit prompting</li>
-              </ul>
-              <p><strong>The Takeaway:</strong> AI excels at implementation but needs human oversight for edge cases and best practices.
-              The workflow becomes: Human architects → AI implements → Human refines → AI iterates. This cycle is 10x faster than solo coding.</p>
-            </div>
-          </div>
-
-          <!-- For Everyone -->
-          <div class="lesson-card fade-in" style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%);">
-            <div class="lesson-card-icon">
-              <i class="bi bi-people-fill"></i>
-            </div>
-            <div class="lesson-card-title">For Everyone: Understanding AI Capabilities</div>
-            <div class="lesson-card-content">
-              <p><strong>Where AI Excels:</strong></p>
-              <ul>
-                <li><strong>Pattern Application:</strong> Once shown a pattern, AI applies it consistently across contexts</li>
-                <li><strong>Comprehensive Generation:</strong> Exhaustive lists, variations, and alternatives</li>
-                <li><strong>Synthesis:</strong> Combining information from multiple sources into coherent outputs</li>
-                <li><strong>Transformation:</strong> Converting formats (PDF → Markdown, data → visualizations)</li>
-                <li><strong>Iteration Speed:</strong> Making changes is instant—no "cost" to trying alternatives</li>
-              </ul>
-              <p><strong>Where AI Struggles:</strong></p>
-              <ul>
-                <li><strong>Judgment:</strong> Can't assess "is this good enough?" or "is this appropriate?"</li>
-                <li><strong>Context:</strong> Misses implicit requirements or organizational nuances</li>
-                <li><strong>Verification:</strong> Claims certainty even when wrong (e.g., the radius scaling bug)</li>
-                <li><strong>Creativity:</strong> Generates within patterns, rarely breaks conventions innovatively</li>
-                <li><strong>Taste:</strong> Can't distinguish "technically correct" from "actually good"</li>
-              </ul>
-              <p><strong>Where Human Expertise Helps:</strong></p>
-              <ul>
-                <li><strong>Direction:</strong> "What should we build?" is still a human question</li>
-                <li><strong>Evaluation:</strong> "Is this good?" requires domain knowledge and experience</li>
-                <li><strong>Debugging:</strong> When AI hits limits, humans diagnose the root cause</li>
-                <li><strong>Quality Bar:</strong> Humans define what "done" looks like</li>
-                <li><strong>Ethics & Impact:</strong> Assessing consequences requires human judgment</li>
-              </ul>
-              <p><strong>The Takeaway:</strong> AI doesn't replace expertise—it amplifies productivity for those who already know what they're doing.
-              The 10x gain comes from eliminating grunt work, not eliminating knowledge requirements.</p>
-            </div>
-          </div>
-
-          <div class="highlight-box mt-5">
-            <div class="highlight-box-title">
-              <i class="bi bi-shield-fill-check me-2"></i>
-              The "Verification Imperative"
-            </div>
-            <div class="highlight-box-content">
-              <p>
-                The most critical lesson: <strong>AI outputs require verification</strong>. This isn't about "trust but verify"—
-                it's about understanding that AI confidently produces outputs without self-assessment. The Observable Plot radius
-                bug is a perfect example: AI generated code that looked right, ran without errors, and was confidently wrong.
-              </p>
-              <p class="mb-0">
-                <strong>Best Practice:</strong> Always ask AI to verify its own work by checking documentation, taking screenshots,
-                or running tests. "Make it work" is not enough—you need "Make it work AND prove it works."
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Results Section -->
-  <section id="results" class="story-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="section-number">05 / RESULTS & DELIVERABLES</div>
-          <h2 class="section-title">What Got Built</h2>
-
-          <p class="section-description">
-            In 7 days of part-time work (~20 human hours), here's what emerged from the human-AI collaboration:
-          </p>
-
-          <div class="row g-4 mt-3">
-            <div class="col-md-6">
-              <div class="insight-card">
-                <div class="insight-card-header">
-                  <div class="insight-icon" style="background: var(--tata-red);">📄</div>
-                  <div>
-                    <div class="insight-category">RFP Analysis</div>
-                  </div>
-                </div>
-                <ul class="mb-0">
-                  <li>47-page PDF converted to structured Markdown</li>
-                  <li>Pre-bid meeting transcription & FAQ</li>
-                  <li>129 clarifying questions across 11 categories</li>
-                  <li>Comprehensive process documentation</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="insight-card">
-                <div class="insight-card-header">
-                  <div class="insight-icon" style="background: var(--tata-teal);">🎨</div>
-                  <div>
-                    <div class="insight-category">Brand & Design</div>
-                  </div>
-                </div>
-                <ul class="mb-0">
-                  <li>Complete brand style guide</li>
-                  <li>Interactive RFP story website</li>
-                  <li>Consistent design system across pages</li>
-                  <li>Responsive, accessible layouts</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="insight-card">
-                <div class="insight-card-header">
-                  <div class="insight-icon" style="background: #f57c00;">📊</div>
-                  <div>
-                    <div class="insight-category">Data & Analysis</div>
-                  </div>
-                </div>
-                <ul class="mb-0">
-                  <li>4 realistic datasets (3,500+ total rows)</li>
-                  <li>25 proposed analyses ranked by impact</li>
-                  <li>16 implemented interactive visualizations</li>
-                  <li>Modular, reusable chart architecture</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="insight-card">
-                <div class="insight-card-header">
-                  <div class="insight-icon" style="background: var(--tata-success);">🚀</div>
-                  <div>
-                    <div class="insight-category">Deliverables</div>
-                  </div>
-                </div>
-                <ul class="mb-0">
-                  <li>NYT-style data story with scrollytelling</li>
-                  <li>Interactive filterable dashboard</li>
-                  <li>This process tutorial</li>
-                  <li>Complete GitHub repository</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="highlight-box mt-5">
-            <div class="highlight-box-title">
-              <i class="bi bi-trophy-fill me-2"></i>
-              The Real Achievement
-            </div>
-            <div class="highlight-box-content">
-              <p>
-                This isn't just about speed—it's about <strong>possibility</strong>. A comprehensive RFP response
-                with custom data visualizations was previously only feasible for well-funded teams or large agencies.
-                Now, a knowledgeable individual with AI tools can produce comparable quality in a fraction of the time
-                and cost.
-              </p>
-              <p class="mb-0">
-                <strong>This democratizes access to complex work.</strong> Small businesses can compete with larger
-                firms. Individual consultants can take on ambitious projects. Pre-sales teams can explore more
-                opportunities. The bottleneck shifts from "Do we have capacity?" to "Is this worth pursuing?"
-              </p>
-            </div>
-          </div>
-
-          <div class="row g-4 mt-5">
-            <div class="col-md-12 text-center">
-              <h3 class="mb-4">Explore the Deliverables</h3>
-              <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="../rfp-story/index.html" class="btn-primary-custom">
-                  <i class="bi bi-book-fill me-2"></i>
-                  View RFP Story
-                </a>
-                <a href="../dataviz/index.html" class="btn-primary-custom">
-                  <i class="bi bi-graph-up me-2"></i>
-                  View Data Story
-                </a>
-                <a href="../dataviz/dashboard.html" class="btn-primary-custom">
-                  <i class="bi bi-speedometer2 me-2"></i>
-                  View Dashboard
-                </a>
-                <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md" target="_blank" class="btn-secondary-custom">
-                  <i class="bi bi-file-text-fill me-2"></i>
-                  Read Full Process
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conclusion Section -->
-  <section class="story-section" style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%); color: white;">
-    <div class="container text-center">
-      <h2 class="section-title" style="color: white;">The Future is Collaborative</h2>
-      <p class="section-description mx-auto" style="color: rgba(255, 255, 255, 0.9); max-width: 800px;">
-        This project demonstrates that the future of work isn't about AI replacing humans or humans refusing AI.
-        It's about finding the right collaboration pattern—where AI handles the grunt work and humans provide
-        judgment, strategy, and quality control.
-      </p>
-      <p class="section-description mx-auto" style="color: rgba(255, 255, 255, 0.9); max-width: 800px;">
-        The teams that thrive will be those that learn to <strong>orchestrate AI effectively</strong>—knowing
-        what to delegate, what to verify, and when to override. This isn't a skill you can ignore anymore.
-        It's becoming as fundamental as knowing how to search Google or use a spreadsheet.
-      </p>
-      <div class="mt-5">
-        <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem; color: var(--tata-blue);">
-          Start experimenting. Start learning. The tools are here. The opportunity is now.
+        <h1 class="hero-title">From RFP to Response in 7 Days</h1>
+        <p class="hero-subtitle">
+          How AI agents helped create a comprehensive RFP response with data
+          visualizations, documentation, and analysis—while teaching us about
+          the future of work
         </p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-          <a href="../index.html" class="btn-primary-custom">
-            <i class="bi bi-house-fill me-2"></i>
-            Back to Home
-          </a>
-          <a href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025" target="_blank" class="btn-secondary-custom" style="color: white; border-color: white;">
-            <i class="bi bi-github me-2"></i>
-            View on GitHub
-          </a>
+        <div class="hero-meta" style="margin-top: 3rem">
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Duration</div>
+            <div class="hero-meta-value">7 Days</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">AI Tools Used</div>
+            <div class="hero-meta-value">4</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Pages Created</div>
+            <div class="hero-meta-value">5</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Human Hours</div>
+            <div class="hero-meta-value">~20</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="scroll-indicator">
+        <svg
+          width="30"
+          height="40"
+          viewBox="0 0 30 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="1"
+            y="1"
+            width="28"
+            height="38"
+            rx="14"
+            stroke="white"
+            stroke-width="2"
+          />
+          <circle cx="15" cy="12" r="4" fill="white" />
+        </svg>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h5>About This Project</h5>
-          <p>
-            A demonstration of human-AI collaboration in responding to Tata Trusts' RFP for a
-            Data Visualization Dashboard. Created to teach pre-sales teams, developers, and anyone
-            interested in AI capabilities.
-          </p>
-        </div>
-        <div class="col-md-6 text-md-end">
-          <h5>Tools Used</h5>
-          <p>
-            <a href="https://chatgpt.com/" target="_blank">ChatGPT</a> •
-            <a href="https://claude.ai/" target="_blank">Claude</a> •
-            <a href="https://gemini.google.com/" target="_blank">Gemini</a> •
-            <a href="https://observablehq.com/plot/" target="_blank">Observable Plot</a> •
-            <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
-          </p>
+    <!-- Overview Section -->
+    <section id="overview" class="story-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="section-number">01 / OVERVIEW</div>
+            <h2 class="section-title">The Challenge</h2>
+
+            <p class="section-description">
+              On November 5, 2025, Tata Trusts sent out an RFP for a "Design &
+              Development of Geographical Data Visualisation Dashboard." The
+              deadline? <strong>November 17—just 13 days away.</strong>
+            </p>
+
+            <div class="highlight-box">
+              <div class="highlight-box-title">
+                <i class="bi bi-lightning-fill me-2"></i>
+                The Traditional Approach
+              </div>
+              <div class="highlight-box-content">
+                A typical RFP response would require 2-3 weeks of work from a
+                team of specialists: business analysts to decode requirements,
+                data scientists to create sample visualizations, technical
+                writers to craft the proposal, and designers to make it
+                presentable. The cost? Easily $20,000-$50,000 in labor, with no
+                guarantee of winning the bid.
+              </div>
+            </div>
+
+            <p class="section-description">
+              But what if AI agents could handle most of this work—not replacing
+              human expertise, but amplifying it? This is the story of how one
+              person, leveraging AI agents, created a comprehensive RFP response
+              in just 7 days, spending only ~20 hours of human time.
+            </p>
+
+            <div class="row mt-5 g-4">
+              <div class="col-md-4">
+                <div class="success-metric">
+                  <div class="success-metric-value">85%</div>
+                  <div class="success-metric-label">Time Saved</div>
+                  <div class="success-metric-description">
+                    20 hours vs. 120+ hours traditional
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="success-metric">
+                  <div class="success-metric-value">90%</div>
+                  <div class="success-metric-label">Cost Reduction</div>
+                  <div class="success-metric-description">
+                    1-person effort vs. 5-person team
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="success-metric">
+                  <div class="success-metric-value">100%</div>
+                  <div class="success-metric-label">Deliverables</div>
+                  <div class="success-metric-description">
+                    All requirements met on time
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 2rem 0 1rem;">
-      <div class="text-center">
-        <p style="font-size: 0.875rem; opacity: 0.7;">
-          Created with <i class="bi bi-heart-fill" style="color: var(--tata-red);"></i> using AI agents • November 2025
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="story-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="section-number">02 / TIMELINE</div>
+            <h2 class="section-title">7 Days, 8 Major Milestones</h2>
+
+            <p class="section-description">
+              From receiving the RFP to creating a comprehensive response with
+              interactive visualizations, here's how the week unfolded. Each
+              milestone represents a collaboration between human judgment and AI
+              capabilities.
+            </p>
+
+            <div class="timeline-viz">
+              <div class="timeline-viz-bar">
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 0%; width: 14.28%"
+                >
+                  Day 1
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 14.28%; width: 14.28%"
+                >
+                  Day 2
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 28.56%; width: 14.28%"
+                >
+                  Day 3
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 42.84%; width: 14.28%"
+                >
+                  Day 4
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 57.12%; width: 14.28%"
+                >
+                  Day 5
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 71.4%; width: 14.28%"
+                >
+                  Day 6
+                </div>
+                <div
+                  class="timeline-viz-segment"
+                  style="left: 85.68%; width: 14.32%"
+                >
+                  Day 7
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 1: Acknowledgement -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">1</span>
+                Nov 5: Formal Acknowledgement
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> The RFP document was
+                  bureaucratic and dense—typical for large organizations but
+                  difficult to quickly parse.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> Used ChatGPT to draft a
+                  formal acknowledgement email. Instead of spending 30 minutes
+                  crafting the perfect corporate response, the AI generated it
+                  in seconds.
+                </p>
+                <div class="prompt-example">
+                  <div class="prompt-example-title">Prompt Used:</div>
+                  <div class="prompt-example-text">
+                    "Reply formally to this email."
+                  </div>
+                </div>
+                <p class="mt-3">
+                  <strong>Human Role:</strong> Reviewed and personalized the
+                  response, ensuring it matched professional standards. <em>Time
+                    spent: 5 minutes.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#5-nov-2025-acknowledgement"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> Read detailed notes in
+                    process.md
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 2: Questions & Analysis -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">2</span>
+                Nov 5: Comprehensive Question Generation
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> RFPs often lack crucial
+                  details. Experienced pre-sales teams know to ask clarifying
+                  questions early, but identifying all gaps requires deep domain
+                  knowledge.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> ChatGPT analyzed the RFP and
+                  generated 129 detailed questions across 11 categories—from
+                  technical architecture to payment terms.
+                </p>
+                <div class="prompt-example">
+                  <div class="prompt-example-title">Prompt Used:</div>
+                  <div class="prompt-example-text">
+                    Suggest a comprehensive list of questions to ask based on
+                    the document. According to the RFP and email, who should I
+                    send these clarifications to?
+                  </div>
+                </div>
+                <p class="mt-3">
+                  <strong>Human Role:</strong> Reviewed questions for relevance,
+                  removed duplicates, and prioritized based on experience.
+                  Identified that some questions revealed assumptions about
+                  their technical maturity. <em>Time spent: 30 minutes.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#5-nov-2025-questions"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> See all 129 questions in
+                    process.md
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 3: Pre-bid Prep -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">3</span>
+                Nov 11: Pre-bid Meeting Preparation
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> Pre-bid meetings are crucial
+                  for understanding unstated requirements and building
+                  relationships, but they're also opportunities to reveal (or
+                  hide) your expertise.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> Claude analyzed the RFP and
+                  generated strategic questions to ask during the meeting,
+                  focusing on understanding the organizational context and true
+                  needs.
+                </p>
+                <div class="highlight-box mt-3 mb-3">
+                  <div class="highlight-box-title">
+                    <i class="bi bi-lightbulb-fill me-2"></i>
+                    AI Insight: Bureaucracy Patterns
+                  </div>
+                  <div class="highlight-box-content">
+                    Claude identified that the RFP likely suffered from
+                    "procurement-led documentation" where technical requirements
+                    get filtered through non-technical stakeholders. This
+                    insight proved accurate in the pre-bid meeting.
+                  </div>
+                </div>
+                <p>
+                  <strong>Human Role:</strong> Used AI insights to guide
+                  conversation strategy. During the call, actively listened for
+                  signals about organizational maturity, technical constraints,
+                  and decision-making processes. <em>Time spent: 1 hour prep + 1
+                    hour meeting.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-pre-bid-preparation"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> Read preparation notes in
+                    process.md
+                  </a>
+                  •
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/pre-bid.md"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-chat-dots"></i> View pre-bid FAQ
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 4: Documentation & Data -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">4</span>
+                Nov 11: RFP Conversion & Data Generation
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> The RFP was a 47-page PDF.
+                  Working with PDFs is painful—you can't easily search,
+                  reference, or version control them. Plus, sample datasets were
+                  needed for visualization demos.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong>
+                </p>
+                <ul>
+                  <li>
+                    <strong>Claude:</strong> Converted PDF to well-structured
+                    Markdown (with triple-checking to preserve even typos)
+                  </li>
+                  <li>
+                    <strong>ChatGPT:</strong> Generated 4 realistic fake
+                    datasets (500-2,000 rows each) that matched Tata Trusts'
+                    domain
+                  </li>
+                </ul>
+                <div class="prompt-example">
+                  <div class="prompt-example-title">
+                    Data Generation Prompt:
+                  </div>
+                  <div class="prompt-example-text">
+                    Generate 5 realistic fake datasets that will be powerful to
+                    demonstrate data visualizations on top of. STEP 1. List 10
+                    different kinds of data the Tata Trusts team will likely be
+                    analyzing STEP 2. For each, list the insights and analyses
+                    they would be looking for STEP 3. Evaluate these datasets on
+                    domain relevance, ease of visualizing, and impactfulness
+                    STEP 4. Pick the top 4 and generate realistic data with
+                    embedded patterns
+                  </div>
+                </div>
+                <p class="mt-3">
+                  <strong>Human Role:</strong> Reviewed datasets for realism.
+                  Asked AI to add missing fields (partner names, realistic
+                  geographic distributions). Verified data patterns made sense
+                  for the domain.
+                  <em>Time spent: 1 hour.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-rfp-to-markdown"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> See conversion process
+                  </a>
+                  •
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-data-generation"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-database"></i> Data generation details
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 5: Style Guide & Story -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">5</span>
+                Nov 11: Brand Research & RFP Story
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> Creating materials that match
+                  a client's brand requires extensive research into their visual
+                  identity, tone, and design patterns—normally a designer's
+                  multi-day task.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> Claude Code analyzed Tata
+                  Trusts' website, extracted brand guidelines (colors,
+                  typography, design patterns), and created a comprehensive
+                  style guide. Then generated an interactive "RFP Story" website
+                  explaining the opportunity.
+                </p>
+                <div class="row mt-3 mb-3 g-3">
+                  <div class="col-md-6">
+                    <div class="tool-badge">
+                      <i class="bi bi-palette-fill"></i>
+                      Extracted: Colors & Typography
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tool-badge">
+                      <i class="bi bi-grid-fill"></i>
+                      Created: Component Library
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tool-badge">
+                      <i class="bi bi-file-code-fill"></i>
+                      Generated: Bootstrap-based Templates
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tool-badge">
+                      <i class="bi bi-graph-up"></i>
+                      Built: Interactive Visualizations
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <strong>Human Role:</strong> Reviewed visual consistency,
+                  requested refinements to match brand tone, fact-checked claims
+                  about Tata Trusts' history and impact. <em>Time spent: 2
+                    hours.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-style-guide-and-rfp-story"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> Read style guide creation
+                    notes
+                  </a>
+                  •
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/style-guide.md"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-palette"></i> View style guide
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 6: Visualizations -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">6</span>
+                Nov 11: Data Story & Dashboard Creation
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> Creating professional data
+                  visualizations requires: analyzing data patterns, choosing
+                  appropriate chart types, implementing interactive features,
+                  ensuring responsive design, and weaving it into a compelling
+                  narrative. This is typically a 3-5 day task for a skilled
+                  developer.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> Claude Code created:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Data Story:</strong> NYT-style scrollytelling
+                    narrative with 16 embedded charts
+                  </li>
+                  <li>
+                    <strong>Interactive Dashboard:</strong> Filterable,
+                    responsive dashboard with all visualizations
+                  </li>
+                  <li>
+                    <strong>Modular Architecture:</strong> Each chart as
+                    independent ESM module for reusability
+                  </li>
+                  <li>
+                    <strong>UX Features:</strong> Filters, exports, fullscreen
+                    mode, responsive design
+                  </li>
+                </ul>
+                <div class="highlight-box mt-3 mb-3">
+                  <div class="highlight-box-title">
+                    <i class="bi bi-bug-fill me-2"></i>
+                    Where AI Struggled
+                  </div>
+                  <div class="highlight-box-content">
+                    The AI initially got Observable Plot's radius scaling wrong.
+                    It took 3 iterations and asking it to "read the
+                    documentation and take screenshots" before it correctly
+                    implemented dynamic circle sizes. <strong>Lesson:</strong>
+                    AI needs feedback loops and verification steps.
+                  </div>
+                </div>
+                <p>
+                  <strong>Human Role:</strong> Defined analysis priorities,
+                  reviewed chart effectiveness, tested interactivity, identified
+                  bugs (especially the radius issue), and requested UX
+                  improvements.
+                  <em>Time spent: 4 hours across multiple iterations.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-visualization"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> Read full visualization
+                    development story
+                  </a>
+                  •
+                  <a
+                    href="dataviz/newchart.md"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-code-slash"></i> Chart creation template
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 7: Analysis & Process Doc -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">7</span>
+                Nov 12: Analysis Planning & Process Documentation
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> Stakeholders need to
+                  understand not just what was delivered, but what insights are
+                  possible. Plus, documenting the process itself for future
+                  reference and learning.
+                </p>
+                <p>
+                  <strong>The AI Solution:</strong> ChatGPT analyzed the
+                  generated datasets and:
+                </p>
+                <ul>
+                  <li>
+                    Proposed 25 different analyses with rationale and visual
+                    recommendations
+                  </li>
+                  <li>Ranked them by visual impact and usefulness</li>
+                  <li>
+                    Identified "big, useful, surprising insights" vs. standard
+                    reporting
+                  </li>
+                </ul>
+                <p class="mt-3">
+                  <strong>Human Role:</strong> Created this process
+                  documentation (process.md) capturing every step, every prompt,
+                  every iteration, and every lesson learned. This document
+                  you're reading now.
+                  <em>Time spent: 3 hours.</em>
+                </p>
+                <p class="mt-2">
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md#11-nov-2025-analysis-plan"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-link-45deg"></i> See analysis planning notes
+                  </a>
+                  •
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/analyses.md"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <i class="bi bi-bar-chart"></i> View full analysis list
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- Day 8: Refinement -->
+            <div class="process-step fade-in">
+              <div class="process-step-title">
+                <span class="process-step-number">8</span>
+                Nov 12: Final Refinements & This Story
+              </div>
+              <div class="process-step-content">
+                <p>
+                  <strong>The Challenge:</strong> All the pieces exist, but they
+                  need to be tied together with clear navigation, consolidated
+                  styles, and this tutorial explaining the process.
+                </p>
+                <p>
+                  <strong>What's Happening:</strong> Creating a landing page,
+                  consolidating CSS, and building this interactive narrative to
+                  teach others how to replicate this approach.
+                </p>
+                <p class="mt-3">
+                  <strong>Human Role:</strong> Designing the learning
+                  experience, structuring the narrative, and ensuring the
+                  tutorial serves its three audiences: pre-sales teams,
+                  developers, and anyone curious about AI capabilities. <em>Time
+                    spent: Ongoing...</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Deep Dive Section -->
+    <section id="process" class="story-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="section-number">03 / PROCESS</div>
+            <h2 class="section-title">The Human-AI Collaboration Pattern</h2>
+
+            <p class="section-description">
+              This wasn't about AI replacing human work—it was about finding the
+              right collaboration pattern. Here's what emerged as the most
+              effective workflow:
+            </p>
+
+            <div class="comparison-table mt-4">
+              <table class="table table-bordered mb-0">
+                <thead>
+                  <tr>
+                    <th style="width: 25%">Phase</th>
+                    <th style="width: 37.5%">Human Responsibilities</th>
+                    <th style="width: 37.5%">AI Responsibilities</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Strategy & Planning</strong></td>
+                    <td>
+                      • Define objectives<br>
+                      • Identify constraints<br>
+                      • Prioritize requirements<br>
+                      • Assess organizational context
+                    </td>
+                    <td>
+                      • Generate comprehensive question lists<br>
+                      • Identify potential gaps<br>
+                      • Suggest analysis approaches<br>
+                      • Pattern recognition in documents
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Content Creation</strong></td>
+                    <td>
+                      • Define content strategy<br>
+                      • Review for accuracy<br>
+                      • Ensure brand alignment<br>
+                      • Add domain expertise
+                    </td>
+                    <td>
+                      • Draft initial content<br>
+                      • Structure information<br>
+                      • Format consistently<br>
+                      • Generate variations
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Technical Implementation</strong></td>
+                    <td>
+                      • Define requirements<br>
+                      • Test functionality<br>
+                      • Identify edge cases<br>
+                      • Verify correctness
+                    </td>
+                    <td>
+                      • Write code<br>
+                      • Implement features<br>
+                      • Debug (with guidance)<br>
+                      • Optimize performance
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Quality Assurance</strong></td>
+                    <td>
+                      • Define quality criteria<br>
+                      • Test user experience<br>
+                      • Verify domain accuracy<br>
+                      • Final approval
+                    </td>
+                    <td>
+                      • Self-review code<br>
+                      • Check consistency<br>
+                      • Suggest improvements<br>
+                      • Run automated tests
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="highlight-box mt-4">
+              <div class="highlight-box-title">
+                <i class="bi bi-diagram-3-fill me-2"></i>
+                The Key Pattern: Iterative Refinement
+              </div>
+              <div class="highlight-box-content">
+                <p>
+                  The most effective prompts weren't single shots—they were
+                  conversations:
+                </p>
+                <ol class="mb-0">
+                  <li>
+                    <strong>Start broad:</strong> "Create a data visualization
+                    dashboard"
+                  </li>
+                  <li>
+                    <strong>Review output:</strong> Human identifies gaps,
+                    errors, or improvements
+                  </li>
+                  <li>
+                    <strong>Refine specifically:</strong> "The radius scaling is
+                    wrong. Read the docs and take screenshots to verify"
+                  </li>
+                  <li>
+                    <strong>Iterate:</strong> Repeat until quality meets
+                    standards
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section id="lessons" class="story-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="section-number">04 / LESSONS LEARNED</div>
+            <h2 class="section-title">What We Learned About AI Agents</h2>
+
+            <p class="section-description">
+              Through this intensive week of collaboration, clear patterns
+              emerged about what AI agents excel at, where they struggle, and
+              how humans can most effectively guide them.
+            </p>
+
+            <!-- For Pre-sales Teams -->
+            <div class="lesson-card fade-in">
+              <div class="lesson-card-icon">
+                <i class="bi bi-briefcase-fill"></i>
+              </div>
+              <div class="lesson-card-title">
+                For Pre-sales Teams: Speed Without Sacrificing Quality
+              </div>
+              <div class="lesson-card-content">
+                <p><strong>What Worked:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Question Generation:</strong> AI generated 129
+                    clarifying questions in minutes—far more comprehensive than
+                    a team would produce in hours
+                  </li>
+                  <li>
+                    <strong>First Drafts:</strong> Formal communications,
+                    technical responses, and standard documentation were instant
+                  </li>
+                  <li>
+                    <strong>Pattern Recognition:</strong> AI identified
+                    organizational maturity signals and procurement patterns
+                    from document structure
+                  </li>
+                  <li>
+                    <strong>Research Synthesis:</strong> Quickly synthesized
+                    information from multiple sources (RFP, website, pre-bid
+                    notes)
+                  </li>
+                </ul>
+                <p><strong>What Didn't Work:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Strategic Insight:</strong> AI couldn't identify
+                    which questions would build relationships vs. reveal
+                    ignorance
+                  </li>
+                  <li>
+                    <strong>Reading the Room:</strong> During pre-bid meetings,
+                    human judgment was essential for reading tone and adapting
+                    strategy
+                  </li>
+                  <li>
+                    <strong>Win Theme Development:</strong> Creating compelling
+                    narratives still requires human understanding of client pain
+                    points
+                  </li>
+                </ul>
+                <p>
+                  <strong>The Takeaway:</strong> Use AI to accelerate
+                  documentation and research, but reserve strategic decisions
+                  for human expertise. AI makes you 5x faster at execution, not
+                  5x better at strategy.
+                </p>
+              </div>
+            </div>
+
+            <!-- For Developers -->
+            <div
+              class="lesson-card fade-in"
+              style="background: linear-gradient(135deg, #d0362d 0%, #b82f27 100%)"
+            >
+              <div class="lesson-card-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="lesson-card-title">
+                For Developers: AI as a Force Multiplier
+              </div>
+              <div class="lesson-card-content">
+                <p><strong>What Worked:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Boilerplate Elimination:</strong> No time wasted on
+                    navbar code, CSS reset, or Bootstrap setup
+                  </li>
+                  <li>
+                    <strong>Library Expertise:</strong> AI knew Observable Plot,
+                    D3, and Chart.js patterns better than most developers
+                  </li>
+                  <li>
+                    <strong>Rapid Prototyping:</strong> From concept to working
+                    prototype in minutes, not hours
+                  </li>
+                  <li>
+                    <strong>Consistency:</strong> Applying design patterns
+                    across multiple charts automatically
+                  </li>
+                  <li>
+                    <strong>Documentation:</strong> AI generated inline comments
+                    and README content as it coded
+                  </li>
+                </ul>
+                <p><strong>What Didn't Work:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Edge Cases:</strong> AI missed responsive design
+                    issues and cross-browser compatibility concerns
+                  </li>
+                  <li>
+                    <strong>Library Nuances:</strong> Got Observable Plot's
+                    radius scaling wrong—needed explicit documentation reference
+                  </li>
+                  <li>
+                    <strong>Performance:</strong> Didn't consider data volume
+                    implications or optimize rendering until asked
+                  </li>
+                  <li>
+                    <strong>Accessibility:</strong> Keyboard navigation and
+                    screen reader support required explicit prompting
+                  </li>
+                </ul>
+                <p>
+                  <strong>The Takeaway:</strong> AI excels at implementation but
+                  needs human oversight for edge cases and best practices. The
+                  workflow becomes: Human architects → AI implements → Human
+                  refines → AI iterates. This cycle is 10x faster than solo
+                  coding.
+                </p>
+              </div>
+            </div>
+
+            <!-- For Everyone -->
+            <div
+              class="lesson-card fade-in"
+              style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%)"
+            >
+              <div class="lesson-card-icon">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <div class="lesson-card-title">
+                For Everyone: Understanding AI Capabilities
+              </div>
+              <div class="lesson-card-content">
+                <p><strong>Where AI Excels:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Pattern Application:</strong> Once shown a pattern,
+                    AI applies it consistently across contexts
+                  </li>
+                  <li>
+                    <strong>Comprehensive Generation:</strong> Exhaustive lists,
+                    variations, and alternatives
+                  </li>
+                  <li>
+                    <strong>Synthesis:</strong> Combining information from
+                    multiple sources into coherent outputs
+                  </li>
+                  <li>
+                    <strong>Transformation:</strong> Converting formats (PDF →
+                    Markdown, data → visualizations)
+                  </li>
+                  <li>
+                    <strong>Iteration Speed:</strong> Making changes is
+                    instant—no "cost" to trying alternatives
+                  </li>
+                </ul>
+                <p><strong>Where AI Struggles:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Judgment:</strong> Can't assess "is this good
+                    enough?" or "is this appropriate?"
+                  </li>
+                  <li>
+                    <strong>Context:</strong> Misses implicit requirements or
+                    organizational nuances
+                  </li>
+                  <li>
+                    <strong>Verification:</strong> Claims certainty even when
+                    wrong (e.g., the radius scaling bug)
+                  </li>
+                  <li>
+                    <strong>Creativity:</strong> Generates within patterns,
+                    rarely breaks conventions innovatively
+                  </li>
+                  <li>
+                    <strong>Taste:</strong> Can't distinguish "technically
+                    correct" from "actually good"
+                  </li>
+                </ul>
+                <p><strong>Where Human Expertise Helps:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Direction:</strong> "What should we build?" is still
+                    a human question
+                  </li>
+                  <li>
+                    <strong>Evaluation:</strong> "Is this good?" requires domain
+                    knowledge and experience
+                  </li>
+                  <li>
+                    <strong>Debugging:</strong> When AI hits limits, humans
+                    diagnose the root cause
+                  </li>
+                  <li>
+                    <strong>Quality Bar:</strong> Humans define what "done"
+                    looks like
+                  </li>
+                  <li>
+                    <strong>Ethics & Impact:</strong> Assessing consequences
+                    requires human judgment
+                  </li>
+                </ul>
+                <p>
+                  <strong>The Takeaway:</strong> AI doesn't replace expertise—it
+                  amplifies productivity for those who already know what they're
+                  doing. The 10x gain comes from eliminating grunt work, not
+                  eliminating knowledge requirements.
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box mt-5">
+              <div class="highlight-box-title">
+                <i class="bi bi-shield-fill-check me-2"></i>
+                The "Verification Imperative"
+              </div>
+              <div class="highlight-box-content">
+                <p>
+                  The most critical lesson: <strong>AI outputs require
+                    verification</strong>. This isn't about "trust but verify"—
+                  it's about understanding that AI confidently produces outputs
+                  without self-assessment. The Observable Plot radius bug is a
+                  perfect example: AI generated code that looked right, ran
+                  without errors, and was confidently wrong.
+                </p>
+                <p class="mb-0">
+                  <strong>Best Practice:</strong> Always ask AI to verify its
+                  own work by checking documentation, taking screenshots, or
+                  running tests. "Make it work" is not enough—you need "Make it
+                  work AND prove it works."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="story-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="section-number">05 / RESULTS & DELIVERABLES</div>
+            <h2 class="section-title">What Got Built</h2>
+
+            <p class="section-description">
+              In 7 days of part-time work (~20 human hours), here's what emerged
+              from the human-AI collaboration:
+            </p>
+
+            <div class="row g-4 mt-3">
+              <div class="col-md-6">
+                <div class="insight-card">
+                  <div class="insight-card-header">
+                    <div
+                      class="insight-icon"
+                      style="background: var(--tata-red)"
+                    >
+                      📄
+                    </div>
+                    <div>
+                      <div class="insight-category">RFP Analysis</div>
+                    </div>
+                  </div>
+                  <ul class="mb-0">
+                    <li>47-page PDF converted to structured Markdown</li>
+                    <li>Pre-bid meeting transcription & FAQ</li>
+                    <li>129 clarifying questions across 11 categories</li>
+                    <li>Comprehensive process documentation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="insight-card">
+                  <div class="insight-card-header">
+                    <div
+                      class="insight-icon"
+                      style="background: var(--tata-teal)"
+                    >
+                      🎨
+                    </div>
+                    <div>
+                      <div class="insight-category">Brand & Design</div>
+                    </div>
+                  </div>
+                  <ul class="mb-0">
+                    <li>Complete brand style guide</li>
+                    <li>Interactive RFP story website</li>
+                    <li>Consistent design system across pages</li>
+                    <li>Responsive, accessible layouts</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="insight-card">
+                  <div class="insight-card-header">
+                    <div class="insight-icon" style="background: #f57c00">
+                      📊
+                    </div>
+                    <div>
+                      <div class="insight-category">Data & Analysis</div>
+                    </div>
+                  </div>
+                  <ul class="mb-0">
+                    <li>4 realistic datasets (3,500+ total rows)</li>
+                    <li>25 proposed analyses ranked by impact</li>
+                    <li>16 implemented interactive visualizations</li>
+                    <li>Modular, reusable chart architecture</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="insight-card">
+                  <div class="insight-card-header">
+                    <div
+                      class="insight-icon"
+                      style="background: var(--tata-success)"
+                    >
+                      🚀
+                    </div>
+                    <div>
+                      <div class="insight-category">Deliverables</div>
+                    </div>
+                  </div>
+                  <ul class="mb-0">
+                    <li>NYT-style data story with scrollytelling</li>
+                    <li>Interactive filterable dashboard</li>
+                    <li>This process tutorial</li>
+                    <li>Complete GitHub repository</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="highlight-box mt-5">
+              <div class="highlight-box-title">
+                <i class="bi bi-trophy-fill me-2"></i>
+                The Real Achievement
+              </div>
+              <div class="highlight-box-content">
+                <p>
+                  This isn't just about speed—it's about <strong
+                  >possibility</strong>. A comprehensive RFP response with
+                  custom data visualizations was previously only feasible for
+                  well-funded teams or large agencies. Now, a knowledgeable
+                  individual with AI tools can produce comparable quality in a
+                  fraction of the time and cost.
+                </p>
+                <p class="mb-0">
+                  <strong>This democratizes access to complex work.</strong>
+                  Small businesses can compete with larger firms. Individual
+                  consultants can take on ambitious projects. Pre-sales teams
+                  can explore more opportunities. The bottleneck shifts from "Do
+                  we have capacity?" to "Is this worth pursuing?"
+                </p>
+              </div>
+            </div>
+
+            <div class="row g-4 mt-5">
+              <div class="col-md-12 text-center">
+                <h3 class="mb-4">Explore the Deliverables</h3>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                  <a href="../rfp-story/index.html" class="btn-primary-custom">
+                    <i class="bi bi-book-fill me-2"></i>
+                    View RFP Story
+                  </a>
+                  <a href="../dataviz/index.html" class="btn-primary-custom">
+                    <i class="bi bi-graph-up me-2"></i>
+                    View Data Story
+                  </a>
+                  <a
+                    href="../dataviz/dashboard.html"
+                    class="btn-primary-custom"
+                  >
+                    <i class="bi bi-speedometer2 me-2"></i>
+                    View Dashboard
+                  </a>
+                  <a
+                    href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/process.md"
+                    target="_blank"
+                    class="btn-secondary-custom"
+                  >
+                    <i class="bi bi-file-text-fill me-2"></i>
+                    Read Full Process
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section
+      class="story-section"
+      style="background: linear-gradient(135deg, #23272b 0%, #3a4047 100%); color: white"
+    >
+      <div class="container text-center">
+        <h2 class="section-title" style="color: white">
+          The Future is Collaborative
+        </h2>
+        <p
+          class="section-description mx-auto"
+          style="color: rgba(255, 255, 255, 0.9); max-width: 800px"
+        >
+          This project demonstrates that the future of work isn't about AI
+          replacing humans or humans refusing AI. It's about finding the right
+          collaboration pattern—where AI handles the grunt work and humans
+          provide judgment, strategy, and quality control.
         </p>
+        <p
+          class="section-description mx-auto"
+          style="color: rgba(255, 255, 255, 0.9); max-width: 800px"
+        >
+          The teams that thrive will be those that learn to <strong>orchestrate
+            AI effectively</strong>—knowing what to delegate, what to verify,
+          and when to override. This isn't a skill you can ignore anymore. It's
+          becoming as fundamental as knowing how to search Google or use a
+          spreadsheet.
+        </p>
+        <div class="mt-5">
+          <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 2rem; color: var(--tata-blue)">
+            Start experimenting. Start learning. The tools are here. The
+            opportunity is now.
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="../index.html" class="btn-primary-custom">
+              <i class="bi bi-house-fill me-2"></i>
+              Back to Home
+            </a>
+            <a
+              href="https://github.com/sanand0/tata-trust-data-visualization-rfp-2025"
+              target="_blank"
+              class="btn-secondary-custom"
+              style="color: white; border-color: white"
+            >
+              <i class="bi bi-github me-2"></i>
+              View on GitHub
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>About This Project</h5>
+            <p>
+              A demonstration of human-AI collaboration in responding to Tata
+              Trusts' RFP for a Data Visualization Dashboard. Created to teach
+              pre-sales teams, developers, and anyone interested in AI
+              capabilities.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h5>Tools Used</h5>
+            <p>
+              <a href="https://chatgpt.com/" target="_blank">ChatGPT</a> •
+              <a href="https://claude.ai/" target="_blank">Claude</a> •
+              <a href="https://gemini.google.com/" target="_blank">Gemini</a> •
+              <a href="https://observablehq.com/plot/" target="_blank"
+              >Observable Plot</a> •
+              <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+            </p>
+          </div>
+        </div>
+        <hr style="border-color: rgba(255, 255, 255, 0.1); margin: 2rem 0 1rem">
+        <div class="text-center">
+          <p style="font-size: 0.875rem; opacity: 0.7">
+            Created with <i
+              class="bi bi-heart-fill"
+              style="color: var(--tata-red)"
+            ></i> using AI agents • November 2025
+          </p>
+        </div>
+      </div>
+    </footer>
 
-  <!-- Custom Script -->
-  <script src="script.js"></script>
-</body>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+  </body>
 </html>

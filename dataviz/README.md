@@ -5,6 +5,7 @@ Interactive data story and dashboard showcasing 16 comprehensive analyses from t
 ## Files
 
 ### Core Files
+
 - **`core.js`** - Shared utilities, data loading, formatting functions, and constants
 - **`index.html`** - New York Times-style scrollytelling data story
 - **`dashboard.html`** - Interactive dashboard with filters and all visualizations
@@ -14,6 +15,7 @@ Interactive data story and dashboard showcasing 16 comprehensive analyses from t
 Each chart is an independent module that exports a `render(container, props)` function:
 
 **Rank #1 Analyses (Overall: 5.0):**
+
 1. **`efficiency-scatter.js`** - Outcomes per rupee and beneficiaries per rupee (efficiency quadrants with dynamic circle sizing)
 2. **`coverage-map.js`** - Targeting need: coverage vs deprivation (bivariate scatter)
 3. **`underserved.js`** - Underserved pockets list (ranked bar chart)
@@ -38,6 +40,7 @@ Each chart is an independent module that exports a `render(container, props)` fu
 ## Features
 
 ### Data Story (`index.html`)
+
 - Beautiful scrollytelling narrative with 6 thematic sections
 - 16 visualizations seamlessly woven into the narrative
 - Sections cover: Overview, Efficiency, Targeting, Operations, Partners, Conclusion
@@ -47,6 +50,7 @@ Each chart is an independent module that exports a `render(container, props)` fu
 - Fixed navbar with working dashboard link
 
 ### Dashboard (`dashboard.html`)
+
 - Modern dashboard layout with sidebar navigation
 - **Functional data filtering** by theme, state, and need decile
 - **Fullscreen toggle** for all charts
@@ -61,6 +65,7 @@ Each chart is an independent module that exports a `render(container, props)` fu
 - Fully responsive mobile-friendly design
 
 ### Charts
+
 - Built with Observable Plot and D3.js
 - Fully responsive with ResizeObserver
 - **Standardized height (500px)** across all charts
@@ -109,6 +114,7 @@ Each chart is an independent module that exports a `render(container, props)` fu
 ## Data Sources
 
 Charts load data from `../data/`:
+
 - `grants_portfolio.csv` - Grants, budgets, outcomes, partners
 - `beneficiary_outcomes.csv` - District-month outcomes data
 - `geo_need_coverage.csv` - District-level need and coverage
@@ -127,11 +133,12 @@ Charts load data from `../data/`:
 ### Changing Colors
 
 Edit `core.js`:
+
 ```javascript
 export const COLORS = {
-  dark: '#23272b',
-  lightBlue: '#9fcdff',
-  red: '#d0362d',
+  dark: "#23272b",
+  lightBlue: "#9fcdff",
+  red: "#d0362d",
   // ...
 };
 ```
@@ -173,6 +180,7 @@ export default function render(container, props) {
 The visualizations implement the top-ranked and high-value analyses from `analyses.md`:
 
 **Rank #1 (Overall 5.0):**
+
 1. Outcomes per rupee and beneficiaries per rupee
 2. Targeting need: coverage vs deprivation
 3. Underserved pockets list

@@ -15,12 +15,31 @@
     "philosophy": "Constructive philanthropy - giving back to society through strategic interventions",
     "scale2021": "$136 million deployed across social initiatives",
     "reach": "Millions of households across 100+ districts in India",
-    "institutions": ["Indian Institute of Science (IISC)", "Tata Institute of Social Sciences (TISS)", "Tata Institute of Fundamental Research (TIFR)"],
+    "institutions": [
+      "Indian Institute of Science (IISC)",
+      "Tata Institute of Social Sciences (TISS)",
+      "Tata Institute of Fundamental Research (TIFR)"
+    ],
     "waterMission": {
       "villages": "1,500+",
       "families": "200,000+",
       "people": "1,000,000+",
-      "states": ["Rajasthan", "Gujarat", "Maharashtra", "Karnataka", "Andhra Pradesh", "Jharkhand", "Assam", "Nagaland", "Mizoram", "Uttar Pradesh", "Uttarakhand", "Himachal Pradesh", "Punjab", "Leh"]
+      "states": [
+        "Rajasthan",
+        "Gujarat",
+        "Maharashtra",
+        "Karnataka",
+        "Andhra Pradesh",
+        "Jharkhand",
+        "Assam",
+        "Nagaland",
+        "Mizoram",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "Himachal Pradesh",
+        "Punjab",
+        "Leh"
+      ]
     }
   },
   "overview": {

@@ -3,28 +3,29 @@
 
 import * as Plot from "@observablehq/plot";
 import * as d3 from "d3";
-import { loadData, formatNumber, formatPercent, COLORS } from "./core.js";
+import { COLORS, formatNumber, formatPercent, loadData } from "./core.js";
 
 export default function render(container, props = {}) {
   const {
-    data: dataSource = '../data/geo_need_coverage.csv',
+    data: dataSource = "../data/geo_need_coverage.csv",
     width = container.clientWidth,
     height = props.height || 500,
-    theme = 'light',
-    onEvent
+    theme = "light",
+    onEvent,
   } = props;
 
   let chart, observer;
 
   async function init() {
-    container.innerHTML = '<div class="text-center my-5"><div class="spinner-border text-primary" role="status"></div></div>';
+    container.innerHTML =
+      '<div class="text-center my-5"><div class="spinner-border text-primary" role="status"></div></div>';
 
     try {
-      const data = typeof dataSource === 'string' ? await loadData(dataSource) : dataSource;
+      const data = typeof dataSource === "string" ? await loadData(dataSource) : dataSource;
 
       // Bivariate color scale (deprivation vs coverage)
-      const deprivationExtent = d3.extent(data, d => d.deprivation_score);
-      const coverageExtent = d3.extent(data, d => d.coverage_actual_per_1k);
+      const deprivationExtent = d3.extent(data, (d) => d.deprivation_score);
+      const coverageExtent = d3.extent(data, (d) => d.coverage_actual_per_1k);
 
       // Create bivariate color function
       function getBivariateColor(deprivation, coverage) {
@@ -42,12 +43,12 @@ export default function render(container, props = {}) {
         return COLORS.mediumGray; // Low need, low coverage
       }
 
-      const chartData = data.map(d => ({
+      const chartData = data.map((d) => ({
         ...d,
-        color: getBivariateColor(d.deprivation_score, d.coverage_actual_per_1k)
+        color: getBivariateColor(d.deprivation_score, d.coverage_actual_per_1k),
       }));
 
-      container.innerHTML = '';
+      container.innerHTML = "";
 
       chart = Plot.plot({
         width,
@@ -58,11 +59,11 @@ export default function render(container, props = {}) {
         grid: true,
         x: {
           label: "Coverage (per 1,000 population) →",
-          labelAnchor: "center"
+          labelAnchor: "center",
         },
         y: {
           label: "↑ Deprivation Score",
-          labelAnchor: "center"
+          labelAnchor: "center",
         },
         marks: [
           Plot.dot(chartData, {
@@ -73,18 +74,21 @@ export default function render(container, props = {}) {
             fillOpacity: 0.7,
             stroke: "white",
             strokeWidth: 1,
-            title: d => `${d.district}, ${d.state}\nDeprivation: ${formatNumber(d.deprivation_score, 1)}\nCoverage: ${formatNumber(d.coverage_actual_per_1k, 2)}/1K\nGap: ${formatNumber(d.coverage_gap_per_1k, 2)}/1K`,
-            tip: true
-          })
-        ]
+            title: (d) =>
+              `${d.district}, ${d.state}\nDeprivation: ${formatNumber(d.deprivation_score, 1)}\nCoverage: ${
+                formatNumber(d.coverage_actual_per_1k, 2)
+              }/1K\nGap: ${formatNumber(d.coverage_gap_per_1k, 2)}/1K`,
+            tip: true,
+          }),
+        ],
       });
 
       container.appendChild(chart);
 
       // Legend
-      const legend = document.createElement('div');
-      legend.className = 'mt-3';
-      legend.style.fontSize = '13px';
+      const legend = document.createElement("div");
+      legend.className = "mt-3";
+      legend.style.fontSize = "13px";
       legend.innerHTML = `
         <div class="d-flex justify-content-center gap-3 flex-wrap">
           <div><span style="display:inline-block;width:12px;height:12px;background:${COLORS.red};border-radius:50%;margin-right:4px;"></span> High need, low coverage</div>
@@ -101,7 +105,6 @@ export default function render(container, props = {}) {
         }
       });
       observer.observe(container);
-
     } catch (error) {
       container.innerHTML = `<div class="alert alert-danger">Error loading chart: ${error.message}</div>`;
     }
@@ -122,7 +125,7 @@ export default function render(container, props = {}) {
     destroy() {
       if (observer) observer.disconnect();
       if (chart && chart.remove) chart.remove();
-      container.innerHTML = '';
-    }
+      container.innerHTML = "";
+    },
   };
 }

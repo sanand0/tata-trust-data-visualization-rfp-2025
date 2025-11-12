@@ -1,13 +1,6 @@
 # Node modules
 node_modules/
 npm-debug.log
-yarn-error.log
-
-# Generated HTML files
-response/*.html
-
-# Legacy files
-response/convert-to-html.js
 
 # OS files
 .DS_Store
@@ -19,8 +12,3 @@ Thumbs.db
 *.swp
 *.swo
 *~
-
-# Build artifacts
-dist/
-build/
-*.log

@@ -854,7 +854,6 @@ Fill out the following additional columns:
 | 8. Advanced / Optional Features | Scenario Simulation – Visualize outcomes under hypothetical funding or geography changes.(Phase-2)                                                     | Wish to Have-Later |
 | 8. Advanced / Optional Features | Geo-tagged Media Integration – Display photos/videos from project sites.                                                                               | Good to Have       |
 
-
 <!--
 
 - RFP PDF to Markdown: https://claude.ai/chat/a273fbdd-e1e0-4409-8974-2f0c926e8384

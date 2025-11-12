@@ -3,31 +3,32 @@
 
 import * as Plot from "@observablehq/plot";
 import * as d3 from "d3";
-import { loadData, formatNumber, formatPercent, COLORS } from "./core.js";
+import { COLORS, formatNumber, formatPercent, loadData } from "./core.js";
 
 export default function render(container, props = {}) {
   const {
-    data: dataSource = '../data/geo_need_coverage.csv',
+    data: dataSource = "../data/geo_need_coverage.csv",
     width = container.clientWidth,
     height = props.height || 450,
-    theme = 'light',
-    onEvent
+    theme = "light",
+    onEvent,
   } = props;
 
   let chart, observer;
 
   async function init() {
-    container.innerHTML = '<div class="text-center my-5"><div class="spinner-border text-primary" role="status"></div></div>';
+    container.innerHTML =
+      '<div class="text-center my-5"><div class="spinner-border text-primary" role="status"></div></div>';
 
     try {
-      const data = typeof dataSource === 'string' ? await loadData(dataSource) : dataSource;
+      const data = typeof dataSource === "string" ? await loadData(dataSource) : dataSource;
 
       // Filter high-need districts with gaps
       const gaps = data
-        .filter(d => d.need_decile >= 7 && d.coverage_gap_per_1k > 0)
-        .map(d => ({
+        .filter((d) => d.need_decile >= 7 && d.coverage_gap_per_1k > 0)
+        .map((d) => ({
           ...d,
-          potential_impact: d.coverage_gap_per_1k * d.population / 1000 * d.deprivation_score
+          potential_impact: d.coverage_gap_per_1k * d.population / 1000 * d.deprivation_score,
         }))
         .sort((a, b) => b.potential_impact - a.potential_impact);
 
@@ -50,11 +51,11 @@ export default function render(container, props = {}) {
           cumulative_impact: cumulative,
           cumulative_pct: cumulative / totalImpact,
           gap: d.coverage_gap_per_1k,
-          need_decile: d.need_decile
+          need_decile: d.need_decile,
         };
       });
 
-      container.innerHTML = '';
+      container.innerHTML = "";
 
       chart = Plot.plot({
         width,
@@ -65,12 +66,12 @@ export default function render(container, props = {}) {
         grid: true,
         x: {
           label: "Number of districts prioritized →",
-          labelAnchor: "center"
+          labelAnchor: "center",
         },
         y: {
           label: "↑ Cumulative % of total potential outcomes",
-          tickFormat: d => (d * 100).toFixed(0) + '%',
-          domain: [0, 1]
+          tickFormat: (d) => (d * 100).toFixed(0) + "%",
+          domain: [0, 1],
         },
         marks: [
           // Reference line (linear)
@@ -81,8 +82,8 @@ export default function render(container, props = {}) {
               y: "y",
               stroke: COLORS.mediumGray,
               strokeDasharray: "4,4",
-              strokeWidth: 1
-            }
+              strokeWidth: 1,
+            },
           ),
 
           // Cumulative curve
@@ -91,7 +92,7 @@ export default function render(container, props = {}) {
             y: "cumulative_pct",
             stroke: COLORS.teal,
             strokeWidth: 3,
-            curve: "step-after"
+            curve: "step-after",
           }),
 
           // Area under curve
@@ -100,7 +101,7 @@ export default function render(container, props = {}) {
             y: "cumulative_pct",
             fill: COLORS.teal,
             fillOpacity: 0.1,
-            curve: "step-after"
+            curve: "step-after",
           }),
 
           // Markers for key points
@@ -112,38 +113,43 @@ export default function render(container, props = {}) {
             stroke: "white",
             strokeWidth: 2,
             tip: true,
-            title: d => `Top ${d.rank} districts\nCumulative: ${formatPercent(d.cumulative_pct, 1)}\n${d.district}, ${d.state}`
+            title: (d) =>
+              `Top ${d.rank} districts\nCumulative: ${formatPercent(d.cumulative_pct, 1)}\n${d.district}, ${d.state}`,
           }),
 
           // Annotation for top 10
-          ...(cumulativeData.length >= 10 ? [
-            Plot.text([cumulativeData[9]], {
-              x: "rank",
-              y: "cumulative_pct",
-              text: d => `Top 10: ${formatPercent(d.cumulative_pct, 0)}`,
-              dx: 40,
-              dy: -10,
-              fontSize: 12,
-              fontWeight: "600",
-              fill: COLORS.red
-            }),
-            Plot.ruleY([cumulativeData[9].cumulative_pct], {
-              stroke: COLORS.red,
-              strokeDasharray: "2,2",
-              strokeOpacity: 0.5
-            })
-          ] : [])
-        ]
+          ...(cumulativeData.length >= 10
+            ? [
+              Plot.text([cumulativeData[9]], {
+                x: "rank",
+                y: "cumulative_pct",
+                text: (d) => `Top 10: ${formatPercent(d.cumulative_pct, 0)}`,
+                dx: 40,
+                dy: -10,
+                fontSize: 12,
+                fontWeight: "600",
+                fill: COLORS.red,
+              }),
+              Plot.ruleY([cumulativeData[9].cumulative_pct], {
+                stroke: COLORS.red,
+                strokeDasharray: "2,2",
+                strokeOpacity: 0.5,
+              }),
+            ]
+            : []),
+        ],
       });
 
       container.appendChild(chart);
 
       // Key insight
       const top10Pct = cumulativeData[Math.min(9, cumulativeData.length - 1)].cumulative_pct;
-      const insight = document.createElement('p');
-      insight.className = 'text-muted text-center mt-2 mb-0';
-      insight.style.fontSize = '14px';
-      insight.innerHTML = `Closing coverage gaps in just <strong>10 districts</strong> would capture <strong>${formatPercent(top10Pct, 0)}</strong> of total potential outcomes. Steep curve shows concentration of opportunity.`;
+      const insight = document.createElement("p");
+      insight.className = "text-muted text-center mt-2 mb-0";
+      insight.style.fontSize = "14px";
+      insight.innerHTML = `Closing coverage gaps in just <strong>10 districts</strong> would capture <strong>${
+        formatPercent(top10Pct, 0)
+      }</strong> of total potential outcomes. Steep curve shows concentration of opportunity.`;
       container.appendChild(insight);
 
       observer = new ResizeObserver(() => {
@@ -152,7 +158,6 @@ export default function render(container, props = {}) {
         }
       });
       observer.observe(container);
-
     } catch (error) {
       container.innerHTML = `<div class="alert alert-danger">Error loading chart: ${error.message}</div>`;
     }
@@ -173,7 +178,7 @@ export default function render(container, props = {}) {
     destroy() {
       if (observer) observer.disconnect();
       if (chart && chart.remove) chart.remove();
-      container.innerHTML = '';
-    }
+      container.innerHTML = "";
+    },
   };
 }
