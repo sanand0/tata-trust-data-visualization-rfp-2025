@@ -3,9 +3,14 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Generated HTML and PDF files
+# MkDocs generated site
+response/site/
+response/docs/
+
+# Legacy HTML generation
 response/*.html
 response/*.pdf
+response/convert-to-html.js
 
 # OS files
 .DS_Store

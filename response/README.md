@@ -88,25 +88,28 @@ Agent: [Modifies to faceted bar chart by theme]
 ```mermaid
 graph TB
     subgraph UI["User Interface Layer"]
+        direction LR
         Story["Data Story<br/>(Narrative)"]
         Dashboard["Dashboard<br/>(Filters)"]
         Chat["Chat UI<br/>(NL Query)"]
     end
 
     subgraph Agent["AI Visualization Agent"]
-        NLP["Natural Language Processing<br/>- Intent Detection<br/>- Context Awareness<br/>- Chart Type Selection<br/>- Visual Best Practices"]
-        CodeGen["Code Generation Engine<br/>- Observable Plot DSL<br/>- D3.js Transforms<br/>- ESM Module Builder<br/>- Responsive Templates"]
-        QA["Quality Assurance<br/>- Visual Validation<br/>- Accessibility Checks<br/>- Screenshot Comparison<br/>- Brand Compliance"]
+        direction LR
+        NLP["Natural Language<br/>Processing"]
+        CodeGen["Code Generation<br/>Engine"]
+        QA["Quality<br/>Assurance"]
     end
 
     subgraph Data["Data Layer"]
+        direction LR
         CSV["CSV/Excel<br/>Uploads"]
-        JSON["JSON<br/>Pre-aggregated Data"]
+        JSON["JSON<br/>Pre-aggregated"]
         FluxAPI["Fluxx API<br/>(Phase 2)"]
     end
 
     subgraph Infra["Infrastructure Layer"]
-        Azure["Azure VM<br/>- Web Server<br/>- File Storage<br/>- Compute<br/>- Backup"]
+        Azure["Azure VM<br/>(Web + Storage + Compute)"]
     end
 
     UI --> Agent
