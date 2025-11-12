@@ -267,14 +267,14 @@ I [asked ChatGPT](https://chatgpt.com/c/6912f432-0b18-8322-befe-068cfcb333c7) to
 >
 > Generate 5 realistic fake datasets that will be powerful to demonstrate data visualizations on top of.
 >
-> ## Part A
+> **Part A**
 >
 > STEP 1. List 10 different kinds of data the Tata Trusts team will likely be analyzing, given this context.
 > STEP 2. For each, list the insights and analyses they would be looking for and the most apt visualizations.
 > STEP 3. Evaluate these datasets on domain relevance, ease of visualizing, and impactfulness of the visuals.
 > STEP 4. Pick the top 4.
 >
-> ## Part B
+> **Part B**
 >
 > For each of the 4 kinds of data:
 >
@@ -454,7 +454,7 @@ I used the recommendation and [asked Claude Code](https://claude.ai/code/session
 > import { marked } from "marked"; // @16/+esm to render from Markdown
 > ```
 >
-> ## Docs sources
+> **Docs sources**
 >
 > Read latest docs for fast moving packages: GitHub README, `npm view package-name readme`, ...
 >
@@ -661,3 +661,9 @@ This commit [Move build system to root and remove duplicate cards](https://githu
 - Link to the correct proposal HTML
 - Create the GitHub Action
 - Add an MIT LICENSE
+
+Then I [merged the PR](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/4).
+
+## 12 Nov Revisions
+
+> Update `process/index.html` to reflect the `## 12 Nov RFP Response` and `## 12 Nov 2025 Process Story and Landing Page` steps from process.md.
