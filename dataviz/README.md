@@ -14,26 +14,26 @@ Interactive data story and dashboard showcasing 16 comprehensive analyses from t
 Each chart is an independent module that exports a `render(container, props)` function:
 
 **Rank #1 Analyses (Overall: 5.0):**
-1. **`chart1-efficiency-scatter.js`** - Outcomes per rupee and beneficiaries per rupee (efficiency quadrants with dynamic circle sizing)
-2. **`chart2-coverage-map.js`** - Targeting need: coverage vs deprivation (bivariate scatter)
-3. **`chart3-underserved.js`** - Underserved pockets list (ranked bar chart)
+1. **`efficiency-scatter.js`** - Outcomes per rupee and beneficiaries per rupee (efficiency quadrants with dynamic circle sizing)
+2. **`coverage-map.js`** - Targeting need: coverage vs deprivation (bivariate scatter)
+3. **`underserved.js`** - Underserved pockets list (ranked bar chart)
 
 **Rank #2 Analyses (Overall: 4.6):**
-4. **`chart4-overview.js`** - Money → Reach → Outcomes overview (small multiples)
-5. **`chart5-kpi-waterfall.js`** - KPI attainment and its drivers (waterfall chart)
-6. **`chart6-coverage-deciles.js`** - Need vs coverage deciles (line chart with gap area)
-7. **`chart7-diminishing-returns.js`** - Diminishing returns at large budgets (scatter with trend)
-8. **`chart8-timeliness-impact.js`** - Timeliness ripple effect (bar chart with confidence intervals)
-9. **`chart9-coverage-impact.js`** - High-need coverage impact (cumulative impact curve)
+4. **`overview.js`** - Money → Reach → Outcomes overview (small multiples)
+5. **`kpi-waterfall.js`** - KPI attainment and its drivers (waterfall chart)
+6. **`coverage-deciles.js`** - Need vs coverage deciles (line chart with gap area)
+7. **`diminishing-returns.js`** - Diminishing returns at large budgets (scatter with trend)
+8. **`timeliness-impact.js`** - Timeliness ripple effect (bar chart with confidence intervals)
+9. **`coverage-impact.js`** - High-need coverage impact (cumulative impact curve)
 
 **Overall 4.0-4.2 Analyses:**
-10. **`chart10-partner-performance.js`** - Partner performance league table (traffic-light heatmap)
-11. **`chart11-funds-nps-dropout.js`** - Funds on time → NPS & dropout (dual scatter with sweet spots)
-12. **`chart12-urban-anomalies.js`** - Urban spend anomalies (scatter with anomaly highlighting)
-13. **`chart13-state-fairness.js`** - State fairness dashboard (grouped bars with delta labels)
-14. **`chart14-women-dropout.js`** - Women in skilling & dropout (binned scatter with trend)
-15. **`chart15-monsoon-effect.js`** - Monsoon effect & pre-monsoon outreach (faceted paired bars)
-16. **`chart16-capacity-variance.js`** - Capacity lowers variance & risk (side-by-side boxplots)
+10. **`partner-performance.js`** - Partner performance league table (traffic-light heatmap)
+11. **`funds-nps-dropout.js`** - Funds on time → NPS & dropout (dual scatter with sweet spots)
+12. **`urban-anomalies.js`** - Urban spend anomalies (scatter with anomaly highlighting)
+13. **`state-fairness.js`** - State fairness dashboard (grouped bars with delta labels)
+14. **`women-dropout.js`** - Women in skilling & dropout (binned scatter with trend)
+15. **`monsoon-effect.js`** - Monsoon effect & pre-monsoon outreach (faceted paired bars)
+16. **`capacity-variance.js`** - Capacity lowers variance & risk (side-by-side boxplots)
 
 ## Features
 
@@ -148,9 +148,10 @@ export default function render(container, props) {
 
 ### Adding New Charts
 
-1. Create a new `chartN-name.js` module
+1. Create a new `chart-name.js` module (descriptive name without numbers)
 2. Import and use in `index.html` or `dashboard.html`
 3. Follow the existing pattern for consistency
+4. See `newchart.md` for a template and best practices
 
 ## Performance
 
