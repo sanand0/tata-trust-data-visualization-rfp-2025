@@ -56,10 +56,6 @@ Visit the [GitHub Pages site](https://sanand0.github.io/tata-trust-data-visualiz
 git clone https://github.com/sanand0/tata-trust-data-visualization-rfp-2025.git
 cd tata-trust-data-visualization-rfp-2025
 
-# Install dependencies and build proposal HTML
-npm install
-npm run build
-
 # Serve locally (optional)
 npx http-server -p 8000
 ```
@@ -89,14 +85,14 @@ Open `index.html` in your browser to view the landing page.
 
 ## 📈 Key Results
 
-| Metric | Achievement |
-|--------|-------------|
-| **Time Saved** | 78% (27 hours vs. 120+ hours traditional) |
-| **Cost Reduction** | 90% (1-person vs. 5-person team) |
-| **Deliverables** | 100% of requirements met on time |
-| **Pages Created** | 6 interactive web pages |
-| **Visualizations** | 16 interactive charts |
-| **Documentation** | 2,000+ lines of process documentation |
+| Metric             | Achievement                               |
+| ------------------ | ----------------------------------------- |
+| **Time Saved**     | 78% (27 hours vs. 120+ hours traditional) |
+| **Cost Reduction** | 90% (1-person vs. 5-person team)          |
+| **Deliverables**   | 100% of requirements met on time          |
+| **Pages Created**  | 6 interactive web pages                   |
+| **Visualizations** | 16 interactive charts                     |
+| **Documentation**  | 2,000+ lines of process documentation     |
 
 ## 🎓 Key Lessons
 
@@ -159,7 +155,6 @@ tata-trust-data-visualization-rfp-2025/
 ├── style-guide.md          # Brand guidelines
 ├── analyses.md             # Proposed analyses
 ├── process.md              # Detailed process log
-└── package.json            # Build scripts
 ```
 
 ## 🔧 Technical Stack
@@ -171,12 +166,6 @@ tata-trust-data-visualization-rfp-2025/
 - **Bootstrap 5.3** - UI framework
 - **Lit-html** - Efficient DOM updates
 - **Marked** - Markdown rendering
-
-### Build & Deployment
-
-- **Eleventy** - Static site generation for proposal
-- **GitHub Actions** - CI/CD for GitHub Pages
-- **npm** - Package management and build scripts
 
 ### Data Generation
 
