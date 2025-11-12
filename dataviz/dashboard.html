@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tata Trusts Portfolio Dashboard</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --tata-dark: #23272b;
+      --tata-blue: #9fcdff;
+      --tata-red: #d0362d;
+      --tata-teal: #17a2b8;
+      --tata-success: #28a745;
+      --tata-gray: #6c757d;
+      --tata-light: #f5f5f5;
+      --sidebar-width: 260px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--tata-light);
+      color: var(--tata-dark);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #dee2e6;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--tata-dark);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: 1px solid #dee2e6;
+      background: white;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--tata-light);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      width: var(--sidebar-width);
+      height: calc(100vh - 73px);
+      background: white;
+      border-right: 1px solid #dee2e6;
+      overflow-y: auto;
+      padding: 1.5rem 0;
+      z-index: 100;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: var(--tata-dark);
+      text-decoration: none;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: var(--tata-light);
+      color: var(--tata-red);
+      border-right: 3px solid var(--tata-red);
+    }
+
+    .sidebar-section {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--tata-gray);
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+
+    .sidebar-section:first-child {
+      margin-top: 0;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      padding: 2rem;
+      min-height: calc(100vh - 73px);
+    }
+
+    /* Filters panel */
+    .filters-panel {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .filters-panel h5 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--tata-dark);
+    }
+
+    /* Dashboard cards */
+    .dashboard-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--tata-light);
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--tata-dark);
+      margin: 0;
+    }
+
+    .card-subtitle {
+      font-size: 0.875rem;
+      color: var(--tata-gray);
+      margin-top: 0.25rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #dee2e6;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: var(--tata-light);
+      border-color: var(--tata-teal);
+      color: var(--tata-teal);
+    }
+
+    /* Stat cards */
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--tata-teal);
+    }
+
+    .stat-card.danger {
+      border-left-color: var(--tata-red);
+    }
+
+    .stat-card.success {
+      border-left-color: var(--tata-success);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--tata-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--tata-dark);
+    }
+
+    .stat-change {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .stat-change.positive {
+      color: var(--tata-success);
+    }
+
+    .stat-change.negative {
+      color: var(--tata-red);
+    }
+
+    /* Chart containers */
+    .chart-container {
+      min-height: 400px;
+      position: relative;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .stat-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Loading states */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: var(--tata-dark);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Form controls */
+    .form-select,
+    .form-control {
+      border-radius: 4px;
+      border: 1px solid #dee2e6;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .form-select:focus,
+    .form-control:focus {
+      border-color: var(--tata-teal);
+      box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+    }
+
+    .btn-primary {
+      background: var(--tata-red);
+      border-color: var(--tata-red);
+    }
+
+    .btn-primary:hover {
+      background: #b82f27;
+      border-color: #b82f27;
+    }
+
+    .btn-outline-primary {
+      color: var(--tata-red);
+      border-color: var(--tata-red);
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--tata-red);
+      border-color: var(--tata-red);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="d-flex align-items-center gap-3 w-100">
+      <button class="menu-toggle" id="menuToggle">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="navbar-brand">Tata Trusts Portfolio Dashboard</div>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <span class="text-muted" style="font-size: 0.875rem;">2020-21 Analysis</span>
+        <a href="index.html" class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-book me-1"></i> Data Story
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">Overview</div>
+    <ul class="sidebar-nav">
+      <li><a href="#dashboard-home" class="active"><i class="bi bi-speedometer2 me-2"></i> Dashboard Home</a></li>
+      <li><a href="#filters"><i class="bi bi-funnel me-2"></i> Filters</a></li>
+    </ul>
+
+    <div class="sidebar-section">Key Analyses</div>
+    <ul class="sidebar-nav">
+      <li><a href="#efficiency"><i class="bi bi-graph-up me-2"></i> Efficiency Metrics</a></li>
+      <li><a href="#targeting"><i class="bi bi-geo-alt me-2"></i> Geographic Targeting</a></li>
+      <li><a href="#operations"><i class="bi bi-gear me-2"></i> Operations</a></li>
+      <li><a href="#impact"><i class="bi bi-bullseye me-2"></i> Impact Analysis</a></li>
+    </ul>
+
+    <div class="sidebar-section">Resources</div>
+    <ul class="sidebar-nav">
+      <li><a href="../data/grants_portfolio.csv"><i class="bi bi-download me-2"></i> Download Data</a></li>
+      <li><a href="https://www.tatatrusts.org" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> Tata Trusts</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Filters Panel -->
+    <div class="filters-panel" id="filters">
+      <h5><i class="bi bi-funnel me-2"></i> Data Filters</h5>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">Theme</label>
+          <select class="form-select" id="themeFilter">
+            <option value="">All Themes</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Livelihoods">Livelihoods</option>
+            <option value="WASH">WASH</option>
+            <option value="Skilling">Skilling</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">State</label>
+          <select class="form-select" id="stateFilter">
+            <option value="">All States</option>
+            <!-- Will be populated dynamically -->
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">Need Decile (Min)</label>
+          <select class="form-select" id="needFilter">
+            <option value="">All</option>
+            <option value="1">1 (Lowest)</option>
+            <option value="5">5</option>
+            <option value="8">8 (High Need)</option>
+            <option value="10">10 (Highest)</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label" style="font-size: 0.875rem; font-weight: 500;">&nbsp;</label>
+          <button class="btn btn-primary w-100" id="applyFilters">
+            <i class="bi bi-check-circle me-2"></i> Apply Filters
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-label">Total Budget</div>
+        <div class="stat-value" id="statBudget">₹--M</div>
+        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-label">Beneficiaries</div>
+        <div class="stat-value" id="statBeneficiaries">--</div>
+        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Outcome Index</div>
+        <div class="stat-value" id="statOutcome">--</div>
+        <div class="stat-change positive"><i class="bi bi-arrow-up"></i> Loading...</div>
+      </div>
+      <div class="stat-card danger">
+        <div class="stat-label">Coverage Gap</div>
+        <div class="stat-value" id="statGap">-- /1K</div>
+        <div class="stat-change negative"><i class="bi bi-arrow-down"></i> Loading...</div>
+      </div>
+    </div>
+
+    <!-- Dashboard Section: Efficiency -->
+    <div id="efficiency">
+      <h4 class="mb-3" style="font-weight: 600; color: var(--tata-dark);">
+        <i class="bi bi-graph-up me-2" style="color: var(--tata-teal);"></i>
+        Efficiency & Performance
+      </h4>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Portfolio Overview</h5>
+                <p class="card-subtitle">Budget, beneficiaries, and outcomes by theme</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart4" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Efficiency Quadrants</h5>
+                <p class="card-subtitle">Beneficiaries and outcomes per million ₹</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart1" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div>
+            <h5 class="card-title">Diminishing Returns Analysis</h5>
+            <p class="card-subtitle">Outcome efficiency vs. grant size - identify candidates for splitting</p>
+          </div>
+          <div class="card-actions">
+            <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+            <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+          </div>
+        </div>
+        <div id="chart7" class="chart-container"></div>
+      </div>
+    </div>
+
+    <!-- Dashboard Section: Geographic Targeting -->
+    <div id="targeting" class="mt-5">
+      <h4 class="mb-3" style="font-weight: 600; color: var(--tata-dark);">
+        <i class="bi bi-geo-alt me-2" style="color: var(--tata-red);"></i>
+        Geographic Targeting & Equity
+      </h4>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Need vs. Coverage</h5>
+                <p class="card-subtitle">Bivariate analysis of targeting effectiveness</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart2" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Coverage by Need Decile</h5>
+                <p class="card-subtitle">Target vs. actual coverage across need spectrum</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart6" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Top Underserved Districts</h5>
+                <p class="card-subtitle">Priority reallocation targets (need decile ≥ 8)</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart3" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Cumulative Impact Curve</h5>
+                <p class="card-subtitle">Outcomes gained by closing coverage gaps</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart9" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Section: Operations -->
+    <div id="operations" class="mt-5">
+      <h4 class="mb-3" style="font-weight: 600; color: var(--tata-dark);">
+        <i class="bi bi-gear me-2" style="color: var(--tata-success);"></i>
+        Operational Excellence
+      </h4>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">KPI Drivers Waterfall</h5>
+                <p class="card-subtitle">Incremental impact of operational levers</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart5" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Timeliness Impact</h5>
+                <p class="card-subtitle">On-time vs. delayed disbursement outcomes</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart8" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Import maps -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@observablehq/plot": "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm",
+        "d3": "https://cdn.jsdelivr.net/npm/d3@7/+esm"
+      }
+    }
+  </script>
+
+  <!-- Dashboard logic -->
+  <script type="module">
+    import { loadData, formatCurrency, formatNumber, sumBy, meanBy } from './core.js';
+    import chart1 from './chart1-efficiency-scatter.js';
+    import chart2 from './chart2-coverage-map.js';
+    import chart3 from './chart3-underserved.js';
+    import chart4 from './chart4-overview.js';
+    import chart5 from './chart5-kpi-waterfall.js';
+    import chart6 from './chart6-coverage-deciles.js';
+    import chart7 from './chart7-diminishing-returns.js';
+    import chart8 from './chart8-timeliness-impact.js';
+    import chart9 from './chart9-coverage-impact.js';
+
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('show');
+    });
+
+    // Active nav link
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-nav a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Initialize charts
+    let chartInstances = {};
+
+    async function initDashboard() {
+      try {
+        // Load data for stats
+        const portfolioData = await loadData('../data/grants_portfolio.csv');
+        const geoData = await loadData('../data/geo_need_coverage.csv');
+
+        // Update stats
+        const totalBudget = sumBy(portfolioData, 'budget_m_inr');
+        const totalBeneficiaries = sumBy(portfolioData, 'beneficiaries');
+        const avgOutcome = meanBy(portfolioData, 'outcome_index');
+        const avgGap = meanBy(geoData.filter(d => d.coverage_gap_per_1k > 0), 'coverage_gap_per_1k');
+
+        document.getElementById('statBudget').textContent = formatCurrency(totalBudget, 0) + 'M';
+        document.getElementById('statBeneficiaries').textContent = formatNumber(totalBeneficiaries / 1000, 0) + 'K';
+        document.getElementById('statOutcome').textContent = formatNumber(avgOutcome, 1);
+        document.getElementById('statGap').textContent = formatNumber(avgGap, 2) + ' /1K';
+
+        // Remove loading text
+        document.querySelectorAll('.stat-change').forEach(el => {
+          el.innerHTML = '<i class="bi bi-check-circle"></i> Updated';
+          el.classList.add('positive');
+        });
+
+        // Populate state filter
+        const states = [...new Set(portfolioData.map(d => d.state))].sort();
+        const stateFilter = document.getElementById('stateFilter');
+        states.forEach(state => {
+          const option = document.createElement('option');
+          option.value = state;
+          option.textContent = state;
+          stateFilter.appendChild(option);
+        });
+
+        // Initialize all charts
+        chartInstances.chart1 = chart1(document.getElementById('chart1'));
+        chartInstances.chart2 = chart2(document.getElementById('chart2'));
+        chartInstances.chart3 = chart3(document.getElementById('chart3'));
+        chartInstances.chart4 = chart4(document.getElementById('chart4'));
+        chartInstances.chart5 = chart5(document.getElementById('chart5'));
+        chartInstances.chart6 = chart6(document.getElementById('chart6'));
+        chartInstances.chart7 = chart7(document.getElementById('chart7'));
+        chartInstances.chart8 = chart8(document.getElementById('chart8'));
+        chartInstances.chart9 = chart9(document.getElementById('chart9'));
+
+      } catch (error) {
+        console.error('Error initializing dashboard:', error);
+        document.querySelectorAll('.stat-value').forEach(el => {
+          el.textContent = 'Error';
+        });
+      }
+    }
+
+    // Apply filters (placeholder - would need to implement filtering logic)
+    document.getElementById('applyFilters').addEventListener('click', () => {
+      const theme = document.getElementById('themeFilter').value;
+      const state = document.getElementById('stateFilter').value;
+      const need = document.getElementById('needFilter').value;
+
+      console.log('Filters applied:', { theme, state, need });
+      // TODO: Implement filtering and re-render charts
+      alert('Filters applied! (Full filtering implementation would filter data and update all charts)');
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Initialize
+    initDashboard();
+  </script>
+</body>
+</html>
