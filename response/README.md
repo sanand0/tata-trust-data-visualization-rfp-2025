@@ -94,9 +94,9 @@ graph TB
     end
 
     subgraph Agent["AI Visualization Agent"]
-        NLP["Natural Language Processing<br/>• Intent Detection<br/>• Context Awareness<br/>• Chart Type Selection<br/>• Visual Best Practices"]
-        CodeGen["Code Generation Engine<br/>• Observable Plot DSL<br/>• D3.js Transforms<br/>• ESM Module Builder<br/>• Responsive Templates"]
-        QA["Quality Assurance<br/>• Visual Validation<br/>• Accessibility Checks<br/>• Screenshot Comparison<br/>• Brand Compliance"]
+        NLP["Natural Language Processing<br/>- Intent Detection<br/>- Context Awareness<br/>- Chart Type Selection<br/>- Visual Best Practices"]
+        CodeGen["Code Generation Engine<br/>- Observable Plot DSL<br/>- D3.js Transforms<br/>- ESM Module Builder<br/>- Responsive Templates"]
+        QA["Quality Assurance<br/>- Visual Validation<br/>- Accessibility Checks<br/>- Screenshot Comparison<br/>- Brand Compliance"]
     end
 
     subgraph Data["Data Layer"]
@@ -106,7 +106,7 @@ graph TB
     end
 
     subgraph Infra["Infrastructure Layer"]
-        Azure["Azure VM<br/>• Web Server<br/>• File Storage<br/>• Compute<br/>• Backup"]
+        Azure["Azure VM<br/>- Web Server<br/>- File Storage<br/>- Compute<br/>- Backup"]
     end
 
     UI --> Agent

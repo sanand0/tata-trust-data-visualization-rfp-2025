@@ -1,0 +1,13 @@
+{
+  "name": "tata-trust-rfp-response",
+  "version": "1.0.0",
+  "description": "Build system for Tata Trusts Data Visualization RFP Response",
+  "scripts": {
+    "build": "node convert-to-html.js",
+    "clean": "rm -f *.html *.pdf"
+  },
+  "readme": "## Usage\n\n1. Build HTML: `npm run build`\n2. Convert to PDF: Open index.html in browser and use Print > Save as PDF\n3. Clean generated files: `npm run clean`\n\n## PDF Conversion\n\nFor professional PDF output:\n- Open the generated HTML in Chrome/Firefox\n- Press Ctrl+P (Cmd+P on Mac)\n- Select 'Save as PDF'\n- Ensure 'Background graphics' is enabled\n- Use A4 paper size with default margins",
+  "keywords": ["rfp", "tata-trusts", "proposal"],
+  "author": "",
+  "license": "ISC"
+}

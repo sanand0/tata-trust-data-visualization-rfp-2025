@@ -8,41 +8,19 @@ const path = require('path');
 function simpleMarkdownToHtml(markdown) {
   let html = markdown;
 
-  // Code blocks
-  html = html.replace(/```mermaid\n([\s\S]*?)```/g, '<pre class="mermaid">$1</pre>');
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Step 1: Protect code blocks from further processing
+  const codeBlocks = [];
+  html = html.replace(/```mermaid\n([\s\S]*?)```/g, (match, code) => {
+    codeBlocks.push(`<pre class="mermaid">${code.trim()}</pre>`);
+    return `__CODE_BLOCK_${codeBlocks.length - 1}__`;
+  });
+  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+    codeBlocks.push(`<pre><code class="language-${lang || ''}">${code.trim()}</code></pre>`);
+    return `__CODE_BLOCK_${codeBlocks.length - 1}__`;
+  });
 
-  // Headers
-  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-  // Bold and italic
-  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-
-  // Links - handle markdown links [text](url)
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-
-  // Lists
-  html = html.replace(/^\- (.+)$/gim, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-
-  // Horizontal rules
-  html = html.replace(/^---$/gim, '<hr>');
-
-  // Paragraphs (simple version)
-  html = html.split('\n\n').map(para => {
-    para = para.trim();
-    if (para && !para.startsWith('<') && para.length > 0) {
-      return `<p>${para}</p>`;
-    }
-    return para;
-  }).join('\n');
-
-  // Tables - basic support
+  // Step 2: Protect tables from further processing
+  const tables = [];
   const tableRegex = /\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/g;
   html = html.replace(tableRegex, (match, header, rows) => {
     const headers = header.split('|').map(h => h.trim()).filter(h => h);
@@ -59,7 +37,86 @@ function simpleMarkdownToHtml(markdown) {
       table += '</tr>\n';
     });
     table += '</tbody>\n</table>\n';
-    return table;
+
+    tables.push(table);
+    return `__TABLE_${tables.length - 1}__`;
+  });
+
+  // Step 3: Process headers (must be done before paragraphs)
+  html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
+  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+  // Step 4: Horizontal rules
+  html = html.replace(/^---$/gim, '<hr>');
+
+  // Step 5: Process lists properly
+  const lines = html.split('\n');
+  const processed = [];
+  let inList = false;
+  let listItems = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const listMatch = line.match(/^[\-\*]\s+(.+)$/);
+
+    if (listMatch) {
+      listItems.push(`<li>${listMatch[1]}</li>`);
+      inList = true;
+    } else {
+      if (inList && listItems.length > 0) {
+        processed.push('<ul>');
+        processed.push(...listItems);
+        processed.push('</ul>');
+        listItems = [];
+        inList = false;
+      }
+      processed.push(line);
+    }
+  }
+
+  if (inList && listItems.length > 0) {
+    processed.push('<ul>');
+    processed.push(...listItems);
+    processed.push('</ul>');
+  }
+
+  html = processed.join('\n');
+
+  // Step 6: Inline formatting (bold, italic, links, code)
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+  // Step 7: Process paragraphs (only wrap text that's not already HTML)
+  const blocks = html.split('\n\n');
+  html = blocks.map(block => {
+    block = block.trim();
+    if (!block) return '';
+
+    // Don't wrap if it's already HTML or a placeholder
+    if (block.startsWith('<') || block.includes('__CODE_BLOCK_') || block.includes('__TABLE_')) {
+      return block;
+    }
+
+    // Don't wrap single lines that look like they might be part of a list or header
+    if (block.split('\n').length === 1 && block.length < 200) {
+      return block;
+    }
+
+    // Wrap as paragraph, preserving internal line breaks
+    return `<p>${block.replace(/\n/g, '<br>\n')}</p>`;
+  }).join('\n\n');
+
+  // Step 8: Restore protected blocks
+  codeBlocks.forEach((block, i) => {
+    html = html.replace(`__CODE_BLOCK_${i}__`, block);
+  });
+  tables.forEach((table, i) => {
+    html = html.replace(`__TABLE_${i}__`, table);
   });
 
   return html;
@@ -80,19 +137,25 @@ function createHtmlTemplate(title, content, otherPages) {
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.7;
+            color: #2c3e50;
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            background: #f5f5f5;
+            background: #f5f7fa;
+            font-size: 16px;
         }
 
         .container {
             background: white;
-            padding: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 3rem 4rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
             border-radius: 8px;
+        }
+
+        p {
+            margin: 1.2rem 0;
+            text-align: justify;
         }
 
         /* Navigation */
@@ -258,11 +321,14 @@ function createHtmlTemplate(title, content, otherPages) {
             body {
                 background: white;
                 padding: 0;
+                font-size: 11pt;
+                line-height: 1.5;
             }
 
             .container {
                 box-shadow: none;
                 padding: 0;
+                border-radius: 0;
             }
 
             .nav {
@@ -270,6 +336,16 @@ function createHtmlTemplate(title, content, otherPages) {
                 color: white !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                page-break-after: avoid;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .proposal-table {
+                font-size: 10pt;
+                page-break-inside: avoid;
             }
 
             .proposal-table th {
@@ -281,19 +357,53 @@ function createHtmlTemplate(title, content, otherPages) {
 
             a {
                 color: #17a2b8 !important;
-                text-decoration: underline;
+                text-decoration: none;
             }
 
-            h1, h2 {
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 90%;
+                color: #666;
+            }
+
+            h1 {
+                font-size: 20pt;
+                page-break-after: avoid;
+                margin-top: 1.5em;
+            }
+
+            h2 {
+                font-size: 16pt;
+                page-break-after: avoid;
+                margin-top: 1.2em;
+            }
+
+            h3 {
+                font-size: 13pt;
                 page-break-after: avoid;
             }
 
-            .proposal-table {
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            p, ul, ol {
+                orphans: 3;
+                widows: 3;
+            }
+
+            pre, .mermaid {
                 page-break-inside: avoid;
+                border: 1px solid #ddd;
             }
 
             @page {
-                margin: 2cm;
+                margin: 2.5cm;
+                size: A4;
+
+                @bottom-right {
+                    content: counter(page) " of " counter(pages);
+                }
             }
         }
 
