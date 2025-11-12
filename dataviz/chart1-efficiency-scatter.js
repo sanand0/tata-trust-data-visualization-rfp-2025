@@ -42,6 +42,17 @@ export default function render(container, props = {}) {
       const xMedian = medianBy(chartData, 'beneficiaries_per_m_inr');
       const yMedian = medianBy(chartData, 'outcomes_per_m_inr');
 
+      // Dynamic radius scaling based on budget range
+      const maxBudget = Math.max(...chartData.map(d => d.budget_m_inr));
+      const minBudget = Math.min(...chartData.map(d => d.budget_m_inr));
+      const budgetRange = maxBudget - minBudget;
+
+      // Scale radius between 20 and 60 pixels for better visibility
+      const radiusScale = d => {
+        const normalized = (d.budget_m_inr - minBudget) / budgetRange;
+        return 20 + normalized * 40;
+      };
+
       container.innerHTML = '';
 
       // Create chart using Observable Plot
@@ -74,7 +85,7 @@ export default function render(container, props = {}) {
           Plot.dot(chartData, {
             x: "beneficiaries_per_m_inr",
             y: "outcomes_per_m_inr",
-            r: d => Math.sqrt(d.budget_m_inr) * 2,
+            r: radiusScale,
             fill: "theme",
             fillOpacity: 0.7,
             stroke: "white",
@@ -88,7 +99,7 @@ export default function render(container, props = {}) {
             x: "beneficiaries_per_m_inr",
             y: "outcomes_per_m_inr",
             text: "theme",
-            dy: -15,
+            dy: -25,
             fontSize: 12,
             fontWeight: "600",
             fill: COLORS.dark

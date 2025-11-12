@@ -620,6 +620,130 @@
         </div>
       </div>
     </div>
+
+    <!-- Dashboard Section: Additional Insights -->
+    <div id="insights" class="mt-5">
+      <h4 class="mb-3" style="font-weight: 600; color: var(--tata-dark);">
+        <i class="bi bi-lightbulb me-2" style="color: var(--tata-warning);"></i>
+        Additional Strategic Insights
+      </h4>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Partner Performance League Table</h5>
+                <p class="card-subtitle">Efficiency, timeliness, and risk by partner</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart10" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Capacity Lowers Variance & Risk</h5>
+                <p class="card-subtitle">Partner capacity impact on performance</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart16" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Funds On Time → NPS & Dropout</h5>
+                <p class="card-subtitle">Timely funding impact on beneficiary experience</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart11" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Urban Spend Anomalies</h5>
+                <p class="card-subtitle">Districts with unusual urban spending patterns</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart12" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">State Fairness Dashboard</h5>
+                <p class="card-subtitle">Budget allocation vs. high-need population share</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart13" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h5 class="card-title">Women in Skilling & Dropout</h5>
+                <p class="card-subtitle">Female participation impact on program retention</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+                <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+              </div>
+            </div>
+            <div id="chart14" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-card mt-3">
+        <div class="card-header">
+          <div>
+            <h5 class="card-title">Monsoon Effect & Pre-Monsoon Outreach</h5>
+            <p class="card-subtitle">Seasonal impact on outcomes and dropout rates</p>
+          </div>
+          <div class="card-actions">
+            <button class="btn-icon" title="Download"><i class="bi bi-download"></i></button>
+            <button class="btn-icon" title="Fullscreen"><i class="bi bi-arrows-fullscreen"></i></button>
+          </div>
+        </div>
+        <div id="chart15" class="chart-container"></div>
+      </div>
+    </div>
   </main>
 
   <!-- Bootstrap JS -->
@@ -637,7 +761,7 @@
 
   <!-- Dashboard logic -->
   <script type="module">
-    import { loadData, formatCurrency, formatNumber, sumBy, meanBy } from './core.js';
+    import { loadData, formatCurrency, formatNumber, sumBy, meanBy, toggleFullscreen, downloadChart } from './core.js';
     import chart1 from './chart1-efficiency-scatter.js';
     import chart2 from './chart2-coverage-map.js';
     import chart3 from './chart3-underserved.js';
@@ -647,6 +771,13 @@
     import chart7 from './chart7-diminishing-returns.js';
     import chart8 from './chart8-timeliness-impact.js';
     import chart9 from './chart9-coverage-impact.js';
+    import chart10 from './chart10-partner-performance.js';
+    import chart11 from './chart11-funds-nps-dropout.js';
+    import chart12 from './chart12-urban-anomalies.js';
+    import chart13 from './chart13-state-fairness.js';
+    import chart14 from './chart14-women-dropout.js';
+    import chart15 from './chart15-monsoon-effect.js';
+    import chart16 from './chart16-capacity-variance.js';
 
     // Mobile menu toggle
     document.getElementById('menuToggle').addEventListener('click', () => {
@@ -697,16 +828,30 @@
           stateFilter.appendChild(option);
         });
 
-        // Initialize all charts
-        chartInstances.chart1 = chart1(document.getElementById('chart1'));
-        chartInstances.chart2 = chart2(document.getElementById('chart2'));
-        chartInstances.chart3 = chart3(document.getElementById('chart3'));
-        chartInstances.chart4 = chart4(document.getElementById('chart4'));
-        chartInstances.chart5 = chart5(document.getElementById('chart5'));
-        chartInstances.chart6 = chart6(document.getElementById('chart6'));
-        chartInstances.chart7 = chart7(document.getElementById('chart7'));
-        chartInstances.chart8 = chart8(document.getElementById('chart8'));
-        chartInstances.chart9 = chart9(document.getElementById('chart9'));
+        // Initialize all charts with standard height
+        const chartHeight = 500;
+        chartInstances.chart1 = chart1(document.getElementById('chart1'), { height: chartHeight });
+        chartInstances.chart2 = chart2(document.getElementById('chart2'), { height: chartHeight });
+        chartInstances.chart3 = chart3(document.getElementById('chart3'), { height: chartHeight });
+        chartInstances.chart4 = chart4(document.getElementById('chart4'), { height: chartHeight });
+        chartInstances.chart5 = chart5(document.getElementById('chart5'), { height: chartHeight });
+        chartInstances.chart6 = chart6(document.getElementById('chart6'), { height: chartHeight });
+        chartInstances.chart7 = chart7(document.getElementById('chart7'), { height: chartHeight });
+        chartInstances.chart8 = chart8(document.getElementById('chart8'), { height: chartHeight });
+        chartInstances.chart9 = chart9(document.getElementById('chart9'), { height: chartHeight });
+        chartInstances.chart10 = chart10(document.getElementById('chart10'), { height: chartHeight });
+        chartInstances.chart11 = chart11(document.getElementById('chart11'), { height: chartHeight });
+        chartInstances.chart12 = chart12(document.getElementById('chart12'), { height: chartHeight });
+        chartInstances.chart13 = chart13(document.getElementById('chart13'), { height: chartHeight });
+        chartInstances.chart14 = chart14(document.getElementById('chart14'), { height: chartHeight });
+        chartInstances.chart15 = chart15(document.getElementById('chart15'), { height: chartHeight });
+        chartInstances.chart16 = chart16(document.getElementById('chart16'), { height: chartHeight });
+
+        // Store unfiltered data for filtering
+        window.dashboardData = {
+          portfolio: portfolioData,
+          geo: geoData
+        };
 
       } catch (error) {
         console.error('Error initializing dashboard:', error);
@@ -716,15 +861,73 @@
       }
     }
 
-    // Apply filters (placeholder - would need to implement filtering logic)
-    document.getElementById('applyFilters').addEventListener('click', () => {
+    // Apply filters
+    document.getElementById('applyFilters').addEventListener('click', async () => {
       const theme = document.getElementById('themeFilter').value;
       const state = document.getElementById('stateFilter').value;
-      const need = document.getElementById('needFilter').value;
+      const needMin = document.getElementById('needFilter').value;
 
-      console.log('Filters applied:', { theme, state, need });
-      // TODO: Implement filtering and re-render charts
-      alert('Filters applied! (Full filtering implementation would filter data and update all charts)');
+      try {
+        const portfolio = window.dashboardData.portfolio;
+        const geo = window.dashboardData.geo;
+
+        // Filter portfolio data
+        let filteredPortfolio = portfolio;
+        if (theme) {
+          filteredPortfolio = filteredPortfolio.filter(d => d.theme === theme);
+        }
+        if (state) {
+          filteredPortfolio = filteredPortfolio.filter(d => d.state === state);
+        }
+
+        // Filter geo data
+        let filteredGeo = geo;
+        if (state) {
+          filteredGeo = filteredGeo.filter(d => d.state === state);
+        }
+        if (needMin) {
+          filteredGeo = filteredGeo.filter(d => d.need_decile >= parseInt(needMin));
+        }
+
+        // Update stats
+        const totalBudget = sumBy(filteredPortfolio, 'budget_m_inr');
+        const totalBeneficiaries = sumBy(filteredPortfolio, 'beneficiaries');
+        const avgOutcome = meanBy(filteredPortfolio, 'outcome_index');
+        const avgGap = meanBy(filteredGeo.filter(d => d.coverage_gap_per_1k > 0), 'coverage_gap_per_1k');
+
+        document.getElementById('statBudget').textContent = formatCurrency(totalBudget, 0) + 'M';
+        document.getElementById('statBeneficiaries').textContent = formatNumber(totalBeneficiaries / 1000, 0) + 'K';
+        document.getElementById('statOutcome').textContent = formatNumber(avgOutcome, 1);
+        document.getElementById('statGap').textContent = formatNumber(avgGap, 2) + ' /1K';
+
+        // Update charts with filtered data
+        const chartHeight = 500;
+        if (chartInstances.chart1) chartInstances.chart1.update({ data: filteredPortfolio, height: chartHeight });
+        if (chartInstances.chart2) chartInstances.chart2.update({ data: filteredGeo, height: chartHeight });
+        if (chartInstances.chart3) chartInstances.chart3.update({ data: filteredGeo, height: chartHeight });
+        if (chartInstances.chart4) chartInstances.chart4.update({ data: filteredPortfolio, height: chartHeight });
+        if (chartInstances.chart7) chartInstances.chart7.update({ data: filteredPortfolio, height: chartHeight });
+        if (chartInstances.chart9) chartInstances.chart9.update({ data: filteredGeo, height: chartHeight });
+
+      } catch (error) {
+        console.error('Error applying filters:', error);
+        alert('Error applying filters: ' + error.message);
+      }
+    });
+
+    // Fullscreen and download buttons
+    document.querySelectorAll('.btn-icon').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.dashboard-card');
+        const container = card.querySelector('.chart-container');
+        const title = card.querySelector('.card-title').textContent;
+
+        if (this.title === 'Fullscreen') {
+          toggleFullscreen(card);
+        } else if (this.title === 'Download') {
+          downloadChart(container, `${title.replace(/\s+/g, '-').toLowerCase()}.png`);
+        }
+      });
     });
 
     // Smooth scrolling

@@ -291,6 +291,57 @@ export function injectStyles(container, css) {
   container.appendChild(style);
 }
 
+// Fullscreen functionality
+export function toggleFullscreen(element) {
+  if (!document.fullscreenElement) {
+    element.requestFullscreen().catch(err => {
+      console.error(`Error attempting to enable fullscreen: ${err.message}`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Download chart as PNG
+export function downloadChart(container, filename = 'chart.png') {
+  const svg = container.querySelector('svg');
+  if (!svg) {
+    console.error('No SVG found in container');
+    return;
+  }
+
+  // Create a canvas
+  const canvas = document.createElement('canvas');
+  const bbox = svg.getBoundingClientRect();
+  canvas.width = bbox.width * 2; // 2x for better quality
+  canvas.height = bbox.height * 2;
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2, 2);
+
+  // Convert SVG to data URL
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+  const url = URL.createObjectURL(svgBlob);
+
+  const img = new Image();
+  img.onload = () => {
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+
+    canvas.toBlob(blob => {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = URL.createObjectURL(blob);
+      link.click();
+      URL.revokeObjectURL(url);
+      URL.revokeObjectURL(link.href);
+    });
+  };
+  img.src = url;
+}
+
 // Common chart styles
 export const CHART_STYLES = `
   .chart-tooltip {
