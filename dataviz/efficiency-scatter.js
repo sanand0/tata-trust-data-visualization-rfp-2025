@@ -42,16 +42,10 @@ export default function render(container, props = {}) {
       const xMedian = medianBy(chartData, 'beneficiaries_per_m_inr');
       const yMedian = medianBy(chartData, 'outcomes_per_m_inr');
 
-      // Dynamic radius scaling based on budget range
+      // Calculate budget range for dynamic radius scaling
       const maxBudget = Math.max(...chartData.map(d => d.budget_m_inr));
       const minBudget = Math.min(...chartData.map(d => d.budget_m_inr));
-      const budgetRange = maxBudget - minBudget;
-
-      // Scale radius between 20 and 60 pixels for better visibility
-      const radiusScale = d => {
-        const normalized = (d.budget_m_inr - minBudget) / budgetRange;
-        return 20 + normalized * 40;
-      };
+      const budgetRange = maxBudget - minBudget || 1; // Avoid division by zero
 
       container.innerHTML = '';
 
@@ -81,11 +75,14 @@ export default function render(container, props = {}) {
           Plot.ruleX([xMedian], { stroke: COLORS.mediumGray, strokeDasharray: "4,4", strokeWidth: 1 }),
           Plot.ruleY([yMedian], { stroke: COLORS.mediumGray, strokeDasharray: "4,4", strokeWidth: 1 }),
 
-          // Points
+          // Points with dynamic radius scaling (20-60px based on budget)
           Plot.dot(chartData, {
             x: "beneficiaries_per_m_inr",
             y: "outcomes_per_m_inr",
-            r: radiusScale,
+            r: d => {
+              const normalized = (d.budget_m_inr - minBudget) / budgetRange;
+              return 20 + normalized * 40; // Scale between 20-60px
+            },
             fill: "theme",
             fillOpacity: 0.7,
             stroke: "white",
