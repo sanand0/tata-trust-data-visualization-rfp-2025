@@ -38,14 +38,28 @@ export default function render(container, props = {}) {
         };
       });
 
-      // Calculate medians for quadrant lines
-      const xMedian = medianBy(chartData, 'beneficiaries_per_m_inr');
-      const yMedian = medianBy(chartData, 'outcomes_per_m_inr');
-
       // Calculate budget range for dynamic radius scaling
       const maxBudget = Math.max(...chartData.map(d => d.budget_m_inr));
       const minBudget = Math.min(...chartData.map(d => d.budget_m_inr));
       const budgetRange = maxBudget - minBudget || 1; // Avoid division by zero
+
+      // Add computed radius to each data point (20-60px based on budget)
+      chartData.forEach(d => {
+        const normalized = (d.budget_m_inr - minBudget) / budgetRange;
+        d.radius = 20 + normalized * 40;
+      });
+
+      // Debug: Log radius values to verify scaling
+      console.log('Efficiency Scatter - Budget Range:', { minBudget, maxBudget, budgetRange });
+      console.log('Efficiency Scatter - Radius Values:', chartData.map(d => ({
+        theme: d.theme,
+        budget: d.budget_m_inr.toFixed(1),
+        radius: d.radius.toFixed(1)
+      })));
+
+      // Calculate medians for quadrant lines
+      const xMedian = medianBy(chartData, 'beneficiaries_per_m_inr');
+      const yMedian = medianBy(chartData, 'outcomes_per_m_inr');
 
       container.innerHTML = '';
 
@@ -65,6 +79,10 @@ export default function render(container, props = {}) {
           label: "↑ Outcomes per million ₹",
           labelAnchor: "center"
         },
+        r: {
+          type: "identity", // Disable default sqrt scale, use values directly
+          range: [20, 60]
+        },
         color: {
           domain: Object.keys(THEME_COLORS),
           range: Object.values(THEME_COLORS),
@@ -79,10 +97,7 @@ export default function render(container, props = {}) {
           Plot.dot(chartData, {
             x: "beneficiaries_per_m_inr",
             y: "outcomes_per_m_inr",
-            r: d => {
-              const normalized = (d.budget_m_inr - minBudget) / budgetRange;
-              return 20 + normalized * 40; // Scale between 20-60px
-            },
+            r: "radius", // Use pre-computed radius field
             fill: "theme",
             fillOpacity: 0.7,
             stroke: "white",
