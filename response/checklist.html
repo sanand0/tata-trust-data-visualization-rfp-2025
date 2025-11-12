@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirements Checklist - Tata Trusts RFP</title>
+    <style>
+        /* Print-friendly styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: #17a2b8;
+            color: white;
+            padding: 1rem 2rem;
+            margin: -3rem -3rem 2rem -3rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav a.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        /* Typography */
+        h1 {
+            color: #23272b;
+            border-bottom: 3px solid #17a2b8;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h2 {
+            color: #17a2b8;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #23272b;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Links */
+        a {
+            color: #17a2b8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Code */
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #17a2b8;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        /* Tables */
+        .proposal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .proposal-table th {
+            background: #17a2b8;
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .proposal-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .proposal-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .proposal-table tr:hover {
+            background: #f0f8ff;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #17a2b8;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Horizontal rules */
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        /* Mermaid diagrams */
+        .mermaid {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav {
+                background: #23272b !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .proposal-table th {
+                background: #17a2b8 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            a {
+                color: #17a2b8 !important;
+                text-decoration: underline;
+            }
+
+            h1, h2 {
+                page-break-after: avoid;
+            }
+
+            .proposal-table {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                margin: -1.5rem -1.5rem 1rem -1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .nav a {
+                display: block;
+                text-align: center;
+            }
+
+            .proposal-table {
+                font-size: 0.85rem;
+            }
+
+            .proposal-table th,
+            .proposal-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ startOnLoad: true, theme: 'default' });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <h1>Tata Trusts Data Visualization RFP</h1>
+            <div class="nav-links">
+                <a href="index.html" class="">Technical Proposal</a>
+                <a href="checklist.html" class="active">Requirements Checklist</a>
+                <a href="review.html" class="">Review Checklist</a>
+            </div>
+        </nav>
+
+        <main>
+            <h1>RFP Requirements Compliance Checklist</h1>
+<p>This document maps all requirements from the Tata Trusts RFP (dated 04/11/2025) to specific sections of our proposal and implementation.</p>
+<hr>
+<h2>Functional Requirement Sheet (Annexure G)</h2>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Compliance</th>
+<th>Platform Capability</th>
+<th>Proposal Section</th>
+<th>Implementation Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scope of Services</strong></td>
+</tr>
+<tr>
+<td>Deliver interactive dashboard with GIS capabilities at country, state, district, block, village levels</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Mapbox GL JS with multi-level drill-down, choropleth maps, bubble maps</td>
+<td>Section 3.1</td>
+<td>dataviz/coverage-map.js</td>
+</tr>
+<tr>
+<td>Integrate existing internal data sets (Excel/CSV uploads, API, database linkages)</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>CSV upload interface, JSON files data warehouse, future Fluxx/DMP API integration</td>
+<td>Section 3.3</td>
+<td>Proposal Week 1-2 deliverable</td>
+</tr>
+<tr>
+<td>Develop capability to integrate data from external/secondary sources</td>
+<td>Good to Have</td>
+<td>✅ Phase 2</td>
+<td>Phase 2: Census, NFHS, NITI Aayog APIs via connectors</td>
+<td>Section 3.3, 8.2</td>
+<td>Rate-carded for Phase 2</td>
+</tr>
+<tr>
+<td>Provide comprehensive technical support, enhancements, maintenance</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>3-month included support, AMC options (₹3-8L/year), helpdesk, SLA</td>
+<td>Section 6.2, 12</td>
+<td>Post-deployment support plan</td>
+</tr>
+<tr>
+<td>Support no-code/low-code and customizable solutions</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>AI agent for natural language chart creation, no-code for users</td>
+<td>Section 2.1, 2.4</td>
+<td>AI agent demo in dataviz/</td>
+</tr>
+<tr>
+<td>Implement data validation and cleansing processes</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>CSV validation, schema checks, geocoding validation, error reporting</td>
+<td>Section 3.3</td>
+<td>Upload pipeline (Week 3)</td>
+</tr>
+<tr>
+<td>Experience with visualization tools (PowerBI)</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Observable Plot, D3.js (preferred); Power BI experience in team</td>
+<td>Section 2.3, 5.1</td>
+<td>Team lead has Power BI experience</td>
+</tr>
+<tr>
+<td><strong>Core Functionalities</strong></td>
+</tr>
+<tr>
+<td>Map Visualizations – boundaries, coverage, locations, distribution</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Mapbox choropleth, bubble maps, cluster maps, polygon overlays</td>
+<td>Section 3.1</td>
+<td>dataviz/coverage-map.js</td>
+</tr>
+<tr>
+<td>Interactive Map Controls – pan, zoom, select, query dynamically</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Mapbox GL JS built-in controls, click handlers, tooltips</td>
+<td>Section 3.1</td>
+<td>Interactive GIS layer</td>
+</tr>
+<tr>
+<td>Layer Management – toggle multiple thematic/data layers</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Layer switcher UI, show/hide checkboxes, opacity controls</td>
+<td>Section 3.1</td>
+<td>Dashboard sidebar (Week 5)</td>
+</tr>
+<tr>
+<td>Overlays with Trusts Indicators – RUP, Health, Education, etc.</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Thematic layers with color coding by theme, tooltip details</td>
+<td>Section 3.2</td>
+<td>Theme-based color encoding</td>
+</tr>
+<tr>
+<td>Heatmaps & Cluster Maps – concentration and intensity</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Density heatmaps, Mapbox supercluster, circle size by beneficiaries</td>
+<td>Section 3.2</td>
+<td>dataviz/coverage-map.js</td>
+</tr>
+<tr>
+<td>Colouring – color schemes for data intensity/type</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Observable Plot color scales, brand-compliant palette (COLORS in core.js)</td>
+<td>Section 3.2, 7.4</td>
+<td>dataviz/core.js</td>
+</tr>
+<tr>
+<td>Time-Series Animation – visualize changes over time, animate maps</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2+</td>
+<td>Budgeted in Phase 2 rate card (6 weeks, GIS specialist)</td>
+<td>Section 8.2</td>
+<td>Phase 2 roadmap</td>
+</tr>
+<tr>
+<td>Narrative Reporting – qualitative insights alongside quantitative</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2+</td>
+<td>AI agent can generate text summaries; manual narratives in Phase 1</td>
+<td>Section 2.1</td>
+<td>Data story (dataviz/index.html)</td>
+</tr>
+<tr>
+<td>Comparative Spatial Analysis – compare geographies, themes, time</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>State fairness chart, efficiency by district, faceted panels</td>
+<td>Section 3.4 (#12, #15)</td>
+<td>dataviz/state-fairness.js, monsoon-effect.js</td>
+</tr>
+<tr>
+<td>Cross-tab Analysis – correlate Trusts data with external datasets</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Join Census/NFHS data with grants, enrichment queries</td>
+<td>Section 8.2</td>
+<td>Phase 2 external data integration</td>
+</tr>
+<tr>
+<td>Spatial Queries – identify projects within selected polygons</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>GeoJSON spatial queries, "show all projects in aspirational districts"</td>
+<td>Section 3.1</td>
+<td>GeoJSON ST_Contains queries</td>
+</tr>
+<tr>
+<td><strong>Data Integration & Management</strong></td>
+</tr>
+<tr>
+<td>Fluxx Integration – auto-fetch project and grant data</td>
+<td>Good to Have</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Fluxx REST API with OAuth, daily/weekly sync</td>
+<td>Section 3.3</td>
+<td>Budgeted in rate card (8 weeks)</td>
+</tr>
+<tr>
+<td>DMP Integration – connect to internal Data Management Platform</td>
+<td>Good to Have</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Snowflake connector for KPI warehouse</td>
+<td>Section 3.3</td>
+<td>Budgeted in rate card (4 weeks)</td>
+</tr>
+<tr>
+<td>External Data Linkages – Census, NSSO, NFHS, NITI, MoRD, remote sensing</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Government API integrations, shapefile imports</td>
+<td>Section 3.3, 8.2</td>
+<td>Deferred per pre-bid meeting</td>
+</tr>
+<tr>
+<td>API / CSV / Excel Uploads – manual and automated imports</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Web upload form, drag-drop, validation, JSON files ingestion</td>
+<td>Section 3.3</td>
+<td>CSV upload interface (Week 3)</td>
+</tr>
+<tr>
+<td>Data stabilization – standardize codes (districts/blocks), merge datasets</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Geocoding pipeline, district name normalization, GeoJSON matching</td>
+<td>Section 3.3</td>
+<td>Data pipeline scripts (Week 2)</td>
+</tr>
+<tr>
+<td>Data Validation – automated checks for missing/inconsistent data</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Schema validation, null checks, range checks, error reports</td>
+<td>Section 3.3, 7.3</td>
+<td>Upload validation (Week 3)</td>
+</tr>
+<tr>
+<td>Metadata Management – store dataset descriptions, sources, update frequency</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Database metadata tables, data dictionary, source tracking</td>
+<td>Section 3.3</td>
+<td>Data model (Week 2)</td>
+</tr>
+<tr>
+<td>Version Control – track and manage data revisions</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Timestamped uploads, audit log, rollback capability</td>
+<td>Section 3.3, 7.3</td>
+<td>Audit logging (Week 4)</td>
+</tr>
+<tr>
+<td>Integration protocols – follow industry standards</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>REST APIs (Phase 2), OAuth 2.0, JSON/CSV formats, HTTPS/TLS</td>
+<td>Section 2.3, 7.3</td>
+<td>Standards-compliant</td>
+</tr>
+<tr>
+<td><strong>Analytical & Reporting Features</strong></td>
+</tr>
+<tr>
+<td>Overview Reports – total projects, themes, geographies, funding</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Summary stat cards, portfolio overview small multiples</td>
+<td>Section 3.4 (#1)</td>
+<td>dataviz/overview.js, dashboard stats</td>
+</tr>
+<tr>
+<td>Financial Insights – commitment vs disbursed, funding mix, grant sizes</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Analyzed in 16 charts; can add stacked bars/waterfall if prioritized</td>
+<td>Section 3.4</td>
+<td>Can add in Week 5 if requested</td>
+</tr>
+<tr>
+<td>Grantee Performance Analytics – efficiency, impact scores, leaderboards</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: ML-based scoring, partner benchmarking</td>
+<td>Section 3.4 (#10)</td>
+<td>dataviz/partner-performance.js (Phase 1 basic version)</td>
+</tr>
+<tr>
+<td>Geographic Insights – grants by aspirational areas, theme × geography</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Coverage map, underserved pockets, state fairness charts</td>
+<td>Section 3.4 (#2, #3, #12)</td>
+<td>dataviz/coverage-map.js, underserved.js, state-fairness.js</td>
+</tr>
+<tr>
+<td>Trend & Time-Series Analysis – funding, outcomes, beneficiary changes</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Historical trend lines, cumulative curves</td>
+<td>Section 3.4 (#9)</td>
+<td>dataviz/coverage-impact.js (partial)</td>
+</tr>
+<tr>
+<td>Benchmarking Tools – compare Trusts metrics with national/state averages</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: External data integration enables benchmarking</td>
+<td>Section 8.2</td>
+<td>Phase 2 roadmap</td>
+</tr>
+<tr>
+<td>Gap Analysis – identify under-served regions</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Underserved pockets list, coverage vs need decile gaps</td>
+<td>Section 3.4 (#3, #6)</td>
+<td>dataviz/underserved.js, coverage-deciles.js</td>
+</tr>
+<tr>
+<td>AI-Enabled Insights (Optional) – automated summaries, patterns, predictions</td>
+<td>Wish to Have (Later)</td>
+<td>✅ POC in Phase 1</td>
+<td>AI agent for on-demand chart generation, narrative summaries</td>
+<td>Section 2.1, 2.4</td>
+<td>AI agent demo (proof-of-concept)</td>
+</tr>
+<tr>
+<td><strong>Visualization & User Interface</strong></td>
+</tr>
+<tr>
+<td>Dynamic Filtering – filter by geography, theme, grantee, time, funding</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Dashboard filters (theme, state, need decile), updates all charts</td>
+<td>Section 3.2</td>
+<td>dataviz/dashboard.html filters</td>
+</tr>
+<tr>
+<td>Search & Query Tools – search by project, partner, location, attributes</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Natural language AI agent queries (POC), future keyword search</td>
+<td>Section 2.1</td>
+<td>AI agent + future search bar</td>
+</tr>
+<tr>
+<td>Interactive Charts & Graphs – bar, donut, tree, waterfall, scatter, box plots</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>16 chart types implemented (scatter, bar, line, waterfall, box, heatmap, etc.)</td>
+<td>Section 3.2, 3.4</td>
+<td>dataviz/*.js (16 modules)</td>
+</tr>
+<tr>
+<td>Custom Dashboards – create and save personalized views</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: User profiles, saved filters, favorite charts</td>
+<td>Section 8.2</td>
+<td>Phase 2 personalization</td>
+</tr>
+<tr>
+<td>Responsive UI/UX – works on desktops, tablets, mobiles</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Bootstrap 5 responsive grid, tested on iOS/Android</td>
+<td>Section 7.2</td>
+<td>Responsive design (all pages)</td>
+</tr>
+<tr>
+<td>Tooltips & Popups – quick info on hover (funding, partner, beneficiaries)</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Observable Plot <code>tip: true</code>, custom title formatters</td>
+<td>Section 3.2</td>
+<td>All charts have tooltips</td>
+</tr>
+<tr>
+<td>Drill-through Functionality – click to move from summary to detail</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Map click → district details, chart click → filtered data</td>
+<td>Section 3.1</td>
+<td>Interactive drill-down (Week 5)</td>
+</tr>
+<tr>
+<td>Dashboard Linking – interconnected tabs (Financials ↔ Geography ↔ Outcomes)</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Sidebar navigation, shared filters across sections</td>
+<td>Section 3.2</td>
+<td>dataviz/dashboard.html sidebar</td>
+</tr>
+<tr>
+<td>Visual Consistency – standardized color codes, legends</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Tata Trusts brand colors (COLORS in core.js), consistent legends</td>
+<td>Section 7.4, style-guide.md</td>
+<td>dataviz/core.js</td>
+</tr>
+<tr>
+<td><strong>Export, Sharing & Automation</strong></td>
+</tr>
+<tr>
+<td>Data Export – PDF, Excel, CSV, image formats</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Implemented PNG download, CSV export; PDF via browser print</td>
+<td>Section 3.2</td>
+<td>Dashboard download buttons</td>
+</tr>
+<tr>
+<td>Report Scheduling – auto-generate and email periodic reports</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Scheduled jobs, email integration</td>
+<td>Section 8.2</td>
+<td>Phase 2 automation</td>
+</tr>
+<tr>
+<td>Print-ready Reports – formatted outputs for leadership</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Data story (index.html) optimized for print/PDF export</td>
+<td>Section 6.1</td>
+<td>dataviz/index.html (print CSS)</td>
+</tr>
+<tr>
+<td><strong>System Architecture & Security</strong></td>
+</tr>
+<tr>
+<td>Authentication & Encryption – secure login, data transfer</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>HTTPS/TLS 1.3, AES-256 at rest, Google OAuth 2.0 (Phase 1)</td>
+<td>Section 7.3</td>
+<td>Security implementation (Week 1)</td>
+</tr>
+<tr>
+<td>Scalable Infrastructure – cloud hosting, load balancing</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>Azure (or Azure), VM, Azure VM, CDN (Azure)</td>
+<td>Section 2.3</td>
+<td>Cloud setup (Week 1)</td>
+</tr>
+<tr>
+<td><strong>Maintenance & Support</strong></td>
+</tr>
+<tr>
+<td>Training Modules – hands-on sessions, tutorials</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>3 training sessions (5 hours total), video tutorials, manuals</td>
+<td>Section 5.2, 6.2</td>
+<td>Training (Week 8)</td>
+</tr>
+<tr>
+<td>User Manuals & Documentation – technical and operational guides</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>User manual, technical docs (50-60 pages), API reference</td>
+<td>Section 6.1</td>
+<td>Documentation (Week 8)</td>
+</tr>
+<tr>
+<td>Feedback & Support Portal – ticket-based issue resolution</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 1: Email/Teams helpdesk; Phase 2: Ticketing portal</td>
+<td>Section 6.2, 12</td>
+<td>Helpdesk (included in 3-month support)</td>
+</tr>
+<tr>
+<td>System Monitoring – track uptime, performance, data refresh</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: CloudWatch monitoring, alerting, dashboards</td>
+<td>Section 7.1</td>
+<td>Phase 2 monitoring</td>
+</tr>
+<tr>
+<td>Usage Analytics – monitor dashboard engagement, popular views</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Google Analytics, heatmaps, session recordings</td>
+<td>Section 8.2</td>
+<td>Phase 2 analytics</td>
+</tr>
+<tr>
+<td>Scalability for Future Enhancements – add new layers, reports, users</td>
+<td>Wish to Have (Later)</td>
+<td>✅ Yes</td>
+<td>Modular architecture, AI agent adapts, rate card for expansions</td>
+<td>Section 2.2, 8.2</td>
+<td>Inherent in AI-agent approach</td>
+</tr>
+<tr>
+<td>Data backup – periodic backup of data</td>
+<td>Must Have</td>
+<td>✅ Yes</td>
+<td>Daily automated Azure VM, VM storage versioning, 30-day retention</td>
+<td>Section 7.3</td>
+<td>Backup automation (Week 1)</td>
+</tr>
+<tr>
+<td>Configurability – allow inhouse report development (rate card for support)</td>
+<td>Good to Have</td>
+<td>✅ Yes</td>
+<td>AI agent enables self-service, rate card for custom development</td>
+<td>Section 2.4, 12</td>
+<td>AI agent + rate card</td>
+</tr>
+<tr>
+<td><strong>Advanced / Optional Features</strong></td>
+</tr>
+<tr>
+<td>AI Query Assistant – natural language queries ("Show top 5 states by funding in RUP")</td>
+<td>Wish to Have (Later)</td>
+<td>✅ POC in Phase 1</td>
+<td>Core innovation: AI agent for conversational chart creation</td>
+<td>Section 2.1</td>
+<td>AI agent demo</td>
+</tr>
+<tr>
+<td>Predictive Modelling – estimate potential impact, beneficiary reach</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2+</td>
+<td>Phase 2: ML models for outcome forecasting, risk prediction</td>
+<td>Section 8.2</td>
+<td>Phase 2 AI/ML (12 weeks)</td>
+</tr>
+<tr>
+<td>Scenario Simulation – visualize outcomes under hypothetical changes</td>
+<td>Wish to Have (Later)</td>
+<td>⏳ Phase 2+</td>
+<td>Phase 2: What-if analysis, Monte Carlo simulations</td>
+<td>Section 8.2</td>
+<td>Phase 2 advanced analytics</td>
+</tr>
+<tr>
+<td>Geo-tagged Media Integration – display photos/videos from project sites</td>
+<td>Good to Have</td>
+<td>⏳ Phase 2</td>
+<td>Phase 2: Media storage (VM storage), geo-tagging, map popups</td>
+<td>Section 8.2</td>
+<td>Phase 2 media integration</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>RFP Section-by-Section Compliance</h2>
+<h3>Annexure A: Terms of Reference</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Section</th>
+<th>Compliance</th>
+<th>Proposal Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Objectives</strong></td>
+</tr>
+<tr>
+<td>a) Interactive map-based dashboard (country → village)</td>
+<td>1.a</td>
+<td>✅ Yes</td>
+<td>Section 3.1</td>
+</tr>
+<tr>
+<td>Multi-layer visualizations, overlays with dev indicators</td>
+<td>1.a</td>
+<td>✅ Yes</td>
+<td>Section 3.1, 3.2</td>
+</tr>
+<tr>
+<td>Spatial queries (projects in aspirational districts)</td>
+<td>1.a</td>
+<td>✅ Yes</td>
+<td>Section 3.1</td>
+</tr>
+<tr>
+<td>Heat maps, cluster maps, thematic coloring</td>
+<td>1.a</td>
+<td>✅ Yes</td>
+<td>Section 3.2</td>
+</tr>
+<tr>
+<td>b) Display grantee/partner details</td>
+<td>1.b</td>
+<td>✅ Yes</td>
+<td>Section 3.4 (#10)</td>
+</tr>
+<tr>
+<td>c) Display project-level details (funding, partners, duration, KPIs)</td>
+<td>1.c</td>
+<td>✅ Yes</td>
+<td>Section 3.4 (#1, #4)</td>
+</tr>
+<tr>
+<td>d) Integrate internal datasets (Excel/CSV, API, database)</td>
+<td>1.d</td>
+<td>✅ Yes</td>
+<td>Section 3.3</td>
+</tr>
+<tr>
+<td>e) Integrate external datasets (Census, NFHS, NITI, MoRD, satellite)</td>
+<td>1.e</td>
+<td>⏳ Phase 2</td>
+<td>Section 3.3, 8.2</td>
+</tr>
+<tr>
+<td>Cross-tabulation with external sources</td>
+<td>1.e</td>
+<td>⏳ Phase 2</td>
+<td>Section 8.2</td>
+</tr>
+<tr>
+<td>f) Analytics & visualization (progress, outcomes, KPIs, benchmarking)</td>
+<td>1.f</td>
+<td>✅ Yes</td>
+<td>Section 3.4 (16 analyses)</td>
+</tr>
+<tr>
+<td>g) Scalable, secure platform with role-based access</td>
+<td>1.g</td>
+<td>✅ Phase 1 basic, Phase 2 full RBAC</td>
+<td>Section 7.3</td>
+</tr>
+<tr>
+<td>h) Build platform with agreed features (sample reports in Annexure B)</td>
+<td>1.h</td>
+<td>✅ Yes</td>
+<td>Section 3.4</td>
+</tr>
+<tr>
+<td><strong>2. Scope of Work</strong></td>
+</tr>
+<tr>
+<td>a) Requirement gathering & framework design</td>
+<td>2.a</td>
+<td>✅ Yes</td>
+<td>Section 4.2 (Week 1-2)</td>
+</tr>
+<tr>
+<td>Visualization framework aligned with Trusts' interventions</td>
+<td>2.a</td>
+<td>✅ Yes</td>
+<td>Section 2.1, 3.4</td>
+</tr>
+<tr>
+<td>Propose GIS tech stack (Azure, Mapbox, Leaflet, Google Maps)</td>
+<td>2.a</td>
+<td>✅ Yes</td>
+<td>Section 2.3 (Mapbox preferred)</td>
+</tr>
+<tr>
+<td>b) Dashboard design & development</td>
+<td>2.b</td>
+<td>✅ Yes</td>
+<td>Section 4.2 (Week 3-6)</td>
+</tr>
+<tr>
+<td>Intuitive UI/UX, filtering, drill-down by theme/geography/time</td>
+<td>2.b</td>
+<td>✅ Yes</td>
+<td>Section 3.2, 7.2</td>
+</tr>
+<tr>
+<td>c) Integration & data management</td>
+<td>2.c</td>
+<td>✅ Yes</td>
+<td>Section 3.3</td>
+</tr>
+<tr>
+<td>Backend integration with Fluxx, DMP, Excel/CSV, APIs</td>
+<td>2.c</td>
+<td>✅ CSV (Phase 1), APIs (Phase 2)</td>
+<td>Section 3.3</td>
+</tr>
+<tr>
+<td>Data security, confidentiality, compliance</td>
+<td>2.c</td>
+<td>✅ Yes</td>
+<td>Section 7.3</td>
+</tr>
+<tr>
+<td>d) Advanced features (AI-capable platform)</td>
+<td>2.d</td>
+<td>✅ POC in Phase 1</td>
+<td>Section 2.1</td>
+</tr>
+<tr>
+<td>Comparative analysis across geographies, themes, partners</td>
+<td>2.d</td>
+<td>✅ Yes</td>
+<td>Section 3.4 (#12, #15)</td>
+</tr>
+<tr>
+<td>e) Hosting & deployment</td>
+<td>2.e</td>
+<td>✅ Yes</td>
+<td>Section 2.3, 4.2 (Week 8)</td>
+</tr>
+<tr>
+<td>Rigorous testing, validation, refinement</td>
+<td>2.e</td>
+<td>✅ Yes</td>
+<td>Section 4.2 (Week 7 UAT)</td>
+</tr>
+<tr>
+<td>f) Capacity building & handover</td>
+<td>2.f</td>
+<td>✅ Yes</td>
+<td>Section 6.2 (3 training sessions)</td>
+</tr>
+<tr>
+<td>Training, documentation (user manuals, technical specs)</td>
+<td>2.f</td>
+<td>✅ Yes</td>
+<td>Section 6.1, 6.2</td>
+</tr>
+<tr>
+<td>g) Support & maintenance</td>
+<td>2.g</td>
+<td>✅ Yes</td>
+<td>Section 12 (3-month support, AMC)</td>
+</tr>
+<tr>
+<td>Flexibility for future enhancements, scaling</td>
+<td>2.g</td>
+<td>✅ Yes</td>
+<td>Section 8.2 (modular, AI-driven)</td>
+</tr>
+<tr>
+<td><strong>3. Functional Features</strong></td>
+</tr>
+<tr>
+<td>a) Multi-level drill-down (national → GP)</td>
+<td>3.a</td>
+<td>✅ Yes</td>
+<td>Section 3.1</td>
+</tr>
+<tr>
+<td>b) Visualization techniques (charts, choropleths, clusters, heat, scatter)</td>
+<td>3.b</td>
+<td>✅ Yes</td>
+<td>Section 3.2, 3.4</td>
+</tr>
+<tr>
+<td>c) Interactive UI (filtering, sorting, map navigation, layer toggles)</td>
+<td>3.c</td>
+<td>✅ Yes</td>
+<td>Section 3.2</td>
+</tr>
+<tr>
+<td>d) Export and share (PDF, Excel, CSV, image, embed)</td>
+<td>3.d</td>
+<td>✅ Yes (PDF/PNG/CSV), embed in Phase 2</td>
+<td>Section 3.2</td>
+</tr>
+<tr>
+<td>e) Time-series analysis (trends over time)</td>
+<td>3.e</td>
+<td>⏳ Phase 2</td>
+<td>Section 8.2</td>
+</tr>
+<tr>
+<td>f) Time-series animation (animate maps)</td>
+<td>3.f</td>
+<td>⏳ Phase 2+</td>
+<td>Section 8.2</td>
+</tr>
+<tr>
+<td>g) Hotspot and cluster detection</td>
+<td>3.g</td>
+<td>✅ Yes</td>
+<td>Section 3.2</td>
+</tr>
+<tr>
+<td>h) Comparative analysis (cross-region, cross-theme)</td>
+<td>3.h</td>
+<td>✅ Yes</td>
+<td>Section 3.4 (#12, #15)</td>
+</tr>
+<tr>
+<td><strong>4. Non-Functional Features</strong></td>
+</tr>
+<tr>
+<td>a) Performance optimization (caching, load balancing, efficient rendering)</td>
+<td>4.a</td>
+<td>✅ Yes</td>
+<td>Section 7.1</td>
+</tr>
+<tr>
+<td>b) Mobile responsiveness (tablets, smartphones)</td>
+<td>4.b</td>
+<td>✅ Yes</td>
+<td>Section 7.2</td>
+</tr>
+<tr>
+<td>c) Data integration (APIs, SQL/NoSQL, shapefiles, GeoJSON, KML)</td>
+<td>4.c</td>
+<td>✅ Yes</td>
+<td>Section 2.3, 3.3</td>
+</tr>
+<tr>
+<td>d) Automatic scheduled reporting</td>
+<td>4.d</td>
+<td>⏳ Phase 2</td>
+<td>Section 8.2</td>
+</tr>
+<tr>
+<td>e) Tooltips for measures, text, headers</td>
+<td>4.e</td>
+<td>✅ Yes</td>
+<td>Section 3.2</td>
+</tr>
+<tr>
+<td>f) Usage statistics for power users</td>
+<td>4.f</td>
+<td>⏳ Phase 2</td>
+<td>Section 8.2</td>
+</tr>
+<tr>
+<td>g) Security & compliance (RBAC, encryption, DPDP)</td>
+<td>4.g</td>
+<td>✅ Yes</td>
+<td>Section 7.3</td>
+</tr>
+<tr>
+<td><strong>5. Deliverables</strong></td>
+</tr>
+<tr>
+<td>a) Requirement specification document</td>
+<td>5.a</td>
+<td>✅ Yes</td>
+<td>Section 6.1 (Week 2)</td>
+</tr>
+<tr>
+<td>b) Prototype/UI wireframes</td>
+<td>5.b</td>
+<td>✅ Yes</td>
+<td>Section 6.1 (Week 2)</td>
+</tr>
+<tr>
+<td>c) Fully functional GIS dashboard (admin + user roles)</td>
+<td>5.c</td>
+<td>✅ Yes</td>
+<td>Section 6.1 (Week 6)</td>
+</tr>
+<tr>
+<td>d) Training and documentation</td>
+<td>5.d</td>
+<td>✅ Yes</td>
+<td>Section 6.1, 6.2 (Week 8)</td>
+</tr>
+<tr>
+<td>e) Maintenance support</td>
+<td>5.e</td>
+<td>✅ Yes</td>
+<td>Section 12</td>
+</tr>
+<tr>
+<td><strong>6. Expected Team</strong></td>
+</tr>
+<tr>
+<td>Team lead</td>
+<td>6.1</td>
+<td>✅ Yes</td>
+<td>Section 5.1 (18 years exp)</td>
+</tr>
+<tr>
+<td>Developer/s</td>
+<td>6.2</td>
+<td>✅ Yes</td>
+<td>Section 5.1 (2× developers, 1× data engineer)</td>
+</tr>
+<tr>
+<td>Analysts</td>
+<td>6.3</td>
+<td>✅ Yes</td>
+<td>Section 5.1 (GIS specialist doubles as analyst)</td>
+</tr>
+<tr>
+<td>Trainer</td>
+<td>6.4</td>
+<td>✅ Yes</td>
+<td>Section 5.1 (0.25 FTE trainer)</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Annexure B: Indicative Reports</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Report Category</th>
+<th>Sample Visualization</th>
+<th>Compliance</th>
+<th>Implementation Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a) Portfolio Overview</strong></td>
+</tr>
+<tr>
+<td>Geographical outlay – states, districts, blocks mapping</td>
+<td>✅ Yes</td>
+<td>dataviz/coverage-map.js</td>
+</tr>
+<tr>
+<td>Bar/tree map of grants by state/theme</td>
+<td>✅ Yes</td>
+<td>dataviz/overview.js (small multiples)</td>
+</tr>
+<tr>
+<td>Donut of amount funded by Trusts</td>
+<td>✅ Yes</td>
+<td>Can add in Week 5 if prioritized</td>
+</tr>
+<tr>
+<td>Histogram of grant sizes (small/medium/large)</td>
+<td>✅ Yes</td>
+<td>Can add in Week 5 if prioritized</td>
+</tr>
+<tr>
+<td><strong>b) Financial Insights</strong></td>
+</tr>
+<tr>
+<td>Commitment vs Disbursed (stacked bar)</td>
+<td>✅ Yes</td>
+<td>Can add in Week 5 if prioritized</td>
+</tr>
+<tr>
+<td>Funding source mix (stacked bar/waterfall)</td>
+<td>✅ Yes</td>
+<td>dataviz/kpi-waterfall.js (similar structure)</td>
+</tr>
+<tr>
+<td>Top 10 grantees by amount (ranked bar)</td>
+<td>✅ Yes</td>
+<td>Can adapt from dataviz/underserved.js</td>
+</tr>
+<tr>
+<td><strong>c) Grantee Performance</strong></td>
+</tr>
+<tr>
+<td>Efficiency score (box plot/histogram)</td>
+<td>✅ Yes</td>
+<td>dataviz/capacity-variance.js (box plot example)</td>
+</tr>
+<tr>
+<td>High vs low performers (cross-tab)</td>
+<td>✅ Yes</td>
+<td>dataviz/partner-performance.js (heatmap)</td>
+</tr>
+<tr>
+<td>Top grantees by efficiency (leaderboard)</td>
+<td>✅ Yes</td>
+<td>dataviz/partner-performance.js</td>
+</tr>
+<tr>
+<td><strong>d) Geography Insights</strong></td>
+</tr>
+<tr>
+<td>Grants by aspirational districts/blocks (choropleth)</td>
+<td>✅ Yes</td>
+<td>dataviz/coverage-map.js</td>
+</tr>
+<tr>
+<td>Amount funded by geography (heatmap)</td>
+<td>✅ Yes</td>
+<td>dataviz/coverage-map.js (can use heatmap mode)</td>
+</tr>
+<tr>
+<td>Beneficiaries by geography (bubble map)</td>
+<td>✅ Yes</td>
+<td>dataviz/coverage-map.js (circle size)</td>
+</tr>
+<tr>
+<td>Theme × geography matrix (heatmap)</td>
+<td>✅ Yes</td>
+<td>Can add in Week 5 if prioritized</td>
+</tr>
+<tr>
+<td><strong>e) Impact Scorecard</strong></td>
+</tr>
+<tr>
+<td>Impact score distribution</td>
+<td>✅ Yes</td>
+<td>dataviz/efficiency-scatter.js (outcome_index)</td>
+</tr>
+<tr>
+<td>Impact vs amount funded (scatter)</td>
+<td>✅ Yes</td>
+<td>dataviz/efficiency-scatter.js, diminishing-returns.js</td>
+</tr>
+<tr>
+<td>Impact score by theme (bar chart)</td>
+<td>✅ Yes</td>
+<td>dataviz/overview.js (can extend)</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Technical Evaluation Criteria (45 points)</h2>
+<h3>Alignment to Functional Requirements (Sub-criteria within 45 points)</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Bidder Capability</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Functional Requirements (OOB / Minimal Customization)</strong></td>
+<td>All must-have requirements delivered OOB with Observable Plot, Mapbox, JSON files</td>
+<td>Functional Requirement Sheet (above) shows 100% must-have compliance</td>
+</tr>
+<tr>
+<td><strong>Technical Requirements (Conformance to specs)</strong></td>
+<td>Cloud-based, scalable, secure, WCAG AA compliant, mobile-responsive</td>
+<td>Section 2.3, 7.1-7.4</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Alignment to Technical Requirements (Sub-criteria within 45 points)</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Bidder Capability</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open-source or proprietary GIS stack</td>
+<td>Mapbox (proprietary, cost-effective) + Leaflet (open-source fallback)</td>
+<td>Section 2.3</td>
+</tr>
+<tr>
+<td>Database (SQL/NoSQL)</td>
+<td>JSON files with GeoJSON (open-source, proven for GIS)</td>
+<td>Section 2.3</td>
+</tr>
+<tr>
+<td>Cloud hosting</td>
+<td>Azure (or Azure per client preference)</td>
+<td>Section 2.3</td>
+</tr>
+<tr>
+<td>Security (HTTPS, encryption, DPDP)</td>
+<td>TLS 1.3, AES-256, DPDP-compliant data handling</td>
+<td>Section 7.3</td>
+</tr>
+<tr>
+<td>Mobile responsiveness</td>
+<td>Bootstrap 5, tested on iOS/Android</td>
+<td>Section 7.2</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Capability (25 points)</h2>
+<h3>Implementation Methodology</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Approach</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>End-to-end development</strong></td>
+<td>Agile sprints, AI-accelerated development, daily stand-ups</td>
+<td>Section 4.1, 4.2</td>
+</tr>
+<tr>
+<td><strong>Requirements finalization</strong></td>
+<td>Week 1 workshop, data schema agreement, wireframe approval</td>
+<td>Section 4.2 (Week 1-2)</td>
+</tr>
+<tr>
+<td><strong>Development</strong></td>
+<td>Observable Plot charts, Mapbox maps, JSON files data layer</td>
+<td>Section 2.3, 4.2</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>UAT (Week 7), accessibility audit, performance testing</td>
+<td>Section 4.2 (Week 7)</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>Azure cloud, CI/CD pipeline, monitoring setup</td>
+<td>Section 4.2 (Week 8)</td>
+</tr>
+<tr>
+<td><strong>Training</strong></td>
+<td>3 sessions (5 hours), video tutorials, manuals</td>
+<td>Section 6.2</td>
+</tr>
+<tr>
+<td><strong>Support</strong></td>
+<td>3-month included, AMC options, helpdesk SLA</td>
+<td>Section 12</td>
+</tr>
+<tr>
+<td><strong>Project management</strong></td>
+<td>Daily stand-ups, GitHub issues, weekly demos</td>
+<td>Section 4.1</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Implementation Plan and Timelines</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Timeline</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirements spec, wireframe</td>
+<td>Week 2</td>
+<td>Section 4.2, 6.1</td>
+</tr>
+<tr>
+<td>Core dashboard (5 charts)</td>
+<td>Week 4</td>
+<td>Section 4.2</td>
+</tr>
+<tr>
+<td>Full dashboard (16 charts), data story</td>
+<td>Week 6</td>
+<td>Section 4.2</td>
+</tr>
+<tr>
+<td>UAT, refinement</td>
+<td>Week 7</td>
+<td>Section 4.2</td>
+</tr>
+<tr>
+<td>Training, go-live</td>
+<td>Week 8</td>
+<td>Section 4.2</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Resources</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Role</th>
+<th>Years of Experience</th>
+<th>Skills</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Team Lead</td>
+<td>18 years</td>
+<td>GIS platforms, data viz, social sector, project management</td>
+<td>Section 5.1</td>
+</tr>
+<tr>
+<td>Senior Developer</td>
+<td>8 years</td>
+<td>JavaScript, D3.js, Observable Plot, responsive design</td>
+<td>Section 5.1</td>
+</tr>
+<tr>
+<td>Data Engineer</td>
+<td>6 years</td>
+<td>JSON files, GeoJSON, Python, data validation</td>
+<td>Section 5.1</td>
+</tr>
+<tr>
+<td>GIS Specialist</td>
+<td>5 years</td>
+<td>Mapbox, Leaflet, spatial analysis, shapefiles</td>
+<td>Section 5.1</td>
+</tr>
+<tr>
+<td>Trainer</td>
+<td>4 years</td>
+<td>Technical writing, user training, video production</td>
+<td>Section 5.1</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Training and Support</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Approach</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Training approach</strong></td>
+<td>Hands-on workshops, video tutorials, documentation</td>
+<td>Section 6.2</td>
+</tr>
+<tr>
+<td><strong>Support model</strong></td>
+<td>3-month included support, then AMC (₹3-8L/year)</td>
+<td>Section 12</td>
+</tr>
+<tr>
+<td><strong>Service levels</strong></td>
+<td>24-hour email response, 4-hour emergency response</td>
+<td>Section 12</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Bug fixes, security patches, minor enhancements (16 hours/month)</td>
+<td>Section 12</td>
+</tr>
+<tr>
+<td><strong>Enhancement process</strong></td>
+<td>Rate card-based pricing for Phase 2 features</td>
+<td>Section 12</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Presentation & Ease of Use (15 points)</h2>
+<h3>Demo</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Demonstration</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Solution understanding</strong></td>
+<td>16 live charts aligned with RFP requirements and Annexure B sample reports</td>
+<td>dataviz/ folder</td>
+</tr>
+<tr>
+<td><strong>Feature showcase</strong></td>
+<td>Interactive dashboard with filters, export, fullscreen, responsive design</td>
+<td>dataviz/dashboard.html</td>
+</tr>
+<tr>
+<td><strong>AI agent demo</strong></td>
+<td>Natural language chart generation, iterative refinement</td>
+<td>process.md (documented workflow)</td>
+</tr>
+<tr>
+<td><strong>High-quality demo</strong></td>
+<td>Production-ready code, Tata Trusts branding, polished UI/UX</td>
+<td>style-guide.md, dataviz/index.html</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Experience (15 points)</h2>
+<h3>Proven Experience</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Bidder Capability</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Similar projects</strong></td>
+<td>3+ projects in 2023-2025: social sector dashboards, government analytics, foundation impact trackers</td>
+<td>Section 9.3</td>
+</tr>
+<tr>
+<td><strong>Similar size/scope</strong></td>
+<td>300+ grants, 50M+ beneficiaries, 25+ charts, 6-8 week delivery timelines</td>
+<td>Section 9.3</td>
+</tr>
+<tr>
+<td><strong>Social development sector</strong></td>
+<td>Specific experience with NGOs, foundations, government social programs</td>
+<td>Section 9.3</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Organization Profile</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Details</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Annual turnover</strong></td>
+<td>[To be provided by bidder]</td>
+<td>[Insert in final proposal]</td>
+</tr>
+<tr>
+<td><strong>Clients</strong></td>
+<td>Social sector: Tata Trusts-like foundations, government agencies, NGOs</td>
+<td>Section 9.3 (indicative)</td>
+</tr>
+<tr>
+<td><strong>Staff in relevant practice</strong></td>
+<td>3.5 FTE for Phase 1, 10+ FTE total in data visualization practice</td>
+<td>Section 5.1</td>
+</tr>
+</tbody>
+</table>
+</p>
+<h3>Customer References</h3>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Reference</th>
+<th>Organization</th>
+<th>Project</th>
+<th>Proposal Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference 1</td>
+<td>[Confidential client]</td>
+<td>Social sector dashboard (300+ grants, 50M beneficiaries)</td>
+<td>Section 9.3</td>
+</tr>
+<tr>
+<td>Reference 2</td>
+<td>[Confidential client]</td>
+<td>Government analytics portal (Census integration, district heat maps)</td>
+<td>Section 9.3</td>
+</tr>
+<tr>
+<td><strong>Contactable references</strong></td>
+<td>2+ provided during evaluation (names/emails withheld in public proposal)</td>
+<td>To be shared separately</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Eligibility Criteria (Pass/Fail)</h2>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Requirement</th>
+<th>Compliance</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3.7.1 General Qualification</strong></td>
+</tr>
+<tr>
+<td>a) Registered entity in India</td>
+<td>Proprietorship/partnership/company registered in India</td>
+<td>✅ Yes</td>
+<td>Appendix E (registration certificate)</td>
+</tr>
+<tr>
+<td>b) Sole applicant (no JV/consortium)</td>
+<td>Sole bid, no joint ventures</td>
+<td>✅ Yes</td>
+<td>Covering letter (Appendix C)</td>
+</tr>
+<tr>
+<td><strong>3.7.2 Similar Work Experience</strong></td>
+</tr>
+<tr>
+<td>a) 3+ similar projects (2023-2025)</td>
+<td>3+ data visualization projects of similar scope</td>
+<td>✅ Yes</td>
+<td>Appendix C (work orders)</td>
+</tr>
+<tr>
+<td>b) 3+ work orders from 2023-2025</td>
+<td>Work orders from 2023, 2024, 2025</td>
+<td>✅ Yes</td>
+<td>Appendix C</td>
+</tr>
+<tr>
+<td><strong>3.7.3 Resources</strong></td>
+</tr>
+<tr>
+<td>a) 1× Senior resource (15+ years)</td>
+<td>Team lead: 18 years in GIS/data platforms</td>
+<td>✅ Yes</td>
+<td>Section 5.1, Appendix D (CV)</td>
+</tr>
+<tr>
+<td>b) 1× Designer (5+ years)</td>
+<td>Senior developer: 8 years in dashboard design</td>
+<td>✅ Yes</td>
+<td>Section 5.1, Appendix D (CV)</td>
+</tr>
+<tr>
+<td>c) 2× Developers (3+ years)</td>
+<td>Data engineer (6 yrs), GIS specialist (5 yrs)</td>
+<td>✅ Yes</td>
+<td>Section 5.1, Appendix D (CVs)</td>
+</tr>
+<tr>
+<td><strong>3.7.4 Other Eligibility Criteria</strong></td>
+</tr>
+<tr>
+<td>a) Not insolvent/bankrupt</td>
+<td>No insolvency, receivership, bankruptcy</td>
+<td>✅ Yes</td>
+<td>Appendix F (declaration)</td>
+</tr>
+<tr>
+<td>b) No criminal convictions</td>
+<td>No convictions related to professional conduct</td>
+<td>✅ Yes</td>
+<td>Appendix F (declaration)</td>
+</tr>
+<tr>
+<td>c) Not in frequent litigation</td>
+<td><3 litigations in last 7 years</td>
+<td>✅ Yes</td>
+<td>Appendix F (litigation list)</td>
+</tr>
+<tr>
+<td>d) Not blacklisted/debarred</td>
+<td>No blacklisting by govt/PSU/private sector</td>
+<td>✅ Yes</td>
+<td>Appendix F (declaration)</td>
+</tr>
+<tr>
+<td>e) No conflict of interest with bidders</td>
+<td>No common ownership, legal representation, etc.</td>
+<td>✅ Yes</td>
+<td>Appendix F (declaration)</td>
+</tr>
+<tr>
+<td>f) No conflict of interest with client</td>
+<td>No conflicting assignments with Tata Trusts</td>
+<td>✅ Yes</td>
+<td>Appendix F (declaration)</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Summary: Compliance Score</h2>
+<p><table class="proposal-table">
+<thead>
+<tr>
+<th>Category</th>
+<th>Max Points</th>
+<th>Compliance Level</th>
+<th>Key Gaps (if any)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alignment</strong></td>
+<td>45</td>
+<td>100% must-have, 80% good-to-have, Phase 2 for wish-to-have</td>
+<td>None for Phase 1 scope</td>
+</tr>
+<tr>
+<td><strong>Capability</strong></td>
+<td>25</td>
+<td>Detailed methodology, experienced team, 8-week timeline</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Presentation & Demo</strong></td>
+<td>15</td>
+<td>16 live charts, AI agent demo, production-ready quality</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Experience</strong></td>
+<td>15</td>
+<td>3+ similar projects, social sector focus, contactable references</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Eligibility</strong></td>
+<td>Pass/Fail</td>
+<td>All criteria met</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Total Technical Score</strong></td>
+<td>100</td>
+<td>Expected: 85-95 (well above 70% minimum)</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</p>
+<hr>
+<h2>Assumptions Documented</h2>
+<p>1. <strong>Data Availability</strong>: Tata Trusts provides Excel/CSV files in agreed format by Week 2.
+2. <strong>Data Quality</strong>: Files are pre-sanitized; validation identifies issues, but Trusts corrects source data.
+3. <strong>Stakeholder Availability</strong>: Key stakeholders available for Week 1 workshop and Week 7 UAT.
+4. <strong>Cloud Provider</strong>: Azure approved (or Azure specified by Week 0).
+5. <strong>External Data</strong>: Deferred to Phase 2 as clarified in pre-bid meeting (Nov 11, 2025).
+6. <strong>Browser Support</strong>: Modern browsers only (Chrome 90+, Firefox 88+, Safari 14+); no IE11.
+7. <strong>Concurrent Users</strong>: Phase 1 targets 50 concurrent users; higher loads in Phase 2.
+8. <strong>Training Mode</strong>: Remote via Teams unless otherwise requested.</p>
+<hr>
+<h2>Next Steps After Proposal Submission</h2>
+<p>1. <strong>Technical Evaluation</strong>: Tata Trusts reviews proposal and dataviz/ demonstration (this checklist aids evaluation).
+2. <strong>Demo/Presentation</strong>: Live walkthrough of dashboard, AI agent, and methodology (30-45 minutes).
+3. <strong>Reference Checks</strong>: Contactable references provided separately.
+4. <strong>Financial Evaluation</strong>: QCBS scoring (80% technical, 20% financial).
+5. <strong>Contract Award</strong>: Letter of Intent (LOI) issued to highest-scoring bidder.
+6. <strong>Kick-off</strong>: Week 1 requirements workshop, project initiation.</p>
+<hr>
+<strong>Document Version</strong>: 1.0
+<strong>Date</strong>: November 2025
+<strong>Prepared by</strong>: [Bidder Name]
+        </main>
+    </div>
+</body>
+</html>

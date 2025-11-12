@@ -15,6 +15,7 @@ This document identifies sections of the proposal that require careful review be
 ## 1. Company Information (HIGH)
 
 ### What to Review
+
 - **Section**: Throughout proposal, especially Covering Letter (Appendix C), Compliance sections
 - **Specific Items**:
   - [ ] Replace all `[Bidder Name]` placeholders with actual company name
@@ -27,6 +28,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] Number of full-time staff in data visualization practice
 
 ### Why It Matters
+
 **RFP Compliance**: Section 3.7.1 requires registered entity in India with proof. Missing or incorrect company details will lead to immediate disqualification.
 
 ### Importance: **HIGH**
@@ -36,6 +38,7 @@ This document identifies sections of the proposal that require careful review be
 ## 2. Work Orders and References (HIGH)
 
 ### What to Review
+
 - **Section**: Section 9.3 (Experience), Appendix C (Work Orders)
 - **Specific Items**:
   - [ ] Replace `[Confidential client]` placeholders with actual client names (check if confidentiality allows public disclosure; if not, prepare separate annexure)
@@ -46,6 +49,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] Match work order dates to eligibility criteria (must be from calendar years 2023-2025)
 
 ### Why It Matters
+
 **RFP Eligibility**: Section 3.7.2 requires 3+ similar projects in 2023-2025 with work orders. Lack of work orders or non-similar projects = disqualification. References influence Experience score (15 points).
 
 ### Importance: **HIGH**
@@ -55,6 +59,7 @@ This document identifies sections of the proposal that require careful review be
 ## 3. Team Profiles and CVs (HIGH)
 
 ### What to Review
+
 - **Section**: Section 5.1 (Team Structure), Appendix D (Team Profiles)
 - **Specific Items**:
   - [ ] Verify Team Lead has 15+ years experience (requirement: >15 years) in relevant field (GIS/data platforms/planning/design)
@@ -63,12 +68,13 @@ This document identifies sections of the proposal that require careful review be
   - [ ] Prepare CVs highlighting:
     - Years of experience (clear start dates)
     - Relevant projects (GIS, dashboards, social sector preferred)
-    - Certifications (AWS, Mapbox, D3.js, PostgreSQL, etc.)
+    - Certifications (Azure, Mapbox, D3.js, JSON files, etc.)
     - Current employment status (on company rolls)
   - [ ] Ensure CVs match the roles described in Section 5.1
   - [ ] Get written commitment from team members for 8-week availability
 
 ### Why It Matters
+
 **RFP Eligibility**: Section 3.7.3 requires specific team composition with minimum experience levels. Missing or under-qualified team members = disqualification. Team quality influences Capability score (25 points).
 
 ### Importance: **HIGH**
@@ -78,6 +84,7 @@ This document identifies sections of the proposal that require careful review be
 ## 4. Legal Declarations and Certificates (HIGH)
 
 ### What to Review
+
 - **Section**: Section 13.1, 13.2, Appendix E-F
 - **Specific Items**:
   - [ ] **Appendix E**: Attach company registration certificate (incorporation/partnership deed)
@@ -94,6 +101,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Covering Letter**: Sign and date the covering letter (Appendix C format)
 
 ### Why It Matters
+
 **RFP Eligibility**: Section 3.7.4 lists disqualification criteria. False declarations = immediate disqualification + legal consequences. These are pass/fail items.
 
 ### Importance: **HIGH**
@@ -103,6 +111,7 @@ This document identifies sections of the proposal that require careful review be
 ## 5. Financial Proposal Alignment (MEDIUM)
 
 ### What to Review
+
 - **Section**: Section 12 (Financial Proposal Alignment), Separate Financial Bid (Annexure F)
 - **Specific Items**:
   - [ ] Ensure financial bid (submitted separately) uses exact format from RFP Annexure F:
@@ -118,11 +127,12 @@ This document identifies sections of the proposal that require careful review be
   - [ ] Verify 50/50 payment milestones:
     - 50% on wireframes/design plan (Week 2)
     - 50% on final dashboard acceptance (Week 8)
-  - [ ] Include cloud hosting costs (AWS: ~₹12-20K/month × 3 months = ₹36-60K)
+  - [ ] Include cloud hosting costs (Azure: ~₹12-20K/month × 3 months = ₹36-60K)
   - [ ] Include Mapbox license if needed (free tier may suffice for Phase 1, but budget for Phase 2)
   - [ ] AMC pricing (₹3L/5L/8L per year) aligns with market rates
 
 ### Why It Matters
+
 **RFP Scoring**: Financial bid is 20% of QCBS score. Format errors or unrealistic pricing reduces competitiveness. Inconsistencies between technical proposal and financial bid raise red flags.
 
 ### Importance: **MEDIUM**
@@ -132,17 +142,19 @@ This document identifies sections of the proposal that require careful review be
 ## 6. Technical Assumptions and Validations (MEDIUM)
 
 ### What to Review
+
 - **Section**: Section 11.1 (Assumptions), Section 2.3 (Technology Stack)
 - **Specific Items**:
-  - [ ] **Cloud Provider**: Proposal assumes AWS; confirm if Tata Trusts prefers Azure (for M365 integration). Update Section 2.3 if needed.
+  - [ ] **Cloud Provider**: Proposal assumes Azure; confirm if Tata Trusts prefers Azure (for M365 integration). Update Section 2.3 if needed.
   - [ ] **Data Schema**: Section 3.3 lists assumed CSV columns (grant_id, theme, state, etc.). These are placeholders—confirm in Week 1 workshop.
   - [ ] **Browser Support**: Proposal excludes IE11. Confirm if Tata Trusts has legacy browser requirements.
   - [ ] **Concurrent Users**: Proposal targets 50 users. Confirm if Trusts expects higher load in Phase 1.
   - [ ] **Map Provider**: Proposal uses Mapbox (proprietary, paid). Confirm if Trusts prefers open-source (Leaflet) or Google Maps.
-  - [ ] **Database**: Proposal uses PostgreSQL + PostGIS. Confirm if Trusts has existing Snowflake DMP and prefers Snowflake over PostgreSQL.
-  - [ ] **Authentication**: Phase 1 uses HTTP Basic Auth. Confirm if Trusts requires OAuth/SAML from Day 1.
+  - [ ] **Database**: Proposal uses JSON files + GeoJSON. Confirm if Trusts has existing Snowflake DMP and prefers Snowflake over JSON files.
+  - [ ] **Authentication**: Phase 1 uses Google OAuth 2.0. Confirm if Trusts requires OAuth/SAML from Day 1.
 
 ### Why It Matters
+
 **Technical Alignment**: Misalignment with Trusts' tech stack or constraints could require re-architecture mid-project, causing delays and cost overruns. Clarify assumptions early to avoid surprises.
 
 ### Importance: **MEDIUM**
@@ -152,6 +164,7 @@ This document identifies sections of the proposal that require careful review be
 ## 7. Timeline Feasibility (MEDIUM)
 
 ### What to Review
+
 - **Section**: Section 4.2 (Phase 1 Timeline), Section 4.3 (Risk Management)
 - **Specific Items**:
   - [ ] **8-week timeline**: Verify team availability (3.5 FTE for full 8 weeks)
@@ -163,6 +176,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Holidays/Weekends**: Check if any major holidays (Diwali, year-end) fall in the 8-week period post-award. Adjust timeline if needed.
 
 ### Why It Matters
+
 **RFP Compliance**: Section 3.3 requires strict adherence to timeline; delays trigger 5% penalty per week (max 20%). Over-promising leads to penalties or contract termination.
 
 ### Importance: **MEDIUM**
@@ -172,17 +186,19 @@ This document identifies sections of the proposal that require careful review be
 ## 8. Demonstration Materials (MEDIUM)
 
 ### What to Review
+
 - **Section**: Section 9.1 (Sample Visualizations), dataviz/ folder
 - **Specific Items**:
   - [ ] **Demo Quality**: Ensure dataviz/index.html and dataviz/dashboard.html load without errors
   - [ ] **Data Realism**: Verify generated data in data/*.csv aligns with Tata Trusts' domain (themes, states, districts)
   - [ ] **Brand Compliance**: Review style-guide.md and confirm colors/fonts match Tata Trusts' public website (https://www.tatatrusts.org/)
-  - [ ] **Accessibility**: Test with screen reader (NVDA/JAWS) and keyboard navigation to confirm WCAG AA claims
+  - [ ] **Accessibility**: Test with screen reader (NVDA/JAzure) and keyboard navigation to confirm WCAG AA claims
   - [ ] **Mobile Responsiveness**: Test on iPhone, Android, iPad to confirm claims in Section 7.2
   - [ ] **Performance**: Test on 50 Mbps connection to verify <2s page load claim (Section 7.1)
   - [ ] **AI Agent Demo**: Prepare live demo script showing chart generation from natural language prompt (e.g., "Show efficiency by district")
 
 ### Why It Matters
+
 **Presentation Score**: Demo is 15 points (15% of technical score). Broken links, slow loading, or poor UX will reduce score. High-quality demo differentiates from competitors.
 
 ### Importance: **MEDIUM**
@@ -192,6 +208,7 @@ This document identifies sections of the proposal that require careful review be
 ## 9. Annexure G: Functional Requirement Sheet (MEDIUM)
 
 ### What to Review
+
 - **Section**: RFP Annexure G (Excel file), Proposal Checklist (response/checklist.md)
 - **Specific Items**:
   - [ ] **Excel File**: RFP mentions "Functional Requirement Sheet - To be filled by Vendor.xlsx"—confirm if this must be submitted
@@ -205,6 +222,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Submission Format**: Confirm if Excel must be submitted or if checklist.md PDF suffices
 
 ### Why It Matters
+
 **RFP Compliance**: Section 3.11.2 (Technical Bid requirements) includes "Functionalities covered as per Scope". Missing or incomplete functional requirement sheet may be considered incomplete bid.
 
 ### Importance: **MEDIUM**
@@ -214,6 +232,7 @@ This document identifies sections of the proposal that require careful review be
 ## 10. Covering Letter and Proposal Structure (MEDIUM)
 
 ### What to Review
+
 - **Section**: Appendix C (Covering Letter), Overall proposal formatting
 - **Specific Items**:
   - [ ] **Covering Letter**: Use exact format from RFP Appendix C, including all 11 clauses
@@ -226,6 +245,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Hard Copy**: Confirm if hard copy required (RFP Section 3.17.2 mentions Mumbai address); send via courier if yes
 
 ### Why It Matters
+
 **RFP Compliance**: Section 3.11.4 states "Incomplete Bids will be summarily rejected". Incorrect format, missing documents, or wrong submission method = disqualification.
 
 ### Importance: **MEDIUM**
@@ -235,6 +255,7 @@ This document identifies sections of the proposal that require careful review be
 ## 11. Intellectual Property and Confidentiality (LOW)
 
 ### What to Review
+
 - **Section**: Section 13.2 (Acceptance of Terms), RFP Annexure H (General T&C)
 - **Specific Items**:
   - [ ] **IP Rights**: Confirm agreement that all work product vests with Tata Trusts (RFP Section 8, Annexure H)
@@ -243,6 +264,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Open-Source Licenses**: If using open-source libraries (Observable Plot, D3.js, Leaflet), confirm licenses are compatible with Trusts' IP ownership (most are MIT/BSD—permissive).
 
 ### Why It Matters
+
 **Legal Risk**: IP disputes after project completion can be costly. Clarify upfront to avoid future conflicts. Non-issue if standard T&C accepted.
 
 ### Importance: **LOW**
@@ -252,6 +274,7 @@ This document identifies sections of the proposal that require careful review be
 ## 12. Terminology and Language Consistency (LOW)
 
 ### What to Review
+
 - **Section**: Throughout proposal
 - **Specific Items**:
   - [ ] **Tata Trusts vs Tata Trust**: RFP uses "Tata Trusts" (plural) and "Sir Ratan Tata Trust" (singular). Proposal should use "Tata Trusts" consistently.
@@ -262,6 +285,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Observable Plot vs D3.js**: Be clear when referring to each library (Observable Plot is higher-level, built on D3).
 
 ### Why It Matters
+
 **Professionalism**: Inconsistent terminology suggests lack of attention to detail. Minor issue but easy to fix. Evaluators may notice and dock points for clarity.
 
 ### Importance: **LOW**
@@ -271,6 +295,7 @@ This document identifies sections of the proposal that require careful review be
 ## 13. References to External Resources (LOW)
 
 ### What to Review
+
 - **Section**: Throughout proposal, especially dataviz/ folder references
 - **Specific Items**:
   - [ ] **File Paths**: Proposal references `dataviz/coverage-map.js`, `process.md`, etc. Confirm these files are included in submission package.
@@ -280,6 +305,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **Video Demo**: Optional but impressive—record 3-5 minute screen capture of dashboard navigation and AI agent demo. Upload to YouTube (unlisted) and include link.
 
 ### Why It Matters
+
 **Evaluation Convenience**: Making it easy for evaluators to see the demo increases likelihood of high Presentation score (15 points). Low effort, high impact.
 
 ### Importance: **LOW**
@@ -289,6 +315,7 @@ This document identifies sections of the proposal that require careful review be
 ## 14. Proofreading and Formatting (LOW)
 
 ### What to Review
+
 - **Section**: Entire proposal
 - **Specific Items**:
   - [ ] **Spelling and Grammar**: Run spell-check, proofread for typos (e.g., "metioned" → "mentioned" in RFP, don't replicate errors).
@@ -300,6 +327,7 @@ This document identifies sections of the proposal that require careful review be
   - [ ] **PDF Metadata**: Set PDF title, author, subject (e.g., Title: "Tata Trusts Data Visualization RFP - [Company Name]")
 
 ### Why It Matters
+
 **Professionalism**: A polished proposal reflects attention to quality. Evaluators may unconsciously favor well-formatted bids. Minor issue but cumulative effect.
 
 ### Importance: **LOW**
@@ -309,6 +337,7 @@ This document identifies sections of the proposal that require careful review be
 ## 15. Final Pre-Submission Checklist (HIGH)
 
 ### Before Hitting "Send"
+
 - [ ] **Two Separate PDFs**: Technical Bid + Financial Bid
 - [ ] **All Placeholders Replaced**: No `[Bidder Name]`, `[Company Name]`, `[XXXXX]` remaining
 - [ ] **All Appendices Attached**:
@@ -334,11 +363,11 @@ This document identifies sections of the proposal that require careful review be
 
 ## Summary: Review Priorities
 
-| Priority | Items | Disqualification Risk | Score Impact |
-|----------|-------|----------------------|--------------|
-| **HIGH** | 4 items | Yes | Eligibility (pass/fail) |
-| **MEDIUM** | 6 items | No | 50-75 points (out of 100 technical) |
-| **LOW** | 5 items | No | 5-10 points (professionalism, clarity) |
+| Priority   | Items   | Disqualification Risk | Score Impact                           |
+| ---------- | ------- | --------------------- | -------------------------------------- |
+| **HIGH**   | 4 items | Yes                   | Eligibility (pass/fail)                |
+| **MEDIUM** | 6 items | No                    | 50-75 points (out of 100 technical)    |
+| **LOW**    | 5 items | No                    | 5-10 points (professionalism, clarity) |
 
 ### Recommended Review Sequence
 
@@ -353,13 +382,13 @@ This document identifies sections of the proposal that require careful review be
 
 ## Review Sign-Off
 
-| Reviewer | Role | Date | Status |
-|----------|------|------|--------|
-| [Name] | Proposal Writer | [Date] | ☐ Draft Complete |
-| [Name] | Technical Reviewer | [Date] | ☐ Technical Accuracy Verified |
-| [Name] | Legal/Compliance Reviewer | [Date] | ☐ Declarations Verified |
-| [Name] | Finance Reviewer | [Date] | ☐ Financial Bid Consistent |
-| [Name] | Authorized Signatory | [Date] | ☐ Approved for Submission |
+| Reviewer | Role                      | Date   | Status                        |
+| -------- | ------------------------- | ------ | ----------------------------- |
+| [Name]   | Proposal Writer           | [Date] | ☐ Draft Complete              |
+| [Name]   | Technical Reviewer        | [Date] | ☐ Technical Accuracy Verified |
+| [Name]   | Legal/Compliance Reviewer | [Date] | ☐ Declarations Verified       |
+| [Name]   | Finance Reviewer          | [Date] | ☐ Financial Bid Consistent    |
+| [Name]   | Authorized Signatory      | [Date] | ☐ Approved for Submission     |
 
 ---
 

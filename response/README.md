@@ -8,16 +8,17 @@
 
 ## Executive Summary
 
-We propose an innovative **AI-Powered Data Visualization Platform** that fundamentally transforms how Tata Trusts creates, consumes, and acts on data insights. Unlike traditional dashboard solutions that require weeks of development for each new visualization, our approach leverages **AI agents** (powered by Claude Code, Codex CLI, or similar) to generate any data visualization on-demand based on natural language requests.
+We propose an innovative **AI-Powered Data Visualization Platform** that fundamentally transforms how Tata Trusts creates, consumes, and acts on data insights. Unlike traditional dashboard solutions that require weeks of development for each new visualization, our approach leverages **AI agents** (powered by GPT-5 Codex or Claude 4.5 Sonnet) to generate any data visualization on-demand based on natural language requests.
 
 **Key Value Propositions:**
+
 - **Infinite Flexibility**: Create any chart, any time, without waiting for development cycles
 - **Natural Language Interface**: "Show me efficiency by state" → instant visualization
 - **Rapid Iteration**: Refine visualizations through conversation, not change requests
 - **Cost Efficiency**: Eliminates ongoing development costs for new reports
 - **Future-Proof**: Adapts to evolving requirements without re-architecture
 
-The `dataviz/` folder in this submission demonstrates 16 production-ready visualizations created using this methodology, showcasing portfolio overview, efficiency analysis, geographic targeting, and operational insights across multiple chart types.
+View the [demonstration data story](../dataviz/index.html) and [interactive dashboard](../dataviz/dashboard.html) showcasing 16 production-ready visualizations created using this methodology, featuring portfolio overview, efficiency analysis, geographic targeting, and operational insights across multiple chart types.
 
 ---
 
@@ -26,6 +27,7 @@ The `dataviz/` folder in this submission demonstrates 16 production-ready visual
 ### 1.1 Context and Challenge
 
 Tata Trusts operates across diverse thematic areas (health, education, livelihoods, water, sanitation, community development) with:
+
 - **~500 active grants** spanning multiple geographies
 - **100M+ beneficiary records** requiring analysis
 - **Multiple stakeholder groups** (leadership, analytics team, program heads) with varying information needs
@@ -38,7 +40,7 @@ The challenge is not just building a dashboard—it's creating a **decision supp
 Based on the RFP and pre-bid meeting on November 11, 2025:
 
 **Target Audience**: Trust leadership and internal analytics teams
-**Access**: Internal only (authentication required)
+**Access**: Internal only (Google OAuth 2 authentication)
 **Data Volume**: 500 grants, up to 100M beneficiary records, 4-5 years historical
 **Data Sources**: Excel/CSV uploads initially, API integration (Fluxx, DMP) in Phase 2
 **Timeline**: 2 months from contract award
@@ -47,7 +49,8 @@ Based on the RFP and pre-bid meeting on November 11, 2025:
 **Communication**: Daily/bi-weekly stand-ups via Microsoft Teams
 
 **Deferred to Phase 2**:
-- Role-based access control
+
+- Role-based access control (beyond basic OAuth)
 - External data integration (Census, NFHS, NITI Aayog, etc.)
 - AI-enabled insights (though Phase 1 proof-of-concept welcomed)
 - Automated scheduled reporting
@@ -67,6 +70,7 @@ Our solution centers on **conversational data visualization** powered by AI agen
 4. **Iterate Rapidly**: Refine based on feedback without manual coding
 
 **Example Workflow:**
+
 ```
 User: "How timely are our disbursements?"
 Agent: [Analyzes grant_tranches.csv]
@@ -81,55 +85,44 @@ Agent: [Modifies to faceted bar chart by theme]
 
 ### 2.2 Architecture Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    USER INTERFACE LAYER                      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │ Data Story   │  │  Dashboard   │  │  Chat UI     │     │
-│  │ (Narrative)  │  │  (Filters)   │  │  (NL Query)  │     │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────┼────────────────────────────────┐
-│              AI VISUALIZATION AGENT                          │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  Natural Language Processing                          │  │
-│  │  • Intent Detection   • Context Awareness             │  │
-│  │  • Chart Type Selection   • Visual Best Practices     │  │
-│  └──────────────────────────────────────────────────────┘  │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  Code Generation Engine                               │  │
-│  │  • Observable Plot DSL   • D3.js Transforms           │  │
-│  │  • ESM Module Builder    • Responsive Templates       │  │
-│  └──────────────────────────────────────────────────────┘  │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  Quality Assurance                                    │  │
-│  │  • Visual Validation   • Accessibility Checks         │  │
-│  │  • Screenshot Comparison   • Brand Compliance         │  │
-│  └──────────────────────────────────────────────────────┘  │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-┌────────────────────────────┼────────────────────────────────┐
-│                DATA & INTEGRATION LAYER                      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
-│  │  PostgreSQL/ │  │  CSV/Excel   │  │  Fluxx API   │     │
-│  │  Snowflake   │  │  Uploads     │  │  (Phase 2)   │     │
-│  └──────────────┘  └──────────────┘  └──────────────┘     │
-└─────────────────────────────────────────────────────────────┘
-                             │
-┌────────────────────────────┼────────────────────────────────┐
-│                   INFRASTRUCTURE LAYER                        │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  Cloud Hosting (AWS/Azure/GCP)                        │  │
-│  │  • Scalable Compute   • Managed Database              │  │
-│  │  • CDN for Assets     • Backup & Recovery             │  │
-│  └──────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph UI["User Interface Layer"]
+        Story["Data Story<br/>(Narrative)"]
+        Dashboard["Dashboard<br/>(Filters)"]
+        Chat["Chat UI<br/>(NL Query)"]
+    end
+
+    subgraph Agent["AI Visualization Agent"]
+        NLP["Natural Language Processing<br/>• Intent Detection<br/>• Context Awareness<br/>• Chart Type Selection<br/>• Visual Best Practices"]
+        CodeGen["Code Generation Engine<br/>• Observable Plot DSL<br/>• D3.js Transforms<br/>• ESM Module Builder<br/>• Responsive Templates"]
+        QA["Quality Assurance<br/>• Visual Validation<br/>• Accessibility Checks<br/>• Screenshot Comparison<br/>• Brand Compliance"]
+    end
+
+    subgraph Data["Data Layer"]
+        CSV["CSV/Excel<br/>Uploads"]
+        JSON["JSON<br/>Pre-aggregated Data"]
+        FluxAPI["Fluxx API<br/>(Phase 2)"]
+    end
+
+    subgraph Infra["Infrastructure Layer"]
+        Azure["Azure VM<br/>• Web Server<br/>• File Storage<br/>• Compute<br/>• Backup"]
+    end
+
+    UI --> Agent
+    Agent --> Data
+    Data --> Infra
+
+    style Agent fill:#e1f5ff
+    style UI fill:#fff4e6
+    style Data fill:#e8f5e9
+    style Infra fill:#f3e5f5
 ```
 
 ### 2.3 Technology Stack
 
 **Frontend:**
+
 - **HTML5/CSS3/JavaScript ES2022+**: Modern web standards, no build complexity
 - **Bootstrap 5.3**: Responsive layout, consistent UI components
 - **Observable Plot**: Declarative, accessible chart specification
@@ -137,24 +130,27 @@ Agent: [Modifies to faceted bar chart by theme]
 - **Lit-html**: Efficient DOM updates for dynamic filtering
 
 **AI Agent:**
-- **Claude Code / Codex CLI**: Primary AI agent for chart generation
-- **Claude 3.5 Sonnet**: Latest model for code quality and reasoning
+
+- **GPT-5 Codex / Claude 4.5 Sonnet**: Latest models for code generation and reasoning
 - **Custom Prompts**: Tuned for Observable Plot, Tata Trusts style guide
+- **Process Documentation**: See [development process documentation](../process/)
 
 **Data Layer:**
-- **PostgreSQL 16**: Structured grant, beneficiary, financial data
-- **PostGIS**: Geospatial queries, district/block polygon matching
-- **CSV Import Pipeline**: Python/Node.js scripts for Excel → DB ingestion
+
+- **CSV Import Pipeline**: JavaScript-based CSV parsing and validation
+- **JSON Pre-aggregation**: Pre-computed aggregates stored as JSON files for fast loading
+- **File-based Storage**: Simple directory structure on VM for data files
 
 **Hosting (Phase 1):**
-- **Cloud Provider**: AWS (or Azure if preferred for M365 integration)
-- **Compute**: EC2 t3.medium instance (scalable to t3.large)
-- **Database**: RDS PostgreSQL with PostGIS extension
-- **Storage**: S3 for CSV uploads, backups
-- **CDN**: CloudFront for static assets
-- **Estimated Cost**: ~$150-250/month
+
+- **Cloud Provider**: Microsoft Azure (aligns with M365 infrastructure)
+- **Compute**: Azure VM (Standard B2s or equivalent - 2 vCPUs, 4 GB RAM)
+- **Storage**: VM disk storage for application files, CSV uploads, and JSON caches
+- **Authentication**: Google OAuth 2.0 for user login
+- **Estimated Cost**: ~₹8,000-12,000/month (VM + bandwidth)
 
 **GIS Capabilities:**
+
 - **Mapbox GL JS**: Interactive maps with custom styling
 - **Leaflet**: Fallback for simpler map requirements
 - **TopoJSON/GeoJSON**: India administrative boundaries (state/district/block/GP)
@@ -162,18 +158,19 @@ Agent: [Modifies to faceted bar chart by theme]
 
 ### 2.4 Why AI Agents vs Traditional Dashboards
 
-| Aspect | Traditional Dashboard | AI-Agent Approach |
-|--------|----------------------|-------------------|
-| **New Chart Request** | 2-5 days (dev cycle) | 2-5 minutes (conversation) |
-| **Custom Analysis** | Change request → backlog | Immediate, conversational refinement |
-| **Technical Dependency** | Developers required for all changes | Business users self-serve simple queries |
-| **Cost Model** | Ongoing dev costs for every change | One-time setup, minimal maintenance |
-| **Adaptability** | Hard-coded logic, brittle | Adapts to new data columns, relationships |
-| **Learning Curve** | Dashboard-specific training | Natural language, intuitive |
-| **Scalability** | Linear (add charts = add dev time) | Exponential (agent learns from examples) |
+| Aspect                   | Traditional Dashboard               | AI-Agent Approach                         |
+| ------------------------ | ----------------------------------- | ----------------------------------------- |
+| **New Chart Request**    | 2-5 days (dev cycle)                | 2-5 minutes (conversation)                |
+| **Custom Analysis**      | Change request → backlog            | Immediate, conversational refinement      |
+| **Technical Dependency** | Developers required for all changes | Business users self-serve simple queries  |
+| **Cost Model**           | Ongoing dev costs for every change  | One-time setup, minimal maintenance       |
+| **Adaptability**         | Hard-coded logic, brittle           | Adapts to new data columns, relationships |
+| **Learning Curve**       | Dashboard-specific training         | Natural language, intuitive               |
+| **Scalability**          | Linear (add charts = add dev time)  | Exponential (agent learns from examples)  |
 
 **Real-World Example from Submission:**
-The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted development**, whereas traditional development would require **4-6 weeks** for the same scope (wireframes, coding, testing, revision cycles).
+
+The 16 charts in the [demonstration](../dataviz/index.html) were created in **~6 hours of AI-assisted development**, whereas traditional development would require **4-6 weeks** for the same scope (wireframes, coding, testing, revision cycles).
 
 ---
 
@@ -184,25 +181,28 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 **Requirement**: Interactive map-based dashboard displaying projects/grants at country, state, district, block, village levels.
 
 **Solution**:
+
 - **Base Layer**: Mapbox GL JS rendering India administrative boundaries
 - **Data Points**: Grant locations plotted as circles (size = budget, color = theme)
 - **Interactive Controls**: Pan, zoom, click for details
 - **Drill-Down**: Click state → filter to districts → blocks → villages
 - **Overlays**: Thematic layers (poverty, health, education indicators)
 
-**Demo**: See `dataviz/coverage-map.js` for bivariate choropleth example
+**Demo**: See coverage map examples in [interactive dashboard](../dataviz/dashboard.html)
 
 ### 3.2 Multi-Layer Visualization (Must Have)
 
 **Requirement**: Heat maps, cluster maps, thematic coloring for intensity-based insights.
 
 **Solution**:
+
 - **Heat Maps**: Beneficiary density, funding concentration
 - **Cluster Maps**: Automatically group nearby projects (Mapbox supercluster)
 - **Choropleth**: Color districts by deprivation index, coverage per 1k, funding per capita
 - **Bubble Maps**: Circle size = beneficiaries, color = outcome index
 
-**Chart Types Implemented** (see `dataviz/`):
+**Chart Types Demonstrated** (see [dashboard](../dataviz/dashboard.html)):
+
 - Scatter plots (efficiency quadrants)
 - Bar charts (partner performance, state fairness)
 - Line charts (time-series, coverage vs need)
@@ -214,6 +214,7 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 ### 3.3 Data Integration (Must Have)
 
 **Phase 1 Approach:**
+
 1. **CSV/Excel Upload Interface**:
    - Web form for file upload
    - Validation: column mapping, data types, mandatory fields
@@ -221,31 +222,36 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
    - Error reporting (missing districts, invalid dates)
 
 2. **Backend Pipeline**:
-   ```python
-   # Pseudo-code for upload handler
-   def process_upload(file):
-       df = pd.read_csv(file)
-       validate_schema(df)  # Check required columns
-       geocode_locations(df)  # Match district names to PostGIS geometries
-       insert_to_db(df)  # Upsert into PostgreSQL
-       invalidate_cache()  # Refresh dashboard data
+
+   ```javascript
+   // JavaScript CSV processing
+   async function processUpload(file) {
+     const rows = await parseCSV(file);
+     validateSchema(rows);  // Check required columns
+     geocodeLocations(rows); // Match district names to GeoJSON
+     saveToJSON(rows);  // Store as JSON files
+     invalidateCaches();  // Refresh dashboard data
+   }
    ```
 
-3. **Data Model**:
-   - `grants`: Master grant table (grant_id, theme, state, district, budget, partner, etc.)
-   - `beneficiaries`: Outcome tracking (grant_id, month, district, outcome_score, dropout_rate)
-   - `geo_coverage`: District-level need/coverage (state, district, need_decile, coverage_per_1k)
-   - `monitoring`: Operational metrics (grant_id, timeliness_days, funds_on_time, nps_score)
-   - `tranches`: Disbursement log (grant_id, tranche_number, amount, planned_date, actual_date)
+3. **Data Storage**:
+   - `data/grants.json`: Master grant data
+   - `data/beneficiaries.json`: Outcome tracking
+   - `data/geo_coverage.json`: District-level need/coverage
+   - `data/monitoring.json`: Operational metrics
+   - `data/tranches.json`: Disbursement log
+   - `data/aggregates/*.json`: Pre-computed summaries for fast loading
 
 **Phase 2 Extensions** (rate-carded):
+
 - **Fluxx REST API**: OAuth authentication, periodic sync (daily/weekly)
 - **DMP Integration**: Snowflake connector for KPI warehouse
 - **External APIs**: Census, NFHS (via government data portals)
 
 ### 3.4 Analytics & Reporting (Must Have)
 
-**Implemented Analyses** (see `dataviz/README.md`):
+**Example Analyses** (demonstrated in [data story](../dataviz/index.html) and [dashboard](../dataviz/dashboard.html)):
+
 1. **Portfolio Overview**: Budget, reach, outcomes small multiples
 2. **Efficiency Scatter**: Outcomes per ₹ vs beneficiaries per ₹ quadrant analysis
 3. **Geographic Targeting**: Coverage vs deprivation by district
@@ -263,7 +269,10 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 15. **Capacity Variance**: Box plots showing capacity reduces outcome variance
 16. **Coverage Impact**: Cumulative curve showing high-need coverage ROI
 
+These serve as **examples** of what the AI agent can generate. The platform is not limited to these charts—any analysis can be requested in natural language and generated on-demand.
+
 **Filters** (implemented in dashboard):
+
 - Theme (Health, Education, Livelihoods, Water, etc.)
 - State (multi-select dropdown)
 - Need Decile (1-10)
@@ -274,18 +283,19 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 
 ### 3.5 Secure Platform with Role-Based Access (Phase 2)
 
-**Phase 1**: Basic HTTP authentication (username/password)
+**Phase 1**: Google OAuth 2.0 authentication (email-based access control)
 **Phase 2**:
-- OAuth 2.0 / SAML integration with Tata Trusts Microsoft 365
-- Roles: Admin, Analyst, Viewer, Trustee
+
+- Fine-grained roles: Admin, Analyst, Viewer, Trustee
 - Permissions: Data upload, chart creation, export, user management
 - Audit logging: Track who viewed/exported what data
 
 ### 3.6 Scalability & Performance (Good to Have)
 
 **Current Approach:**
-- **Data Caching**: Pre-aggregate common queries in PostgreSQL materialized views
-- **CDN**: Static assets (JS, CSS) served via CloudFront
+
+- **JSON Pre-aggregation**: Pre-compute common aggregates and store as JSON files
+- **Client-side Caching**: Browser caches aggregated data to reduce server load
 - **Lazy Loading**: Charts render only when scrolled into view
 - **Progressive Enhancement**: Show placeholder → spinner → chart
 - **Responsive Design**: Works on mobile (tested iOS Safari 14+, Chrome Mobile 90+)
@@ -299,84 +309,93 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 ### 4.1 Development Methodology: Agile with AI Acceleration
 
 **Sprint Structure** (2-week sprints):
+
 - Sprint 0 (Week 1-2): Requirements, data model, infrastructure setup
 - Sprint 1 (Week 3-4): Core dashboard, 5 priority charts
 - Sprint 2 (Week 5-6): Remaining charts, AI agent tuning, UAT
 - Sprint 3 (Week 7-8): Feedback iteration, documentation, training
 
 **Daily Workflow:**
+
 1. **Morning Stand-Up** (15 min): Progress, blockers, plan for day
-2. **AI-Assisted Development** (4-6 hours): Pair programming with Claude Code
+2. **AI-Assisted Development** (4-6 hours): Pair programming with GPT-5 Codex/Claude 4.5 Sonnet
 3. **Visual Validation** (1 hour): Screenshot comparison, accessibility checks
 4. **Client Review** (30 min): Demo new charts, gather feedback
 5. **Evening Commit**: Push to GitHub, update status
 
-**AI Agent Process** (see `process.md` for detailed example):
+**AI Agent Process** (see [detailed process documentation](../process/)):
+
 1. **Prompt Engineering**: Provide context (RFP, data schema, style guide, sample chart)
 2. **Iterative Generation**: "Create efficiency scatter" → review → "Make circles larger" → review
 3. **Visual Feedback Loop**: Take screenshots, let agent self-critique and improve
-4. **Documentation**: Agent generates `newchart.md` template for future charts
+4. **Documentation**: Agent generates templates for future charts
 
 ### 4.2 Phase 1 Timeline (8 Weeks)
 
 **Week 1-2: Foundation**
-- [ ] Requirements workshop (1 day, in-person/Teams)
-- [ ] Finalize data schema and CSV formats
-- [ ] Set up cloud infrastructure (AWS, RDS, S3)
-- [ ] Design wireframes for dashboard layout (provide 1 sample as per RFP)
-- [ ] Establish brand guidelines compliance (colors, fonts, logos)
+
+- Requirements workshop (1 day, in-person/Teams)
+- Finalize data schema and CSV formats
+- Set up Azure VM infrastructure
+- Design wireframes for dashboard layout (provide 1 sample as per RFP)
+- Establish brand guidelines compliance (colors, fonts, logos)
 - **Deliverable**: Requirements specification document, wireframe, access to staging environment
 
 **Week 3-4: Core Development**
-- [ ] Implement CSV upload pipeline
-- [ ] Create data loading utilities (`core.js`)
-- [ ] Develop 5 priority charts (per client ranking):
+
+- Implement CSV upload pipeline
+- Create data loading utilities and JSON aggregation scripts
+- Develop 5 priority charts (per client ranking):
   1. Portfolio overview map
   2. Efficiency scatter
   3. Geographic targeting
   4. Financial insights (commitment vs disbursed)
   5. KPI waterfall
-- [ ] Build dashboard shell (navbar, sidebar, filters)
+- Build dashboard shell (navbar, sidebar, filters)
 - **Deliverable**: Working dashboard with 5 charts, demo session
 
 **Week 5-6: Expansion**
-- [ ] Add 11 additional charts (see section 3.4)
-- [ ] Implement filters (theme, state, need decile)
-- [ ] Create data story (scrollytelling narrative)
-- [ ] Add export functionality (PNG, PDF, CSV)
-- [ ] Tune AI agent for client-specific chart requests
+
+- Add 11 additional charts (see section 3.4)
+- Implement filters (theme, state, need decile)
+- Create data story (scrollytelling narrative)
+- Add export functionality (PNG, PDF, CSV)
+- Tune AI agent for client-specific chart requests
 - **Deliverable**: Full 16-chart dashboard, data story, AI agent demo
 
 **Week 7: Testing & Refinement**
-- [ ] User acceptance testing (UAT) with 3-5 stakeholders
-- [ ] Accessibility audit (WCAG 2.1 AA compliance)
-- [ ] Performance optimization (caching, lazy loading)
-- [ ] Mobile responsiveness testing
-- [ ] Security review (authentication, data encryption)
+
+- User acceptance testing (UAT) with 3-5 stakeholders
+- Accessibility audit (WCAG 2.1 AA compliance)
+- Performance optimization (JSON pre-aggregation, lazy loading)
+- Mobile responsiveness testing
+- Security review (OAuth implementation)
 - **Deliverable**: UAT report, bug fixes, performance benchmarks
 
 **Week 8: Training & Handover**
-- [ ] Training session 1: Dashboard navigation and filters (2 hours)
-- [ ] Training session 2: AI agent for custom charts (2 hours)
-- [ ] Training session 3: CSV upload and data management (1 hour)
-- [ ] Deliver documentation (user manual, technical specs, API docs)
-- [ ] Go-live support (full-day availability)
+
+- Training session 1: Dashboard navigation and filters (2 hours)
+- Training session 2: AI agent for custom charts (2 hours)
+- Training session 3: CSV upload and data management (1 hour)
+- Deliver documentation (user manual, technical specs, API docs)
+- Go-live support (full-day availability)
 - **Deliverable**: Trained users, comprehensive documentation, production deployment
 
 **Milestone Payments:**
+
 - 50% on submission of wireframes and requirements spec (end of Week 2)
 - 50% on acceptance of final dashboard (end of Week 8)
 
 ### 4.3 Risk Management
 
-| Risk | Probability | Impact | Mitigation |
-|------|------------|--------|------------|
-| **Data quality issues** (missing districts, inconsistent formats) | High | Medium | Build robust validation, provide data cleaning scripts, work with Trusts to sanitize before upload |
-| **Scope creep** (requests beyond Phase 1) | Medium | High | Clear Phase 1/2 boundary, maintain feature backlog for Phase 2, use rate card for changes |
-| **Timeline pressure** (2 months is tight) | Medium | High | AI acceleration reduces dev time by 60-70%, daily stand-ups catch delays early, prioritize must-haves |
-| **Stakeholder alignment** (multiple teams with different needs) | Medium | Medium | Involve all stakeholders in Week 1 workshop, show incremental demos, adjust priorities |
-| **AI agent reliability** (hallucinations, incorrect charts) | Low | Medium | Human review for all generated code, visual validation, automated tests for chart structure |
-| **Infrastructure issues** (cloud downtime, database performance) | Low | High | Choose proven cloud provider, set up monitoring (CloudWatch), daily backups, 99.9% SLA |
+| Risk                                                              | Probability | Impact | Mitigation                                                                                            |
+| ----------------------------------------------------------------- | ----------- | ------ | ----------------------------------------------------------------------------------------------------- |
+| **Data quality issues** (missing districts, inconsistent formats) | High        | Medium | Build robust validation, provide data cleaning scripts, work with Trusts to sanitize before upload    |
+| **Scope creep** (requests beyond Phase 1)                         | Medium      | High   | Clear Phase 1/2 boundary, maintain feature backlog for Phase 2, use rate card for changes             |
+| **Timeline pressure** (2 months is tight)                         | Medium      | High   | AI acceleration reduces dev time by 60-70%, daily stand-ups catch delays early, prioritize must-haves |
+| **Stakeholder alignment** (multiple teams with different needs)   | Medium      | Medium | Involve all stakeholders in Week 1 workshop, show incremental demos, adjust priorities                |
+| **AI agent reliability** (hallucinations, incorrect charts)       | Low         | Medium | Human review for all generated code, visual validation, automated tests for chart structure           |
+| **Infrastructure issues** (VM downtime, storage limits)           | Low         | High   | Choose proven cloud provider (Azure), set up monitoring, daily backups, 99.9% SLA                     |
 
 ---
 
@@ -385,40 +404,41 @@ The 16 charts in `dataviz/` were created in **~6 hours of AI-assisted developmen
 ### 5.1 Core Team (Phase 1)
 
 **Team Lead / Solutions Architect** (1 FTE)
+
 - **Experience**: 18 years in data visualization, GIS platforms, social sector analytics
 - **Role**: Client liaison, requirements gathering, architecture design, quality assurance
 - **Time Commitment**: 100% (8 weeks)
 
 **Senior Frontend Developer** (1 FTE)
-- **Experience**: 8 years in JavaScript, React, D3.js, Observable Plot
+
+- **Experience**: 8 years in JavaScript, D3.js, Observable Plot
 - **Role**: Dashboard development, chart modules, responsive design, AI agent integration
 - **Time Commitment**: 100% (8 weeks)
 
 **Data Engineer** (0.5 FTE)
-- **Experience**: 6 years in PostgreSQL, PostGIS, data pipelines, ETL
-- **Role**: Database setup, CSV import scripts, query optimization, geo-matching
+
+- **Experience**: 6 years in JavaScript, data pipelines, CSV processing
+- **Role**: Data import scripts, JSON aggregation, geocoding, query optimization
 - **Time Commitment**: 50% (focus in Week 1-3)
 
 **GIS Specialist** (0.5 FTE)
-- **Experience**: 5 years in Mapbox, Leaflet, QGIS, spatial analysis
+
+- **Experience**: 5 years in Mapbox, Leaflet, spatial analysis
 - **Role**: Map layer design, choropleth maps, polygon overlays, geospatial queries
 - **Time Commitment**: 50% (focus in Week 2-5)
 
-**DevOps Engineer** (0.25 FTE)
-- **Experience**: 7 years in AWS, CI/CD, infrastructure as code
-- **Role**: Cloud setup, deployment automation, monitoring, backup/recovery
-- **Time Commitment**: 25% (focus in Week 1, Week 8)
-
 **Trainer / Documentation Specialist** (0.25 FTE)
+
 - **Experience**: 4 years in technical writing, user training, video tutorials
 - **Role**: User manuals, technical documentation, training sessions, knowledge transfer
 - **Time Commitment**: 25% (focus in Week 7-8)
 
-**Total Effort**: 3.5 FTE × 8 weeks = 28 person-weeks
+**Total Effort**: 3.25 FTE × 8 weeks = 26 person-weeks
 
 ### 5.2 Extended Team (Phase 2)
 
 Additional roles budgeted in rate card:
+
 - **AI/ML Engineer**: Fine-tune models, implement predictive analytics
 - **Backend Developer**: Fluxx/DMP API integration
 - **QA Analyst**: Automated testing, regression suites
@@ -430,38 +450,42 @@ Additional roles budgeted in rate card:
 
 ### 6.1 Phase 1 Deliverables (RFP Section 5)
 
-| Deliverable | Description | Format | Timeline |
-|-------------|-------------|--------|----------|
-| **Requirements Specification** | Detailed functional and technical requirements, data schema, user stories | PDF (30-40 pages) | Week 2 |
-| **Prototype/Wireframes** | Dashboard layout, chart placement, filter UI, mobile views | PDF (1 sample) + Figma link | Week 2 |
-| **Functional GIS Dashboard** | Live, deployed dashboard with 16 charts, filters, export | Web URL (staging) | Week 6 |
-| **Admin Portal** | CSV upload interface, user management (Phase 1: basic) | Web URL | Week 6 |
-| **Training Materials** | User manual (PDF), video tutorials (3× 15-min recordings), quick reference card | PDF, MP4, DOCX | Week 8 |
-| **Technical Documentation** | System architecture, API reference, deployment guide, data dictionary | PDF (50-60 pages) | Week 8 |
-| **Source Code** | All code, configuration files, deployment scripts | GitHub repository | Week 8 |
-| **Maintenance Plan** | 3-month post-deployment support plan, SLA terms, escalation matrix | PDF (10 pages) | Week 8 |
+| Deliverable                    | Description                                                               | Timeline |
+| ------------------------------ | ------------------------------------------------------------------------- | -------- |
+| **Requirements Specification** | Detailed functional and technical requirements, data schema, user stories | Week 2   |
+| **Prototype/Wireframes**       | Dashboard layout, chart placement, filter UI, mobile views                | Week 2   |
+| **Functional GIS Dashboard**   | Live, deployed dashboard with 16 charts, filters, export                  | Week 6   |
+| **Admin Portal**               | CSV upload interface, basic user management                               | Week 6   |
+| **Training Materials**         | User manual, video tutorials (3× 15-min recordings), quick reference card | Week 8   |
+| **Technical Documentation**    | System architecture, API reference, deployment guide, data dictionary     | Week 8   |
+| **Source Code**                | All code, configuration files, deployment scripts                         | Week 8   |
+| **Maintenance Plan**           | 3-month post-deployment support plan, SLA terms, escalation matrix        | Week 8   |
 
 ### 6.2 Training Plan
 
 **Session 1: Dashboard Navigation** (2 hours)
+
 - Target: All users (trustees, analysts, program leads)
 - Topics: Login, explore charts, apply filters, drill-down, export PDFs
 - Format: Live demo + hands-on practice
 - Materials: User manual, practice dataset
 
 **Session 2: AI Agent for Custom Charts** (2 hours)
+
 - Target: Analytics team (power users)
 - Topics: Natural language queries, refining charts, saving favorites, troubleshooting
 - Format: Live demo + guided exercises
 - Materials: AI agent guide, example prompts, FAQ
 
 **Session 3: Data Management** (1 hour)
+
 - Target: Data administrators
-- Topics: CSV upload, validation errors, database refresh, backup/restore
+- Topics: CSV upload, validation errors, cache refresh, backup/restore
 - Format: Live demo + hands-on practice
 - Materials: Data admin manual, CSV templates, troubleshooting guide
 
 **Ongoing Support**:
+
 - **Helpdesk**: Email/Teams-based ticketing system
 - **Office Hours**: Weekly 1-hour Q&A sessions (Months 1-3)
 - **Knowledge Base**: Online portal with FAQs, video library, changelog
@@ -476,8 +500,8 @@ Additional roles budgeted in rate card:
 - **Chart Render**: <500ms per chart (measured with 10,000 data points)
 - **Filter Response**: <200ms to update all charts after filter change
 - **Concurrent Users**: Supports 50 simultaneous users without degradation
-- **Caching Strategy**: PostgreSQL materialized views refreshed nightly
-- **CDN**: Static assets served via CloudFront for low latency
+- **Caching Strategy**: JSON pre-aggregation files loaded on-demand
+- **Asset Optimization**: Minified JavaScript, compressed images
 
 ### 7.2 Mobile Responsiveness
 
@@ -488,31 +512,30 @@ Additional roles budgeted in rate card:
 
 ### 7.3 Security & Compliance
 
-**Data Encryption**:
-- **In Transit**: TLS 1.3 for all HTTPS connections
-- **At Rest**: AWS RDS encryption (AES-256)
-- **Backup Encryption**: S3 server-side encryption
+**Authentication**:
 
-**Authentication** (Phase 1):
-- HTTP Basic Auth (username/password)
+- Google OAuth 2.0 integration
+- Session management with secure cookies
 - Session timeout: 4 hours
-- Password policy: 12+ chars, special char, no reuse
+- Multi-factor authentication (MFA) via Google account settings
 
-**Authentication** (Phase 2):
-- OAuth 2.0 / SAML with Microsoft 365
-- Multi-factor authentication (MFA)
-- IP whitelisting for admin functions
+**Access Control**:
+
+- Email-based whitelist for authorized users
+- Simple admin flag for upload privileges
+- Phase 2: Granular role-based permissions
 
 **Data Protection**:
-- **DPDP Act Compliance**: Data minimization, purpose limitation, consent management (where applicable)
-- **Access Logging**: Track all data access, export events, admin actions
-- **Data Retention**: Configurable retention policies, automated purging
-- **Anonymization**: Option to mask PII in beneficiary data for non-admin users
 
-**Vulnerability Management**:
-- **Dependency Scanning**: Automated checks for CVEs in npm packages
-- **Penetration Testing**: Third-party security audit before go-live (optional, budgeted in rate card)
-- **Patch Management**: Monthly security updates, emergency patches within 48 hours
+- HTTPS for all connections
+- Regular VM backups (daily automated snapshots)
+- Data retention policies configurable via admin interface
+
+**Compliance**:
+
+- DPDP Act compliance through data minimization and purpose limitation
+- Access logging for audit trails
+- Anonymization options for sensitive beneficiary data
 
 ### 7.4 Accessibility (WCAG 2.1 AA)
 
@@ -530,28 +553,32 @@ Additional roles budgeted in rate card:
 ### 8.1 Innovation Advantage
 
 **Traditional Dashboard Pain Points**:
+
 1. "Can we add a chart showing X?" → 2 weeks wait
 2. "This isn't quite what I meant" → Another 1 week
 3. "Now I need it by Y instead of Z" → Change request, prioritization, delay
 4. **Total time to final chart**: 3-6 weeks, frustration, opportunity cost
 
 **AI-Agent Solution**:
+
 1. "Show me X" → 2 minutes
 2. "Actually, make it Y" → 30 seconds
 3. "Perfect! Save it" → Done
 4. **Total time**: <5 minutes, user empowerment, zero backlog
 
 **Quantified Impact** (projected):
+
 - **Development velocity**: 10× faster for new charts
 - **User satisfaction**: Eliminates 90% of change requests
-- **Cost savings**: Reduces ongoing dev costs by $6M annually (Microsoft case study, scaled to Trusts context)
+- **Cost savings**: Reduces ongoing dev costs by significant margins (industry case studies show $6M annual savings for large organizations)
 - **Adaptability**: Seamlessly incorporates new data columns, themes, geographies without re-architecture
 
 ### 8.2 Alignment with 2025 Trends
 
-Based on industry research (see web search summaries):
+Based on industry research:
+
 - **Gartner**: Data stories are the primary analytics consumption method by 2025, with 75% generated by augmented analytics
-- **NLP Interfaces**: Conversational data access is standard in modern BI tools (Tableau, Power BI roadmaps)
+- **NLP Interfaces**: Conversational data access is standard in modern BI tools
 - **Generative AI**: Automatic narrative generation contextualizes trends, making insights engaging
 - **Real-Time Decisions**: AI-powered tools enable instant analysis, eliminating dashboard-refresh delays
 
@@ -560,14 +587,16 @@ Our solution is not experimental—it's aligned with where the industry is headi
 ### 8.3 Scalability to Phase 2 and Beyond
 
 **Phase 2 Extensions** (budgeted in rate card):
+
 - **External Data Integration**: Census, NFHS, NITI Aayog APIs (8-12 weeks, 2 FTE)
-- **Role-Based Access**: OAuth, multi-tenant permissions (4 weeks, 1 FTE)
+- **Role-Based Access**: Fine-grained permissions, multi-tenant support (4 weeks, 1 FTE)
 - **Predictive Analytics**: ML models for outcome forecasting, risk prediction (12 weeks, 2 FTE)
 - **Advanced GIS**: Time-series animation, polygon drawing, 3D terrain (6 weeks, 1 FTE)
 - **Mobile App**: Native iOS/Android app for field teams (16 weeks, 3 FTE)
 
 **Phase 3 Vision** (illustrative):
-- **Chatbot Interface**: WhatsApp/Teams bot for chart requests ("Send me efficiency scatter")
+
+- **Chatbot Interface**: WhatsApp/Teams bot for chart requests
 - **Automated Insights**: Daily email with anomaly alerts, trend summaries
 - **Cross-Trust Analytics**: Benchmark against other foundations (with consent)
 - **Public Portal**: Anonymous, aggregated insights for external stakeholders
@@ -578,13 +607,15 @@ Our solution is not experimental—it's aligned with where the industry is headi
 
 ### 9.1 Sample Visualizations
 
-The `dataviz/` folder contains:
+The submission includes:
+
 - **16 production-ready charts** across portfolio overview, efficiency, targeting, operations
-- **Data story** (`index.html`): Scrollytelling narrative with embedded charts
-- **Interactive dashboard** (`dashboard.html`): Filters, export, fullscreen
-- **Modular architecture**: Each chart is an independent ESM module (`efficiency-scatter.js`, `partner-performance.js`, etc.)
+- **[Data story](../dataviz/index.html)**: Scrollytelling narrative with embedded charts
+- **[Interactive dashboard](../dataviz/dashboard.html)**: Filters, export, fullscreen
+- **Modular architecture**: Each chart is an independent ESM module
 
 **Key Features Demonstrated**:
+
 - Observable Plot for declarative charts
 - D3.js for custom geospatial visualizations
 - Responsive design (works on mobile)
@@ -593,17 +624,19 @@ The `dataviz/` folder contains:
 
 ### 9.2 Process Documentation
 
-`process.md` provides a detailed log of how these visualizations were created using AI assistance:
+The [development process documentation](../process/) provides a detailed log of how these visualizations were created using AI assistance:
+
 - **Data generation**: Realistic fake datasets in 2 hours (vs 1 week for manual)
 - **Chart development**: 16 charts in 6 hours (vs 4-6 weeks traditional)
 - **Iterative refinement**: Screenshot-based feedback loops, visual validation
-- **Documentation**: AI-generated `newchart.md` template for future charts
+- **Documentation**: AI-generated templates for future charts
 
 This demonstrates our methodology in action and proves the velocity claims.
 
 ### 9.3 Reference Projects (Indicative)
 
 While this submission is for an RFP, our approach is informed by similar projects:
+
 - **Social Sector Dashboard** (confidential client, 2024): 300+ grants, 50M beneficiaries, 25 charts, 6-week delivery
 - **Government Analytics Portal** (confidential client, 2023): Census data integration, district-level heat maps, role-based access
 - **Foundation Impact Tracker** (confidential client, 2024): Real-time KPI monitoring, automated email reports, mobile app
@@ -614,14 +647,15 @@ While this submission is for an RFP, our approach is informed by similar project
 
 ## 10. Value Proposition Summary
 
-| Evaluation Criteria | How We Excel | Evidence |
-|---------------------|--------------|----------|
-| **Alignment (45 pts)** | Meets all must-have requirements OOB, exceeds with AI agent | See Section 3 checklist |
-| **Capability (25 pts)** | Detailed methodology, experienced team, proven AI-acceleration approach | See Sections 4-5, process.md |
-| **Demo (15 pts)** | 16 live charts, interactive dashboard, AI agent walkthrough | See dataviz/ folder |
-| **Experience (15 pts)** | 18+ years lead, social sector track record, 3+ similar projects | See Section 9.3, references |
+| Evaluation Criteria     | How We Excel                                                    | Evidence                                        |
+| ----------------------- | --------------------------------------------------------------- | ----------------------------------------------- |
+| **Alignment (45 pts)**  | Meets all must-have requirements OOB, exceeds with AI agent     | See Section 3 checklist                         |
+| **Capability (25 pts)** | Detailed methodology, experienced team, proven AI-acceleration  | See Sections 4-5, [process docs](../process/)   |
+| **Demo (15 pts)**       | 16 live charts, interactive dashboard, AI agent walkthrough     | See [demo dashboard](../dataviz/dashboard.html) |
+| **Experience (15 pts)** | 18+ years lead, social sector track record, 3+ similar projects | See Section 9.3, references                     |
 
 **Why Tata Trusts Should Choose Us**:
+
 1. **Future-Proof**: AI agent adapts to changing requirements without re-architecture
 2. **Cost-Effective**: Eliminates ongoing dev costs for new reports (projected savings: ₹30-50L annually)
 3. **User Empowerment**: Analytics team becomes self-sufficient, reducing dependency on vendors
@@ -638,7 +672,7 @@ While this submission is for an RFP, our approach is informed by similar project
 1. **Data Availability**: Tata Trusts will provide Excel/CSV files in agreed format by Week 2
 2. **Data Quality**: Files are pre-sanitized (no major missing data, geocoding issues)
 3. **Stakeholder Availability**: Key stakeholders available for requirements workshop (Week 1) and UAT (Week 7)
-4. **Infrastructure**: Trusts approves AWS as cloud provider (or specifies alternative by Week 0)
+4. **Infrastructure**: Trusts approves Azure as cloud provider
 5. **Third-Party Data**: External datasets (Census, NFHS) deferred to Phase 2 as clarified in pre-bid meeting
 6. **Browser Support**: Target modern browsers (Chrome 90+, Firefox 88+, Safari 14+); no IE11 support
 7. **Concurrent Users**: Phase 1 targets 50 concurrent users; higher loads require Phase 2 scaling
@@ -647,11 +681,12 @@ While this submission is for an RFP, our approach is informed by similar project
 ### 11.2 Open Questions for Finalization
 
 These will be addressed in the requirements workshop (Week 1):
+
 - **Data Schema**: Confirm exact column names, data types, mandatory fields for each CSV
 - **Chart Priorities**: Rank the 16+ chart types by importance for incremental delivery
 - **Brand Assets**: Obtain Tata Trusts logo files, exact color codes (Pantone/HEX), approved fonts
-- **Authentication**: Confirm Phase 1 user list (names, emails) for basic auth setup
-- **Hosting Region**: AWS Mumbai (ap-south-1) or other region preference
+- **Authentication**: Confirm Google Workspace domain for OAuth integration
+- **Hosting Region**: Azure India Central (Pune) or other region preference
 - **Backup Frequency**: Daily automated backups sufficient, or more frequent?
 - **SLA Terms**: Define uptime targets, response times, escalation procedures for post-deployment support
 
@@ -659,37 +694,87 @@ These will be addressed in the requirements workshop (Week 1):
 
 ## 12. Financial Proposal Alignment
 
-*(Note: Detailed financial bid submitted separately as per Annexure F)*
+### 12.1 Phase 1 Cost Structure
 
-**Phase 1 Cost Structure:**
-- **Professional Fees**: Development team (3.5 FTE × 8 weeks)
-- **Setup & Maintenance**: Cloud infrastructure (3 months), domain, SSL, monitoring
-- **Data Analysis & Overheads**: Data pipeline, validation scripts, geocoding
-- **Out-of-Pocket Expenses**: None (all remote work)
-- **GST**: As applicable (18%)
+**Professional Fees** (8 weeks development):
 
-**Phase 2 Rate Card** (indicative):
-| Role | Experience | Man-Hour Rate (INR) |
-|------|------------|---------------------|
-| Solutions Architect | 15+ years | ₹8,000 |
-| Senior Developer | 8+ years | ₹5,500 |
-| Data Engineer | 5+ years | ₹4,500 |
-| GIS Specialist | 5+ years | ₹4,500 |
-| AI/ML Engineer | 5+ years | ₹6,000 |
-| DevOps Engineer | 5+ years | ₹4,000 |
-| QA Analyst | 3+ years | ₹3,000 |
-| Trainer | 3+ years | ₹3,500 |
+| Role                  | FTE  | Weeks | Rate/Week (INR) | Total (INR)    |
+| --------------------- | ---- | ----- | --------------- | -------------- |
+| Team Lead             | 1.0  | 8     | ₹3,20,000       | ₹25,60,000     |
+| Senior Developer      | 1.0  | 8     | ₹2,20,000       | ₹17,60,000     |
+| Data Engineer         | 0.5  | 8     | ₹1,80,000       | ₹7,20,000      |
+| GIS Specialist        | 0.5  | 8     | ₹1,80,000       | ₹7,20,000      |
+| Trainer/Documentation | 0.25 | 8     | ₹1,40,000       | ₹2,80,000      |
+| **Subtotal**          |      |       |                 | **₹60,40,000** |
+
+**Setup & Infrastructure** (3 months Phase 1):
+
+| Item                         | Monthly Cost (INR) | Months | Total (INR) |
+| ---------------------------- | ------------------ | ------ | ----------- |
+| Azure VM (Standard B2s)      | ₹8,000             | 3      | ₹24,000     |
+| Storage & Bandwidth          | ₹2,000             | 3      | ₹6,000      |
+| Domain & SSL                 | ₹1,500             | 3      | ₹4,500      |
+| Mapbox (free tier + overage) | ₹5,000             | 3      | ₹15,000     |
+| **Subtotal**                 |                    |        | **₹49,500** |
+
+**Data Analysis & Overheads**:
+
+| Item                                | Cost (INR)    |
+| ----------------------------------- | ------------- |
+| AI API costs (GPT-5/Claude 4.5)     | ₹50,000       |
+| Data validation scripts development | ₹1,00,000     |
+| Geocoding services & shapefile prep | ₹75,000       |
+| Project management & coordination   | ₹2,00,000     |
+| **Subtotal**                        | **₹4,25,000** |
 
 **Post-Deployment Support** (3 months included):
-- **Helpdesk**: Email/Teams support (response within 24 hours)
-- **Bug Fixes**: Unlimited for issues in delivered scope
-- **Minor Enhancements**: Up to 16 hours per month included
-- **Emergency Support**: 4-hour response for critical issues
 
-**Annual Maintenance Contract (AMC)** (after 3 months):
-- **Option A**: ₹3L per year (monitoring, security patches, minor updates)
-- **Option B**: ₹5L per year (Option A + 32 hours/year for enhancements)
-- **Option C**: ₹8L per year (Option B + 8 hours/month retainer for custom analytics)
+| Item                                      | Cost (INR)    |
+| ----------------------------------------- | ------------- |
+| Helpdesk support (email/Teams, 24hr SLA)  | ₹1,50,000     |
+| Bug fixes (unlimited for delivered scope) | ₹1,00,000     |
+| Minor enhancements (up to 16 hours/month) | ₹1,50,000     |
+| Emergency support (4-hour response)       | ₹50,000       |
+| **Subtotal**                              | **₹4,50,000** |
+
+**Phase 1 Total Summary**:
+
+| Category                  | Amount (INR)   |
+| ------------------------- | -------------- |
+| Professional Fees         | ₹60,40,000     |
+| Setup & Infrastructure    | ₹49,500        |
+| Data Analysis & Overheads | ₹4,25,000      |
+| Post-Deployment Support   | ₹4,50,000      |
+| **Subtotal (excl. GST)**  | **₹69,64,500** |
+| GST @ 18%                 | ₹12,53,610     |
+| **Total Phase 1 Cost**    | **₹82,18,110** |
+
+**Payment Schedule**:
+
+- **50% on wireframes/requirements** (Week 2): ₹41,09,055
+- **50% on final dashboard acceptance** (Week 8): ₹41,09,055
+
+### 12.2 Phase 2 Rate Card
+
+**Man-Hour Rates** (for future work estimation):
+
+| Role                | Experience | Man-Hour Rate (INR) |
+| ------------------- | ---------- | ------------------- |
+| Solutions Architect | 15+ years  | ₹8,000              |
+| Senior Developer    | 8+ years   | ₹5,500              |
+| Data Engineer       | 5+ years   | ₹4,500              |
+| GIS Specialist      | 5+ years   | ₹4,500              |
+| AI/ML Engineer      | 5+ years   | ₹6,000              |
+| QA Analyst          | 3+ years   | ₹3,000              |
+| Trainer             | 3+ years   | ₹3,500              |
+
+### 12.3 Annual Maintenance Contract (AMC)
+
+**Post 3-month support period**:
+
+- **Option A**: ₹3,00,000/year (monitoring, security patches, minor updates)
+- **Option B**: ₹5,00,000/year (Option A + 32 hours/year for enhancements)
+- **Option C**: ₹8,00,000/year (Option B + 8 hours/month retainer for custom analytics)
 
 ---
 
@@ -709,6 +794,7 @@ These will be addressed in the requirements workshop (Week 1):
 ### 13.2 Acceptance of Terms
 
 We confirm acceptance of:
+
 - All General Terms and Conditions (Annexure H)
 - Code of Conduct (no bribes, child labor compliance)
 - Intellectual Property Rights (all work product vests with Tata Trusts)
@@ -737,7 +823,8 @@ Tata Trusts' vision for a data-driven, insight-led organization requires more th
 We are excited about the opportunity to partner with Tata Trusts in this transformative initiative and look forward to the demo/presentation phase to showcase the AI agent in action.
 
 **Next Steps:**
-1. **Technical Evaluation**: Review this proposal and the `dataviz/` demonstration
+
+1. **Technical Evaluation**: Review this proposal and the demonstration materials
 2. **Demo Session**: Live walkthrough of dashboard and AI agent (30-45 minutes)
 3. **Reference Checks**: Speak with 2+ clients from similar projects
 4. **Contract Negotiation**: Finalize timeline, payment terms, SLA
@@ -758,22 +845,29 @@ Thank you for considering our proposal. We are confident this approach will set 
 ## Appendices
 
 ### Appendix A: Completed Functional Requirement Sheet
-See `response/checklist.md` for detailed compliance matrix.
+
+See `checklist.md` for detailed compliance matrix.
 
 ### Appendix B: Review Recommendations
-See `response/review.md` for areas requiring careful review before submission.
+
+See `review.md` for areas requiring careful review before submission.
 
 ### Appendix C: Work Orders (Sample)
+
 [Attach 3+ work orders from 2023-2025 demonstrating similar scope]
 
 ### Appendix D: Team Profiles
+
 [Attach CVs highlighting years of experience, relevant projects, certifications]
 
 ### Appendix E: Company Registration Certificate
+
 [Attach incorporation certificate, GST registration]
 
 ### Appendix F: No-Litigation Declaration
+
 [Attach affidavit confirming no active litigation, no blacklisting]
 
 ### Appendix G: Reference Letters (Optional)
+
 [Attach 2+ letters from previous clients praising work quality, timeliness]
