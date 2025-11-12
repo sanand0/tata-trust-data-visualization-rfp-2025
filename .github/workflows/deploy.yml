@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Run when pushed. Use { branches: [main, master], paths: [...] } to restrict branches and paths
+  push:
+  # Allow manual triggering of the workflow
+  workflow_dispatch:
+
+permissions:
+  # To deploy to GitHub Pages
+  pages: write
+  # To verify that deployment originated from the right source
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Run as a single build + deploy job to reduce setup time
+  deploy:
+    # Specify the deployment environment. Displays the URL in the GitHub Actions UI
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Run on the latest Ubuntu LTS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # path: defaults to _site
+          path: .
+
+      - name: Deploy
+        # The `id:` is required to show the URL in the GitHub Actions UI
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -557,3 +557,107 @@ The [data story](dataviz/index.html) and [dashboard](dataviz/dashboard.html) are
 ## 12 Nov Process Documentation
 
 I created this [process document](process.md) to capture everything that happened.
+
+## 12 Nov RFP Response
+
+> Based on the [RFP](rfp.md) and [pre-bid meeting](pre-bid.md), create a comprehensive proposal response at `response/README.md` that addresses all requirements.
+>
+> Note that the proposed solution involves the use of an AI agent (e.g. Claude Code, Codex CLI) capable of creating any data visualization the user requests on the fly, based on the datasets provided.
+> The data visualizations in `dataviz/` are examples of what can be created using this approach. dataviz/newcharts.md documents how a new the agent can create new charts and [process.md](process.md) documents the prompts involved.
+>
+> Search online for best practices in delivering such an engagement.
+> Make decisions on my behalf. Make assumptions where necessary, documenting them clearly.
+>
+> Create a `response/checklist.md` that lists all RFP requirements and how each is addressed in the proposal.
+>
+> Create a `response/review.md` that suggests where the response needs to be reviewed carefully for accuracy, completeness, and compliance. Mention what needs to be reviewed and why, along with an importance rating (High/Medium/Low).
+
+The commit [Add comprehensive RFP proposal response documents](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3/commits/efab43963962db7c1e0df99091ec46261002c53b) was good. I scanned it and suggested several changes:
+
+> Revise the RFP response as follows:
+>
+> - Use Azure rather than AWS as the default cloud provider. Drop cloud skill experience in team structure
+> - We will only be deploying on a virtual machine - no S3, RDS, CDN (or equivalents) required.
+> - No React, PostGIS, QGIS, PostgreSQL (or any database) or any ETL in the stack.
+> - We will be using GPT-5 Codex or Claude 4.5 Sonnet as the models
+> - Phase 1 auth will be via Google OAuth 2, not basic HTTP Auth
+> - 3.4 Analytics & Reporting: Mention these as EXAMPLES not as must haves
+> - For scalability, we won't use PostgreSQL materialized views but pre-aggregate in JSON
+> - Deliverables: drop the format column
+> - Drop encryption, data protection, and vulnerability management in 7.3 Security & Compliance
+> - In 12. Financial Proposal Alignment calculate and show the total Phase 1 cost inclusive of post-deployment support. No separate annexure
+> - When linking to dataviz/ always use either ../dataviz/index.html or ../dataviz/dashboard.html - nothing else.
+> - When linking to process.md use ../process/ instead (this will be created later).
+> - Convert architecture diagram to a Mermaid component diagram.
+> - Format Markdown files using dprint
+> - Update response/review.md as required
+>
+> Then:
+>
+> Evaluate lightweight, beautiful static site generators.
+> Pick the most suited for this project.
+> Create a visually appealing, printable, HTML files for each of the Markdown files. Ensure that they hyperlink to each other correctly, with response/README.md -> response/index.html as the entry point.
+
+This commit [Revise RFP proposal with updated tech stack and create HTML versions](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3/commits/1e90b7c6bbc0021467c699b58a94a156b3e1d1ec) creates the proposal as printable HTML. I suggested a few changes:
+
+> - Check the Mermaid component diagram. When rendered, it says "Syntax error in text mermaid version 10.9.5"
+> - The template could look much more elegant! Take screenshots of each section, list all errors and improvement possibilities. Then implement these. You may modify the Markdown if required. I find that newlines are not preserved when rendering the template and this leads to ugly formatting.
+> - Convert index.html to PDF (in print layout) and check for formatting issues. Make sure the font size is not too large and that the layout, format, margin, style, spacing, page numbering, etc. are in line with a professional RFP response.
+> - Do not commit any of the PDFs or HTML. Instead, create a package.json script that generates these files via `npm run build`. `.gitignore` should ignore these as well as node_modules/ and other generated files. Make sure the committed response/*.html files are removed.
+
+The commit [Fix Mermaid diagram and improve HTML generation system](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3/commits/db96eb95c18b6e94d670dda9f316b2b411e3994c) did most of this except the PDF conversion. There were a few other formatting issues:
+
+> - The Mermaid architecture diagram layout has the subgraph children one below the other (e.g. Story, Dashboard, Chat are one below the other). Make them side by side. The next subgraph can be below.
+> - Don't use a custom Markdown to HTML converter. Use a popular, easy-to-use static site generator - ideally one that can be run purely via the CLI and you can apply a nice theme for.
+> - Install a HTML to PDF convertor and then convert index.html to PDF (in print layout) and check for formatting issues. Make sure the font size is not too large and that the layout, format, margin, style, spacing, page numbering, etc. are in line with a professional RFP response.
+
+This commit [Revise RFP proposal with updated tech stack and create HTML versions](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3/commits/6858b98777f1e9c113a2341433adb71c61716aa5) uses mkdocs which requires Python and is a bit old school. So:
+
+> Avoid mkdocs. Prefer an npm-installable package. Pick a good existing theme. Keep the build simple. The output HTML should be in the same response/ folder, not a sub-folder. Rewrite and clean up all the build steps and documentation.
+
+At this point, the output was not very different from 3 commits ago. So I gave up and [merged the PR](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3).
+
+## 12 Nov 2025 Process Story and Landing Page
+
+Now to put things together:
+
+> STEP 1: Extract common styles from rfp-story/index.html and dataviz/style.css into ./style.css and updating all references.
+>
+> STEP 2: Create a beautiful, comprehensive New York Times style narrative story under process/{index.html,script.js} explaining the [process followed](process.md) to respond to this RFP.
+>
+> The aim is to teach:
+>
+> - Pre-sales teams: how they can leverage AI agents to rapidly respond to complex RFPs with minimal effort
+> - Developers: how to create data visualization dashboards using AI agents
+> - Everyone: what AI agents are capable of today, where they fail, where human expertise helps and where AI expertise fills gaps, and how to work around limitations
+>
+> Search online for references and best practices to create a truly useful tutorial.
+>
+> STEP 3: Create a landing page at [index.html](index.html) that links to all important documents:
+>
+> - The [RFP story](rfp-story/index.html)
+> - The [RFP response](response/index.html), i.e. proposal
+> - The [Data Story](dataviz/index.html) and [Dashboard](dataviz/dashboard.html) as examples of visualizations
+> - The [Process](process/index.html) explaining the steps followed to respond to the RFP
+>
+> Read any/all documents in the repo that will help you with these tasks.
+
+This commit [Refactor styles and create comprehensive process narrative](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/4/commits/1de974474f47cf5dfc105b87a927b312ac59415b)! But I couldn't find the RFP response. I said:
+
+> - I couldn't find the RFP response link (response/index.html) in the landing page. That's the most important piece! Add it. In fact, begin with it. Rewrite the landing page storyline accordingly.
+> - Do not link to Markdown files directly. Link instead to the GitHub page for the Markdown file on the main branch. For example, https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/main/rfp.md
+> - In the process story, link to relevant sections of process.md as required.
+
+This commit [Feature RFP response prominently and update links to GitHub](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/4/commits/a852651f8be059b39cdfcd0738cce95f6ef06274) kind-of-worked but failed to generate the eleventy site and ended up linking directly to the Markdown proposal response. It also made a few mistakes. So I said:
+
+> - In the landing page, there are 2 cards each that point to dataviz/index.html and dataviz/dashboard.html. Only one is needed. Remove the duplicate cards.
+> - Move response/package.json to the root folder as package.json. Update scripts and docs accordingly. This will make it easier to run the build commands.
+> - npm install, npm run build, and verify that response/index.html etc. are created.
+> - Create a minimal, modern GitHub action that will, on commit, build the RFP response HTML and deploy to GitHub Pages.
+
+This commit [Move build system to root and remove duplicate cards](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/4/commits/ff9ab6884171b43e1243da0feecd9594e7ba702f) didn't do too well. GitHub refused to "allow a GitHub App to create or update workflow `.github/workflows/deploy.yml` without `workflows` permission". So I stepped in manually to:
+
+- Clean up code
+- Link to the correct proposal HTML
+- Create the GitHub Action
+- Add an MIT LICENSE

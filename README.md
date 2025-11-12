@@ -6,3 +6,5 @@
 - 11 Nov 2025: Here's [realistic generated data](data/README.md) and [useful analyses](analyses.md) based on that.
 - 11 Nov 2025: Here's a [data story](dataviz/index.html) and a [dashboard](dataviz/dashboard.html) visualizing those analyses.
 - 12 Nov 2025: Here's a [process log](process.md) of how I created all of these with AI assistance.
+
+[MIT License](LICENSE)
