@@ -1,3 +1,9 @@
+---
+layout: layout.njk
+title: Compliance Checklist - Tata Trusts RFP Response
+permalink: checklist.html
+---
+
 # RFP Requirements Compliance Checklist
 
 This document maps all requirements from the Tata Trusts RFP (dated 04/11/2025) to specific sections of our proposal and implementation.

@@ -1,3 +1,9 @@
+---
+layout: layout.njk
+title: Technical Proposal - Tata Trusts Data Visualization Dashboard
+permalink: index.html
+---
+
 # Technical Proposal: Geographical Data Visualization Dashboard for Tata Trusts
 
 **Submitted by:** [Bidder Name]

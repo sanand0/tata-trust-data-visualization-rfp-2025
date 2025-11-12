@@ -3,13 +3,10 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# MkDocs generated site
-response/site/
-response/docs/
-
-# Legacy HTML generation
+# Generated HTML files
 response/*.html
-response/*.pdf
+
+# Legacy files
 response/convert-to-html.js
 
 # OS files
