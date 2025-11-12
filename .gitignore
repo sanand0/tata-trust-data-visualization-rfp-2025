@@ -5,7 +5,6 @@ yarn-error.log
 
 # Generated HTML files
 response/*.html
-response/_site/
 
 # Legacy files
 response/convert-to-html.js
