@@ -1,6 +1,6 @@
 # Tata Trusts Data Visualizations
 
-Interactive data story and dashboard showcasing the top 9 analyses from the portfolio data.
+Interactive data story and dashboard showcasing 16 comprehensive analyses from the portfolio data, including all top-ranked (#1 and #2) and high-value (4.0-4.2) analyses.
 
 ## Files
 
@@ -13,9 +13,12 @@ Interactive data story and dashboard showcasing the top 9 analyses from the port
 
 Each chart is an independent module that exports a `render(container, props)` function:
 
-1. **`chart1-efficiency-scatter.js`** - Outcomes per rupee and beneficiaries per rupee (efficiency quadrants)
+**Rank #1 Analyses (Overall: 5.0):**
+1. **`chart1-efficiency-scatter.js`** - Outcomes per rupee and beneficiaries per rupee (efficiency quadrants with dynamic circle sizing)
 2. **`chart2-coverage-map.js`** - Targeting need: coverage vs deprivation (bivariate scatter)
 3. **`chart3-underserved.js`** - Underserved pockets list (ranked bar chart)
+
+**Rank #2 Analyses (Overall: 4.6):**
 4. **`chart4-overview.js`** - Money → Reach → Outcomes overview (small multiples)
 5. **`chart5-kpi-waterfall.js`** - KPI attainment and its drivers (waterfall chart)
 6. **`chart6-coverage-deciles.js`** - Need vs coverage deciles (line chart with gap area)
@@ -23,32 +26,48 @@ Each chart is an independent module that exports a `render(container, props)` fu
 8. **`chart8-timeliness-impact.js`** - Timeliness ripple effect (bar chart with confidence intervals)
 9. **`chart9-coverage-impact.js`** - High-need coverage impact (cumulative impact curve)
 
+**Overall 4.0-4.2 Analyses:**
+10. **`chart10-partner-performance.js`** - Partner performance league table (traffic-light heatmap)
+11. **`chart11-funds-nps-dropout.js`** - Funds on time → NPS & dropout (dual scatter with sweet spots)
+12. **`chart12-urban-anomalies.js`** - Urban spend anomalies (scatter with anomaly highlighting)
+13. **`chart13-state-fairness.js`** - State fairness dashboard (grouped bars with delta labels)
+14. **`chart14-women-dropout.js`** - Women in skilling & dropout (binned scatter with trend)
+15. **`chart15-monsoon-effect.js`** - Monsoon effect & pre-monsoon outreach (faceted paired bars)
+16. **`chart16-capacity-variance.js`** - Capacity lowers variance & risk (side-by-side boxplots)
+
 ## Features
 
 ### Data Story (`index.html`)
-- Beautiful scrollytelling narrative
-- 5 thematic sections with integrated visualizations
+- Beautiful scrollytelling narrative with 6 thematic sections
+- 16 visualizations seamlessly woven into the narrative
+- Sections cover: Overview, Efficiency, Targeting, Operations, Partners, Conclusion
 - Responsive design following Tata Trusts brand guidelines
 - Smooth scrolling and professional typography
 - Stat cards and pull quotes for key insights
+- Fixed navbar with working dashboard link
 
 ### Dashboard (`dashboard.html`)
 - Modern dashboard layout with sidebar navigation
-- Interactive filters (theme, state, need decile)
-- Summary stat cards that update with filters
-- All 9 visualizations organized by category:
-  - Efficiency & Performance
-  - Geographic Targeting & Equity
-  - Operational Excellence
-- Download and fullscreen options for each chart
-- Responsive mobile-friendly design
+- **Functional data filtering** by theme, state, and need decile
+- **Fullscreen toggle** for all charts
+- **PNG download** functionality for all charts
+- Summary stat cards that update dynamically with filters
+- All 16 visualizations organized by category:
+  - Efficiency & Performance (3 charts)
+  - Geographic Targeting & Equity (4 charts)
+  - Operational Excellence (2 charts)
+  - Additional Strategic Insights (7 charts)
+- Download and fullscreen buttons for every chart
+- Fully responsive mobile-friendly design
 
 ### Charts
 - Built with Observable Plot and D3.js
 - Fully responsive with ResizeObserver
-- Interactive tooltips
-- Accessible color schemes
-- Professional styling following brand guidelines
+- **Standardized height (500px)** across all charts
+- **Enhanced efficiency scatter** with dynamic circle scaling (20-60px)
+- Interactive tooltips with contextual information
+- Accessible color schemes meeting WCAG AA standards
+- Professional styling following Tata Trusts brand guidelines
 
 ## How to Run
 
@@ -148,22 +167,31 @@ export default function render(container, props) {
 - Screen reader friendly
 - Color contrast meets guidelines
 
-## Top 9 Analyses
+## All 16 Analyses
 
-The visualizations implement the top-ranked analyses from `analyses.md`:
+The visualizations implement the top-ranked and high-value analyses from `analyses.md`:
 
-**Rank #1:**
+**Rank #1 (Overall 5.0):**
 1. Outcomes per rupee and beneficiaries per rupee
 2. Targeting need: coverage vs deprivation
 3. Underserved pockets list
 
-**Rank #2:**
+**Rank #2 (Overall 4.6):**
 4. Money → Reach → Outcomes overview
 5. KPI attainment and its drivers
 6. Need vs coverage deciles
 7. Diminishing returns at large budgets
 8. Timeliness ripple effect
 9. High-need but low-coverage districts drive missed outcomes
+
+**Overall 4.0-4.2:**
+10. Partner performance league table (4.0)
+11. Funds on time → NPS and dropout (4.0)
+12. Urban spend anomalies (4.0)
+13. State fairness dashboard (4.0)
+14. Women in skilling and dropout (4.0)
+15. Monsoon effect and pre-monsoon outreach (4.0)
+16. Capacity lowers variance and risk (4.2)
 
 ## License
 
