@@ -6,9 +6,9 @@
 
 ## 📋 Overview
 
-This repository documents a 7-day journey of responding to Tata Trusts' Request for Proposal (RFP) for a "Design & Development of Geographical Data Visualisation Dashboard" using AI agents as collaborative tools. What would traditionally require a 5-person team working 120+ hours was completed by one person in ~27 hours by leveraging AI agents (ChatGPT, Claude, Claude Code, and Gemini).
+This repository documents a 7-day journey of responding to Tata Trusts' Request for Proposal (RFP) for a "Design & Development of Geographical Data Visualisation Dashboard" using AI agents as collaborative tools. What would traditionally require a 5-person team working 120+ hours was completed by one person in ~20 hours by leveraging AI agents (ChatGPT, Claude, Claude Code, and Gemini).
 
-**Key Achievement:** 78% time savings while delivering comprehensive, professional-quality outputs including proposal, visualizations, documentation, and this tutorial.
+**Key Achievement:** 83% time savings while delivering comprehensive, professional-quality outputs including proposal, visualizations, documentation, and this tutorial.
 
 ## 🎯 Project Goals
 
@@ -64,7 +64,7 @@ Open `index.html` in your browser to view the landing page.
 
 ## 📅 Timeline
 
-**7 Days, 9 Major Milestones:**
+**7 Days, 8 Major Milestones:**
 
 - **Nov 5, 2025:** RFP received, formal acknowledgement, 129 clarifying questions generated
 - **Nov 11, 2025:** Pre-bid meeting preparation and attendance
@@ -87,7 +87,7 @@ Open `index.html` in your browser to view the landing page.
 
 | Metric             | Achievement                               |
 | ------------------ | ----------------------------------------- |
-| **Time Saved**     | 78% (27 hours vs. 120+ hours traditional) |
+| **Time Saved**     | 83% (20 hours vs. 120+ hours traditional) |
 | **Cost Reduction** | 90% (1-person vs. 5-person team)          |
 | **Deliverables**   | 100% of requirements met on time          |
 | **Pages Created**  | 6 interactive web pages                   |
