@@ -760,4 +760,6 @@ A final correction:
 
 Now the CVs were completed.
 
-(This took ~1M input tokens + 30M cached tokens + 150K output tokens.)
+All of this took ~1M input tokens + 30M cached tokens + 150K output tokens.
+
+I didn't [commit](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/commit/69de4ed6ed83573bb09ce0dcae5caf69b5726daa) the CVs or other semi-confidential info, but manually collated the [required info](proposal/proposal-info.md) and sanitized it.
