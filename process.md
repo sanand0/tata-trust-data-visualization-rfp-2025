@@ -664,7 +664,100 @@ This commit [Move build system to root and remove duplicate cards](https://githu
 
 Then I [merged the PR](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/4).
 
-## 12 Nov Revisions
+## 13 Nov 2025 Revisions
+
+I revised the process notes and it fix errors.
 
 > Update `process/index.html` to reflect the `## 12 Nov RFP Response` and `## 12 Nov 2025 Process Story and Landing Page` steps from process.md.
+>
+> Identify and correct all errors in process/index.html based on process.md and other repo files. Identify and correct all errors in README.md based on the repo files. Carefully plan this to ensure that there are no misses. Verify thoroughness.
+
+It found a few errors that it fixed:
+
+- Update human hours from 27 to 20 throughout README.md
+- Update time savings percentage from 78%/85% to 83% (calculated as (120-20)/120)
+- Change "9 Major Milestones" to "8 Major Milestones" (9th was just deadline)
+- Remove corrupted GitHub UI text accidentally inserted in process/index.html
+- Fix relative link path from "dataviz/newchart.md" to "../dataviz/newchart.md"
+
+## 13 Nov 2025 Find gaps
+
 > Update README.md with all missing references. Add a comprehensive overview of the repository to README.md.
+
+This [commit](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/6/commits/85547314dce9b66bb48d948457e834d1e1dbea70) documented ALL the [information needed](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/blob/b19f37a01f666fd3b29671a63dea4f31d3064198/proposal/info-needed.md) to complete the proposal, covering:
+
+1. Company Information
+2. Authorized Signatory Details
+3. Work Orders and Project References
+4. Team Member Details
+5. Legal Documents and Declarations
+6. Financial Proposal Details
+7. Technical Clarifications
+8. Demonstration Materials
+9. Covering Letter Details
+10. Functional Requirement Sheet Excel
+11. Submission Preparation
+12. Open Questions to Resolve
+13. Post-Submission Preparation
+14. Summary: Critical Path Items
+15. Timeline to Complete
+
+## 13 Nov 2025 Discussion with Proposal Team
+
+## 14 Nov 2025 Fill Proposal Gaps
+
+I had Codex CLI with `gpt-5.1-codex` (high) fill in the gaps based on the 580+ files (~1GB) shared by the pre-sales team with:
+
+> proposal/info-needed.md lists all information needed to complete the proposal. Gather this information from proposal/docs/ and store in proposal/ as required.
+> Update proposal/info-needed.md with [x] marking completed items.
+
+This is a large task. Here are some interesting snippets about tools used from its reasoning:
+
+- I’m sorting out how to efficiently review a long 627-line info-needed file... There’s a lot to cover.
+- I'll rely on tools like `in2csv` from csvkit for Excel and maybe `pdftotext` for PDFs.
+- Since ripgrep can't search zipped formats like .docx or PDFs, I'm considering unzipping or converting Excel sheets to CSV for inspection.
+- I'm looking for authorized signatory info and related documents like board resolutions or no-litigation files by searching keywords such as "Board" and "litigation."
+- I'm looking into the annual turnover data, noting we only have one year at 277M GBP and pondering a currency conversion.
+- I'll likely focus on using `pdftotext` for PDFs and `pandoc` for docx files to efficiently find candidates matching team roles.
+- I'm noting that GIS-specific profiles or references seem missing or hard to find, so I may have to create a GIS specialist role based on example projects like Arcadia.
+- I'm gathering info on key candidates ... pulling from texts and CVs to create a summary file. For GIS and trainer roles, I’m searching but likely will mark them as outstanding due to missing candidates.
+
+Based on this, it gathered
+
+- [Company information](proposal/compiled/company-information.md)
+- [Authorized signatory details](proposal/compiled/authorized-signatory.md)
+- [Project references](proposal/compiled/project-references.md)
+- [Team roster](proposal/compiled/team-roster.md)
+- [Legal and insurance documents](proposal/compiled/legal-and-insurance.md)
+
+I asked for some diagnostics as well:
+
+> Document this in proposal-gaps.md:
+>
+> - What tools or libraries would have simplified this process for you?
+> - What additional information would you have found useful?
+> - What information is still pending and needs to be gathered?
+
+The [proposal gaps](proposal/proposal-gaps.md) listed several items. Just to see if some things were missed out, I tried:
+
+> Dig harder for the pending information and see if you are able to locate/extract any of them. For the team roster, pick the best matches to ensure that the roster is complete. If so, update in relevant places. Ensure that proposal-gaps.md is updated to now list EVERY SINGLE gap in each of the areas, so that it acts as a consolidated single source for getting additional information.
+
+It didn't find any new information (maybe it didn't miss much in the first scan) and completed the [Team roster](proposal/compiled/team-roster.md) with the best matching CVs.
+
+Now, time to create standardized CVs.
+
+> Convert the CVs based on the information into a standard, elegant 2-page PDF format with the Straive logo
+
+This worked functionally but not aesthetically.
+
+> The CVs do not include the Straive logo. Also, the content does not fill the page. Take a screenshot and see what it looks like. Fix it. Take screenshots again to verify and revise as required.
+>
+> proposal/proposal-gaps.md still mentions PDF-formatted CV as missing, which is not true. Carefully review gaps and correct. Also cross check this against rfp.md and pre-bid.md. Anything that is not mentioned as required there is not a gap.
+
+A final correction:
+
+> The PDF header overlaps with the content. Fix that. Update proposal/proposal-gaps.md Tooling / Library wish list with tools or libraries that would have helped you in the last few turns.
+
+Now the CVs were completed.
+
+(This took ~1M input tokens + 30M cached tokens + 150K output tokens.)

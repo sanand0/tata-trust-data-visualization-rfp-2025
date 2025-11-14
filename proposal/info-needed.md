@@ -15,17 +15,17 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 
 ### What's Needed
 
-- [ ] **Company Legal Name** - Replace all `[Bidder Name]` and `[Company Name]` placeholders throughout proposal
-- [ ] **Company Registration Number** - For Section 13.1
-- [ ] **Company Type** - Proprietorship/Partnership/Private Limited/LLP
+- [x] **Company Legal Name** - Replace all `[Bidder Name]` and `[Company Name]` placeholders throughout proposal
+- [x] **Company Registration Number** - For Section 13.1
+- [x] **Company Type** - Proprietorship/Partnership/Private Limited/LLP
 - [ ] **GST Registration Number** - For Section 12.1
 - [ ] **PAN Number** - For financial compliance
-- [ ] **Company Registered Address** - Full address with PIN code
-- [ ] **Correspondence Address** - If different from registered address
+- [x] **Company Registered Address** - Full address with PIN code
+- [x] **Correspondence Address** - If different from registered address
 - [ ] **Annual Turnover** (Last 3 years) - For Section 9 (Experience → Organization Profile)
 - [ ] **Number of Full-Time Staff** - Total and in data visualization practice
-- [ ] **Company Website URL**
-- [ ] **Primary Business Contact** - Name, designation, email, phone
+- [x] **Company Website URL**
+- [x] **Primary Business Contact** - Name, designation, email, phone
 
 ### Where It's Used
 
@@ -40,19 +40,23 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 
 **CRITICAL** - RFP Section 3.7.1 requires registered entity proof. Missing = immediate disqualification.
 
+> ✅ Details gathered so far live in `proposal/compiled/company-information.md`.
+>
+> ⚠️ Still need GST certificate, PAN card, 3-year turnover history, and data-visualization practice headcount.
+
 ---
 
 ## 2. Authorized Signatory Details (CRITICAL)
 
 ### What's Needed
 
-- [ ] **Full Name** - Of person authorized to sign proposal
-- [ ] **Designation** - CEO/Director/Partner/Proprietor
+- [x] **Full Name** - Of person authorized to sign proposal
+- [x] **Designation** - CEO/Director/Partner/Proprietor
 - [ ] **Email Address** - Official company email
 - [ ] **Phone Number** - Mobile and landline
-- [ ] **Date of Signing** - When proposal is finalized
+- [x] **Date of Signing** - When proposal is finalized
 - [ ] **Board Resolution** - Document authorizing signatory to bind company
-- [ ] **Digital/Wet Signature** - For covering letter
+- [x] **Digital/Wet Signature** - For covering letter
 
 ### Where It's Used
 
@@ -63,6 +67,10 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 ### Importance
 
 **CRITICAL** - Without authorized signature, proposal is invalid.
+
+> ✅ Extracted from `proposal/docs/Past Proposals/Network Rail InSAR/1.3.1 Form of Tender InSAR Data Provision - Signed.pdf` and summarized in `proposal/compiled/authorized-signatory.md`.
+>
+> ⚠️ Need official email/phone for Jishnu Gupta and the corresponding board resolution/POA.
 
 ---
 
@@ -78,7 +86,7 @@ This document lists all information required to finalize the Tata Trusts Data Vi
   - Date of award (must be in 2023, 2024, or 2025)
   - Completion certificate or ongoing status
 
-- [ ] **Project Details** to replace `[Confidential client]` placeholders:
+- [x] **Project Details** to replace `[Confidential client]` placeholders:
   - Client name (or "Government of [State]" if confidentiality required)
   - Project title
   - Brief description (2-3 sentences)
@@ -108,6 +116,10 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 
 **CRITICAL** - RFP Section 3.7.2 requires 3+ similar projects with work orders. Missing = disqualification.
 
+> ✅ Narrative summaries for three dashboard programs captured in `proposal/compiled/project-references.md`.
+>
+> ⚠️ Still need signed work-order PDFs (2023–2025) and two client references with full contact details.
+
 ---
 
 ## 4. Team Member Details (CRITICAL)
@@ -116,58 +128,58 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 
 #### Team Lead / Solutions Architect
 
-- [ ] Full name
-- [ ] Years of total experience (must be ≥15 years)
-- [ ] Years in GIS/data platforms
-- [ ] Current designation
-- [ ] Educational qualifications
-- [ ] Key projects (3-5 relevant ones)
+- [x] Full name
+- [x] Years of total experience (must be ≥15 years)
+- [x] Years in GIS/data platforms
+- [x] Current designation
+- [x] Educational qualifications
+- [x] Key projects (3-5 relevant ones)
 - [ ] Certifications (Azure, GIS, project management, etc.)
-- [ ] CV (2-page PDF)
+- [x] CV (2-page PDF)
 - [ ] Written commitment for 8-week availability
 
 #### Senior Frontend Developer
 
-- [ ] Full name
-- [ ] Years of experience (must be ≥5 years for design)
-- [ ] Expertise (JavaScript, D3.js, Observable Plot, etc.)
-- [ ] Current designation
-- [ ] Educational qualifications
-- [ ] Key projects
+- [x] Full name
+- [x] Years of experience (must be ≥5 years for design)
+- [x] Expertise (JavaScript, D3.js, Observable Plot, etc.)
+- [x] Current designation
+- [x] Educational qualifications
+- [x] Key projects
 - [ ] GitHub profile or portfolio URL
-- [ ] CV (2-page PDF)
+- [x] CV (2-page PDF)
 - [ ] Written commitment for 8-week availability
 
 #### Data Engineer (0.5 FTE)
 
-- [ ] Full name
-- [ ] Years of experience (must be ≥3 years)
-- [ ] Expertise (Python, data pipelines, CSV processing)
-- [ ] Current designation
-- [ ] Educational qualifications
-- [ ] Key projects
-- [ ] CV (2-page PDF)
+- [x] Full name
+- [x] Years of experience (must be ≥3 years)
+- [x] Expertise (Python, data pipelines, CSV processing)
+- [x] Current designation
+- [x] Educational qualifications
+- [x] Key projects
+- [x] CV (2-page PDF)
 - [ ] Written commitment for availability
 
 #### GIS Specialist (0.5 FTE)
 
-- [ ] Full name
-- [ ] Years of experience (must be ≥3 years)
-- [ ] Expertise (Mapbox, Leaflet, spatial analysis)
-- [ ] Current designation
-- [ ] Educational qualifications
-- [ ] Key projects
-- [ ] CV (2-page PDF)
+- [x] Full name
+- [x] Years of experience (must be ≥3 years)
+- [x] Expertise (Mapbox, Leaflet, spatial analysis)
+- [x] Current designation
+- [x] Educational qualifications
+- [x] Key projects
+- [x] CV (2-page PDF)
 - [ ] Written commitment for availability
 
 #### Trainer / Documentation Specialist (0.25 FTE)
 
-- [ ] Full name
+- [x] Full name
 - [ ] Years of experience
-- [ ] Expertise (technical writing, training)
-- [ ] Current designation
+- [x] Expertise (technical writing, training)
+- [x] Current designation
 - [ ] Sample documentation or training materials
-- [ ] CV (1-2 page PDF)
+- [x] CV (1-2 page PDF)
 
 ### Where It's Used
 
@@ -178,11 +190,16 @@ This document lists all information required to finalize the Tata Trusts Data Vi
 ### Importance
 
 **CRITICAL** - RFP Section 3.7.3 requires specific team composition:
+
 - 1× Senior resource (>15 years)
 - 1× Designer (>5 years)
 - 2× Developers (>3 years)
 
 Missing qualified team = disqualification.
+
+> ✅ Profiles for Deepak Rathee (Solutions Architect), Joe Praveen (Frontend), Ramireddy Muniteja (Data Engineer), Avirat S. Panhalkar (GIS), and Dr. Jaydev Sharma (Trainer) documented in `proposal/compiled/team-roster.md`.
+>
+> ⚠️ Still need GitHub/portfolio links, sample training materials, and signed availability letters for all resources.
 
 ---
 
@@ -207,7 +224,7 @@ Missing qualified team = disqualification.
   - No conflict of interest with other bidders
   - No conflict of interest with Tata Trusts
 
-- [ ] **Professional Indemnity Insurance**
+- [x] **Professional Indemnity Insurance**
   - Policy details OR
   - Commitment to obtain upon contract award (10% of contract value)
 
@@ -224,6 +241,10 @@ Missing qualified team = disqualification.
 ### Importance
 
 **CRITICAL** - RFP Section 3.7.4 lists disqualification criteria. False declarations = immediate disqualification + legal consequences.
+
+> ✅ Insurance certificates, privacy/security policies, and finance letter catalogued in `proposal/compiled/legal-and-insurance.md`.
+>
+> ⚠️ Company registration certificate, GST, PAN, no-litigation affidavit, and Tata Code of Conduct acceptance letter still outstanding.
 
 ---
 
