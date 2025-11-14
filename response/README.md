@@ -1,14 +1,31 @@
 # Technical Proposal: Geographical Data Visualization Dashboard for Tata Trusts
 
-**Submitted by:** [Bidder Name]
-**Date:** November 2025
-**RFP Reference:** Design & Development of Geographical Data Visualisation Dashboard
+**Submitted by:** SPi Global Content Holdings Pte. Ltd. (Straive)
+**Date:** November 14, 2025
+**RFP Reference:** Design & Development of Geographical Data Visualisation Dashboard (dated 04/11/2025)
+
+---
+
+## Company Information
+
+**Legal Name:** SPi Global Content Holdings Pte. Ltd.
+**Trading Name:** Straive
+**Company Type:** Limited company (Large enterprise)
+**Registration No.:** 201712651C (Singapore)
+**VAT Registration No.:** 201712647N
+**Year Established:** 2017 (legacy businesses since 1980)
+**Registered Address:** 77 Robinson Road, #13-00, Singapore 068896
+**Website:** https://www.straive.com
+**Annual Turnover:** GBP 277,000,000 (≈ USD 350M revenue run-rate)
+**Total Staff:** 18,000 employees globally
+**Primary Contact:** Swapnil Ranadive — swapnil.ranadive@straive.com, +44-795-8400469
+**Authorized Signatory:** Anand S (LLM Psychologist) — s.anand@gramener.com
 
 ---
 
 ## Executive Summary
 
-We propose an innovative **AI-Powered Data Visualization Platform** that fundamentally transforms how Tata Trusts creates, consumes, and acts on data insights. Unlike traditional dashboard solutions that require weeks of development for each new visualization, our approach leverages **AI agents** (powered by GPT-5 Codex or Claude 4.5 Sonnet) to generate any data visualization on-demand based on natural language requests.
+We, **Straive**, propose an innovative **AI-Powered Data Visualization Platform** that fundamentally transforms how Tata Trusts creates, consumes, and acts on data insights. Unlike traditional dashboard solutions that require weeks of development for each new visualization, our approach leverages **AI agents** (powered by GPT-5 Codex or Claude 4.5 Sonnet) to generate any data visualization on-demand based on natural language requests.
 
 **Key Value Propositions:**
 
@@ -406,35 +423,59 @@ These serve as **examples** of what the AI agent can generate. The platform is n
 
 ### 5.1 Core Team (Phase 1)
 
-**Team Lead / Solutions Architect** (1 FTE)
+**Team Lead / Solutions Architect** (1 FTE) — **Deepak Rathee** (Canada)
 
-- **Experience**: 18 years in data visualization, GIS platforms, social sector analytics
-- **Role**: Client liaison, requirements gathering, architecture design, quality assurance
+- **Experience**: 16+ years in strategy, analytics, AI/GenAI programs across energy, industrials, retail
+- **Current Role**: Client Partner, AI & Analytics, Straive
+- **Education**: MBA (INSEAD – Strategy & Finance); B.Tech & M.Tech, IIT Kharagpur (Industrial Engineering)
+- **Role**: Client liaison, requirements gathering, architecture design, stakeholder management, quality assurance
+- **Relevant Engagements**: GenAI program leadership, hypothesis generators, legal AI assistant, AI-driven dashboards
 - **Time Commitment**: 100% (8 weeks)
+- **CV**: proposal/compiled/cv/deepak-rathee-cv.pdf
 
-**Senior Frontend Developer** (1 FTE)
+**Senior Frontend Developer** (1 FTE) — **Joe Praveen Kumar R** (India)
 
-- **Experience**: 8 years in JavaScript, D3.js, Observable Plot
+- **Experience**: 14+ years (Full-stack PHP + JavaScript) delivering enterprise dashboards and responsive web apps
+- **Current Role**: Senior PHP Full Stack Developer, Straive Technology
+- **Education**: B.Tech (Information Technology), Anna University (PTRCET), 2006
+- **Expertise**: PHP 7/8, Laravel, CodeIgniter, REST/SOAP APIs, MySQL/MongoDB, JavaScript, jQuery, HTML5, CSS3, CI/CD (Jenkins), Docker
 - **Role**: Dashboard development, chart modules, responsive design, AI agent integration
+- **Sample Projects**: eCrash (Dockerized OCR/Label Studio), MSCI ESG automation, Drupal multilingual rollout
 - **Time Commitment**: 100% (8 weeks)
+- **CV**: proposal/compiled/cv/joe-praveen-kumar-cv.pdf
 
-**Data Engineer** (0.5 FTE)
+**Data Engineer** (0.5 FTE) — **Ramireddy Muniteja** (India)
 
-- **Experience**: 6 years in JavaScript, data pipelines, CSV processing
-- **Role**: Data import scripts, JSON aggregation, geocoding, query optimization
+- **Experience**: 5+ years (backend/data engineering & dashboards)
+- **Current Role**: Senior Data Science Engineer, Gramener (Straive)
+- **Education**: B.Sc. Computers (MSCs), India
+- **Skills**: Python, Django, FastAPI, REST APIs, SQL (Postgres, Oracle, MS SQL, MongoDB), Redis, Tableau, Gramex, ETL, AWS/Azure, Docker
+- **Role**: Data import scripts, JSON aggregation, geocoding, query optimization, CSV processing
+- **Relevant Deliverables**: Janssen distribution-cost API suite, Arcadia inventory analytics, G20 high-volume validation APIs, AI Call Summarization platform
 - **Time Commitment**: 50% (focus in Week 1-3)
+- **CV**: proposal/compiled/cv/ramireddy-muniteja-cv.pdf
 
-**GIS Specialist** (0.5 FTE)
+**GIS Specialist** (0.5 FTE) — **Avirat S. Panhalkar** (India)
 
-- **Experience**: 5 years in Mapbox, Leaflet, spatial analysis
-- **Role**: Map layer design, choropleth maps, polygon overlays, geospatial queries
+- **Experience**: 3+ years as geospatial-focused Senior Data Scientist
+- **Current Role**: Senior Data Scientist, Straive/Gramener (GeoAI practice)
+- **Education**: M.Tech in Geoinformatics & Spatial Technology
+- **Expertise**: Geospatial analysis, GIS & spatial modeling, Python, GeoPandas, QGIS, ArcGIS Pro, ERDAS Imagine, AWS/Azure, GeoAI, location intelligence
+- **Role**: Map layer design, choropleth maps, polygon overlays, geospatial queries, boundary visualization
+- **Representative Projects**: Urban Heat Island modelling (EVERGREEN), Flood-risk scoring (SEEDS), TB disease-pattern analytics (Govt of India), HDFC branch/revenue geospatial mapping
 - **Time Commitment**: 50% (focus in Week 2-5)
+- **CV**: proposal/compiled/cv/avirat-panhalkar-cv.pdf
 
-**Trainer / Documentation Specialist** (0.25 FTE)
+**Trainer / Documentation Specialist** (0.25 FTE) — **Dr. Jaydev Sharma** (India)
 
-- **Experience**: 4 years in technical writing, user training, video tutorials
-- **Role**: User manuals, technical documentation, training sessions, knowledge transfer
+- **Experience**: Multi-year experience spanning curriculum design, language instruction, alt-text production, accessibility QA for international publishers
+- **Current Role**: Educational content writer & accessibility reviewer, Straive Transfer Services team
+- **Education**: PhD in Philosophy (Pondicherry University); fluent in French, English, and Hindi
+- **Expertise**: Educational content creation, curriculum development, alternative text & accessibility compliance, multilingual training/translation, quality assurance
+- **Role**: User manuals, technical documentation, training sessions, knowledge transfer, video tutorials
+- **Representative Contributions**: Alt-text creation and QA for American accessibility compliance, language training (English/French/Hindi), educational workshop design
 - **Time Commitment**: 25% (focus in Week 7-8)
+- **CV**: proposal/compiled/cv/jaydev-sharma-cv.pdf
 
 **Total Effort**: 3.25 FTE × 8 weeks = 26 person-weeks
 
@@ -636,15 +677,34 @@ The [development process documentation](../process/ ":ignore") provides a detail
 
 This demonstrates our methodology in action and proves the velocity claims.
 
-### 9.3 Reference Projects (Indicative)
+### 9.3 Reference Projects (2023-2025 Portfolio)
 
-While this submission is for an RFP, our approach is informed by similar projects:
+**Project 1: Fortune 500 FMCG – Data & Analytics Roadmap + DOMO Dashboard Quick Wins**
 
-- **Social Sector Dashboard** (confidential client, 2024): 300+ grants, 50M beneficiaries, 25 charts, 6-week delivery
-- **Government Analytics Portal** (confidential client, 2023): Census data integration, district-level heat maps, role-based access
-- **Foundation Impact Tracker** (confidential client, 2024): Real-time KPI monitoring, automated email reports, mobile app
+- **Client**: Indian arm of Fortune 500 FMCG enterprise targeting $1B revenue by 2025
+- **Scope**: Stakeholder workshops across 12+ business functions, identification of 15+ descriptive/diagnostic use cases, detailed design mockups for four DOMO dashboard quick wins focused on sales effectiveness
+- **Technologies**: DOMO dashboards, data storytelling, roadmap facilitation
+- **Impact**: ~₹1.5 Cr topline opportunity identified; 400+ sales team members enabled with prioritized quick wins
+- **Status**: Completed roadmap and design pack
+- **Source**: proposal/docs/Case Studies/Logistics & Supply Chain- D&A Roadmap and DOMO Dashboard- Insight.pptx
 
-**Note**: We will provide 2+ contactable references during evaluation as per RFP Section 3.7.2.
+**Project 2: Leading Telecom – Data Visualization & BI Modernization**
+
+- **Client**: National telecom operator requiring faster activation, decrement, recharge, and geography-level reporting for marketing & distribution
+- **Scope**: Built 25 standardized, automated visualization reports with drill-downs, geo-cuts, and KPI summaries covering activation, decrement, distribution, recharge, balance, summary, and GeoCut views
+- **Technologies**: Enterprise BI stack (Power BI / Tableau equivalent), automated report pipelines, geographic mapping layers
+- **Outcomes**: 85% reduction in report generation time, <4-week ROI after go-live, decision-ready dashboards for marketing leadership
+- **Source**: proposal/docs/Case Studies/ESG and Technology - Data Visualization and Business Intelligence - Data.pptx
+
+**Project 3: Multinational Pharma – Migration from Legacy Proprietary Dashboards to Open-Source & Tableau**
+
+- **Client**: Global pharma major transitioning IT services away from incumbent provider
+- **Scope**: Reverse-engineered 150+ proprietary dashboards, recreated ~70 Python/D3 dashboards, then consolidated ~120 Tableau dashboards after usage analysis; established data warehouse, KPI logic, Tableau Server sizing
+- **Technologies**: Python, D3.js, Tableau, data warehouse modeling, KPI definition, Tableau Server infrastructure
+- **Benefits**: Single source of truth for IT service KPIs, improved ticket visibility, standardized Tableau workflow for operations and leadership reviews
+- **Source**: proposal/docs/Case Studies/Pharma & Life Sciences - Dashboards migration to Tableau - Insights-Recreating and Migrating IT Service Dashboards to Open-Source & Tableau.pptx
+
+**Note**: Contactable client references with full contact details available upon request as per RFP Section 3.7.2.
 
 ---
 
