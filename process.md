@@ -36,10 +36,7 @@ The RFP document was bureaucratic, so I [asked ChatGPT](https://chatgpt.com/c/69
 >
 > Our designated single point of contact for all communications regarding this RFP will be:
 >
-> **Name:**[Full Name]
-> **Designation:** [Title]
-> **Email:**[Email Address]
-> **Phone:**[Phone Number]
+> **Name:**[Full Name] > **Designation:** [Title] > **Email:**[Email Address] > **Phone:**[Phone Number]
 >
 > We have taken note of the key dates outlined in the Calendar of Events, including the pre-bid meeting scheduled for November 11, 2025, and the bid submission deadline of November 17, 2025. We will ensure timely compliance with all requirements specified in the RFP document.
 >
@@ -603,7 +600,7 @@ This commit [Revise RFP proposal with updated tech stack and create HTML version
 > - Check the Mermaid component diagram. When rendered, it says "Syntax error in text mermaid version 10.9.5"
 > - The template could look much more elegant! Take screenshots of each section, list all errors and improvement possibilities. Then implement these. You may modify the Markdown if required. I find that newlines are not preserved when rendering the template and this leads to ugly formatting.
 > - Convert index.html to PDF (in print layout) and check for formatting issues. Make sure the font size is not too large and that the layout, format, margin, style, spacing, page numbering, etc. are in line with a professional RFP response.
-> - Do not commit any of the PDFs or HTML. Instead, create a package.json script that generates these files via `npm run build`. `.gitignore` should ignore these as well as node_modules/ and other generated files. Make sure the committed response/*.html files are removed.
+> - Do not commit any of the PDFs or HTML. Instead, create a package.json script that generates these files via `npm run build`. `.gitignore` should ignore these as well as node_modules/ and other generated files. Make sure the committed response/\*.html files are removed.
 
 The commit [Fix Mermaid diagram and improve HTML generation system](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/pull/3/commits/db96eb95c18b6e94d670dda9f316b2b411e3994c) did most of this except the PDF conversion. There were a few other formatting issues:
 
@@ -763,3 +760,221 @@ Now the CVs were completed.
 All of this took ~1M input tokens + 30M cached tokens + 150K output tokens.
 
 I didn't [commit](https://github.com/sanand0/tata-trust-data-visualization-rfp-2025/commit/69de4ed6ed83573bb09ce0dcae5caf69b5726daa) the CVs or other semi-confidential info, but manually collated the [required info](proposal/proposal-info.md) and sanitized it.
+
+## 14 Nov 2025 Convert to proposal
+
+Now that all info is gathered, I [Codex](https://openai.com/codex/) to do the following, locally:
+
+> proposal/info-needed.md lists all information needed to complete the proposal. Gather this information from proposal/docs/ and store in proposal/ as required. Update proposal/info-needed.md with [x] marking completed items.
+
+Based on this, it completed the following:
+
+> Mapped the high-priority company/compliance facts into working notes and ticked only the checklist items that are now defensible from the source documents.
+>
+> - `proposal/compiled/company-information.md:1-25` captures every verifiable corporate fact (legal + trading names, Singapore registration details, addresses, contact, headcount, turnover numbers) pulled from the Network Rail and Visa questionnaires; the same section in `proposal/info-needed.md:18-45` now shows `[x]` on those fields and flags the missing GST/PAN/turnover-history items.
+> - `proposal/compiled/authorized-signatory.md:1-16` documents [REDACTED]'s signed Form of Tender details, and the Authorized Signatory checklist (`proposal/info-needed.md:53-74`) reflects the collected name/designation/date/signature while still calling out the absent email/phone and board resolution.
+> - Three recent dashboard/reference narratives with scope, technology, and impact are summarized in `proposal/compiled/project-references.md:1-27`, letting the “Project Details” checkbox at `proposal/info-needed.md:89-96` flip to `[x]` even though work-order PDFs and reference contacts remain unchecked.
+> - Current team bios for [REDACTED], [REDACTED], and [REDACTED]—including experience, education, sample deliverables, and CV paths—are in `proposal/compiled/team-roster.md:1-52`; the Team section (`proposal/info-needed.md:134-177`) now marks the specific sub-bullets we satisfied while highlighting missing GIS/trainer resources, GitHub links, and availability letters.
+> - All located insurance/policy evidence is tabulated in `proposal/compiled/legal-and-insurance.md:1-21`, enabling the Professional Indemnity item at `proposal/info-needed.md:182-186` to move to `[x]` along with a reminder that registration, GST, PAN, and affidavits are still outstanding.
+
+Next, I asked it to identify the gaps in the process as well as output:
+
+> Document this in proposal-gaps.md:
+>
+> - What tools or libraries would have simplified this process for you?
+> - What additional information would you have found useful?
+> - What information is still pending and needs to be gathered?
+
+It documented these in [proposal-gaps.md](proposal/proposal-gaps.md).
+
+> - Helpful tooling: pointed out the lack of an indexed document search/OCR workflow and batch PPTX/PDF extraction utilities, plus the need for a metadata catalog.
+> - Useful inputs: called out the absence of a consolidated compliance pack, executive contact directory, and map between RFP checklist items and stored files.
+> - Pending items: listed GST/PAN/incorporation proofs, board resolution and signatory contacts, 3+ work orders with references, GIS/trainer profiles with availability letters, and the remaining affidavits + turnover details.
+
+There's a chance that some of the information is actually present but was missed. So I said:
+
+> Dig harder for the pending information and see if you are able to locate/extract any of them. For the team roster, pick the best matches to ensure that the roster is complete. If so, update in relevant places. Ensure that proposal-gaps.md is updated to now list EVERY SINGLE gap in each of the areas, so that it acts as a consolidated single source for getting additional information.
+
+It managed to find a few more items:
+
+> Updates:
+>
+> - Extended the delivery roster to include a dedicated GIS SME ([REDACTED]) and trainer/documentation lead ([REDACTED]), capturing their education, tool stack (QGIS/ArcGIS, GeoAI, accessibility authoring), and representative projects in `proposal/compiled/team-roster.md:47-78`. Added follow-on notes in the roster’s gap list about the remaining needs (portfolio evidence, PDF resumes, availability letters).
+> - Reflected the new roster coverage plus other status changes directly in the checklist so Section 1/2 items stay green and the team matrix now shows which sub-items still need inputs (e.g., GIS commitment letter, trainer samples) in `proposal/info-needed.md:18-75` and `proposal/info-needed.md:139-185`.
+> - Rebuilt `proposal/proposal-gaps.md:1-71` into a single-source tracker that lists tooling wishes, helpful context to request, and every outstanding document/action—covering company credentials, signatory proof, work orders, team artifacts, legal affidavits, Annexure F numbers, demo assets, covering letter, functional requirement sheet, submission prep steps, and post-submission tasks.
+>
+> What’s still missing / next steps:
+>
+> 1. Finance/Legal need to share the GST certificate, PAN card, incorporation proof, 3-year turnover split, and the board resolution + contact details for Jishnu Gupta; searches across `proposal/docs/**` for “GST”, “PAN”, “certificate”, and “board resolution” turned up nothing beyond the insurance/security PDFs.
+> 2. BD/sales must locate or request 3+ 2023–2025 work orders and two reference contacts, then coordinate GitHub/portfolio links and signed availability letters for every named resource (team lead, frontend, data engineer, GIS, trainer).
+
+Time to create CVs in a consistent format:
+
+> Convert the CVs based on the information into a standard, elegant 2-page PDF format with the Straive logo
+
+... which it did.
+
+> I’m wrapping up by listing all new PDFs in `proposal/compiled/cv/`, updates to the team roster in `proposal/compiled/team-roster.md` (around lines 3–79), and the new script `scripts/generate_cvs.py`. I’ll explain how to regenerate the CVs using the Python script and checking PDF page counts with tools like `pdfinfo`. I’ll note created assets like `assets/straive-logo.png` and reference documented proposal gaps in `proposal/proposal-gaps.md:1-71`. The final message will include bullet points covering these details along with next steps and reminders of pending tasks.
+
+But this had a few issues, which I asked it to fix:
+
+> The CVs do not include the Straive logo. Also, the content does not fill the page. Take a screenshot and see what it looks like. Fix it. Take screenshots again to verify and revise as required.
+>
+> proposal/proposal-gaps.md still mentions PDF-formatted CV as missing, which is not true. Carefully review gaps and correct. Also cross check this against rfp.md and pre-bid.md. Anything that is not mentioned as required there is not a gap.
+
+... and then:
+
+> The PDF header overlaps with the content. Fix that. Update proposal/proposal-gaps.md Tooling / Library wish list with tools or libraries that would have helped you in the last few turns.
+
+It managed to fix those. Now, it was time to document learnings:
+
+> Now that we built this, what would you do different?
+
+Here's its response:
+
+> I’d start by automating the “content extraction + layout” loop up front: build a small helper that ingests resumes/case studies into structured JSON (python-pptx/pdfplumber) and pipes that straight into the ReportLab template. That would keep both the data gathering and formatting aligned and avoid hand-copying bullet lists twice. I’d also drop a tiny preview command into the script (calling `pdftoppm` or `imgcat`) so every render immediately shows a thumbnail—no manual Magick conversions. Finally, I’d scaffold the CV template with a reusable style guide (spacing constants, header blocks, palette) so the first iteration already matches the final look rather than tweaking coordinates after generating five PDFs.
+
+## 17 Nov 2025 Final proposal
+
+Time to put it all together:
+
+> proposal/compiled/README.md must be the single final final submission document (other than attachments) for the RFP in this folder.
+> Integrate elements from all other .md files in proposal/compiled/ into README.md as needed.
+> Rename other documents as needed to avoid confusion.
+> Link to these documents in proposal/compiled/README.md.
+> If the proposal requires filling in a technical spec Excel sheet, do so.
+>
+> Read all relevant documents, especially rfp.md and pre-bid.md, and make sure that the final submission is complete and accurate.
+>
+> If there are gaps, document them in proposal/compiled/gaps.md.
+
+This led to a **LONG** session where it finally reported:
+
+> Here’s what I’ve done and where things stand:
+>
+> - `proposal/compiled/README.md` is now the single comprehensive master for the technical proposal plus financial alignment:
+>   - Added clear front-matter with bidder identity, India delivery entity, RFP reference, and attachment list.
+>   - Integrated explicit cross‑references to all supporting docs in `proposal/compiled/` and `response/checklist.md`.
+>   - Clarified that the Functional Requirement Sheet Excel must be filled using the compliance already captured in `response/checklist.md` once Tata Trusts’ official template (“Functional Requirement Sheet – To be filled by Vendor.xlsx”) is available.
+>   - Updated Section 13 heading to explicitly align with Annexure D and added a detailed “Appendices and Linked Documents” section that points to:
+>     - `company-information.md`
+>     - `authorized-signatory.md`
+>     - `legal-and-insurance.md`
+>     - `team-roster.md`
+>     - `project-references.md`
+>     - `contracts/`, `cv/`, and `docs/`
+>     - `response/checklist.md` for the functional sheet mapping.
+>
+> - Updated supporting compiled docs so they are accurate and clearly linked:
+>   - `proposal/compiled/company-information.md`:
+>     - Clarified company type as “private company limited by shares.”
+>     - Added India GST registration number `33AADCL3320N2ZM` (from the GST REG‑06 certificate).
+>     - Noted that the PAN from the e‑PAN document must be confirmed and explicitly recorded before submission.
+>     - Trimmed the “Outstanding Data Gaps” to only the still‑missing items (3‑year turnover history, practice headcount, PAN confirmation).
+>   - `proposal/compiled/legal-and-insurance.md`:
+>     - Filled in details and file paths for:
+>       - Incorporation certificate (`SPGC-Certificate confirming Incorporation of Company.pdf`).
+>       - India change‑of‑name certificate (`COI pursuant to change of name_SPI Technologies.pdf`).
+>       - GST certificate (`Adyar Unit Amended GST Certificate Lambda to SPI.PDF`).
+>       - PAN source document (`SPI New PAN.XPS`).
+>     - Left placeholders only where actual executed declarations are still needed (e.g., no‑litigation affidavit).
+>   - `proposal/compiled/authorized-signatory.md`:
+>     - Corrected company name spelling and marked the signature date/time as “to be confirmed at final signing” so it can be updated when the final PDF is generated.
+>
+> - Created a dedicated gap log as requested:
+>   - New file: `proposal/compiled/gaps.md`
+>     - Summarizes all outstanding items across:
+>       - Statutory/registration details (PAN confirmation, 3‑year turnover, practice headcount, no‑litigation affidavit).
+>       - Work orders and client references (ensuring 3+ similar projects with 2023–2025 work orders and 2+ contactable references).
+>       - Team availability letters and portfolio evidence.
+>       - Financial bid alignment with Annexure F (including GST/PAN in the financial template, once received).
+>       - Technical clarifications (cloud provider, authentication, concurrency, browser support, map licensing) tied back to RFP + pre‑bid.
+>       - Demo assets and page‑limit considerations for the final PDF.
+>     - This file is explicitly marked as internal (not for client submission) but gives you a single checklist of remaining actions.
+>
+> - Technical spec Excel / functional sheet:
+>   - The RFP references “Functional Requirement Sheet – To be filled by Vendor.xlsx” but that Excel is not present in the repo.
+>   - I have therefore:
+>     - Confirmed the functional requirement list from `rfp.md` (Annexure G + the “Functional Requirement Sheet” section).
+>     - Ensured `response/checklist.md` already maps those requirements to:
+>       - Compliance (Yes/No/Phase 2),
+>       - Platform capability,
+>       - Proposal section references,
+>       - Implementation references.
+>     - Documented in `proposal/compiled/README.md` (Appendix F) that once Tata Trusts shares the official Excel, it should be populated using `response/checklist.md` and Sections 2–3 of the README.
+>   - Because the actual Excel template is absent, it cannot be literally filled inside this repo; that gap is also called out in `proposal/compiled/gaps.md` under “Financial Bid / Annexure F Alignment” and “Functional Requirement Sheet”.
+>
+> No other markdown files in `proposal/compiled/` have been renamed; instead, they are now clearly referenced from `proposal/compiled/README.md` so there should be no confusion about their purpose.
+>
+> If you’d like, I can next:
+> - Draft the exact text for the Appendix C covering letter using the data now consolidated, and/or
+> - Sketch how to transpose `response/checklist.md` into the eventual Excel functional requirement sheet (column by column) so filling it is mechanical once you have the template.
+
+To make sure we use a good template, I suggested:
+
+> Create a template.docx Word document that includes straive-logo.png compactly in the header, includes page number (Page x of y) in the footer, and uses an elegant font at a relatively small font size, and incorporates any other best practices that would be suitable for an RFP.
+
+That worked well:
+
+> I’ve created `template.docx` in this directory with:
+>
+> - Straive logo in the header (compact, left-aligned; falls back to text if the image fails).
+> - Footer showing `Page x of y` using Word page fields.
+> - Global “elegant” styling: Calibri, 10.5pt body, 14pt Heading 1, and slightly compact professional margins.
+> - RFP-friendly placeholders: cover metadata (title, client, version/date, prepared by) and key section headings (Executive Summary, Solution, Timeline, etc.).
+>
+> You can open `template.docx` directly in Word and adjust titles, fonts, or section list if you’d like to tweak the house style.
+
+... but I wanted some stylistic changes:
+
+> Make the H1 MUCH larger. Make the H2 larger. Reduce the spacing between bullets. Make table headings better, more differentiated. All table cells must be vertically centered. Tables must have a bottom margin. Use a separate, distinct font and style for monospace which will be used for code. Move the Straive logo in the header a bit more to the top and more to the left. The footer page number can be at the bottom right instead of bottom center.
+
+... which it managed to do (mostly).
+
+> `template.docx` is updated in this directory with:
+>
+> - Much larger `Heading 1` (22pt) and larger `Heading 2` (14pt), both in Calibri and bold.
+> - Tighter spacing between bullets via adjusted `List Paragraph` / `List Bullet` spacing.
+> - A dedicated monospace `Code` paragraph style using `Consolas` 9pt, with an example paragraph in the body.
+> - Header logo kept compact but moved visually closer to the top-left by reducing header distance and removing extra spacing.
+> - Footer page number moved to bottom-right (`Page x of y`).
+> - An example table demonstrating:
+>   - Differentiated header row (light gray shading, bold text).
+>   - All cells vertically centered.
+>   - A visual bottom margin using spacing after the table.
+>
+> Open `template.docx` in Word to confirm the look; if you’d like, I can further tweak exact sizes or colors.
+
+Actually, it did NOT reduce the spacing between bullets, nor did it manage to really differentiate the headers.
+
+> The spacing between bullets is still high. Reduce it a lot. Add much more spacing before each H1, H2, and H3.
+
+It still failed at the bullet spacing but the headers worked, so I left it at that.
+
+## 17 Nov 2025 Review finalization
+
+I had the RFP team review the final proposal and shared their feedback:
+
+> - Change [REDACTED] to Anand S (with associated details) everywhere
+> - In company-information.md and legal-and-insurance.md and README.md, change from the Singapore entity to the India entity. Find India entity under docs/
+> - Remove all Singapore entity references from everywhere.
+>   - 'docs/SPGC-Certificate confirming Incorporation of Company.pdf' and spgc-coi.png
+>   - 'docs/W-8BEN-E SPi Singapore-2025 final1 signed.pdf'
+>   - any other similar
+> - In authorized signatory, change reference to Chennai address instead of Singapore address
+> - Remove "Visa risk operations experience" and replace it with "Financial services risk operations experience"
+> - Mention that the client contracts are not included as part of the submission and can be provided as part of the next stage of the RFP
+
+It did that.
+
+> I've updated the W-8 references, although the W-8 file still exists without direct reference. I should also check to ensure that the paths in `legal-and-insurance.md`, `company-information.md`, and `README.md` are aligned. It’s important to note that the functional Excel sheet can't be filled in due to an unchanged template. Finally, I need to mention that `proposal/proposal-info.md` still contains older details about Singapore and requires manual updating, but the compiled README and documents are accurate for submission.
+
+Time to send out the email.
+
+> Draft an email.md containing a brief, formal email to send to the Tata Trusts team in which I attach the submission ZIP.
+
+... which it did:
+
+> I’ve added `email.md` at the repo root with a concise formal email you can use when sending the submission ZIP to Tata Trusts, including a note that detailed client contracts will be shared at the next evaluation stage.
+
+And that's it!!

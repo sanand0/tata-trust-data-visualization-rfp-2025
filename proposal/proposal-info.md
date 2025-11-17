@@ -2,7 +2,7 @@
 
 - Full name: Anand S <s.anand@gramener.com>
 - Designation: LLM Psychologist
-- Company: SPi Global Content Holdings Pte. Ltd.
+- Company: SPI Technologies India Private Limited
 - Registered address cited: 77 Robinson Road, #13-00, Singapore 068896
 - Correspondence address cited: SPI Global Content Holdings Pte., 77 Robinson Road, #13-00, Singapore 068896
 
